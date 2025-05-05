@@ -5,7 +5,7 @@ const port = process.env.PORT || 5001;
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.$connect();
+  // await prisma.$connect();
   app.listen(port, () => console.log(`Server is running on http://localhost:${port}`));
 }
 
