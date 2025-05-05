@@ -30,5 +30,3 @@ model Tip {
   toId      Int
   to        Creator  @relation("TipToCreator", fields: [toId], references: [id])
 }
-
-
