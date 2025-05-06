@@ -1,7 +1,9 @@
+import RouterComponent from "./routes";
+
 function App() {
   return (
     <>
-      <div>Login Page</div>
+      <RouterComponent />
     </>
   );
 }
