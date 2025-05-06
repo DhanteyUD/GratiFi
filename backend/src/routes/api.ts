@@ -5,7 +5,7 @@ import { recordTip } from "@/controllers/tipsController";
 
 const router = Router();
 
-router.post("/creators", createCreator);
+router.post("/creator", createCreator);
 router.get("/creators", listCreators);
 router.post("/tips", recordTip);
 
