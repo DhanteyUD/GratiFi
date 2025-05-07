@@ -9,6 +9,7 @@ export default {
         main: "#3c315b",
         primary: "#ab9ff2",
         primaryHover: "#e2dffe",
+        secondary: "#06ea8a",
       },
       backgroundImage: {
         "custom-gradient1":
@@ -25,6 +26,7 @@ export default {
         raleway: ["Raleway", "san-serif"],
         openSans: ["Open Sans", "san-serif"],
         grotesk: ["Host Grotesk", "san-serif"],
+        jetBrains: ["JetBrains Mono", "monospace"],
         jakarta: ["Plus Jakarta", "san-serif"],
         inter: ["Inter", "sans-serif"],
       },
