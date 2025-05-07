@@ -11,16 +11,21 @@
   },
   "dependencies": {
     "framer-motion": "^11.18.2",
+    "hamburger-react": "^2.5.2",
     "react": "^19.1.0",
+    "react-animated-cursor": "^2.11.2",
     "react-dom": "^19.1.0",
+    "react-hooks-window-size": "^0.3.0",
     "react-router-dom": "^7.5.3",
-    "react-toastify": "^10.0.6"
+    "react-toastify": "^10.0.6",
+    "three": "^0.176.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@types/node": "^22.15.12",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "@types/three": "^0.176.0",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.25.0",
