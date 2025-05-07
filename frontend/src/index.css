@@ -40,15 +40,3 @@ a {
 .hamburger-react > div:nth-child(2) {
   width: 16px !important;
 }
-
-@keyframes wave {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: 1000px;
-  }
-}
-.animate-wave {
-  animation: wave 10s linear infinite;
-}

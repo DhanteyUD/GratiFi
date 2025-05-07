@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import UseScreenSize from "@/hooks/UseScreenSize";
-import GratiFiLogo from "@/assets/gratifi-logo.png";
+import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 
 interface MenuItem {
   path: string;
@@ -34,7 +34,7 @@ export const DesktopNavMenu = ({
             className="h-[30px] w-[30px]"
           />
           {!lg && (
-            <h1 className="text-[25px] font-normal text-black font-calSans">
+            <h1 className="text-[25px] font-normal text-main font-calSans">
               GratiFi
             </h1>
           )}
@@ -63,14 +63,14 @@ export const DesktopNavMenu = ({
         <div className="flex items-center justify-center gap-[10px]">
           {canLogin && (
             <button
-              className="h-10 w-[100px] rounded-full border border-main bg-transparent text-main transition-all duration-300 ease-in-out"
+              className="h-10 w-[100px] rounded-full border border-main bg-transparent font-calSans text-main transition-all duration-300 ease-in-out"
               onClick={() => navigate("/login")}
             >
               Login
             </button>
           )}
           {canSignup && (
-            <button className="h-10 w-[130px] rounded-full bg-primary hover:bg-primaryHover font-medium text-main transition-all duration-300 ease-in-out">
+            <button className="h-10 w-[130px] rounded-full bg-primary hover:bg-primaryHover font-medium font-calSans text-main transition-all duration-300 ease-in-out">
               Download
             </button>
           )}
