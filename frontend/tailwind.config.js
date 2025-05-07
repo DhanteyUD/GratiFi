@@ -5,10 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#f4f2f4",
+        background: "#f5f2ff",
         main: "#3c315b",
         primary: "#ab9ff2",
         primaryHover: "#e2dffe",
+      },
+      backgroundImage: {
+        "custom-gradient1":
+          "linear-gradient(91.27deg, #0B76D9 -8.03%, #B500D2 104.12%)",
+      },
+      boxShadow: {
+        shadow1: "rgba(0, 0, 0, 0.15) 0px 2px 8px",
       },
       fontFamily: {
         prata: ["Prata", "serif"],
