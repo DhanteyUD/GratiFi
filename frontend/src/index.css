@@ -48,22 +48,14 @@ a {
   right: 0;
   height: 10px;
   transform-origin: 0%;
-  background: linear-gradient(
-    90deg,
-    rgb(171 159 242) 0%,
-    rgb(60 49 91) 100%
-  );
+  background: linear-gradient(90deg, rgb(171 159 242) 0%, rgb(60 49 91) 100%);
 }
 
 h2,
 .animatedText {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(
-    90deg,
-    rgb(171 159 242) 0%,
-    rgb(60 49 91) 100%
-  );
+  background: linear-gradient(90deg, rgb(171 159 242) 0%, rgb(60 49 91) 100%);
 
   background-clip: text;
   color: transparent;
@@ -174,6 +166,21 @@ h2,
     transform: translateY(0) rotateX(0) scale(1);
     -webkit-transform-origin: 50% 1400px;
     transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s both;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
     opacity: 1;
   }
 }

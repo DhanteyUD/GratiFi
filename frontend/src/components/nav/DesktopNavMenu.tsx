@@ -19,7 +19,7 @@ export const DesktopNavMenu = ({
 
   return (
     <div
-      className={`fixed top-10 z-[100] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide ${
+      className={`fixed top-10 z-[2] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide ${
         animateNav ? "jello-horizontal" : ""
       }`}
     >
