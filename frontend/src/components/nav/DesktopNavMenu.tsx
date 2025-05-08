@@ -33,11 +33,9 @@ export const DesktopNavMenu = ({
             src={GratiFiLogo}
             className="h-[30px] w-[30px]"
           />
-          {!lg && (
-            <h1 className="text-[25px] font-normal text-main font-calSans">
-              GratiFi
-            </h1>
-          )}
+          <h1 className="text-[25px] font-normal text-main font-calSans">
+            GratiFi
+          </h1>
         </div>
 
         {/* Menu */}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Animation from "@/assets/animation/Animation1.lottie";
 import fakeMoneyImage from "@/assets/animation/fakemoney-tip.gif";
 import realMoneyImage from "@/assets/animation/realmoney-tip.gif";
 
@@ -22,9 +24,13 @@ function Hero() {
   }, [images.length]);
 
   return (
-    <section className="w-full h-screen px-[7.5%] pt-[150px] pb-[50px] text-white">
-      <div className="w-full h-full flex justify-between items-center rounded-[15px] gap-5">
-        <div className="h-full flex flex-col flex-1 justify-center">
+    <section className="w-full h-screen px-[7.5%] pt-[200px] pb-[50px] text-white">
+      <div className="w-full h-full flex flex-col md:flex-row justify-between items-center rounded-[15px] gap-5">
+        <div className="flex md:hidden flex-1 h-full items-center justify-center bounce-in-top">
+          <DotLottieReact src={Animation} autoplay loop />
+        </div>
+
+        <div className="h-full flex flex-col flex-1 justify-center items-center md:items-start">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,7 +43,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-5xl mb-6 leading-tight text-main"
+            className="mb-6 leading-tight text-center md:text-left text-main text-[40px] md:text-[60px]"
           >
             Tip Effortlessly, <br />
             <span
@@ -45,7 +51,7 @@ function Hero() {
                 index === 0
                   ? "text-primary hover:bg-secondary hover:text-main"
                   : "text-main bg-secondary hover:bg-primaryHover"
-              } font-extrabold transition-all duration-300 ease-in-out`}
+              } font-extrabold transition-all duration-300 ease-in-out text-center md:text-left`}
             >
               Thank Generously
             </span>
@@ -54,7 +60,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-main/70 text-lg mb-8 max-w-md"
+            className="text-main/70 text-lg mb-8 max-w-md text-center md:text-left"
           >
             Quick, secure, and heartfelt — showing your appreciation has never
             been easier.
@@ -72,7 +78,7 @@ function Hero() {
           </motion.button>
         </div>
 
-        <div className="flex-1 h-full flex items-center justify-center bounce-in-top">
+        <div className="hidden md:flex flex-1 h-full items-center justify-center bounce-in-top">
           <div
             className={`${
               index === 0 ? "border-primary" : "border-main"
