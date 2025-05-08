@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
 import fakeMoneyImage from "@/assets/animation/fakemoney-tip.gif";
 import realMoneyImage from "@/assets/animation/realmoney-tip.gif";
 
 function Hero() {
+  const images = [fakeMoneyImage, realMoneyImage];
+  const [index, setIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % images.length);
+        setIsFading(false);
+      }, 500);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section className="w-full h-screen px-[7.5%] pt-[150px] pb-[50px] text-white">
       <div className="w-full h-full flex justify-between items-center rounded-[15px] gap-5">
@@ -10,7 +28,7 @@ function Hero() {
             Tips should be simple
           </span>
           <h1 className="text-5xl mb-6 leading-tight text-main">
-            Tip Effortlessly, <br />{" "}
+            Tip Effortlessly, <br />
             <span className="text-primary hover:text-secondary font-extrabold transition-all duration-300 ease-in-out">
               Thank Generously
             </span>
@@ -25,8 +43,16 @@ function Hero() {
         </div>
 
         <div className="flex-1 h-full flex items-center justify-center">
-          <div className="flex h-auto items-center justify-center rounded-3xl overflow-hidden">
-            <img src={fakeMoneyImage} alt="Hero image" />
+          <div className="relative flex h-auto items-center justify-center overflow-hidden border border-b-[20px] border-main">
+            <img
+              src={images[index]}
+              alt="Tipping"
+              className={`transition-opacity duration-500 ${
+                isFading ? "opacity-0" : "opacity-100"
+              }`}
+            />
+
+            <span className="absolute top-5 right-5 w-[30px] h-[30px] rounded-full bg-main" />
           </div>
         </div>
       </div>
