@@ -4,7 +4,7 @@ import AppLayout from "@/layout/AppLayout";
 
 function Login() {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const variants = {
     hidden: { opacity: 0, y: 100 },
@@ -20,7 +20,7 @@ function Login() {
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div>login</div>
+        <div className="w-screen h-screen px-[7.5%] pt-[200px] pb-[50px] text-white bg-[pink] border border-[red]">login</div>
       </motion.section>
     </AppLayout>
   );

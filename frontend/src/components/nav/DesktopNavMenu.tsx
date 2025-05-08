@@ -12,12 +12,17 @@ export const DesktopNavMenu = ({
   menu = [] as MenuItem[],
   canLogin = false,
   canSignup = false,
+  animateNav = false,
 }) => {
   const { lg } = UseScreenSize();
   const navigate = useNavigate();
 
   return (
-    <div className="fixed top-10 z-[100] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide jello-horizontal">
+    <div
+      className={`fixed top-10 z-[100] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide ${
+        animateNav ? "jello-horizontal" : ""
+      }`}
+    >
       <div
         className={`flex h-10 items-center pl-2 ${
           lg ? "justify-start gap-[100px]" : "justify-between gap-2"
