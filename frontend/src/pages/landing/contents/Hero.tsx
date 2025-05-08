@@ -25,7 +25,7 @@ function Hero() {
         </div>
 
         <div className="flex-1 h-full flex items-center justify-center">
-          <div className="flex h-auto items-center justify-center border border-main">
+          <div className="flex h-auto items-center justify-center rounded-3xl overflow-hidden">
             <img src={fakeMoneyImage} alt="Hero image" />
           </div>
         </div>
