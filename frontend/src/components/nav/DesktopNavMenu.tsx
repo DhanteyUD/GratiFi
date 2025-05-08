@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import UseScreenSize from "@/hooks/UseScreenSize";
-import GratiFiLogo from "@/assets/gratifi-logo.png";
+import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 
 interface MenuItem {
   path: string;
@@ -12,12 +12,17 @@ export const DesktopNavMenu = ({
   menu = [] as MenuItem[],
   canLogin = false,
   canSignup = false,
+  animateNav = false,
 }) => {
   const { lg } = UseScreenSize();
   const navigate = useNavigate();
 
   return (
-    <div className="fixed top-10 z-[100] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide">
+    <div
+      className={`fixed top-10 z-[2] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide ${
+        animateNav ? "jello-horizontal" : ""
+      }`}
+    >
       <div
         className={`flex h-10 items-center pl-2 ${
           lg ? "justify-start gap-[100px]" : "justify-between gap-2"
@@ -33,11 +38,9 @@ export const DesktopNavMenu = ({
             src={GratiFiLogo}
             className="h-[30px] w-[30px]"
           />
-          {!lg && (
-            <h1 className="text-[25px] font-normal text-black font-calSans">
-              GratiFi
-            </h1>
-          )}
+          <h1 className="text-[25px] font-normal text-main font-calSans">
+            GratiFi
+          </h1>
         </div>
 
         {/* Menu */}
@@ -63,14 +66,14 @@ export const DesktopNavMenu = ({
         <div className="flex items-center justify-center gap-[10px]">
           {canLogin && (
             <button
-              className="h-10 w-[100px] rounded-full border border-main bg-transparent text-main transition-all duration-300 ease-in-out"
+              className="h-10 w-[100px] rounded-full border border-main bg-transparent font-calSans text-main transition-all duration-300 ease-in-out"
               onClick={() => navigate("/login")}
             >
               Login
             </button>
           )}
           {canSignup && (
-            <button className="h-10 w-[130px] rounded-full bg-primary hover:bg-primaryHover font-medium text-main transition-all duration-300 ease-in-out">
+            <button className="h-10 w-[130px] rounded-full bg-primary hover:bg-primaryHover font-medium font-calSans text-main transition-all duration-300 ease-in-out">
               Download
             </button>
           )}

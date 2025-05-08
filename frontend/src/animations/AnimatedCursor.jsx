@@ -5,7 +5,7 @@ export const getAnimatedCursor = () => {
     <AnimatedCursor
       innerSize={10}
       outerSize={30}
-      color="50, 205, 50"
+      color="6, 234, 138"
       outerAlpha={0.2}
       innerScale={0.7}
       outerScale={5}

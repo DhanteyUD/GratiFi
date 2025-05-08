@@ -5,10 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#f4f2f4",
+        background: "#f5f2ff",
         main: "#3c315b",
         primary: "#ab9ff2",
         primaryHover: "#e2dffe",
+        secondary: "#06ea8a",
+      },
+      backgroundImage: {
+        "custom-gradient1":
+          "linear-gradient(91.27deg, #ab9ff2 -8.03%, #3c315b 104.12%)",
+      },
+      boxShadow: {
+        shadow1: "rgba(0, 0, 0, 0.15) 0px 2px 8px",
       },
       fontFamily: {
         prata: ["Prata", "serif"],
@@ -18,10 +26,11 @@ export default {
         raleway: ["Raleway", "san-serif"],
         openSans: ["Open Sans", "san-serif"],
         grotesk: ["Host Grotesk", "san-serif"],
+        jetBrains: ["JetBrains Mono", "monospace"],
         jakarta: ["Plus Jakarta", "san-serif"],
         inter: ["Inter", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
