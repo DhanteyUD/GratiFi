@@ -1,8 +1,12 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
+import Animation from "@/assets/animation/Animation3.lottie";
 import AppLayout from "@/layout/AppLayout";
+import { CivicAuthProvider, UserButton } from "@civic/auth-web3/react";
 
 function Login() {
+  const clientId = import.meta.env.VITE_CLIENT_ID;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -20,8 +24,17 @@ function Login() {
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div className="w-screen h-screen px-[7.5%] pt-[150px] pb-[50px] text-white bg-[pink] border border-[red]">
-          <div className="bg-[orange] h-full">Login</div>
+        <div className="w-screen h-screen px-[7.5%] pt-[150px] pb-[50px] text-white">
+          <div className="flex gap-[10px] justify-between h-full">
+            <div className="flex flex-1 border border-[red]">
+              <CivicAuthProvider clientId={clientId}>
+                <UserButton />
+              </CivicAuthProvider>
+            </div>
+            <div className="flex flex-1">
+              <DotLottieReact src={Animation} autoplay loop />
+            </div>
+          </div>
         </div>
       </motion.section>
     </AppLayout>
