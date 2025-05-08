@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@civic/auth-web3": "^0.5.7",
     "@lottiefiles/dotlottie-react": "^0.13.5",
     "framer-motion": "^11.18.2",
     "hamburger-react": "^2.5.2",

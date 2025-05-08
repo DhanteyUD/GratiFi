@@ -43,7 +43,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mb-6 leading-tight text-center md:text-left text-main text-[40px] md:text-[60px]"
+            className="mb-6 leading-tight text-center md:text-left text-main text-[30px] md:text-[60px]"
           >
             Tip Effortlessly, <br />
             <span

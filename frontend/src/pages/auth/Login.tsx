@@ -12,7 +12,7 @@ function Login() {
   };
 
   return (
-    <AppLayout path={[]} canLogin={true} canSignup={true}>
+    <AppLayout path={[]} canLogin={false} canSignup={true}>
       <motion.section
         ref={ref}
         initial="hidden"
@@ -20,7 +20,9 @@ function Login() {
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div className="w-screen h-screen px-[7.5%] pt-[200px] pb-[50px] text-white bg-[pink] border border-[red]">login</div>
+        <div className="w-screen h-screen px-[7.5%] pt-[150px] pb-[50px] text-white bg-[pink] border border-[red]">
+          <div className="bg-[orange] h-full">Login</div>
+        </div>
       </motion.section>
     </AppLayout>
   );

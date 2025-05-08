@@ -44,7 +44,7 @@ export const MobileNavMenu = ({
       </div>
 
       {/* Slide-in menu */}
-      {!isMenuOpen && (
+      {isMenuOpen && (
         <div className="slide-in-elliptic-top-fwd-no-delay fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-white p-5">
           <div className="flex flex-col items-start gap-2">
             {menu.map((item, index) => (
