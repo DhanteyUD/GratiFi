@@ -1,6 +1,5 @@
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-// import walletAnimation from "@/assets/animation/wallet.json";
-import image from "@/assets/animation/realmoney-tip.gif";
+import fakeMoneyImage from "@/assets/animation/fakemoney-tip.gif";
+import realMoneyImage from "@/assets/animation/realmoney-tip.gif";
 
 function Hero() {
   return (
@@ -25,14 +24,9 @@ function Hero() {
           </button>
         </div>
 
-        <div className="flex-1 h-full flex items-center justify-center border border-[pink]">
-          <div className="flex items-center justify-center border border-pink-400/30 text-white/50 text-xl font-light overflow-hidden">
-            <img src={image} alt="Hero image" />
-            {/* <DotLottieReact
-              src="@/assets/animation/wallet.lottie"
-              loop
-              autoplay
-            /> */}
+        <div className="flex-1 h-full flex items-center justify-center">
+          <div className="flex h-auto items-center justify-center border border-main">
+            <img src={fakeMoneyImage} alt="Hero image" />
           </div>
         </div>
       </div>
