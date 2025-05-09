@@ -12,11 +12,11 @@ export default function NotFound() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-10">
-        <p className="fade-in text-lg text-main font-calSans">Page not found</p>
+        <p className="fade-in text-base text-main font-jetBrains">Page not found</p>
 
         <button
           onClick={() => navigate(-1)}
-          className="px-6 py-2 rounded-full border bg-primary border-main text-main font-calSans transition-all duration-300 ease-in-out hover:bg-main hover:text-white"
+          className="px-6 py-2 rounded-full border bg-primary border-main text-main font-jetBrains transition-all duration-300 ease-in-out hover:bg-main hover:text-white"
         >
           Go Back
         </button>
