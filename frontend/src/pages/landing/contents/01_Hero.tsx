@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Animation from "@/assets/animation/Animation1.lottie";
@@ -6,6 +7,7 @@ import fakeMoneyImage from "@/assets/animation/fakemoney-tip.gif";
 import realMoneyImage from "@/assets/animation/realmoney-tip.gif";
 
 function Hero() {
+  const navigate = useNavigate();
   const images = [fakeMoneyImage, realMoneyImage];
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
@@ -70,6 +72,7 @@ function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
+            onClick={() => navigate("/login")}
             className={`${
               index === 0 ? "bg-secondary" : "bg-primary"
             } hover:bg-primaryHover transition-all duration-300 ease-in-out px-8 py-3 rounded-full text-main font-semibold font-calSans shadow-md w-fit`}

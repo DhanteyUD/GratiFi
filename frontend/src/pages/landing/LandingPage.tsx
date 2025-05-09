@@ -29,10 +29,10 @@ function LandingPage() {
   return (
     <AppLayout canLogin={true} canSignup={true} animateNav={animateNav}>
       <Hero />
-      <HowItWorks />
-      <Features />
-      <Community />
-      <FAQs />
+      <HowItWorks id="how-it-works" />
+      <Features id="features" />
+      <Community id="community" />
+      <FAQs id="faqs" />
 
       <ScrollLinkedAnimation />
     </AppLayout>

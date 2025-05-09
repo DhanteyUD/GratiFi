@@ -4,13 +4,11 @@ import ScreenLayout from "./ScreenLayout";
 import { DesktopNavMenu, MobileNavMenu } from "@/components";
 
 function AppLayout({
-  path = [],
   canLogin = false,
   canSignup = false,
   animateNav = false,
   children,
 }: {
-  path?: string[];
   canLogin?: boolean;
   canSignup?: boolean;
   animateNav?: boolean;
@@ -21,23 +19,9 @@ function AppLayout({
   return (
     <ScreenLayout>
       {md ? (
-        <MobileNavMenu
-          menu={path.map((item) => ({
-            label: item,
-            value: item,
-            name: item,
-            path: `/${item}`,
-          }))}
-          canLogin={canLogin}
-          canSignup={canSignup}
-        />
+        <MobileNavMenu canLogin={canLogin} canSignup={canSignup} />
       ) : (
         <DesktopNavMenu
-          menu={path.map((item) => ({
-            label: item,
-            value: item,
-            path: `/${item}`,
-          }))}
           canLogin={canLogin}
           canSignup={canSignup}
           animateNav={animateNav}

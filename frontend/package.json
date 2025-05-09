@@ -21,6 +21,7 @@
     "react-dom": "^19.1.0",
     "react-hooks-window-size": "^0.3.0",
     "react-router-dom": "^7.5.3",
+    "react-scroll": "^1.9.3",
     "react-toastify": "^10.0.6",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.176.0"
@@ -30,6 +31,7 @@
     "@types/node": "^22.15.12",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "@types/react-scroll": "^1.8.10",
     "@types/three": "^0.176.0",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",

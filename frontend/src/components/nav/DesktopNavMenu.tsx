@@ -1,15 +1,18 @@
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import { Cog, Star, Users, CircleHelp } from "lucide-react";
 import UseScreenSize from "@/hooks/UseScreenSize";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 
-interface MenuItem {
-  path: string;
-  name?: string;
-  icon?: React.ReactNode;
-}
+const menuItems = [
+  { to: "how-it-works", label: "How It Works", icon: <Cog /> },
+  { to: "features", label: "Features", icon: <Star /> },
+  { to: "community", label: "Community", icon: <Users /> },
+  { to: "faqs", label: "FAQs", icon: <CircleHelp /> },
+];
 
 export const DesktopNavMenu = ({
-  menu = [] as MenuItem[],
   canLogin = false,
   canSignup = false,
   animateNav = false,
@@ -42,24 +45,32 @@ export const DesktopNavMenu = ({
             GratiFi
           </h1>
         </div>
-
-        {/* Menu */}
-        <div className={`flex items-center ${lg ? "gap-[25px]" : "gap-2"}`}>
-          {menu.map((item, index) => (
-            <div
-              key={index}
-              className="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap px-2 text-sm font-normal text-black transition-all duration-300 hover:text-primary"
-              onClick={() => navigate(item.path)}
-            >
-              {lg ? (
-                <div className="nav_icons">{item.icon}</div>
-              ) : (
-                <div className="nav_title">{item.name}</div>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
+
+      <nav className="hidden md:flex items-center gap-1 bg-[pink] px-2 text-main">
+        {menuItems.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            smooth={true}
+            duration={500}
+            // className="hidden md:flex items-center gap-[15px] md:gap-[60px] bg-[pink] h-10 px-5 relative z-10 justify-center cursor-pointer"
+            className="cursor-pointer"
+          >
+            <span className="group flex items-center gap-2 hover:bg-primaryHover rounded-full h-10 px-5 transition-all duration-300 ease-linear">
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+                className="transition-all duration-300 ease-in-out"
+              >
+                {item.icon}
+              </motion.span>
+              <span>{item.label}</span>
+            </span>
+          </Link>
+        ))}
+      </nav>
 
       {/* Buttons */}
       <div className="flex h-10 items-center">
