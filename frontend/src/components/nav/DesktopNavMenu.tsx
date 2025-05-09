@@ -66,15 +66,15 @@ export const DesktopNavMenu = ({
         <div className="flex items-center justify-center gap-[10px]">
           {canLogin && (
             <button
-              className="h-10 w-[100px] rounded-full border border-main bg-transparent font-calSans text-main transition-all duration-300 ease-in-out"
+              className="h-10 min-w-[100px] px-5 rounded-full border border-main bg-transparent font-calSans text-main transition-all duration-300 ease-in-out"
               onClick={() => navigate("/login")}
             >
               Login
             </button>
           )}
           {canSignup && (
-            <button className="h-10 w-[130px] rounded-full bg-primary hover:bg-primaryHover font-medium font-calSans text-main transition-all duration-300 ease-in-out">
-              Download
+            <button className="h-10 min-w-[150px] px-5 rounded-full bg-primary hover:bg-primaryHover font-medium font-calSans text-main transition-all duration-300 ease-in-out">
+              Create Account
             </button>
           )}
         </div>

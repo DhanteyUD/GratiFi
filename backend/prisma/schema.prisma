@@ -7,19 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Creator {
-  id      Int    @id @default(autoincrement())
-  name    String
-  address String @unique
-  tips    Tip[]  @relation("TipToCreator")
-}
+// model Creator {
+//   id      Int    @id @default(autoincrement())
+//   name    String
+//   address String @unique
+//   tips    Tip[]  @relation("TipToCreator")
+// }
 
-model Tip {
-  id        Int      @id @default(autoincrement())
-  from      String
-  amount    Float
-  signature String
-  timestamp DateTime @default(now())
-  toId      Int
-  to        Creator  @relation("TipToCreator", fields: [toId], references: [id])
-}
+// model Tip {
+//   id        Int      @id @default(autoincrement())
+//   from      String
+//   amount    Float
+//   signature String
+//   timestamp DateTime @default(now())
+//   toId      Int
+//   to        Creator  @relation("TipToCreator", fields: [toId], references: [id])
+// }

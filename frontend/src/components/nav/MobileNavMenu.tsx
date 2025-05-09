@@ -61,15 +61,15 @@ export const MobileNavMenu = ({
           <div className="flex items-center justify-center gap-[10px]">
             {canLogin && (
               <button
-                className="h-10 w-[95px] border border-main bg-transparent text-sm font-calSans text-main rounded-full"
+                className="h-10 min-w-[100px] px-5 border border-main bg-transparent text-sm font-calSans text-main rounded-full"
                 onClick={() => navigate("/login")}
               >
                 Login
               </button>
             )}
             {canSignup && (
-              <button className="h-10 w-[98px] bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out">
-                Download
+              <button className="h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out">
+                Create Account
               </button>
             )}
           </div>

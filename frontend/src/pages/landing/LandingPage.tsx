@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import AppLayout from "@/layout/AppLayout";
-import Hero from "./contents/Hero";
-// import Features from "./contents/Features";
 import { ScrollLinkedAnimation } from "@/animations";
+import AppLayout from "@/layout/AppLayout";
+
+import Hero from "./contents/01_Hero";
+import HowItWorks from "./contents/02_HowItWorks";
+import Features from "./contents/03_Features";
+import Community from "./contents/04_Community";
+import FAQs from "./contents/05_FAQs";
 
 function LandingPage() {
   const location = useLocation();
@@ -25,7 +29,10 @@ function LandingPage() {
   return (
     <AppLayout canLogin={true} canSignup={true} animateNav={animateNav}>
       <Hero />
-      {/* <Features /> */}
+      <HowItWorks />
+      <Features />
+      <Community />
+      <FAQs />
 
       <ScrollLinkedAnimation />
     </AppLayout>

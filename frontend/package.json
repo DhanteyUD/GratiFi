@@ -15,6 +15,7 @@
     "framer-motion": "^11.18.2",
     "hamburger-react": "^2.5.2",
     "lottie-react": "^2.4.1",
+    "lucide-react": "^0.508.0",
     "react": "^19.1.0",
     "react-animated-cursor": "^2.11.2",
     "react-dom": "^19.1.0",
