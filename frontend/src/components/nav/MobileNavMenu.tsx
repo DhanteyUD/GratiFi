@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-scroll";
 import { Fade as Hamburger } from "hamburger-react";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 
 interface MenuItem {
-  name: string;
-  path: string;
+  to: string;
+  label?: string;
+  icon?: React.ReactNode;
 }
 
 export const MobileNavMenu = ({
   menu = [] as MenuItem[],
   canLogin = false,
   canSignup = false,
+}: {
+  menu?: MenuItem[];
+  canLogin?: boolean;
+  canSignup?: boolean;
 }) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +25,7 @@ export const MobileNavMenu = ({
   return (
     <>
       {/* Top nav bar */}
-      <div className="fixed top-5 z-[2] flex w-[95%] items-center justify-between gap-2 px-2 py-2 scrollbar-hide">
+      <div className="fixed flex md:hidden top-5 z-[2] w-[95%] items-center justify-between gap-2 px-2 py-2 scrollbar-hide">
         <div
           className="logo animated_cursor flex cursor-pointer items-center gap-[10px]"
           onClick={() => navigate("/")}
@@ -45,16 +51,19 @@ export const MobileNavMenu = ({
 
       {/* Slide-in menu */}
       {isMenuOpen && (
-        <div className="slide-in-elliptic-top-fwd-no-delay fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-white p-5">
+        <div className="slide-in-elliptic-top-fwd fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-white p-5">
           <div className="flex flex-col items-start gap-2">
-            {menu.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => navigate(item.path)}
-                className="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal text-black transition-all duration-300 hover:text-outline"
+            {menu.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                smooth
+                duration={500}
+                className="flex h-10 cursor-pointer items-center justify-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal text-black transition-all duration-300 hover:text-outline"
               >
-                <div className="nav_title">{item.name}</div>
-              </div>
+                <span className="text-main">{item.icon}</span>
+                <div className="nav_title">{item.label}</div>
+              </Link>
             ))}
           </div>
 
@@ -68,7 +77,10 @@ export const MobileNavMenu = ({
               </button>
             )}
             {canSignup && (
-              <button className="h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out">
+              <button
+                className="h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out"
+                onClick={() => navigate("/create-account")}
+              >
                 Create Account
               </button>
             )}

@@ -34,6 +34,7 @@ a {
 }
 
 .hamburger-react {
+  color: #3c315b !important;
   transform: rotate(180deg) !important;
 }
 
@@ -139,32 +140,19 @@ h2,
   }
 }
 
-.slide-in-elliptic-top-fwd-no-delay {
-  -webkit-animation: slide-in-elliptic-top-fwd 0.5s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.slide-in-elliptic-top-fwd {
   animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
 }
 
-.slide-in-elliptic-top-fwd {
-  -webkit-animation: slide-in-elliptic-top-fwd 10s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite both;
-  animation: slide-in-elliptic-top-fwd 10s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    infinite both;
-}
-
-@-webkit-keyframes slide-in-elliptic-top-fwd {
+@keyframes slide-in-elliptic-top-fwd {
   0% {
-    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
     transform: translateY(-600px) rotateX(-30deg) scale(0);
-    -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
     opacity: 0;
   }
   100% {
-    -webkit-transform: translateY(0) rotateX(0) scale(1);
     transform: translateY(0) rotateX(0) scale(1);
-    -webkit-transform-origin: 50% 1400px;
     transform-origin: 50% 1400px;
     opacity: 1;
   }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollLinkedAnimation } from "@/animations";
+import { landingPageMenuItems } from "@/routes/path";
 import AppLayout from "@/layout/AppLayout";
-
 import Hero from "./contents/01_Hero";
 import HowItWorks from "./contents/02_HowItWorks";
 import Features from "./contents/03_Features";
@@ -12,7 +12,6 @@ import FAQs from "./contents/05_FAQs";
 function LandingPage() {
   const location = useLocation();
   const [animateNav, setAnimateNav] = useState(false);
-  console.log("pathName:", location.pathname);
 
   useEffect(() => {
     const hasAnimated = sessionStorage.getItem("navbarAnimated");
@@ -27,7 +26,7 @@ function LandingPage() {
   }, [location.pathname]);
 
   return (
-    <AppLayout canLogin={true} canSignup={true} animateNav={animateNav}>
+    <AppLayout menu={landingPageMenuItems} canLogin={true} canSignup={true} animateNav={animateNav}>
       <Hero />
       <HowItWorks id="how-it-works" />
       <Features id="features" />

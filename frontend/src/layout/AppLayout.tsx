@@ -1,32 +1,31 @@
 import type { ReactNode } from "react";
-import UseScreenSize from "@/hooks/UseScreenSize";
-import ScreenLayout from "./ScreenLayout";
 import { DesktopNavMenu, MobileNavMenu } from "@/components";
+import ScreenLayout from "./ScreenLayout";
 
-function AppLayout({
-  canLogin = false,
-  canSignup = false,
-  animateNav = false,
-  children,
-}: {
+interface AppLayoutProps {
+  menu: { to: string; label?: string; icon?: React.ReactNode }[];
   canLogin?: boolean;
   canSignup?: boolean;
   animateNav?: boolean;
   children: ReactNode;
-}) {
-  const { md } = UseScreenSize();
+}
 
+function AppLayout({
+  menu,
+  canLogin = false,
+  canSignup = false,
+  animateNav = false,
+  children,
+}: AppLayoutProps) {
   return (
     <ScreenLayout>
-      {md ? (
-        <MobileNavMenu canLogin={canLogin} canSignup={canSignup} />
-      ) : (
-        <DesktopNavMenu
-          canLogin={canLogin}
-          canSignup={canSignup}
-          animateNav={animateNav}
-        />
-      )}
+      <MobileNavMenu menu={menu} canLogin={canLogin} canSignup={canSignup} />
+      <DesktopNavMenu
+        menu={menu}
+        canLogin={canLogin}
+        canSignup={canSignup}
+        animateNav={animateNav}
+      />
       {children}
     </ScreenLayout>
   );

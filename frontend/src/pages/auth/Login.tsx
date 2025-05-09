@@ -30,7 +30,7 @@ function Login() {
 
   return (
     <CivicAuthProvider clientId={clientId}>
-      <AppLayout>
+      <AppLayout menu={[]} canSignup={true}>
         <motion.section
           ref={ref}
           initial="hidden"
