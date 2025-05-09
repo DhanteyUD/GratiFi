@@ -7,15 +7,15 @@ import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 
 const menuItems = [
   { to: "how-it-works", label: "How It Works", icon: <Cog size={18} /> },
-  { to: "features",       label: "Features",     icon: <Star size={18} /> },
-  { to: "community",      label: "Community",    icon: <Users size={18} /> },
-  { to: "faqs",           label: "FAQs",         icon: <CircleHelp size={18} /> },
+  { to: "features", label: "Features", icon: <Star size={18} /> },
+  { to: "community", label: "Community", icon: <Users size={18} /> },
+  { to: "faqs", label: "FAQs", icon: <CircleHelp size={18} /> },
 ];
 
 // Framer Motion variants for icon scale/fade
 const iconVariants = {
-  rest:  { scale: 0, opacity: 0 },
-  hover: { scale: 1, opacity: 1 }
+  rest: { scale: 0, opacity: 0 },
+  hover: { scale: 1, opacity: 1 },
 };
 const iconTransition = { type: "spring", stiffness: 300, damping: 20 };
 
@@ -47,11 +47,7 @@ export const DesktopNavMenu = ({
           className="logo animated_cursor flex cursor-pointer items-center gap-2"
           onClick={() => navigate("/")}
         >
-          <img
-            alt="GratiFi logo"
-            src={GratiFiLogo}
-            className="h-8 w-8"
-          />
+          <img alt="GratiFi logo" src={GratiFiLogo} className="h-8 w-8" />
           <h1 className="text-2xl font-normal text-main font-calSans">
             GratiFi
           </h1>
@@ -59,7 +55,7 @@ export const DesktopNavMenu = ({
       </div>
 
       {/* Nav Links */}
-      <nav className="hidden md:flex flex-1 justify-center items-center gap-4">
+      <nav className="hidden md:flex flex-1 justify-center items-center gap-[5px]">
         {menuItems.map((item) => (
           <motion.div
             key={item.to}
@@ -72,17 +68,15 @@ export const DesktopNavMenu = ({
               to={item.to}
               smooth
               duration={500}
-              className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-primaryHover transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-primaryHover transition-colors duration-300 ease-linear"
             >
-              {/* Animated Icon */}
               <motion.span
                 variants={iconVariants}
                 transition={iconTransition}
-                className="text-primary"
+                className="text-main"
               >
                 {item.icon}
               </motion.span>
-              {/* Label */}
               <span className="text-main">{item.label}</span>
             </Link>
           </motion.div>
