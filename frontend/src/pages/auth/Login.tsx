@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
-import { CivicAuthProvider, UserButton } from "@civic/auth-web3/react";
+import { CivicAuthProvider, UserButton, useUser } from "@civic/auth-web3/react";
 import { ScrollLinkedAnimation } from "@/animations";
 import Animation from "@/assets/animation/Animation3.lottie";
 import AnimationMobile from "@/assets/animation/Animation4.lottie";
@@ -10,8 +10,14 @@ import civicAuthLogo from "@/assets/image/civic-logo.png";
 
 function Login() {
   const clientId = import.meta.env.VITE_CLIENT_ID;
+  const { user } = useUser();
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   const variants = {
     hidden: { opacity: 0, y: 100 },
