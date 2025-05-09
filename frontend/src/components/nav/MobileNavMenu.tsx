@@ -19,7 +19,7 @@ export const MobileNavMenu = ({
   return (
     <>
       {/* Top nav bar */}
-      <div className="fixed top-5 z-[100] flex w-[95%] items-center justify-between gap-2 px-2 py-2 scrollbar-hide">
+      <div className="fixed top-5 z-[2] flex w-[95%] items-center justify-between gap-2 px-2 py-2 scrollbar-hide">
         <div
           className="logo animated_cursor flex cursor-pointer items-center gap-[10px]"
           onClick={() => navigate("/")}

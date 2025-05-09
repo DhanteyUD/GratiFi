@@ -24,9 +24,9 @@ function Hero() {
   }, [images.length]);
 
   return (
-    <section className="w-full h-screen px-[7.5%] pt-[200px] pb-[50px] text-white">
+    <section className="w-full h-screen px-[7.5%] pt-[100px] md:pt-[200px] pb-[50px] text-white">
       <div className="w-full h-full flex flex-col md:flex-row justify-between items-center rounded-[15px] gap-5">
-        <div className="flex md:hidden flex-1 h-full items-center justify-center bounce-in-top">
+        <div className="flex md:hidden flex-1 items-center justify-center bounce-in-top">
           <DotLottieReact src={Animation} autoplay loop />
         </div>
 
