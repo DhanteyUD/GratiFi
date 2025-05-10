@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
 import { CivicAuthProvider, UserButton, useUser } from "@civic/auth-web3/react";
-import { ScrollLinkedAnimation } from "@/animations";
 import Animation from "@/assets/animation/Animation3.lottie";
 import AnimationMobile from "@/assets/animation/Animation4.lottie";
 import AppLayout from "@/layout/AppLayout";
@@ -44,7 +43,6 @@ function Login() {
                 <DotLottieReact src={AnimationMobile} autoplay loop />
               </div>
 
-              {/* Text & Auth Area */}
               <div className="h-full flex flex-col flex-1 justify-start md:justify-center items-center md:items-start slide-in-right">
                 <span className="text-[12px] text-main uppercase font-calSans tracking-wide mb-4 bg-black/10 px-4 py-1 rounded-full w-fit">
                   Secure Access
@@ -67,7 +65,6 @@ function Login() {
                 </div>
               </div>
 
-              {/* Lottie Animation */}
               <div className="hidden md:flex flex-1 h-full items-center justify-center">
                 <DotLottieReact src={Animation} autoplay loop />
               </div>
@@ -78,8 +75,6 @@ function Login() {
             </div>
           </div>
         </motion.section>
-
-        <ScrollLinkedAnimation />
       </AppLayout>
     </CivicAuthProvider>
   );

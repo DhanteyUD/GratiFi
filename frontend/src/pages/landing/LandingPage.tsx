@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { ScrollLinkedAnimation } from "@/animations";
 import { landingPageMenuItems } from "@/routes/path";
 import AppLayout from "@/layout/AppLayout";
 import Hero from "./contents/01_Hero";
@@ -32,8 +31,6 @@ function LandingPage() {
       <Features id="features" />
       <Community id="community" />
       <FAQs id="faqs" />
-
-      <ScrollLinkedAnimation />
     </AppLayout>
   );
 }

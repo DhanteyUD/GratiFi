@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { DesktopNavMenu, MobileNavMenu } from "@/components";
+import { ScrollLinkedAnimation } from "@/animations";
 import ScreenLayout from "./ScreenLayout";
 
 interface AppLayoutProps {
@@ -27,6 +28,8 @@ function AppLayout({
         animateNav={animateNav}
       />
       {children}
+
+      <ScrollLinkedAnimation />
     </ScreenLayout>
   );
 }
