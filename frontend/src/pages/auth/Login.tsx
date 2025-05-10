@@ -1,24 +1,35 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
-import { CivicAuthProvider, UserButton } from "@civic/auth-web3/react";
+import { CivicAuthProvider, UserButton, useUser } from "@civic/auth-web3/react";
+import { configKeys } from "@/config";
 import Animation from "@/assets/animation/Animation3.lottie";
+import AnimationMobile from "@/assets/animation/Animation4.lottie";
 import AppLayout from "@/layout/AppLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
 
 function Login() {
-  const clientId = import.meta.env.VITE_CLIENT_ID;
+  const { user } = useUser();
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   const variants = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
   };
 
+  useEffect(() => {
+    document.title = `GratiFi | Civic Login`;
+  }, []);
+
   return (
-    <CivicAuthProvider clientId={clientId}>
-      <AppLayout path={[]} canLogin={false} canSignup={true}>
+    <CivicAuthProvider clientId={configKeys.clientId}>
+      <AppLayout menu={[]} canSignup={true}>
         <motion.section
           ref={ref}
           initial="hidden"
@@ -26,10 +37,13 @@ function Login() {
           animate={isInView ? "visible" : "hidden"}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="w-screen h-screen px-[7.5%] pt-[150px] pb-[50px] text-white">
-            <div className="flex gap-[10px] justify-between h-full">
-              {/* Text & Auth Area */}
-              <div className="h-full flex flex-col flex-1 justify-center items-center md:items-start slide-in-right">
+          <div className="w-screen h-screen px-[7.5%] pt-[100px] md:pt-[150px] pb-[50px] text-white">
+            <div className="flex flex-col md:flex-row gap-[10px] justify-between h-full">
+              <div className="flex md:hidden flex-1 items-center justify-center bounce-in-top">
+                <DotLottieReact src={AnimationMobile} autoplay loop />
+              </div>
+
+              <div className="h-full flex flex-col flex-1 justify-start md:justify-center items-center md:items-start slide-in-right">
                 <span className="text-[12px] text-main uppercase font-calSans tracking-wide mb-4 bg-black/10 px-4 py-1 rounded-full w-fit">
                   Secure Access
                 </span>
@@ -51,8 +65,7 @@ function Login() {
                 </div>
               </div>
 
-              {/* Lottie Animation */}
-              <div className="hidden md:flex flex-1 h-full items-center justify-center bounce-in-top">
+              <div className="hidden md:flex flex-1 h-full items-center justify-center">
                 <DotLottieReact src={Animation} autoplay loop />
               </div>
             </div>

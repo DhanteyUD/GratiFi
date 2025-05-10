@@ -1,0 +1,35 @@
+//* User Context
+// {
+//   user: User | null;
+//   // these are the OAuth tokens created during authentication
+//   idToken?: string;
+//   accessToken?: string;
+//   refreshToken?: string;
+//   forwardedTokens?: ForwardedTokens;
+//   // functions and flags for UI and signIn/signOut
+//   isLoading: boolean;
+//   authStatus: AuthStatus;
+//   error: Error | null;
+//   signIn: (displayMode?: DisplayMode) => Promise<void>;
+//   signOut: () => Promise<void>;
+// }
+
+//* AuthStatus
+export enum AuthStatus {
+  AUTHENTICATED = "authenticated",
+  UNAUTHENTICATED = "unauthenticated",
+  AUTHENTICATING = "authenticating",
+  ERROR = "error",
+  SIGNING_OUT = "signing_out",
+}
+
+//* User
+type BaseUser = {
+  id: string;
+  email?: string;
+  name?: string;
+  picture?: string;
+  given_name?: string;
+  family_name?: string;
+  updated_at?: Date;
+};

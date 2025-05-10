@@ -12,8 +12,9 @@ export default {
         secondary: "#06ea8a",
       },
       backgroundImage: {
-        "custom-gradient1":
-          "linear-gradient(91.27deg, #ab9ff2 -8.03%, #3c315b 104.12%)",
+        "to-top-main": "linear-gradient(to top, #3c315b 0%, #3c315b 100%)",
+        "to-top-primary": "linear-gradient(to top, #ab9ff2 0%, #ab9ff2 100%)",
+        "to-top-priMain": "linear-gradient(to top, #ab9ff2 0%, #3c315b 100%)",
       },
       boxShadow: {
         shadow1: "rgba(0, 0, 0, 0.15) 0px 2px 8px",

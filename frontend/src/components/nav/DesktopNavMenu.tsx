@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import UseScreenSize from "@/hooks/UseScreenSize";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 
 interface MenuItem {
-  path: string;
-  name?: string;
+  to: string;
+  label?: string;
   icon?: React.ReactNode;
 }
 
@@ -13,71 +14,90 @@ export const DesktopNavMenu = ({
   canLogin = false,
   canSignup = false,
   animateNav = false,
+}: {
+  menu?: MenuItem[];
+  canLogin?: boolean;
+  canSignup?: boolean;
+  animateNav?: boolean;
 }) => {
-  const { lg } = UseScreenSize();
   const navigate = useNavigate();
+
+  const iconVariants = {
+    rest: { scale: 0, opacity: 0 },
+    hover: { scale: 1, opacity: 1 },
+  };
+
+  const iconTransition = { type: "spring", stiffness: 300, damping: 20 };
 
   return (
     <div
-      className={`fixed top-10 z-[2] flex w-[85%] h-[60px] items-center justify-between gap-[10px] rounded-full bg-white px-[12px] scrollbar-hide ${
+      className={`fixed hidden md:flex top-10 z-20 w-[85%] h-[60px] items-center justify-between rounded-full bg-white px-4 ${
         animateNav ? "jello-horizontal" : ""
       }`}
     >
+      {/* Logo */}
       <div
-        className={`flex h-10 items-center pl-2 ${
-          lg ? "justify-start gap-[100px]" : "justify-between gap-2"
-        } w-auto`}
+        className=" animated_cursor flex cursor-pointer items-center gap-2 h-10 px-2 "
+        onClick={() => navigate("/")}
       >
-        {/* Logo */}
-        <div
-          className="logo animated_cursor flex cursor-pointer items-center gap-[10px]"
-          onClick={() => navigate("/")}
-        >
-          <img
-            alt="GratiFi logo"
-            src={GratiFiLogo}
-            className="h-[30px] w-[30px]"
-          />
-          <h1 className="text-[25px] font-normal text-main font-calSans">
-            GratiFi
-          </h1>
-        </div>
-
-        {/* Menu */}
-        <div className={`flex items-center ${lg ? "gap-[25px]" : "gap-2"}`}>
-          {menu.map((item, index) => (
-            <div
-              key={index}
-              className="flex h-10 cursor-pointer items-center justify-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap px-2 text-sm font-normal text-black transition-all duration-300 hover:text-primary"
-              onClick={() => navigate(item.path)}
-            >
-              {lg ? (
-                <div className="nav_icons">{item.icon}</div>
-              ) : (
-                <div className="nav_title">{item.name}</div>
-              )}
-            </div>
-          ))}
-        </div>
+        <img alt="GratiFi logo" src={GratiFiLogo} className="h-8 w-8" />
+        <h1 className="hidden lg:block text-2xl font-normal text-main font-calSans">
+          GratiFi
+        </h1>
       </div>
 
-      {/* Buttons */}
-      <div className="flex h-10 items-center">
-        <div className="flex items-center justify-center gap-[10px]">
-          {canLogin && (
-            <button
-              className="h-10 w-[100px] rounded-full border border-main bg-transparent font-calSans text-main transition-all duration-300 ease-in-out"
-              onClick={() => navigate("/login")}
+      {/* Nav Links */}
+      <nav className="hidden md:flex flex-1 justify-center items-center gap-[5px]">
+        {menu.map((item) => (
+          <motion.div
+            key={item.to}
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+            className="relative group"
+          >
+            <Link
+              to={item.to}
+              smooth
+              duration={500}
+              className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-primaryHover transition-colors duration-300 ease-linear"
             >
-              Login
-            </button>
-          )}
-          {canSignup && (
-            <button className="h-10 w-[130px] rounded-full bg-primary hover:bg-primaryHover font-medium font-calSans text-main transition-all duration-300 ease-in-out">
-              Download
-            </button>
-          )}
-        </div>
+              <motion.span
+                variants={iconVariants}
+                transition={iconTransition}
+                className="hidden xl:block text-main"
+              >
+                {item.icon}
+              </motion.span>
+              <span className="block lg:hidden text-main">{item.icon}</span>
+              <span className="hidden lg:block text-main">{item.label}</span>
+            </Link>
+
+            <div className="block lg:hidden absolute -bottom-10 left-1/2 z-10 w-max -translate-x-1/2 scale-0 transform rounded bg-main px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 font-calSans">
+              {item.label}
+            </div>
+          </motion.div>
+        ))}
+      </nav>
+
+      {/* Buttons */}
+      <div className="flex h-10 items-center gap-4">
+        {canLogin && (
+          <button
+            className="h-10 min-w-[100px] px-4 rounded-full border border-main bg-transparent font-calSans text-main transition-colors hover:bg-main hover:text-white"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </button>
+        )}
+        {canSignup && (
+          <button
+            className="h-10 min-w-[150px] px-4 rounded-full bg-primary hover:bg-primaryHover font-medium font-calSans text-main transition-colors"
+            onClick={() => navigate("/create-account")}
+          >
+            Create Account
+          </button>
+        )}
       </div>
     </div>
   );
