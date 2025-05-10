@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Fan, Star, UserRoundPlus } from "lucide-react";
 import { profiles } from "@/json";
 import AppLayout from "@/layout/AppLayout";
-import { Fan, Star, UserRoundPlus } from "lucide-react";
+import clsx from "clsx";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
