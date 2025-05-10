@@ -95,7 +95,7 @@ export default function CreateAccount() {
           <div className="flex flex-col items-center gap-5 mt-8 w-full">
             <CustomCreateAccountBtn
               disabled={!selectedProfile}
-              selectedProfile={selectedProfile}
+              selectedProfile={selectedProfile ?? undefined}
               className={clsx(
                 "rounded-full flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-[220px] md:text-base",
                 selectedProfile

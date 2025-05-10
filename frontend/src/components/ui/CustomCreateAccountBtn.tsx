@@ -1,10 +1,10 @@
 import { useUser } from "@civic/auth/react";
 import { useCallback } from "react";
-import storageService from "@/services/storage.service";
 // import { configKeys } from "@/config";
 // import { useNavigate } from "react-router-dom";
 // import { showToastSuccess } from "@/utils/notification.utils";
 // import axios from "axios";
+// import storageService from "@/services/storage.service";
 
 export default function CustomCreateAccountBtn({
   disabled,
@@ -24,24 +24,27 @@ export default function CustomCreateAccountBtn({
     try {
       await signIn();
 
-      const createdUser = storageService.getUser();
+      const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
-      if (user) {
+      if (civicUser) {
         const payload = {
+          name: civicUser.name,
+          email: civicUser.email,
+          picture: civicUser.picture,
           user_type: selectedProfile,
         };
 
-        console.log("create this user", { createdUser, ...payload });
+        console.log("create this user", { payload });
 
         // const api = `${configKeys.apiURL}/api/create-account`;
         // const res = await axios.post(api, payload);
         // const resData = res?.data;
 
-        // const { access_token, data: user_data } = resData;
+        // const { app_token, data: app_user } = resData;
 
         // if (res?.status === 200) {
-        //   storageService.setToken(access_token);
-        //   storageService.setUser(user_data);
+        //   storageService.setToken(app_token);
+        //   storageService.setUser(app_user);
 
         //   showToastSuccess(
         //     "Welcome back! You've successfully logged in",
@@ -59,7 +62,7 @@ export default function CustomCreateAccountBtn({
     } catch (error) {
       console.error("Create Account Error:", error);
     }
-  }, [selectedProfile, signIn, user]);
+  }, [selectedProfile, signIn]);
 
   return (
     <>
