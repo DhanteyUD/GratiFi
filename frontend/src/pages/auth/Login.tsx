@@ -2,13 +2,13 @@ import { useRef, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
 import { CivicAuthProvider, UserButton, useUser } from "@civic/auth-web3/react";
+import { configKeys } from "@/config";
 import Animation from "@/assets/animation/Animation3.lottie";
 import AnimationMobile from "@/assets/animation/Animation4.lottie";
 import AppLayout from "@/layout/AppLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
 
 function Login() {
-  const clientId = import.meta.env.VITE_CLIENT_ID;
   const { user } = useUser();
 
   const ref = useRef(null);
@@ -28,7 +28,7 @@ function Login() {
   }, []);
 
   return (
-    <CivicAuthProvider clientId={clientId}>
+    <CivicAuthProvider clientId={configKeys.clientId}>
       <AppLayout menu={[]} canSignup={true}>
         <motion.section
           ref={ref}

@@ -25,7 +25,12 @@ function LandingPage() {
   }, [location.pathname]);
 
   return (
-    <AppLayout menu={landingPageMenuItems} canLogin={true} canSignup={true} animateNav={animateNav}>
+    <AppLayout
+      menu={landingPageMenuItems}
+      canLogin={true}
+      canSignup={true}
+      animateNav={animateNav}
+    >
       <Hero />
       <HowItWorks id="how-it-works" />
       <Features id="features" />
