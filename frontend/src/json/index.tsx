@@ -1,16 +1,16 @@
-import { User2 } from "lucide-react";
+import { FanIcon, Star } from "lucide-react";
 
 export const profiles = [
   {
-    icon: User2,
-    title: "Job Seeker",
+    icon: FanIcon,
+    title: "GratiFans",
     subtitle:
-      "Explore job opportunities, apply easily, and find your next career move.",
+      "Support your favorite creators, tip securely with ease, and join exclusive communities.",
   },
   {
-    icon: User2,
-    title: "Employer",
+    icon: Star,
+    title: "GratiStars",
     subtitle:
-      "Post job openings, review applications, and find the best talent for your company.",
+      "Monetize your influence, engage your audience, and earn rewards.",
   },
 ];
