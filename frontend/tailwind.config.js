@@ -13,6 +13,7 @@ export default {
       },
       backgroundImage: {
         "to-top-main": "linear-gradient(to top, #3c315b 0%, #3c315b 100%)",
+        "to-top-primary": "linear-gradient(to top, #ab9ff2 0%, #ab9ff2 100%)",
         "to-top-priMain": "linear-gradient(to top, #ab9ff2 0%, #3c315b 100%)",
       },
       boxShadow: {

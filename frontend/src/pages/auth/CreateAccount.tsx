@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Fan, Star, UserRoundPlus } from "lucide-react";
+import { Fan, Star } from "lucide-react";
 import { profiles } from "@/json";
 import AppLayout from "@/layout/AppLayout";
 import clsx from "clsx";
@@ -27,6 +27,11 @@ export default function CreateAccount() {
     }
   };
 
+  const renderIcon = () => {
+    if (selectedProfile === "GratiFan") return <Fan size={18} />;
+    if (selectedProfile === "GratiStar") return <Star size={18} />;
+  };
+
   useEffect(() => {
     document.title = "GratiFi | Create Account";
   }, []);
@@ -43,17 +48,19 @@ export default function CreateAccount() {
             <div
               key={profile.title}
               onClick={() => setSelectedProfile(profile.title)}
-              className={`group relative w-full md:w-80 h-48 md:h-72 border border-b-[20px] border-main bg-white p-5 animated_cursor cursor-pointer flex flex-col justify-between transition-all duration-300 ease-in-out bg-to-top-main bg-[length:100%_0%] bg-bottom bg-no-repeat hover:bg-[length:100%_100%] hover:shadow-lg hover:shadow-black/50 ${getAnimationClass(
-                profile.title
-              )}`}
+              className={clsx(
+                "group relative w-full md:w-80 h-48 md:h-72 border border-b-[20px] border-main bg-white p-5 animated_cursor cursor-pointer flex flex-col justify-between transition-all duration-300 ease-in-out bg-to-top-main bg-[length:100%_0%] bg-bottom bg-no-repeat hover:bg-[length:100%_100%] hover:shadow-lg hover:shadow-black/50",
+                getAnimationClass(profile.title)
+              )}
             >
               <div className="flex justify-between items-center">
                 <profile.icon
-                  className={`text-main text-2xl transition-colors duration-500 group-hover:text-white ${
+                  className={clsx(
+                    "text-main text-2xl transition-colors duration-500 group-hover:text-white",
                     profile.title === "GratiFan"
                       ? "group-hover:animate-spin"
                       : "group-hover:animate-bounce"
-                  }`}
+                  )}
                 />
                 <div className="relative">
                   <input
@@ -61,22 +68,17 @@ export default function CreateAccount() {
                     name="signup-type"
                     checked={selectedProfile === profile.title}
                     onChange={() => setSelectedProfile(profile.title)}
-                    className="
-                        appearance-none w-7 h-7 border border-gray-300 rounded-full 
-                        transition-colors duration-300
-                        checked:bg-white checked:border-main
-                      "
+                    className={clsx(
+                      "appearance-none w-7 h-7 border border-gray-300 rounded-full transition-colors duration-300 checked:bg-white checked:border-main"
+                    )}
                   />
                   <div
-                    className={`
-                        absolute w-5 h-5 inset-0 m-1 rounded-full bg-secondary
-                        transition-all duration-300
-                        ${
-                          selectedProfile === profile.title
-                            ? "scale-100"
-                            : "scale-0"
-                        }
-                      `}
+                    className={clsx(
+                      "absolute w-5 h-5 inset-0 m-1 rounded-full bg-secondary transition-all duration-300",
+                      selectedProfile === profile.title
+                        ? "scale-100"
+                        : "scale-0"
+                    )}
                   />
                 </div>
               </div>
@@ -97,23 +99,15 @@ export default function CreateAccount() {
           <button
             disabled={!selectedProfile}
             onClick={handleCreateAccount}
-            className={`rounded-full flex justify-center items-center gap-2 font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-[220px] md:text-base font-calSans
-                ${
-                  selectedProfile
-                    ? "bg-primary hover:bg-primaryHover"
-                    : "bg-gray-300 cursor-not-allowed"
-                }
-              `}
-          >
-            Join
-            {selectedProfile && ` as a ${selectedProfile}`}
-            {selectedProfile === "GratiFan" ? (
-              <Fan size={18} />
-            ) : selectedProfile === "GratiStar" ? (
-              <Star size={18} />
-            ) : (
-              <UserRoundPlus size={18} />
+            className={clsx(
+              "rounded-full flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-[220px] md:text-base",
+              selectedProfile
+                ? "bg-primary hover:bg-primaryHover cursor-pointer"
+                : "bg-gray-300 cursor-not-allowed"
             )}
+          >
+            {selectedProfile ? `Join as a ${selectedProfile}` : "Join"}
+            {selectedProfile && renderIcon()}
           </button>
 
           <p className="text-main/70 text-sm">
