@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { profiles } from "@/json";
 import AppLayout from "@/layout/AppLayout";
+import { Fan, Star, UserRoundPlus } from "lucide-react";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ export default function CreateAccount() {
 
   const getAnimationClass = (title: string): string => {
     switch (title) {
-      case "Employer":
+      case "GratiStar":
         return "bounce-in-right";
-      case "Job Seeker":
+      case "GratiFan":
         return "bounce-in-left";
       default:
         return "";
@@ -33,7 +34,7 @@ export default function CreateAccount() {
     <AppLayout menu={[]}>
       <div className="h-screen w-full px-[7.5%] pt-[100px] md:pt-[150px] py-8 flex flex-col items-center justify-center gap-8 md:gap-10">
         <h1 className="bg-secondary text-main font-bold text-center text-xl md:text-3xl lg:text-4xl font-calSans">
-          Join as a job seeker or employer
+          Join as a GratiFan or GratiStar
         </h1>
 
         <div className="flex flex-wrap flex-col md:flex-row justify-center items-center gap-5 w-full">
@@ -46,7 +47,13 @@ export default function CreateAccount() {
               )}`}
             >
               <div className="flex justify-between items-center">
-                <profile.icon className="text-main text-2xl transition-colors duration-500 group-hover:text-white" />
+                <profile.icon
+                  className={`text-main text-2xl transition-colors duration-500 group-hover:text-white ${
+                    profile.title === "GratiFan"
+                      ? "group-hover:animate-spin"
+                      : "group-hover:animate-bounce"
+                  }`}
+                />
                 <div className="relative">
                   <input
                     type="radio"
@@ -89,7 +96,7 @@ export default function CreateAccount() {
           <button
             disabled={!selectedProfile}
             onClick={handleCreateAccount}
-            className={`rounded-full font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-52 md:py-2 md:text-base font-calSans
+            className={`rounded-full flex justify-center items-center gap-2 font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-[220px] md:text-base font-calSans
                 ${
                   selectedProfile
                     ? "bg-primary hover:bg-primaryHover"
@@ -98,17 +105,21 @@ export default function CreateAccount() {
               `}
           >
             Join
-            {selectedProfile &&
-              ` as ${
-                selectedProfile === "Employer" ? "an" : "a"
-              } ${selectedProfile}`}
+            {selectedProfile && ` as a ${selectedProfile}`}
+            {selectedProfile === "GratiFan" ? (
+              <Fan size={18} />
+            ) : selectedProfile === "GratiStar" ? (
+              <Star size={18} />
+            ) : (
+              <UserRoundPlus size={18} />
+            )}
           </button>
 
           <p className="text-main/70 text-sm">
-            Already have a Jobmacho account?{" "}
+            Already have a GratiFi account?{" "}
             <span
               onClick={() => navigate("/login")}
-              className="text-primary font-calSans font-medium hover:underline cursor-pointer"
+              className="text-main font-calSans font-medium hover:underline cursor-pointer"
             >
               Log In
             </span>
