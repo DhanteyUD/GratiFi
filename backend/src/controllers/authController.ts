@@ -90,5 +90,7 @@ export const login = async (
     data: user,
   });
 
+  await sendWelcomeEmail(email, user.name);
+
   return;
 };
