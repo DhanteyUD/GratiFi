@@ -46,10 +46,7 @@ export default function CustomCreateAccountBtn({
 
           showToastSuccess(message, "top-right", 5000, true);
 
-          const profilePath = (selectedProfile ?? "")
-            .toLowerCase()
-            .replace(" ", "-");
-          navigate(`/dashboard/${profilePath}`);
+          navigate("/dashboard");
         }
       }
     } catch (error) {
