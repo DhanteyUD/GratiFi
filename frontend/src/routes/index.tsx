@@ -5,10 +5,13 @@ import {
   Login,
   CreateAccount,
   LandingPage,
+  Home,
 } from "../pages";
 
 const router = createBrowserRouter([
   { path: "/*", element: <NotFound /> },
+
+  // Onboarding:
   {
     path: "/",
     element: <LandingPage />,
@@ -22,6 +25,13 @@ const router = createBrowserRouter([
   {
     path: "/create-account",
     element: <CreateAccount />,
+    errorElement: <ErrorBoundary />,
+  },
+
+  // App:
+  {
+    path: "/home",
+    element: <Home />,
     errorElement: <ErrorBoundary />,
   },
 ]);

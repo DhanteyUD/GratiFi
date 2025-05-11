@@ -1,16 +1,21 @@
-import { showToastWarning } from "../utils/notification.utils";
+import { showToastWarning } from "@/utils/notification.utils";
+import { configKeys } from "@/config";
 import axios from "axios";
-import storageService from "./storage.service";
+import storageService from "@/services/storage.service";
 
 const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: configKeys.apiURL,
   timeout: 50000,
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const token = storageService.getToken();
+  const token = storageService.getToken("app_token");
+
   if (!token) {
     showToastWarning("Please login to continue");
+    localStorage.clear();
+    sessionStorage.clear();
+    
     window.location.href = "/";
   } else {
     config.headers.Authorization = `Bearer ${token}`;

@@ -5,7 +5,7 @@ import { profiles } from "@/json";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { CustomCreateAccountBtn } from "@/components";
 import { configKeys } from "@/config";
-import AppLayout from "@/layout/AppLayout";
+import OnboardingLayout from "@/layout/OnboardingLayout";
 import clsx from "clsx";
 
 export default function CreateAccount() {
@@ -34,7 +34,7 @@ export default function CreateAccount() {
 
   return (
     <CivicAuthProvider clientId={configKeys.clientId}>
-      <AppLayout menu={[]}>
+      <OnboardingLayout menu={[]}>
         <div className="h-screen w-full px-[7.5%] pt-[100px] md:pt-[150px] py-8 flex flex-col items-center justify-center gap-8 md:gap-10">
           <h1 className="bg-secondary text-main font-bold text-center text-xl md:text-3xl lg:text-4xl font-calSans">
             Join as a GratiFan or GratiStar
@@ -95,7 +95,7 @@ export default function CreateAccount() {
           <div className="flex flex-col items-center gap-5 mt-8 w-full">
             <CustomCreateAccountBtn
               disabled={!selectedProfile}
-              selectedProfile={selectedProfile}
+              selectedProfile={selectedProfile ?? undefined}
               className={clsx(
                 "rounded-full flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-[220px] md:text-base",
                 selectedProfile
@@ -107,7 +107,7 @@ export default function CreateAccount() {
               {selectedProfile && renderIcon()}
             </CustomCreateAccountBtn>
 
-            <p className="text-main/70 text-sm">
+            <p className="text-main/70 text-sm text-center">
               Already have a GratiFi account?{" "}
               <span
                 onClick={() => navigate("/login")}
@@ -118,7 +118,7 @@ export default function CreateAccount() {
             </p>
           </div>
         </div>
-      </AppLayout>
+      </OnboardingLayout>
     </CivicAuthProvider>
   );
 }

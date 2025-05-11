@@ -1,22 +1,17 @@
 import { useRef, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
-import { CivicAuthProvider, UserButton, useUser } from "@civic/auth-web3/react";
+import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
+import { CustomLoginBtn } from "@/components";
 import Animation from "@/assets/animation/Animation3.lottie";
 import AnimationMobile from "@/assets/animation/Animation4.lottie";
-import AppLayout from "@/layout/AppLayout";
+import OnboardingLayout from "@/layout/OnboardingLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
 
 function Login() {
-  const { user } = useUser();
-
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
   const variants = {
     hidden: { opacity: 0, y: 100 },
@@ -29,7 +24,7 @@ function Login() {
 
   return (
     <CivicAuthProvider clientId={configKeys.clientId}>
-      <AppLayout menu={[]} canSignup={true}>
+      <OnboardingLayout menu={[]} canSignup={true}>
         <motion.section
           ref={ref}
           initial="hidden"
@@ -61,7 +56,9 @@ function Login() {
                 </p>
 
                 <div className="w-fit">
-                  <UserButton className="!text-main hover:!bg-primaryHover !transition-all !duration-300 !ease-in-out" />
+                  <CustomLoginBtn className="min-w-[150px] py-[0.75rem] px-[1rem] rounded-full border border-main bg-transparent text-main hover:bg-primaryHover hover:text-main transition-all duration-300 ease-in-out">
+                    Login
+                  </CustomLoginBtn>
                 </div>
               </div>
 
@@ -75,7 +72,7 @@ function Login() {
             </div>
           </div>
         </motion.section>
-      </AppLayout>
+      </OnboardingLayout>
     </CivicAuthProvider>
   );
 }

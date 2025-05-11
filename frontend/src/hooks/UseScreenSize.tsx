@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useWindowSize } from "react-hooks-window-size";
 
-function useScreenSize() {
+function UseScreenSize() {
   const { width } = useWindowSize();
 
   return useMemo(() => {
@@ -15,4 +15,4 @@ function useScreenSize() {
   }, [width]);
 }
 
-export default useScreenSize;
+export default UseScreenSize;
