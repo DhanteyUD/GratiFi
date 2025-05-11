@@ -49,3 +49,43 @@ export const createAccount = async (
 
   return;
 };
+
+export const login = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  const { email } = req.body;
+
+  if (!email) {
+    res.status(400).json({
+      message: "Email is required",
+    });
+
+    return;
+  }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (!user) {
+    res.status(404).json({
+      message: "User not found. Please create an account.",
+    });
+
+    return;
+  }
+
+  const app_token = generateToken({ name: user.name, email: user.email });
+
+  res.status(200).json({
+    message: "Login successful!",
+    app_token,
+    data: user,
+  });
+
+  return;
+};
