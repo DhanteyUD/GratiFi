@@ -11,7 +11,7 @@ export const generateToken = (user: { id: string; email: string }) => {
     },
     jwtSecret,
     {
-      expiresIn: "1d",
+      expiresIn: "1h",
     }
   );
 };
