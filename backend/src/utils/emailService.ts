@@ -1,9 +1,10 @@
 import React from "react";
 import { Resend } from "resend";
+import { configKeys } from "@/config";
 import { render } from "@react-email/render";
 import { WelcomeEmail } from "@/emails/WelcomeEmail";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(configKeys.resendApiKey);
 
 export const sendWelcomeEmail = async (to: string, userName: string) => {
   const html = await render(React.createElement(WelcomeEmail, { userName }));
