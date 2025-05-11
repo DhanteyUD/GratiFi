@@ -2,7 +2,11 @@ import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
-import { showToastSuccess, showToastError } from "@/utils/notification.utils";
+import {
+  showToastSuccess,
+  showToastError,
+  showToastInfo,
+} from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
 import axios from "axios";
 import storageService from "@/services/storage.service";
@@ -53,9 +57,18 @@ export default function CustomLoginBtn({
         message: string;
       }>;
 
-      showToastError(
-        axiosError?.response?.data?.message || "An unexpected error occurred"
-      );
+      if (axiosError.status === 404) {
+        showToastInfo(
+          axiosError?.response?.data?.message || "Create your profile",
+          "top-right",
+          5000,
+          true
+        );
+      } else {
+        showToastError(
+          axiosError?.response?.data?.message || "An unexpected error occurred"
+        );
+      }
     } finally {
       setLoading(false);
     }

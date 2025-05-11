@@ -76,7 +76,7 @@ export const login = async (
 
   if (!user) {
     res.status(404).json({
-      message: "User not found. Please create an account.",
+      message: "Welcome! Let's get you started by creating your profile.",
     });
 
     return;
