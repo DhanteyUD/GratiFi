@@ -107,7 +107,7 @@ export default function CreateAccount() {
               {selectedProfile && renderIcon()}
             </CustomCreateAccountBtn>
 
-            <p className="text-main/70 text-sm">
+            <p className="text-main/70 text-sm text-center">
               Already have a GratiFi account?{" "}
               <span
                 onClick={() => navigate("/login")}

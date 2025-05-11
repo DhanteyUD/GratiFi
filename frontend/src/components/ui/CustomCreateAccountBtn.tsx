@@ -1,10 +1,10 @@
 import { useUser } from "@civic/auth/react";
 import { useCallback } from "react";
-// import { configKeys } from "@/config";
-// import { useNavigate } from "react-router-dom";
-// import { showToastSuccess } from "@/utils/notification.utils";
-// import axios from "axios";
-// import storageService from "@/services/storage.service";
+import { useNavigate } from "react-router-dom";
+import { configKeys } from "@/config";
+import { showToastSuccess, showToastError } from "@/utils/notification.utils";
+import axios from "axios";
+import storageService from "@/services/storage.service";
 
 export default function CustomCreateAccountBtn({
   disabled,
@@ -17,7 +17,7 @@ export default function CustomCreateAccountBtn({
   className?: string;
   children?: React.ReactNode;
 }) {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const { signIn, user } = useUser();
 
   const handleCreateAccount = useCallback(async () => {
@@ -34,35 +34,41 @@ export default function CustomCreateAccountBtn({
           user_type: selectedProfile,
         };
 
-        console.log("create this user", { payload });
+        const api = `${configKeys.apiURL}/create-account`;
+        const res = await axios.post(api, payload);
+        const resData = res.data;
 
-        // const api = `${configKeys.apiURL}/api/create-account`;
-        // const res = await axios.post(api, payload);
-        // const resData = res?.data;
+        const { message, app_token, data } = resData;
 
-        // const { app_token, data: app_user } = resData;
+        if (res?.status === 201) {
+          storageService.setToken(app_token);
+          storageService.setUser(data);
 
-        // if (res?.status === 200) {
-        //   storageService.setToken(app_token);
-        //   storageService.setUser(app_user);
+          showToastSuccess(message, "top-right", 5000, true);
 
-        //   showToastSuccess(
-        //     "Welcome back! You've successfully logged in",
-        //     "top-right",
-        //     2000,
-        //     true
-        //   );
-
-        //   const profilePath = (selectedProfile ?? "")
-        //     .toLowerCase()
-        //     .replace(" ", "-");
-        //   navigate(`/dashboard/${profilePath}`);
-        // }
+          const profilePath = (selectedProfile ?? "")
+            .toLowerCase()
+            .replace(" ", "-");
+          navigate(`/dashboard/${profilePath}`);
+        }
       }
     } catch (error) {
       console.error("Create Account Error:", error);
+
+      const axiosError = error as import("axios").AxiosError<{
+        message: string;
+      }>;
+
+      if (axiosError.status === 409) {
+        localStorage.clear();
+        sessionStorage.clear();
+      }
+
+      showToastError(
+        axiosError?.response?.data?.message || "An unexpected error occurred"
+      );
     }
-  }, [selectedProfile, signIn]);
+  }, [navigate, selectedProfile, signIn]);
 
   return (
     <>
