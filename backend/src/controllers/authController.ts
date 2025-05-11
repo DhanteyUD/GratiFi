@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { PrismaClient } from "@prisma/client";
 import { generateToken } from "@/utils/jwt";
 import { createAccountSchema } from "@/validators/createAccountSchema";
+import { sendWelcomeEmail } from "@/utils/emailService";
 
 const prisma = new PrismaClient();
 
@@ -46,6 +47,8 @@ export const createAccount = async (
     app_token,
     data: user,
   });
+
+  await sendWelcomeEmail(email, name);
 
   return;
 };
