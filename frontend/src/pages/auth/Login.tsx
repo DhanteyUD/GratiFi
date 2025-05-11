@@ -6,7 +6,7 @@ import { configKeys } from "@/config";
 import { CustomLoginBtn } from "@/components";
 import Animation from "@/assets/animation/Animation3.lottie";
 import AnimationMobile from "@/assets/animation/Animation4.lottie";
-import AppLayout from "@/layout/AppLayout";
+import OnboardingLayout from "@/layout/OnboardingLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
 
 function Login() {
@@ -24,7 +24,7 @@ function Login() {
 
   return (
     <CivicAuthProvider clientId={configKeys.clientId}>
-      <AppLayout menu={[]} canSignup={true}>
+      <OnboardingLayout menu={[]} canSignup={true}>
         <motion.section
           ref={ref}
           initial="hidden"
@@ -72,7 +72,7 @@ function Login() {
             </div>
           </div>
         </motion.section>
-      </AppLayout>
+      </OnboardingLayout>
     </CivicAuthProvider>
   );
 }
