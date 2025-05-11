@@ -10,4 +10,4 @@ export { default as Login } from "./auth/Login";
 export { default as CreateAccount } from "./auth/CreateAccount";
 
 // App content
-export { default as AppLayout } from "./app/01_Home";
+export { default as Home } from "./app/01_Home";
