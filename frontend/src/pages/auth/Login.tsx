@@ -1,74 +1,22 @@
-import { useRef, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRef, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion, useInView } from "framer-motion";
-import { CivicAuthProvider, UserButton } from "@civic/auth-web3/react";
+import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
-import { showToastError, showToastSuccess } from "@/utils/notification.utils";
+import { CustomLoginBtn } from "@/components";
 import Animation from "@/assets/animation/Animation3.lottie";
 import AnimationMobile from "@/assets/animation/Animation4.lottie";
 import AppLayout from "@/layout/AppLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
-import axios from "axios";
-import storageService from "@/services/storage.service";
-
-interface CivicUser {
-  email: string;
-}
 
 function Login() {
   const ref = useRef(null);
-  const navigate = useNavigate();
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const variants = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
   };
-
-  const handleLogin = useCallback(
-    async (userEmail: CivicUser) => {
-      try {
-        const payload = {
-          userEmail,
-        };
-
-        const api = `${configKeys.apiURL}/login`;
-        const res = await axios.post(api, payload);
-        const resData = res.data;
-
-        const { message, app_token, data } = resData;
-
-        if (res?.status === 200) {
-          storageService.setToken(app_token);
-          storageService.setUser(data);
-
-          showToastSuccess(message, "top-right", 5000, true);
-
-          navigate("/dashboard");
-        }
-      } catch (error) {
-        console.error("Login Error:", error);
-
-        const axiosError = error as import("axios").AxiosError<{
-          message: string;
-        }>;
-
-        showToastError(
-          axiosError?.response?.data?.message || "An unexpected error occurred"
-        );
-      }
-    },
-    [navigate]
-  );
-
-  useEffect(() => {
-    const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
-
-    if (civicUser) {
-      handleLogin(civicUser.email);
-    }
-  }, [handleLogin]);
 
   useEffect(() => {
     document.title = `GratiFi | Civic Login`;
@@ -108,7 +56,9 @@ function Login() {
                 </p>
 
                 <div className="w-fit">
-                  <UserButton className="!text-main hover:!bg-primaryHover !transition-all !duration-300 !ease-in-out" />
+                  <CustomLoginBtn className="min-w-[150px] py-[0.75rem] px-[1rem] rounded-full border border-main bg-transparent text-main hover:bg-primaryHover hover:text-main transition-all duration-300 ease-in-out">
+                    Login
+                  </CustomLoginBtn>
                 </div>
               </div>
 
