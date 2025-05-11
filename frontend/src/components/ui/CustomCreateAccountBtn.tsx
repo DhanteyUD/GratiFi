@@ -60,10 +60,8 @@ export default function CustomCreateAccountBtn({
         message: string;
       }>;
 
-      if (axiosError.status === 409) {
-        localStorage.clear();
-        sessionStorage.clear();
-      }
+      localStorage.clear();
+      sessionStorage.clear();
 
       showToastError(
         axiosError?.response?.data?.message || "An unexpected error occurred"
