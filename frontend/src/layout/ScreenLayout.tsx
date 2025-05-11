@@ -1,9 +1,9 @@
 // import { getAnimatedCursor } from "@/animations";
-// import useScreenSize from "@/hooks/UseScreenSize";
+// import UseScreenSize from "@/hooks/UseScreenSize";
 import type { ReactNode } from "react";
 
 function ScreenLayout({ children }: { children: ReactNode }) {
-  // const { md } = useScreenSize();
+  // const { md } = UseScreenSize();
 
   return (
     <>

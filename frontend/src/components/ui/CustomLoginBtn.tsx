@@ -2,19 +2,19 @@ import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
-import { showToastSuccess, showToastError } from "@/utils/notification.utils";
+import {
+  showToastSuccess,
+  showToastError,
+  showToastInfo,
+} from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
 import axios from "axios";
 import storageService from "@/services/storage.service";
 
-export default function CustomCreateAccountBtn({
-  disabled,
-  selectedProfile,
+export default function CustomLoginBtn({
   className,
   children,
 }: {
-  disabled?: boolean;
-  selectedProfile?: string;
   className?: string;
   children?: React.ReactNode;
 }) {
@@ -22,7 +22,7 @@ export default function CustomCreateAccountBtn({
   const { signIn, user } = useUser();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleCreateAccount = useCallback(async () => {
+  const handleLogin = useCallback(async () => {
     setLoading(true);
 
     try {
@@ -32,19 +32,16 @@ export default function CustomCreateAccountBtn({
 
       if (civicUser) {
         const payload = {
-          name: civicUser.name,
           email: civicUser.email,
-          picture: civicUser.picture,
-          user_type: selectedProfile,
         };
 
-        const api = `${configKeys.apiURL}/create-account`;
+        const api = `${configKeys.apiURL}/login`;
         const res = await axios.post(api, payload);
         const resData = res.data;
 
         const { message, app_token, data } = resData;
 
-        if (res?.status === 201) {
+        if (res?.status === 200) {
           storageService.setToken(app_token);
           storageService.setUser(data);
 
@@ -54,31 +51,33 @@ export default function CustomCreateAccountBtn({
         }
       }
     } catch (error) {
-      console.error("Create Account Error:", error);
+      console.error("Login Error:", error);
 
       const axiosError = error as import("axios").AxiosError<{
         message: string;
       }>;
 
-      localStorage.clear();
-      sessionStorage.clear();
-
-      showToastError(
-        axiosError?.response?.data?.message || "An unexpected error occurred"
-      );
+      if (axiosError.status === 404) {
+        showToastInfo(
+          axiosError?.response?.data?.message || "Create your profile",
+          "top-right",
+          5000,
+          true
+        );
+      } else {
+        showToastError(
+          axiosError?.response?.data?.message || "An unexpected error occurred"
+        );
+      }
     } finally {
       setLoading(false);
     }
-  }, [navigate, selectedProfile, signIn]);
+  }, [navigate, signIn]);
 
   return (
     <>
       {!user && (
-        <button
-          disabled={disabled}
-          className={className}
-          onClick={handleCreateAccount}
-        >
+        <button disabled={loading} className={className} onClick={handleLogin}>
           {loading ? <CustomSpinner theme="#3c315b" /> : children}
         </button>
       )}

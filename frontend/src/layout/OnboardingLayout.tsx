@@ -3,7 +3,7 @@ import { DesktopNavMenu, MobileNavMenu } from "@/components";
 import { ScrollLinkedAnimation } from "@/animations";
 import ScreenLayout from "./ScreenLayout";
 
-interface AppLayoutProps {
+interface OnboardingLayoutProps {
   menu: { to: string; label?: string; icon?: React.ReactNode }[];
   canLogin?: boolean;
   canSignup?: boolean;
@@ -11,13 +11,13 @@ interface AppLayoutProps {
   children: ReactNode;
 }
 
-function AppLayout({
+function OnboardingLayout({
   menu,
   canLogin = false,
   canSignup = false,
   animateNav = false,
   children,
-}: AppLayoutProps) {
+}: OnboardingLayoutProps) {
   return (
     <ScreenLayout>
       <MobileNavMenu menu={menu} canLogin={canLogin} canSignup={canSignup} />
@@ -34,4 +34,4 @@ function AppLayout({
   );
 }
 
-export default AppLayout;
+export default OnboardingLayout;

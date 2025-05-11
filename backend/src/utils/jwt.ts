@@ -3,10 +3,10 @@ import { configKeys } from "@/config";
 
 const jwtSecret = configKeys.jwtSecret;
 
-export const generateToken = (user: { id: string; email: string }) => {
+export const generateToken = (user: { name: string; email: string }) => {
   return jwt.sign(
     {
-      sub: user.id,
+      name: user.name,
       email: user.email,
     },
     jwtSecret,

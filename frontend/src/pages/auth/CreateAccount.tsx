@@ -5,7 +5,7 @@ import { profiles } from "@/json";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { CustomCreateAccountBtn } from "@/components";
 import { configKeys } from "@/config";
-import AppLayout from "@/layout/AppLayout";
+import OnboardingLayout from "@/layout/OnboardingLayout";
 import clsx from "clsx";
 
 export default function CreateAccount() {
@@ -34,7 +34,7 @@ export default function CreateAccount() {
 
   return (
     <CivicAuthProvider clientId={configKeys.clientId}>
-      <AppLayout menu={[]}>
+      <OnboardingLayout menu={[]}>
         <div className="h-screen w-full px-[7.5%] pt-[100px] md:pt-[150px] py-8 flex flex-col items-center justify-center gap-8 md:gap-10">
           <h1 className="bg-secondary text-main font-bold text-center text-xl md:text-3xl lg:text-4xl font-calSans">
             Join as a GratiFan or GratiStar
@@ -118,7 +118,7 @@ export default function CreateAccount() {
             </p>
           </div>
         </div>
-      </AppLayout>
+      </OnboardingLayout>
     </CivicAuthProvider>
   );
 }

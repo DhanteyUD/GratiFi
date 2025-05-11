@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { landingPageMenuItems } from "@/routes/path";
-import AppLayout from "@/layout/AppLayout";
+import OnboardingLayout from "@/layout/OnboardingLayout";
 import Hero from "./contents/01_Hero";
 import HowItWorks from "./contents/02_HowItWorks";
 import Features from "./contents/03_Features";
@@ -25,7 +25,7 @@ function LandingPage() {
   }, [location.pathname]);
 
   return (
-    <AppLayout
+    <OnboardingLayout
       menu={landingPageMenuItems}
       canLogin={true}
       canSignup={true}
@@ -36,7 +36,7 @@ function LandingPage() {
       <Features id="features" />
       <Community id="community" />
       <FAQs id="faqs" />
-    </AppLayout>
+    </OnboardingLayout>
   );
 }
 
