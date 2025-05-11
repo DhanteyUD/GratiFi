@@ -2,30 +2,32 @@ import secureLocalStorage from "react-secure-storage";
 
 class StorageService {
   setToken(token: string): void {
-    secureLocalStorage.setItem("token", token);
+    secureLocalStorage.setItem("app_token", token);
   }
 
   setUser(user: Record<string, unknown>): void {
-    secureLocalStorage.setItem("user", JSON.stringify(user));
+    secureLocalStorage.setItem("app_user", JSON.stringify(user));
   }
 
-  getToken() {
-    const token = secureLocalStorage.getItem("token");
-    return token;
+  getToken(token: string): string | null {
+    const data = secureLocalStorage.getItem(token);
+    return typeof data === "string" ? data : null;
   }
 
-  getUser() {
-    const userString = secureLocalStorage.getItem("user");
-    const user = typeof userString === "string" ? JSON.parse(userString) : null;
-    return user;
+  getUser(user: string): Record<string, unknown> | null {
+    const userString = secureLocalStorage.getItem(user);
+    const data = typeof userString === "string" ? JSON.parse(userString) : null;
+    return data;
   }
 
   removeToken() {
-    secureLocalStorage.removeItem("token");
+    localStorage.removeItem("access_token");
+    secureLocalStorage.removeItem("app_token");
   }
 
   removeUser() {
-    secureLocalStorage.removeItem("user");
+    localStorage.removeItem("user");
+    secureLocalStorage.removeItem("app_user");
   }
 
   clearStorage() {
