@@ -31,6 +31,20 @@ export default {
         jakarta: ["Plus Jakarta", "sans-serif"],
         inter: ["Inter", "sans-serif"],
       },
+      keyframes: {
+        spinCustom: {
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        "spin-custom": "spinCustom 1s linear infinite",
+        "spin-slow-custom": "spinCustom 2s linear infinite",
+        "spin-slower-custom": "spinCustom 4s linear infinite",
+        "spin-layer": "spin 1s linear infinite",
+        "spin-layer-slow": "spin 2s linear infinite",
+        "spin-layer-slower": "spin 4s linear infinite",
+        blob: "blob 1s infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

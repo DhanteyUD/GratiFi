@@ -1,8 +1,9 @@
+import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
-import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
+import { CustomSpinner } from "@/components";
 import axios from "axios";
 import storageService from "@/services/storage.service";
 
@@ -15,8 +16,11 @@ export default function CustomLoginBtn({
 }) {
   const navigate = useNavigate();
   const { signIn, user } = useUser();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = useCallback(async () => {
+    setLoading(true);
+
     try {
       await signIn();
 
@@ -52,14 +56,16 @@ export default function CustomLoginBtn({
       showToastError(
         axiosError?.response?.data?.message || "An unexpected error occurred"
       );
+    } finally {
+      setLoading(false);
     }
-  }, [signIn]);
+  }, [navigate, signIn]);
 
   return (
     <>
       {!user && (
-        <button className={className} onClick={handleLogin}>
-          {children}
+        <button disabled={loading} className={className} onClick={handleLogin}>
+          {loading ? <CustomSpinner theme="#3c315b" /> : children}
         </button>
       )}
     </>
