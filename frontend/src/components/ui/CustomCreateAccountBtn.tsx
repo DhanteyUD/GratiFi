@@ -50,7 +50,7 @@ export default function CustomCreateAccountBtn({
 
           showToastSuccess(message, "top-right", 5000, true);
 
-          navigate("/dashboard");
+          navigate("/home");
         }
       }
     } catch (error) {
