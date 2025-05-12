@@ -30,6 +30,8 @@ export default function CustomLoginBtn({
         const payload = {
           name: civicUser.name,
           email: civicUser.email,
+          picture: civicUser.picture,
+          user_type: "",
         };
 
         const api = `${configKeys.apiURL}/login`;

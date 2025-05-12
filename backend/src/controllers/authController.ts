@@ -86,6 +86,7 @@ export const login = async (
     res.status(202).json({
       message: "Welcome! Let's get you started by creating your profile.",
       app_token,
+      data: parsed.data,
     });
 
     return;
@@ -94,7 +95,7 @@ export const login = async (
   const app_token = generateToken({ name: user.name, email: user.email });
 
   res.status(200).json({
-    message: "Login successful!",
+    message: `Welcome back ${user.name}!`,
     app_token,
     data: user,
   });
