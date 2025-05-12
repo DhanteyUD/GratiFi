@@ -24,6 +24,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
   const [parentIndex, setParentIndex] = useState<number | null>(null);
   const [parentPath, setParentPath] = useState<string | null>(null);
   const [openMenus, setOpenMenus] = useState<Record<number, boolean>>({});
+  const [showMore, setShowMore] = useState<boolean>(true);
 
   useEffect(() => {
     menu.forEach((item, index) => {
@@ -135,31 +136,57 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
           : null}
       </div>
 
-      {/* More */}
-      <div className="flex flex-col items-center gap-2 w-full">
-        {moreMenuItems.map((item, index) => {
-          const handleAction = (action: string): void => {
-            if (action === "Log out") {
-              sessionStorage.clear();
-              storageService.clearStorage();
+      <div className="bg-white sticky bottom-0 flex flex-col gap-4 p-2 border-t-4 border-primary">
+        <div
+          className="flex items-center justify-center gap-3 w-full !h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
+          onClick={() => setShowMore((prev) => !prev)}
+        >
+          <ChevronDown
+            className={clsx(
+              "w-5 h-5 transition-transform",
+              showMore ? "rotate-0" : "-rotate-90"
+            )}
+          />
+          <p className="hidden md:flex truncate min-w-[120px]">More</p>
+        </div>
 
-              navigate("/");
-            }
-          };
+        {showMore && (
+          <div className="flex flex-col items-center gap-2 w-full">
+            {moreMenuItems.map((item, index) => {
+              const handleAction = (action: string): void => {
+                if (action === "Log out") {
+                  sessionStorage.clear();
+                  storageService.clearStorage();
 
-          return (
-            <div
-              key={index}
-              className="relative flex items-center justify-center gap-5 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
-              onClick={() => handleAction(item.name)}
-            >
-              <item.icon className="w-5 h-5" />
-              <p className="hidden md:flex truncate min-w-[120px]">
-                {item.name}
-              </p>
-            </div>
-          );
-        })}
+                  navigate("/");
+                }
+              };
+
+              return (
+                <div
+                  key={index}
+                  className="relative flex items-center justify-center gap-3 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
+                  onClick={() => handleAction(item.name)}
+                >
+                  <item.icon
+                    className={clsx(
+                      "w-5 h-5",
+                      item.name === "Log out" && "text-compulsory"
+                    )}
+                  />
+                  <p
+                    className={clsx(
+                      "hidden md:flex truncate min-w-[120px]",
+                      item.name === "Log out" && "text-compulsory"
+                    )}
+                  >
+                    {item.name}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
