@@ -47,14 +47,14 @@ const AppProvider = (props: AppProviderProps) => {
   const today = useMemo(() => moment.utc().format("YYYY-MM-DD"), []);
   const token: Token = {
     app_token: useMemo(() => storageService.getToken("app_token"), []),
-    access_token: useMemo(() => localStorage.getToken("access_token"), []),
+    access_token: useMemo(() => localStorage.getItem("access_token"), []),
   };
   const user: User = {
     app_user: useMemo(() => {
       const user = storageService.getUser("app_user");
       return user ? JSON.stringify(user) : null;
     }, []),
-    user: useMemo(() => JSON.parse(localStorage.getUser("user")), []),
+    user: useMemo(() => JSON.parse(localStorage.getItem("user") || "{}"), []),
   };
 
   // const handleRequest = async (

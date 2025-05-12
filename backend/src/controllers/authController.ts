@@ -75,8 +75,17 @@ export const login = async (
   });
 
   if (!user) {
-    res.status(404).json({
+    const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
+
+    const app_token = generateToken({
+      name: civicUser.name,
+      email: civicUser.email,
+    });
+
+    res.status(202).json({
       message: "Welcome! Let's get you started by creating your profile.",
+      app_token,
+      data: civicUser,
     });
 
     return;
