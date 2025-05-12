@@ -14,6 +14,8 @@ import {
   BarChart,
   Clock,
   UserCheck,
+  Power,
+  BookMarkedIcon,
 } from "lucide-react";
 
 export const landingPageMenuItems = [
@@ -45,6 +47,7 @@ const sharedMenuItems: MenuItem[] = [
   { name: "Messages", path: "messages", icon: MessageCircle },
   { name: "Wallet", path: "wallet", icon: Wallet },
   { name: "Notifications", path: "notifications", icon: Bell },
+  { name: "Bookmarks", path: "bookmarks", icon: BookMarkedIcon },
   { name: "Communities", path: "communities", icon: Users },
   { name: "Profile", path: "profile", icon: User },
   { name: "Settings", path: "settings", icon: Settings },
@@ -63,6 +66,17 @@ const gratiFanExtras: MenuItem[] = [
 
 export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
   const roleExtras =
-    userType === "GratiStar" ? gratiStarExtras : gratiFanExtras;
+    userType === "GratiStar"
+      ? gratiStarExtras
+      : userType === "GratiFan"
+      ? gratiFanExtras
+      : [];
   return generatePath("", [...sharedMenuItems, ...roleExtras]);
 };
+
+export const screenSecondaryMenuItems = [
+  {
+    icon: Power,
+    name: "Log out",
+  },
+];
