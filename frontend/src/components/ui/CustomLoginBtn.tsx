@@ -46,8 +46,6 @@ export default function CustomLoginBtn({
           storageService.setUser(data);
 
           showToastSuccess(message, "top-right", 5000, true);
-
-          navigate("/home");
         }
       }
     } catch (error) {
@@ -71,6 +69,7 @@ export default function CustomLoginBtn({
       }
     } finally {
       setLoading(false);
+      navigate("/home");
     }
   }, [navigate, signIn]);
 
