@@ -11,7 +11,7 @@ import {
 const router = createBrowserRouter([
   { path: "/*", element: <NotFound /> },
 
-  // Onboarding:
+  // Onboarding
   {
     path: "/",
     element: <LandingPage />,
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
 
-  // App:
+  // Screen
   {
     path: "/home",
     element: <Home />,

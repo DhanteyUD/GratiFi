@@ -2,7 +2,7 @@
 // import UseScreenSize from "@/hooks/UseScreenSize";
 import type { ReactNode } from "react";
 
-function ScreenLayout({ children }: { children: ReactNode }) {
+function BaseLayout({ children }: { children: ReactNode }) {
   // const { md } = UseScreenSize();
 
   return (
@@ -17,4 +17,4 @@ function ScreenLayout({ children }: { children: ReactNode }) {
   );
 }
 
-export default ScreenLayout;
+export default BaseLayout;

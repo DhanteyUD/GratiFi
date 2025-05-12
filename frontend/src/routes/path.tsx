@@ -1,4 +1,20 @@
-import { Cog, Star, Users, CircleHelp, HomeIcon } from "lucide-react";
+import {
+  Cog,
+  Star,
+  Users,
+  CircleHelp,
+  HomeIcon,
+  Compass,
+  MessageCircle,
+  Wallet,
+  Bell,
+  Gift,
+  User,
+  Settings,
+  BarChart,
+  Clock,
+  UserCheck,
+} from "lucide-react";
 
 export const landingPageMenuItems = [
   { to: "how-it-works", label: "How It Works", icon: <Cog size={18} /> },
@@ -7,7 +23,7 @@ export const landingPageMenuItems = [
   { to: "faqs", label: "FAQs", icon: <CircleHelp size={18} /> },
 ];
 
-interface MenuItem {
+export interface MenuItem {
   path: string;
   name: string;
   icon: React.ElementType;
@@ -23,10 +39,29 @@ const generatePath = (base: string, items: MenuItem[]): MenuItem[] => {
   }));
 };
 
-export const screenMenuItems = generatePath("", [
-  {
-    name: "Home",
-    path: "home",
-    icon: HomeIcon,
-  },
-]);
+const sharedMenuItems: MenuItem[] = [
+  { name: "Home", path: "home", icon: HomeIcon },
+  { name: "Explore", path: "explore", icon: Compass },
+  { name: "Messages", path: "messages", icon: MessageCircle },
+  { name: "Wallet", path: "wallet", icon: Wallet },
+  { name: "Notifications", path: "notifications", icon: Bell },
+  { name: "Profile", path: "profile", icon: User },
+  { name: "Settings", path: "settings", icon: Settings },
+];
+
+const gratiStarExtras: MenuItem[] = [
+  { name: "Tips Received", path: "tips", icon: Gift },
+  { name: "My Supporters", path: "supporters", icon: Users },
+  { name: "Analytics", path: "analytics", icon: BarChart },
+];
+
+const gratiFanExtras: MenuItem[] = [
+  { name: "Support History", path: "support-history", icon: Clock },
+  { name: "My Creators", path: "creators", icon: UserCheck },
+];
+
+export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
+  const roleExtras =
+    userType === "GratiStar" ? gratiStarExtras : gratiFanExtras;
+  return generatePath("", [...sharedMenuItems, ...roleExtras]);
+};
