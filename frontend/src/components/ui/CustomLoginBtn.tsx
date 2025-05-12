@@ -2,11 +2,7 @@ import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
-import {
-  showToastSuccess,
-  showToastError,
-  showToastInfo,
-} from "@/utils/notification.utils";
+import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
 import axios from "axios";
 import storageService from "@/services/storage.service";
@@ -32,7 +28,10 @@ export default function CustomLoginBtn({
 
       if (civicUser) {
         const payload = {
+          name: civicUser.name,
           email: civicUser.email,
+          picture: civicUser.picture,
+          user_type: "",
         };
 
         const api = `${configKeys.apiURL}/login`;
@@ -41,13 +40,13 @@ export default function CustomLoginBtn({
 
         const { message, app_token, data } = resData;
 
-        if (res?.status === 200) {
+        const acceptedStatus = [200, 201, 202];
+
+        if (acceptedStatus.includes(res?.status)) {
           storageService.setToken(app_token);
           storageService.setUser(data);
 
           showToastSuccess(message, "top-right", 5000, true);
-
-          navigate("/home");
         }
       }
     } catch (error) {
@@ -57,20 +56,12 @@ export default function CustomLoginBtn({
         message: string;
       }>;
 
-      if (axiosError.status === 404) {
-        showToastInfo(
-          axiosError?.response?.data?.message || "Create your profile",
-          "top-right",
-          5000,
-          true
-        );
-      } else {
-        showToastError(
-          axiosError?.response?.data?.message || "An unexpected error occurred"
-        );
-      }
+      showToastError(
+        axiosError?.response?.data?.message || "An unexpected error occurred"
+      );
     } finally {
       setLoading(false);
+      navigate("/home");
     }
   }, [navigate, signIn]);
 
