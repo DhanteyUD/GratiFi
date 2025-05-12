@@ -45,6 +45,7 @@ const sharedMenuItems: MenuItem[] = [
   { name: "Messages", path: "messages", icon: MessageCircle },
   { name: "Wallet", path: "wallet", icon: Wallet },
   { name: "Notifications", path: "notifications", icon: Bell },
+  { name: "Communities", path: "communities", icon: Users },
   { name: "Profile", path: "profile", icon: User },
   { name: "Settings", path: "settings", icon: Settings },
 ];

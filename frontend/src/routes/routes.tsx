@@ -7,6 +7,8 @@ import {
   LandingPage,
   Home,
 } from "../pages";
+import { AuthGuard } from "@/guard/AuthGuard";
+import { AppProvider } from "@/context/AppContext";
 
 const router = createBrowserRouter([
   { path: "/*", element: <NotFound /> },
@@ -31,7 +33,13 @@ const router = createBrowserRouter([
   // Screen
   {
     path: "/home",
-    element: <Home />,
+    element: (
+      <AuthGuard>
+        <AppProvider>
+          <Home />
+        </AppProvider>
+      </AuthGuard>
+    ),
     errorElement: <ErrorBoundary />,
   },
 ]);
