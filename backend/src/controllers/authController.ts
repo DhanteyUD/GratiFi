@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { PrismaClient } from "@prisma/client";
 import { generateToken } from "@/utils/jwt";
-import { createAccountSchema } from "@/validators/createAccountSchema";
+import { createAccountSchema, loginSchema } from "@/validators/authSchema";
 import { sendWelcomeEmail } from "@/utils/emailService";
 
 const prisma = new PrismaClient();
@@ -58,15 +58,18 @@ export const login = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const { email } = req.body;
+  const parsed = loginSchema.safeParse(req.body);
 
-  if (!email) {
+  if (!parsed.success) {
     res.status(400).json({
-      message: "Email is required",
+      message: "Validation error",
+      errors: parsed.error.flatten().fieldErrors,
     });
 
     return;
   }
+
+  const { name, email } = parsed.data;
 
   const user = await prisma.user.findUnique({
     where: {
@@ -75,17 +78,14 @@ export const login = async (
   });
 
   if (!user) {
-    const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
-
     const app_token = generateToken({
-      name: civicUser.name,
-      email: civicUser.email,
+      name,
+      email,
     });
 
     res.status(202).json({
       message: "Welcome! Let's get you started by creating your profile.",
       app_token,
-      data: civicUser,
     });
 
     return;
