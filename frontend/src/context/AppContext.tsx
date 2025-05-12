@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 // import type { AxiosInstance, AxiosResponse, Method } from "axios";
 // import { configKeys } from "@/config/index.js";
 // import UseError from "@/hooks/UseError.js";
-// import storageService from "../services/storage.service.js";
+import storageService from "../services/storage.service.js";
 // import axiosInstances from "../services/api.service.js";
 // import axios from "axios";
 import moment from "moment";
@@ -45,17 +45,17 @@ interface AppProviderProps {
 
 const AppProvider = (props: AppProviderProps) => {
   const today = useMemo(() => moment.utc().format("YYYY-MM-DD"), []);
-  // const token: Token = {
-  //   app_token: useMemo(() => storageService.getToken("app_token"), []),
-  //   access_token: useMemo(() => localStorage.getToken("access_token"), []),
-  // };
-  // const user: User = {
-  //   app_user: useMemo(() => {
-  //     const user = storageService.getUser("app_user");
-  //     return user ? JSON.stringify(user) : null;
-  //   }, []),
-  //   user: useMemo(() => JSON.parse(localStorage.getUser("user")), []),
-  // };
+  const token: Token = {
+    app_token: useMemo(() => storageService.getToken("app_token"), []),
+    access_token: useMemo(() => localStorage.getToken("access_token"), []),
+  };
+  const user: User = {
+    app_user: useMemo(() => {
+      const user = storageService.getUser("app_user");
+      return user ? JSON.stringify(user) : null;
+    }, []),
+    user: useMemo(() => JSON.parse(localStorage.getUser("user")), []),
+  };
 
   // const handleRequest = async (
   //   instance: AxiosInstance,
@@ -110,8 +110,8 @@ const AppProvider = (props: AppProviderProps) => {
       value={
         {
           today,
-          // token,
-          // user,
+          token,
+          user,
 
           ...apiMethods,
         } as AppContextValue
