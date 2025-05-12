@@ -1,4 +1,4 @@
-import RouterComponent from "./routes";
+import RouterComponent from "@/routes/routes";
 
 function App() {
   return (
