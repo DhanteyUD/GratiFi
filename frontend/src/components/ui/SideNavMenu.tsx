@@ -85,7 +85,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
                     }}
                   >
                     <item.icon className="w-5 h-5" />
-                    <div className="hidden md:flex truncate min-w-[130px]">
+                    <div className="block md:hidden lg:block truncate min-w-[130px] lg:min-w-[100px] xl:min-w-[120px]">
                       {item.name}
                     </div>
 
