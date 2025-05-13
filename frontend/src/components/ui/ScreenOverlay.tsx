@@ -10,7 +10,7 @@ export default function ScreenOverlay({ message = "" }) {
     >
       <div className="p-6 w-auto gap-5 flex justify-center items-center flex-col">
         <div className="relative w-[100px] h-[100px]">
-          <img src={gratifiIcon} alt="GratiFi loading icon" className="animate-pulse" />
+          <img src={gratifiIcon} alt="GratiFi loading icon" />
           <span className="absolute w-4 h-4 rounded-full bg-secondary top-0 right-[15px] animate-bounce" />
         </div>
         <p className="text-main text-md text-center font-calSans">

@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { configKeys } from "@/config";
+import { useQueryClient } from "@tanstack/react-query";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
 import axios from "axios";
@@ -18,6 +19,7 @@ export default function CustomCreateAccountBtn({
   setIsModalOpen?: (value: boolean) => void;
   children?: React.ReactNode;
 }) {
+  const queryClient = useQueryClient();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleCreateProfile = useCallback(async () => {
@@ -71,8 +73,9 @@ export default function CustomCreateAccountBtn({
       );
     } finally {
       setLoading(false);
+      queryClient.invalidateQueries({ queryKey: ["profile"] });
     }
-  }, [selectedProfile, setIsModalOpen]);
+  }, [queryClient, selectedProfile, setIsModalOpen]);
 
   return (
     <button

@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { Modal } from "@/components";
 import { profiles } from "@/json";
 import { Fan, Star } from "lucide-react";
-import { CustomCreateProfileBtn } from "@/components";
+import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
+import { FetchProfile } from "@/lib";
 import clsx from "clsx";
-import storageService from "@/services/storage.service";
+import helperService from "@/services/helper.service";
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
-
-  const app_user = storageService.getUser("app_user") as { user_type?: string[] } | null;
+  const { fetchingProfile, profile } = FetchProfile();
 
   const renderIcon = () => {
     if (selectedProfile === "GratiFan") return <Fan size={18} />;
@@ -19,13 +19,16 @@ function Home() {
   };
 
   useEffect(() => {
-    if (!app_user?.user_type?.length) {
+    if (!fetchingProfile && helperService.isEmptyObject(profile)) {
       setIsModalOpen(true);
     }
-  }, [app_user?.user_type?.length]);
+  }, [fetchingProfile, profile]);
 
   return (
     <>
+      {fetchingProfile && (
+        <ScreenOverlay message="we are fetching your profile" />
+      )}
       <div className="text-gray-800 text-xl font-semibold border border-[orange] p-4">
         Welcome to GratiFi!
       </div>
@@ -87,9 +90,9 @@ function Home() {
           ))}
         </div>
 
-        <div className="flex gap-5 items-center mt-4 justify-end">
+        <div className="flex gap-5 items-center mt-4 justify-end h-[40px]">
           <button
-            className="px-5 py-3 bg-primary text-main hover:bg-primaryHover font-calSans"
+            className="px-5 py-3 bg-primary text-main hover:bg-primaryHover font-calSans h-full"
             onClick={() => setIsModalOpen(false)}
           >
             Close
@@ -98,7 +101,7 @@ function Home() {
             disabled={!selectedProfile}
             selectedProfile={selectedProfile ?? undefined}
             className={clsx(
-              "flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 w-full py-3 text-sm md:w-[220px] md:text-base",
+              "flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 h-full py-3 text-sm w-[220px] md:text-base",
               selectedProfile
                 ? "bg-primary hover:bg-primaryHover cursor-pointer"
                 : "bg-gray-300 cursor-not-allowed"

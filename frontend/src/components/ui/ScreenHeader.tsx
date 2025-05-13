@@ -57,17 +57,16 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
         </h1>
       </div>
 
-      <div
-        className={clsx(
-          "flex gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full border border-primary",
-          !app_user?.user_type?.length && "hidden"
-        )}
-      >
-        {app_user?.user_type} {renderIcon(app_user?.user_type || "")}
-      </div>
-
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row bg-background gap-3">
         <div className="relative flex items-start gap-3">
+          <div
+            className={clsx(
+              "hidden md:flex gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full border border-primary",
+              !app_user?.user_type?.length && "hidden"
+            )}
+          >
+            {app_user?.user_type} {renderIcon(app_user?.user_type || "")}
+          </div>
           <div className="h-full">
             <Search className="w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary rounded-full transition-all duration-300 ease-in-out border border-primary" />
           </div>

@@ -46,8 +46,7 @@ class HelperService {
   }
 
   isEmptyObject(obj: object) {
-    if (obj == null || typeof obj !== "object") return true;
-    return Object.keys(obj).length === 0;
+    return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
   }
 }
 
