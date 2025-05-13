@@ -22,16 +22,27 @@ export default function CreatePost({
 }: CreatePostProps) {
   const [text, setText] = useState("");
   const characterLimit = userType === "GratiFan" ? 280 : 25000;
-  const warningThreshold = userType === "GratiFan" ? 250 : 24980;
-  const overLimit = text.length > characterLimit;
-  const nearLimit = text.length > warningThreshold;
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [media, setMedia] = useState<File[]>([]);
   const [scheduledDate, setScheduledDate] = useState<Date | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const getFormattedText = () => {
+    const allowed = text.slice(0, characterLimit);
+    const excess = text.slice(characterLimit);
+
+    return (
+      <>
+        <span className="text-black whitespace-pre-wrap">{allowed}</span>
+        {excess && (
+          <span className="bg-compulsory/50 whitespace-pre-wrap">{excess}</span>
+        )}
+      </>
+    );
+  };
 
   const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files ?? []);
@@ -71,27 +82,44 @@ export default function CreatePost({
       />
 
       <div className="flex-1">
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="What's happening?"
-          className={clsx(
-            "w-full resize-none border-none outline-none text-main placeholder-gray-400 bg-transparent",
-            overLimit ? "text-red-500" : ""
-          )}
-          rows={1}
-          onInput={(e) => {
-            const target = e.target as HTMLTextAreaElement;
-            target.style.height = "auto";
-            target.style.height = target.scrollHeight + "px";
-          }}
-        />
+        <div className="relative w-full overflow-auto">
+          <div
+            className="absolute top-0 left-0 w-full p-3 text-base font-normal break-words whitespace-pre-wrap z-0"
+            aria-hidden="true"
+            style={{
+              minHeight: "3.5rem",
+              pointerEvents: "none",
+            }}
+          >
+            {getFormattedText()}
+          </div>
+
+          <textarea
+            ref={textareaRef}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="What's happening?"
+            className="relative z-10 text-base p-3 w-full resize-none border-b border-gray-200 outline-none text-main placeholder-gray-400 bg-transparent"
+            style={{
+              lineHeight: "1.5",
+              backgroundColor: "transparent",
+              overflow: "hidden",
+            }}
+            rows={1}
+            onInput={(e) => {
+              const target = e.target as HTMLTextAreaElement;
+              target.style.height = "auto";
+              target.style.height = target.scrollHeight + "px";
+            }}
+          />
+        </div>
+
         <div
           className={clsx(
             "text-right text-sm mt-1",
-            overLimit
+            text.length > characterLimit
               ? "text-red-600"
-              : nearLimit
+              : text.length > characterLimit - 30
               ? "text-orange-500"
               : "text-gray-500"
           )}
@@ -184,11 +212,11 @@ export default function CreatePost({
           </div>
 
           <button
-            disabled={!text || overLimit || isPosting}
+            disabled={!text || isPosting}
             onClick={handlePost}
             className={clsx(
               "bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition",
-              !text || overLimit || isPosting
+              !text || isPosting
                 ? "bg-gray-400 text-white opacity-50 cursor-not-allowed"
                 : ""
             )}
