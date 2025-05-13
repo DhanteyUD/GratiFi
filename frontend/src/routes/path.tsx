@@ -18,6 +18,7 @@ import {
   Bookmark,
   Briefcase,
   Sparkles,
+  HeartPlus,
 } from "lucide-react";
 
 export const landingPageMenuItems = [
@@ -56,7 +57,7 @@ const sharedMenuItems: MenuItem[] = [
 
 const gratiStarExtras: MenuItem[] = [
   { name: "Tips Received", path: "tips", icon: Gift },
-  { name: "My GratiFans", path: "supporters", icon: Users },
+  { name: "My GratiFans", path: "supporters", icon: HeartPlus },
   { name: "Analytics", path: "analytics", icon: BarChart },
 ];
 
