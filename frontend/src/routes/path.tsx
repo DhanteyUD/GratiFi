@@ -14,10 +14,10 @@ import {
   Settings,
   BarChart,
   Clock,
-  UserCheck,
   Power,
   Bookmark,
   Briefcase,
+  Sparkles,
 } from "lucide-react";
 
 export const landingPageMenuItems = [
@@ -56,13 +56,13 @@ const sharedMenuItems: MenuItem[] = [
 
 const gratiStarExtras: MenuItem[] = [
   { name: "Tips Received", path: "tips", icon: Gift },
-  { name: "My Supporters", path: "supporters", icon: Users },
+  { name: "My GratiFans", path: "supporters", icon: Users },
   { name: "Analytics", path: "analytics", icon: BarChart },
 ];
 
 const gratiFanExtras: MenuItem[] = [
-  { name: "Support History", path: "support-history", icon: Clock },
-  { name: "My Creators", path: "creators", icon: UserCheck },
+  { name: "Support History", path: "history", icon: Clock },
+  { name: "My GratiStars", path: "creators", icon: Sparkles },
 ];
 
 export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {

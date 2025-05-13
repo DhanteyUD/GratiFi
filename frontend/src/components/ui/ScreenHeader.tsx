@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { MoveLeft, Search, Bell } from "lucide-react";
-import { UseAppContext } from "@/hooks/UseAppContext.js";
+import { MoveLeft, Search, Bell, Fan, Star } from "lucide-react";
 import { UserButton } from "@civic/auth/react";
+import { FetchProfile } from "@/lib";
 import clsx from "clsx";
 import helperService from "../../services/helper.service";
 
@@ -12,20 +12,43 @@ interface ScreenHeaderProps {
 }
 
 function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
-  const { user } = UseAppContext();
-
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
+  const { profile } = FetchProfile();
+
+  const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
   const [notificationCount] = useState(0);
+  // const [searchTerm, setSearchTerm] = useState("");
+  const [showingSearchInput, setShowingSearchInput] = useState(false);
 
-  console.log("from ScreenHeader:", user);
+  const renderIcon = (userType: string) => {
+    if (userType === "GratiFan") return <Fan size={18} />;
+    if (userType === "GratiStar") return <Star size={18} />;
+  };
+
+  const handleShowSearchInput = () => {
+    setShowingSearchInput(!showingSearchInput);
+  };
+
+  useEffect(() => {
+    if (helperService.isEmptyObject(civicUser)) {
+      localStorage.clear();
+      sessionStorage.clear();
+
+      navigate("/login");
+    }
+  }, [civicUser, navigate]);
+
+  useEffect(() => {
+    document.title = `GratiFi | ${helperService.capitalize(currentPage)}`;
+  }, [currentPage]);
 
   return (
     <div
       className={clsx(
-        "w-full h-auto z-[2] sticky flex top-[10px] md:top-0 justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
+        "w-full h-auto z-[2] sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
         !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1"
       )}
     >
@@ -42,8 +65,34 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
 
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row bg-background gap-3">
         <div className="relative flex items-start gap-3">
-          <div className="h-full">
-            <Search className="w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary rounded-full transition-all duration-300 ease-in-out border border-primary" />
+          <div
+            className={clsx(
+              "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 bg-secondary rounded-full border border-primary",
+              helperService.isEmptyObject(profile) ? "hidden" : "hidden md:flex"
+            )}
+          >
+            <p className="hidden lg:block">{profile?.user_type}</p>
+            {renderIcon(profile?.user_type || "")}
+          </div>
+          <div className="h-full flex">
+            <Search
+              onClick={handleShowSearchInput}
+              className={clsx(
+                "w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary",
+                showingSearchInput
+                  ? "rounded-full md:border-r-0 md:rounded-[50px_0_0_50px] "
+                  : "rounded-full "
+              )}
+            />
+            <input
+              type="search"
+              className={clsx(
+                "w-auto outline-none border text-main border-primary pl-2 pr-3 transition-all duration-300 ease-in-out",
+                showingSearchInput
+                  ? "hidden md:flex border-l-0 rounded-[0_50px_50px_0]"
+                  : "hidden"
+              )}
+            />
           </div>
           <div className="relative">
             <Bell
@@ -62,6 +111,15 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
 
         <UserButton className="!bg-white !text-main !border !border-primary !p-3 hover:!bg-primary !font-calSans" />
       </div>
+
+      {showingSearchInput && (
+        <input
+          type="search"
+          className={clsx(
+            "flex md:hidden absolute left-0 top-16 w-full outline-none border border-primary px-5 transition-all duration-300 ease-in-out rounded-xl h-[45px] slit-in-horizontal"
+          )}
+        />
+      )}
     </div>
   );
 }
