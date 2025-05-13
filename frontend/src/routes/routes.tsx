@@ -13,6 +13,13 @@ import {
   Bookmarks,
   Communities,
   Profile,
+  SupportHistory,
+  MyCreators,
+  TipsReceived,
+  MySupporters,
+  Analytics,
+  Jobs,
+  SettingsAndPrivacy,
 } from "../pages";
 import { AuthGuard } from "@/guard/AuthGuard";
 import { AppProvider } from "@/context/AppContext";
@@ -83,6 +90,41 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: withAuth(<Profile />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/support-history",
+    element: withAuth(<SupportHistory />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/creators",
+    element: withAuth(<MyCreators />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/tips",
+    element: withAuth(<TipsReceived />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/supporters",
+    element: withAuth(<MySupporters />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/analytics",
+    element: withAuth(<Analytics />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/jobs",
+    element: withAuth(<Jobs />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/settings",
+    element: withAuth(<SettingsAndPrivacy />),
     errorElement: <ErrorBoundary />,
   },
 ]);
