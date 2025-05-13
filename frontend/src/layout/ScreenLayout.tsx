@@ -10,6 +10,7 @@ import { getScreenMenuItems } from "@/routes/path";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
 import { PanelLeftClose } from "lucide-react";
+import { FetchProfile } from "@/lib";
 import UseScreenSize from "@/hooks/UseScreenSize";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
@@ -28,6 +29,7 @@ function ScreenLayout({
   const [isSideNavCollapsed, setIsSideNavCollapsed] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
+  const { profile } = FetchProfile();
 
   const handleToggleSidebar = () => {
     setIsSideNavCollapsed((prev) => !prev);
@@ -61,7 +63,11 @@ function ScreenLayout({
     <CivicAuthProvider clientId={configKeys.clientId}>
       {/* {!md && getAnimatedCursor()} */}
       <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
-        {md && <HamburgerToggle menu={getScreenMenuItems("GratiStar")} />}
+        {md && (
+          <HamburgerToggle
+            menu={getScreenMenuItems(profile?.user_type || "")}
+          />
+        )}
         {!md && (
           <div
             className={clsx(
@@ -85,14 +91,14 @@ function ScreenLayout({
             </div>
 
             <SideNavMenu
-              menu={getScreenMenuItems("GratiStar")}
+              menu={getScreenMenuItems(profile?.user_type || "")}
               isSideNavCollapsed={isSideNavCollapsed}
             />
             <PanelLeftClose
               size={20}
               onClick={handleToggleSidebar}
               className={clsx(
-                "absolute top-2 left-2 text-primary hover:text-main cursor-pointer",
+                "absolute top-1 left-1 text-primary hover:text-main cursor-pointer",
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />
@@ -110,7 +116,11 @@ function ScreenLayout({
           <div className="p-1 h-auto">{children}</div>
         </div>
 
-        {md && <MobileActionNMenu menu={getScreenMenuItems("GratiStar")} />}
+        {md && (
+          <MobileActionNMenu
+            menu={getScreenMenuItems(profile?.user_type || "")}
+          />
+        )}
       </div>
     </CivicAuthProvider>
   );

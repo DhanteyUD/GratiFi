@@ -29,7 +29,7 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
   return (
     <>
-      <div className="fixed top-[15px] right-[10px] h-12 bg-[#2a2a2a] rounded-[10px] z-[999] flex items-center justify-center">
+      <div className="fixed top-[15px] right-[1.25rem] h-12 bg-[#2a2a2a] rounded-[10px] z-[999] flex items-center justify-center">
         {menu.length > 0 && (
           <Hamburger
             toggle={setIsMenuOpen}
@@ -42,7 +42,7 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed items-start top-[75px] left-[2.5%] w-[95%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
+        <div className="fixed items-start top-[75px] left-[1.25rem] w-[90%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
           {menu.slice(5).map((item, index) => (
             <div
               key={index}

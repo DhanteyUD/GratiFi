@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MoveLeft, Search, Bell, Fan, Star } from "lucide-react";
 import { UserButton } from "@civic/auth/react";
+import { FetchProfile } from "@/lib";
 import clsx from "clsx";
 import helperService from "../../services/helper.service";
-import storageService from "@/services/storage.service";
 
 interface ScreenHeaderProps {
   goBack?: () => void;
@@ -15,15 +15,21 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
+  const { profile } = FetchProfile();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
-  const app_user = storageService.getUser("app_user") as { user_type?: string };
 
   const [notificationCount] = useState(0);
+  // const [searchTerm, setSearchTerm] = useState("");
+  const [showingSearchInput, setShowingSearchInput] = useState(false);
 
   const renderIcon = (userType: string) => {
     if (userType === "GratiFan") return <Fan size={18} />;
     if (userType === "GratiStar") return <Star size={18} />;
+  };
+
+  const handleShowSearchInput = () => {
+    setShowingSearchInput(!showingSearchInput);
   };
 
   useEffect(() => {
@@ -36,8 +42,8 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   }, [civicUser, navigate]);
 
   useEffect(() => {
-    document.title = "GratiFi | Home";
-  }, []);
+    document.title = `GratiFi | ${helperService.capitalize(currentPage)}`;
+  }, [currentPage]);
 
   return (
     <div
@@ -61,14 +67,32 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
         <div className="relative flex items-start gap-3">
           <div
             className={clsx(
-              "hidden md:flex gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full border border-primary",
-              !app_user?.user_type?.length && "hidden"
+              "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 bg-secondary rounded-full border border-primary",
+              helperService.isEmptyObject(profile) ? "hidden" : "hidden md:flex"
             )}
           >
-            {app_user?.user_type} {renderIcon(app_user?.user_type || "")}
+            <p className="hidden lg:block">{profile?.user_type}</p>
+            {renderIcon(profile?.user_type || "")}
           </div>
-          <div className="h-full">
-            <Search className="w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary rounded-full transition-all duration-300 ease-in-out border border-primary" />
+          <div className="h-full flex">
+            <Search
+              onClick={handleShowSearchInput}
+              className={clsx(
+                "w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary",
+                showingSearchInput
+                  ? "rounded-full md:border-r-0 md:rounded-[50px_0_0_50px] "
+                  : "rounded-full "
+              )}
+            />
+            <input
+              type="search"
+              className={clsx(
+                "w-auto outline-none border text-main border-primary pl-2 pr-3 transition-all duration-300 ease-in-out",
+                showingSearchInput
+                  ? "hidden md:flex border-l-0 rounded-[0_50px_50px_0]"
+                  : "hidden"
+              )}
+            />
           </div>
           <div className="relative">
             <Bell
@@ -87,6 +111,15 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
 
         <UserButton className="!bg-white !text-main !border !border-primary !p-3 hover:!bg-primary !font-calSans" />
       </div>
+
+      {showingSearchInput && (
+        <input
+          type="search"
+          className={clsx(
+            "flex md:hidden absolute left-0 top-16 w-full outline-none border border-primary px-5 transition-all duration-300 ease-in-out rounded-xl h-[45px] slit-in-horizontal"
+          )}
+        />
+      )}
     </div>
   );
 }

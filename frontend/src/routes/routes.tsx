@@ -93,7 +93,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: "/support-history",
+    path: "/history",
     element: withAuth(<SupportHistory />),
     errorElement: <ErrorBoundary />,
   },
