@@ -183,6 +183,10 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
                   sessionStorage.clear();
 
                   navigate("/");
+                } else {
+                  if (item.path) {
+                    navigate(`/${item.path}`);
+                  }
                 }
               };
 
