@@ -9,4 +9,5 @@ export { default as CustomSpinner } from "@/components/ui/CustomSpinner";
 export { HamburgerToggle } from "@/components/ui/HamburgerToggle";
 export { default as MobileActionNMenu } from "@/components/ui/MobileActionMenu";
 export { default as ScreenHeader } from "@/components/ui/ScreenHeader";
+export { default as ScreenOverlay } from "@/components/ui/ScreenOverlay";
 export { SideNavMenu } from "@/components/ui/SideNavMenu";
