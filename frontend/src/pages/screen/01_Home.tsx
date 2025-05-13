@@ -30,7 +30,7 @@ function Home() {
         <ScreenOverlay message="we are fetching your profile" />
       )}
       <div className="text-gray-800 text-xl font-semibold border border-[orange] p-4">
-        Welcome to GratiFi!
+      {/* Make changes here */}
       </div>
 
       <Modal

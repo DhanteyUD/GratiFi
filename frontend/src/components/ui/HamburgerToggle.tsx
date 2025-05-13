@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
 import { moreMenuItems } from "@/routes/path";
+import { Fan, Star } from "lucide-react";
+import { FetchProfile } from "@/lib";
+import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
 interface MenuItem {
@@ -16,6 +19,7 @@ interface HamburgerToggleProps {
 
 export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
   const navigate = useNavigate();
+  const { profile } = FetchProfile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleAction = (action: string): void => {
@@ -25,6 +29,11 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
       navigate("/");
     }
+  };
+
+  const renderIcon = (userType: string) => {
+    if (userType === "GratiFan") return <Fan size={18} />;
+    if (userType === "GratiStar") return <Star size={18} />;
   };
 
   return (
@@ -43,6 +52,18 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
       {isMenuOpen && (
         <div className="fixed items-start top-[75px] left-[1.25rem] w-[90%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
+          <div className="flex justify-end w-full">
+            <div
+              className={clsx(
+                "gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full",
+                helperService.isEmptyObject(profile) ? "hidden" : "flex"
+              )}
+            >
+              <p>{profile?.user_type}</p>
+              {renderIcon(profile?.user_type || "")}
+            </div>
+          </div>
+
           {menu.slice(5).map((item, index) => (
             <div
               key={index}
