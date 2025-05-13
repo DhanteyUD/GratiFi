@@ -1,16 +1,17 @@
 // src/pages/Home.tsx
 import { useEffect, useState } from "react";
-import { UseAppContext } from "@/hooks/UseAppContext";
 import { Modal } from "@/components";
 import { profiles } from "@/json";
 import { Fan, Star } from "lucide-react";
 import { CustomCreateProfileBtn } from "@/components";
 import clsx from "clsx";
+import storageService from "@/services/storage.service";
 
 function Home() {
-  const { user } = UseAppContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
+
+  const app_user = storageService.getUser("app_user") as { user_type?: string[] } | null;
 
   const renderIcon = () => {
     if (selectedProfile === "GratiFan") return <Fan size={18} />;
@@ -18,10 +19,10 @@ function Home() {
   };
 
   useEffect(() => {
-    if (!user?.app_user?.user_type.length) {
+    if (!app_user?.user_type?.length) {
       setIsModalOpen(true);
     }
-  }, [user?.app_user?.user_type.length]);
+  }, [app_user?.user_type?.length]);
 
   return (
     <>

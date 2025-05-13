@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MoveLeft, Search, Bell, Fan, Star } from "lucide-react";
-import { UseAppContext } from "@/hooks/UseAppContext.js";
 import { UserButton } from "@civic/auth/react";
 import clsx from "clsx";
 import helperService from "../../services/helper.service";
+import storageService from "@/services/storage.service";
 
 interface ScreenHeaderProps {
   goBack?: () => void;
@@ -12,16 +12,14 @@ interface ScreenHeaderProps {
 }
 
 function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
-  const { user } = UseAppContext();
-
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
+
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
+  const app_user = storageService.getUser("app_user") as { user_type?: string };
 
   const [notificationCount] = useState(0);
-
-  console.log("from ScreenHeader:", user);
 
   const renderIcon = (userType: string) => {
     if (userType === "GratiFan") return <Fan size={18} />;
@@ -62,10 +60,10 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
       <div
         className={clsx(
           "flex gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full border border-primary",
-          !user?.app_user?.user_type.length && "hidden"
+          !app_user?.user_type?.length && "hidden"
         )}
       >
-        {user?.app_user?.user_type} {renderIcon(user?.app_user?.user_type)}
+        {app_user?.user_type} {renderIcon(app_user?.user_type || "")}
       </div>
 
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row bg-background gap-3">
