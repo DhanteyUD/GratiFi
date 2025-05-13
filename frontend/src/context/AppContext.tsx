@@ -18,8 +18,25 @@ interface Token {
 }
 
 interface User {
-  app_user: string | null;
-  user: string | null;
+  app_user: {
+    id: string;
+    name: string;
+    email: string;
+    picture: string;
+    user_type: string;
+    createdAt: string;
+    updatedAt: string;
+  };
+  user: {
+    name: string;
+    picture: string;
+    email: string;
+    at_hash: string;
+    sid: string;
+    jti: string;
+    id: string;
+    forwardedTokens: null;
+  };
 }
 
 // interface CustomAxiosResponse extends Omit<AxiosResponse, "data"> {

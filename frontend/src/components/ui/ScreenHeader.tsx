@@ -12,7 +12,7 @@ interface ScreenHeaderProps {
 }
 
 function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
-  const { user }: { user: { app_user?: string | { user_type?: string } | null } } = UseAppContext();
+  const { user } = UseAppContext();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,6 +23,11 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
 
   console.log("from ScreenHeader:", user);
 
+  const renderIcon = (userType: string) => {
+    if (userType === "GratiFan") return <Fan size={18} />;
+    if (userType === "GratiStar") return <Star size={18} />;
+  };
+
   useEffect(() => {
     if (helperService.isEmptyObject(civicUser)) {
       localStorage.clear();
@@ -32,10 +37,14 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
     }
   }, [civicUser, navigate]);
 
+  useEffect(() => {
+    document.title = "GratiFi | Home";
+  }, []);
+
   return (
     <div
       className={clsx(
-        "border border-[red] w-full h-auto z-[2] sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
+        "w-full h-auto z-[2] sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
         !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1"
       )}
     >
@@ -50,10 +59,13 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
         </h1>
       </div>
 
-      <div>
-        {typeof user?.app_user === "string"
-          ? user.app_user
-          : user?.app_user?.user_type || "Unknown User Type"}
+      <div
+        className={clsx(
+          "flex gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full border border-primary",
+          !user?.app_user?.user_type.length && "hidden"
+        )}
+      >
+        {user?.app_user?.user_type} {renderIcon(user?.app_user?.user_type)}
       </div>
 
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row bg-background gap-3">
