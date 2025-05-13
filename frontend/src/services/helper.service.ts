@@ -44,6 +44,11 @@ class HelperService {
   hyphenSeparator(str: string): string {
     return str.toLowerCase().replace(/\s+/g, "-");
   }
+
+  isEmptyObject(obj: object) {
+    if (obj == null || typeof obj !== "object") return true;
+    return Object.keys(obj).length === 0;
+  }
 }
 
 const helperService = new HelperService();

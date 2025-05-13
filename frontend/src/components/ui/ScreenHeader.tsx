@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { MoveLeft, Search, Bell } from "lucide-react";
+import { MoveLeft, Search, Bell, Fan, Star } from "lucide-react";
 import { UseAppContext } from "@/hooks/UseAppContext.js";
 import { UserButton } from "@civic/auth/react";
 import clsx from "clsx";
@@ -12,20 +12,30 @@ interface ScreenHeaderProps {
 }
 
 function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
-  const { user } = UseAppContext();
+  const { user }: { user: { app_user?: string | { user_type?: string } | null } } = UseAppContext();
 
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
+  const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
   const [notificationCount] = useState(0);
 
   console.log("from ScreenHeader:", user);
 
+  useEffect(() => {
+    if (helperService.isEmptyObject(civicUser)) {
+      localStorage.clear();
+      sessionStorage.clear();
+
+      navigate("/login");
+    }
+  }, [civicUser, navigate]);
+
   return (
     <div
       className={clsx(
-        "w-full h-auto z-[2] sticky flex top-[10px] md:top-0 justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
+        "border border-[red] w-full h-auto z-[2] sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
         !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1"
       )}
     >
@@ -38,6 +48,12 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
         <h1 className="hidden md:flex text-main font-calSans text-[20px] md:text-[25px] font-[700]">
           {helperService.capitalize(currentPage)}
         </h1>
+      </div>
+
+      <div>
+        {typeof user?.app_user === "string"
+          ? user.app_user
+          : user?.app_user?.user_type || "Unknown User Type"}
       </div>
 
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row bg-background gap-3">
