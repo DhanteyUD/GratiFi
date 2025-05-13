@@ -10,6 +10,9 @@ export default {
         primary: "#ab9ff2",
         primaryHover: "#e2dffe",
         secondary: "#06ea8a",
+        dark: "#2a2a2a",
+        darkHover: "#414141",
+        compulsory: "#ff0000",
       },
       backgroundImage: {
         "to-top-main": "linear-gradient(to top, #3c315b 0%, #3c315b 100%)",

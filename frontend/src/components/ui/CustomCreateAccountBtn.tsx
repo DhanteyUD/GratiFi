@@ -19,7 +19,7 @@ export default function CustomCreateAccountBtn({
   children?: React.ReactNode;
 }) {
   const navigate = useNavigate();
-  const { signIn, user } = useUser();
+  const { signIn } = useUser();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleCreateAccount = useCallback(async () => {
@@ -72,16 +72,12 @@ export default function CustomCreateAccountBtn({
   }, [navigate, selectedProfile, signIn]);
 
   return (
-    <>
-      {!user && (
-        <button
-          disabled={disabled}
-          className={className}
-          onClick={handleCreateAccount}
-        >
-          {loading ? <CustomSpinner theme="#3c315b" /> : children}
-        </button>
-      )}
-    </>
+    <button
+      disabled={disabled}
+      className={className}
+      onClick={handleCreateAccount}
+    >
+      {loading ? <CustomSpinner theme="#3c315b" /> : children}
+    </button>
   );
 }

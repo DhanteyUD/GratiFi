@@ -14,9 +14,13 @@ interface MenuItem {
 
 interface SideNavMenuProps {
   menu: MenuItem[];
+  isSideNavCollapsed: boolean;
 }
 
-export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
+export const SideNavMenu: React.FC<SideNavMenuProps> = ({
+  menu = [],
+  isSideNavCollapsed,
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -74,7 +78,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
                 <React.Fragment key={index}>
                   <div
                     className={clsx(
-                      "relative flex items-center justify-center gap-5 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main",
+                      "relative group flex items-center justify-center gap-5 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main",
                       isActive &&
                         "font-[700] bg-primaryHover text-main hover:!bg-primaryHover hover:text-main"
                     )}
@@ -85,7 +89,21 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
                     }}
                   >
                     <item.icon className="w-5 h-5" />
-                    <div className="block md:hidden lg:block truncate min-w-[130px] lg:min-w-[100px] xl:min-w-[120px]">
+                    <div
+                      className={clsx(
+                        "hidden lg:block truncate min-w-[130px] lg:min-w-[100px] xl:min-w-[130px]",
+                        isSideNavCollapsed && "!hidden"
+                      )}
+                    >
+                      {item.name}
+                    </div>
+
+                    <div
+                      className={clsx(
+                        "absolute -bottom-10 left-1/2 z-[2] w-max -translate-x-1/2 scale-0 transform rounded bg-main px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 font-calSans",
+                        isSideNavCollapsed ? "flex" : "flex lg:hidden"
+                      )}
+                    >
                       {item.name}
                     </div>
 
@@ -136,7 +154,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
           : null}
       </div>
 
-      <div className="bg-white sticky bottom-0 flex flex-col gap-4 p-2 border-t-4 border-primary">
+      <div className="bg-white sticky bottom-0 flex z-[3] flex-col gap-4 p-2 border-t-2 border-primary">
         <div
           className="flex items-center justify-center gap-3 w-full !h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
           onClick={() => setShowMore((prev) => !prev)}
@@ -147,7 +165,14 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
               showMore ? "rotate-0" : "-rotate-90"
             )}
           />
-          <p className="hidden md:flex truncate min-w-[120px]">More</p>
+          <div
+            className={clsx(
+              "hidden lg:block truncate min-w-[130px] lg:min-w-[100px] xl:min-w-[120px]",
+              isSideNavCollapsed && "!hidden"
+            )}
+          >
+            More
+          </div>
         </div>
 
         {showMore && (
@@ -165,7 +190,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
               return (
                 <div
                   key={index}
-                  className="relative flex items-center justify-center gap-3 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
+                  className="relative group flex items-center justify-center gap-3 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
                   onClick={() => handleAction(item.name)}
                 >
                   <item.icon
@@ -176,12 +201,22 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({ menu = [] }) => {
                   />
                   <p
                     className={clsx(
-                      "hidden md:flex truncate min-w-[120px]",
-                      item.name === "Log out" && "text-compulsory"
+                      "hidden lg:block truncate min-w-[130px] lg:min-w-[100px] xl:min-w-[130px]",
+                      item.name === "Log out" && "text-compulsory",
+                      isSideNavCollapsed && "!hidden"
                     )}
                   >
                     {item.name}
                   </p>
+
+                  <div
+                    className={clsx(
+                      "absolute -bottom-10 left-1/2 z-[2] w-max -translate-x-1/2 scale-0 transform rounded bg-main px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 font-calSans",
+                      isSideNavCollapsed ? "flex" : "flex lg:hidden"
+                    )}
+                  >
+                    {item.name}
+                  </div>
                 </div>
               );
             })}

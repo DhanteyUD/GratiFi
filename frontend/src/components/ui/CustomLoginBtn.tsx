@@ -15,7 +15,7 @@ export default function CustomLoginBtn({
   children?: React.ReactNode;
 }) {
   const navigate = useNavigate();
-  const { signIn, user } = useUser();
+  const { signIn } = useUser();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = useCallback(async () => {
@@ -66,12 +66,8 @@ export default function CustomLoginBtn({
   }, [navigate, signIn]);
 
   return (
-    <>
-      {!user && (
-        <button disabled={loading} className={className} onClick={handleLogin}>
-          {loading ? <CustomSpinner theme="#3c315b" /> : children}
-        </button>
-      )}
-    </>
+    <button disabled={loading} className={className} onClick={handleLogin}>
+      {loading ? <CustomSpinner theme="#3c315b" /> : children}
+    </button>
   );
 }
