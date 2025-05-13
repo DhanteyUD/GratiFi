@@ -109,7 +109,7 @@ function ScreenLayout({
         <div
           className={clsx(
             "relative gap-[2rem] flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
-            layoutPadding ? "pt-0 pb-5 px-5" : "px-4"
+            layoutPadding ? "pt-0 px-5" : "px-4"
           )}
         >
           <ScreenHeader goBack={goBack} layoutPadding={layoutPadding} />

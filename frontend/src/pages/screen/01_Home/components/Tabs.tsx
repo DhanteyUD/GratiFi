@@ -9,7 +9,7 @@ const tabOptions = ["For you", "Following"];
 
 export default function Tabs({ activeTab, onTabChange }: TabsProps) {
   return (
-    <div className="flex w-full border-b border-gray-300 gap-5">
+    <div className="sticky top-0 flex w-full border-b border-gray-300 gap-5 bg-background">
       {tabOptions.map((tab) => (
         <button
           key={tab}

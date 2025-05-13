@@ -33,13 +33,14 @@ function Home() {
       {fetchingProfile && (
         <ScreenOverlay message="we are fetching your profile" />
       )}
-      <div className="flex">
+      <div className="flex h-[calc(100vh-135px)] overflow-hidden">
         {/* Left */}
-        <div className="flex flex-col w-[60%] border-r-[1px] border-gray-300">
+        <div className="flex flex-col w-[60%] h-full overflow-auto border-r-[1px] border-gray-300">
           <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
           <CreatePost
             onPost={(newPost) => console.log("Posted:", newPost)}
             userAvatar={profile.picture}
+            userType={profile?.user_type}
           />
         </div>
 
