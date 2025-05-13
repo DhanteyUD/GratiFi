@@ -2,6 +2,7 @@ import {
   Cog,
   Star,
   Users,
+  UsersRound,
   CircleHelp,
   HomeIcon,
   Compass,
@@ -9,13 +10,14 @@ import {
   Wallet,
   Bell,
   Gift,
-  User,
+  UserRound,
   Settings,
   BarChart,
   Clock,
   UserCheck,
   Power,
-  BookMarkedIcon,
+  Bookmark,
+  Briefcase,
 } from "lucide-react";
 
 export const landingPageMenuItems = [
@@ -47,10 +49,9 @@ const sharedMenuItems: MenuItem[] = [
   { name: "Messages", path: "messages", icon: MessageCircle },
   { name: "Wallet", path: "wallet", icon: Wallet },
   { name: "Notifications", path: "notifications", icon: Bell },
-  { name: "Bookmarks", path: "bookmarks", icon: BookMarkedIcon },
-  { name: "Communities", path: "communities", icon: Users },
-  { name: "Profile", path: "profile", icon: User },
-  { name: "Settings", path: "settings", icon: Settings },
+  { name: "Bookmarks", path: "bookmarks", icon: Bookmark },
+  { name: "Communities", path: "communities", icon: UsersRound },
+  { name: "Profile", path: "profile", icon: UserRound },
 ];
 
 const gratiStarExtras: MenuItem[] = [
@@ -74,9 +75,11 @@ export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
   return generatePath("", [...sharedMenuItems, ...roleExtras]);
 };
 
-export const screenSecondaryMenuItems = [
+export const moreMenuItems = [
+  { name: "Jobs", path: "jobs", icon: Briefcase },
+  { name: "Settings & Privacy", path: "settings", icon: Settings },
   {
-    icon: Power,
     name: "Log out",
+    icon: Power,
   },
 ];

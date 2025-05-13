@@ -1,10 +1,11 @@
-import SidebarLayout from "@/layout/SidebarLayout";
+// import SidebarLayout from "@/layout/SidebarLayout";
+import ScreenLayout from "@/layout/ScreenLayout";
 
 function Home() {
   return (
-    <SidebarLayout>
-      <div className="text-gray-800 text-xl font-semibold">Welcome to GratiFi!</div>
-    </SidebarLayout>
+    <ScreenLayout goBack={() => window.history.go(-1)}>
+      <div className="text-gray-800 text-xl font-semibold border border-[orange]">Welcome to GratiFi!</div>
+    </ScreenLayout>
   );
 }
 

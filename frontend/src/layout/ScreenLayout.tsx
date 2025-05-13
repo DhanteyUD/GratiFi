@@ -29,7 +29,6 @@ function ScreenLayout({
   const [userToggled, setUserToggled] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
-  // Manual toggle
   const handleToggleSidebar = () => {
     setIsSideNavCollapsed((prev) => !prev);
     setUserToggled(true);
@@ -40,12 +39,10 @@ function ScreenLayout({
       const screenWidth = window.innerWidth;
       setCurrentWidth(screenWidth);
 
-      // Only auto-toggle if user hasn't manually toggled
       if (!userToggled) {
         setIsSideNavCollapsed(screenWidth <= 1000);
       }
 
-      // Reset manual toggle when moving across threshold
       if (
         (screenWidth > 1000 && currentWidth <= 1000) ||
         (screenWidth <= 1000 && currentWidth > 1000)
@@ -54,7 +51,7 @@ function ScreenLayout({
       }
     };
 
-    handleResize(); // Run once on mount
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -64,7 +61,7 @@ function ScreenLayout({
     <CivicAuthProvider clientId={configKeys.clientId}>
       {/* {!md && getAnimatedCursor()} */}
       <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
-        {/* {md && <HamburgerToggle menu={sharedMenuItems} />} */}
+        {md && <HamburgerToggle menu={getScreenMenuItems("GratiStar")} />}
         {!md && (
           <div
             className={clsx(
@@ -95,7 +92,7 @@ function ScreenLayout({
               size={20}
               onClick={handleToggleSidebar}
               className={clsx(
-                "absolute top-2 left-2 text-primary hover:text-main cursor-pointer transition-all duration-300 ease-in-out",
+                "absolute top-2 left-2 text-primary hover:text-main cursor-pointer",
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />
@@ -105,7 +102,7 @@ function ScreenLayout({
 
         <div
           className={clsx(
-            "relative gap-[2rem] flex flex-col overflow-auto w-full md:w-[80%] mb-[83px] md:mb-0 p-0  border border-[red]",
+            "relative gap-[2rem] flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
             layoutPadding ? "pt-0 pb-5 px-5" : "px-4"
           )}
         >
@@ -113,7 +110,7 @@ function ScreenLayout({
           <div className="p-1 h-auto">{children}</div>
         </div>
 
-        {/* {md && <MobileActionNMenu menu={sharedMenuItems} />} */}
+        {md && <MobileActionNMenu menu={getScreenMenuItems("GratiStar")} />}
       </div>
     </CivicAuthProvider>
   );

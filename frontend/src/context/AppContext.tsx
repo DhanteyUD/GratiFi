@@ -50,10 +50,11 @@ const AppProvider = (props: AppProviderProps) => {
     access_token: useMemo(() => localStorage.getItem("access_token"), []),
   };
   const user: User = {
-    app_user: useMemo(() => {
-      const user = storageService.getUser("app_user");
-      return user ? JSON.stringify(user) : null;
-    }, []),
+    app_user: useMemo(
+      () =>
+        JSON.parse(JSON.stringify(storageService.getUser("app_user") ?? "{}")),
+      []
+    ),
     user: useMemo(() => JSON.parse(localStorage.getItem("user") || "{}"), []),
   };
 
