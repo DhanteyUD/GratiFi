@@ -98,11 +98,11 @@ function ScreenLayout({
               size={20}
               onClick={handleToggleSidebar}
               className={clsx(
-                "absolute top-1 left-1 text-primary hover:text-main cursor-pointer",
+                "absolute -top-[3px] -right-[18px] text-primary hover:text-main cursor-pointer",
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />
-            <span className="absolute top-2 right-2 w-[10px] h-[10px] rounded-full bg-background border border-main" />
+            <span className="absolute top-2 left-2 w-[10px] h-[10px] rounded-full bg-background border border-main" />
           </div>
         )}
 
