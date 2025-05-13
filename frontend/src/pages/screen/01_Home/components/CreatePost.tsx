@@ -3,6 +3,7 @@ import { Smile, Calendar, ImageIcon, Loader2, Clock } from "lucide-react";
 import EmojiPicker from "./EmojiPicker";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import clsx from "clsx";
 
 type CreatePostProps = {
   onPost: (newPost: {
@@ -21,6 +22,9 @@ export default function CreatePost({
 }: CreatePostProps) {
   const [text, setText] = useState("");
   const characterLimit = userType === "GratiFan" ? 280 : 25000;
+  const warningThreshold = userType === "GratiFan" ? 250 : 24980;
+  const overLimit = text.length > characterLimit;
+  const nearLimit = text.length > warningThreshold;
 
   const [media, setMedia] = useState<File[]>([]);
   const [scheduledDate, setScheduledDate] = useState<Date | null>(null);
@@ -69,13 +73,12 @@ export default function CreatePost({
       <div className="flex-1">
         <textarea
           value={text}
-          onChange={(e) => {
-            if (e.target.value.length <= characterLimit) {
-              setText(e.target.value);
-            }
-          }}
+          onChange={(e) => setText(e.target.value)}
           placeholder="What's happening?"
-          className="w-full resize-none border-none outline-none text-main placeholder-gray-400 bg-transparent"
+          className={clsx(
+            "w-full resize-none border-none outline-none text-main placeholder-gray-400 bg-transparent",
+            overLimit ? "text-red-500" : ""
+          )}
           rows={1}
           onInput={(e) => {
             const target = e.target as HTMLTextAreaElement;
@@ -83,7 +86,16 @@ export default function CreatePost({
             target.style.height = target.scrollHeight + "px";
           }}
         />
-        <div className="text-right text-sm text-gray-500 mt-1">
+        <div
+          className={clsx(
+            "text-right text-sm mt-1",
+            overLimit
+              ? "text-red-600"
+              : nearLimit
+              ? "text-orange-500"
+              : "text-gray-500"
+          )}
+        >
           {text.length}/{characterLimit}
         </div>
 
@@ -172,13 +184,14 @@ export default function CreatePost({
           </div>
 
           <button
-            disabled={!text || isPosting}
+            disabled={!text || overLimit || isPosting}
             onClick={handlePost}
-            className={`bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition ${
-              !text || isPosting
+            className={clsx(
+              "bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition",
+              !text || overLimit || isPosting
                 ? "bg-gray-400 text-white opacity-50 cursor-not-allowed"
                 : ""
-            }`}
+            )}
           >
             {isPosting ? (
               <Loader2 className="animate-spin" size={18} />
