@@ -5,6 +5,8 @@ import { profiles } from "@/json";
 import { Fan, Star } from "lucide-react";
 import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
 import { FetchProfile } from "@/lib";
+import Tabs from "./components/Tabs";
+import CreatePost from "./components/CreatePost";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 
@@ -12,6 +14,8 @@ function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
   const { fetchingProfile, profile } = FetchProfile();
+
+  const [activeTab, setActiveTab] = useState("For you");
 
   const renderIcon = () => {
     if (selectedProfile === "GratiFan") return <Fan size={18} />;
@@ -29,8 +33,20 @@ function Home() {
       {fetchingProfile && (
         <ScreenOverlay message="we are fetching your profile" />
       )}
-      <div className="text-gray-800 text-xl font-semibold border border-[orange] p-4">
-      {/* Make changes here */}
+      <div className="flex">
+        {/* Left */}
+        <div className="flex flex-col w-[60%] border-r-[1px] border-gray-300">
+          <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
+          <CreatePost
+            onPost={(newPost) => console.log("Posted:", newPost)}
+            userAvatar={profile.picture}
+          />
+        </div>
+
+        {/* Right */}
+        <div className="flex w-[40%] px-5">
+          <p className="font-outfit">right</p>
+        </div>
       </div>
 
       <Modal

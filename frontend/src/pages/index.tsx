@@ -3,7 +3,7 @@ export { default as ErrorBoundary } from "./error/ErrorBoundary";
 export { default as NotFound } from "./error/NotFound";
 
 // Landing
-export { default as LandingPage } from "./landing/LandingPage";
+export { default as LandingPage } from "./landing";
 
 // Auth
 export { default as Login } from "./auth/Login";
