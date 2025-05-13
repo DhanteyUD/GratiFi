@@ -22,6 +22,7 @@ export default function CreatePost({
 }: CreatePostProps) {
   const [text, setText] = useState("");
   const characterLimit = userType === "GratiFan" ? 280 : 25000;
+  const overLimit = text.length > characterLimit;
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -117,7 +118,7 @@ export default function CreatePost({
         <div
           className={clsx(
             "text-right text-sm mt-1",
-            text.length > characterLimit ? "text-red-600" : "text-gray-500"
+            overLimit ? "text-red-600" : "text-gray-500"
           )}
         >
           {text.length}/{characterLimit}
@@ -208,11 +209,11 @@ export default function CreatePost({
           </div>
 
           <button
-            disabled={!text || isPosting}
+            disabled={!text || overLimit || isPosting}
             onClick={handlePost}
             className={clsx(
               "bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition",
-              !text || isPosting
+              !text || overLimit || isPosting
                 ? "bg-gray-400 text-white opacity-50 cursor-not-allowed"
                 : ""
             )}
