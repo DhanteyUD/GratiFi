@@ -22,16 +22,17 @@ export default function CreatePost({
   const [text, setText] = useState("");
   const characterLimit = userType === "GratiFan" ? 280 : 25000;
 
-  const [image, setImage] = useState<File | null>(null);
+  const [media, setMedia] = useState<File[]>([]);
   const [scheduledDate, setScheduledDate] = useState<Date | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) setImage(file);
+  const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    const allowed = files.slice(0, 4 - media.length);
+    setMedia((prev) => [...prev, ...allowed]);
   };
 
   const handleEmojiSelect = (emoji: { native: string }) => {
@@ -46,12 +47,12 @@ export default function CreatePost({
     setTimeout(() => {
       onPost({
         text,
-        image: image ? URL.createObjectURL(image) : null,
+        image: media.length ? URL.createObjectURL(media[0]) : null,
         createdAt: scheduledDate ?? new Date(),
       });
 
       setText("");
-      setImage(null);
+      setMedia([]);
       setScheduledDate(null);
       setIsPosting(false);
     }, 1500);
@@ -74,7 +75,7 @@ export default function CreatePost({
             }
           }}
           placeholder="What's happening?"
-          className="w-full resize-none border-none outline-none text-gray-800 placeholder-gray-400 bg-transparent"
+          className="w-full resize-none border-none outline-none text-main placeholder-gray-400 bg-transparent"
           rows={1}
           onInput={(e) => {
             const target = e.target as HTMLTextAreaElement;
@@ -86,15 +87,36 @@ export default function CreatePost({
           {text.length}/{characterLimit}
         </div>
 
-        {image && (
-          <div className="mt-2">
-            <img
-              src={URL.createObjectURL(image)}
-              alt="preview"
-              className="w-40 rounded-lg"
-            />
+        {/* Media Preview */}
+        {media.length > 0 && (
+          <div className="mt-2 grid grid-cols-2 gap-3 border border-[red]">
+            {media.map((file, idx) => {
+              const url = URL.createObjectURL(file);
+              const isVideo = file.type.startsWith("video/");
+              return (
+                <div
+                  key={idx}
+                  className="relative w-full h-40 bg-black rounded-lg overflow-hidden"
+                >
+                  {isVideo ? (
+                    <video
+                      src={url}
+                      controls
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={url}
+                      alt={`media-${idx}`}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
+
         {scheduledDate && (
           <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
             <Clock size={16} /> Scheduled for: {scheduledDate.toLocaleString()}
@@ -104,20 +126,30 @@ export default function CreatePost({
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-3">
             {/* Image */}
-            <button onClick={() => fileInputRef.current?.click()}>
-              <ImageIcon size={20} className="text-primary hover:text-main transition-colors duration-300 ease-in-out" />
-            </button>
+            {media.length < 4 && (
+              <button onClick={() => fileInputRef.current?.click()}>
+                <ImageIcon
+                  size={20}
+                  className="text-primary hover:text-main transition-colors duration-300 ease-in-out"
+                />
+              </button>
+            )}
+
             <input
               ref={fileInputRef}
               type="file"
-              accept="image/*"
+              accept="image/*,video/*"
               className="hidden"
-              onChange={handleImageChange}
+              onChange={handleMediaChange}
+              multiple
             />
 
             {/* Emoji */}
             <button onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
-              <Smile size={20} className="text-primary hover:text-main transition-colors duration-300 ease-in-out" />
+              <Smile
+                size={20}
+                className="text-primary hover:text-main transition-colors duration-300 ease-in-out"
+              />
             </button>
 
             {/* Schedule date */}
@@ -129,7 +161,10 @@ export default function CreatePost({
                 dateFormat="Pp"
                 customInput={
                   <button>
-                    <Calendar size={20} className="text-primary hover:text-main transition-colors duration-300 ease-in-out" />
+                    <Calendar
+                      size={20}
+                      className="text-primary hover:text-main transition-colors duration-300 ease-in-out"
+                    />
                   </button>
                 }
               />
