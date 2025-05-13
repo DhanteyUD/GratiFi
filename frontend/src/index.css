@@ -134,7 +134,7 @@ h2,
   width: auto !important;
   font-size: 14px !important;
   font-weight: 400 !important;
-  color: var(--white) !important;
+  color: var(--main) !important;
   font-family: var(--jetBrains) !important;
 }
 
@@ -150,8 +150,8 @@ h2,
   border-radius: 0 !important;
   padding: 0 20px !important;
   margin-bottom: 0 !important;
-  background: var(--main) !important;
-  border-bottom: 10px solid var(--primary) !important;
+  background: var(--white) !important;
+  border-bottom: 10px solid var(--main) !important;
 }
 
 .Toastify__toast::before,
@@ -217,7 +217,7 @@ h2,
     width: auto !important;
     font-size: 14px !important;
     font-weight: 400 !important;
-    color: var(--white) !important;
+    color: var(--main) !important;
     font-family: var(--jetBrains) !important;
   }
 }

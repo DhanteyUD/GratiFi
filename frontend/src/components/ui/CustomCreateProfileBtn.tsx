@@ -3,6 +3,7 @@ import { configKeys } from "@/config";
 import { useQueryClient } from "@tanstack/react-query";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
+import UseScreenSize from "@/hooks/UseScreenSize";
 import axios from "axios";
 import storageService from "@/services/storage.service";
 
@@ -20,6 +21,7 @@ export default function CustomCreateAccountBtn({
   children?: React.ReactNode;
 }) {
   const queryClient = useQueryClient();
+  const { md } = UseScreenSize();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleCreateProfile = useCallback(async () => {
@@ -48,7 +50,7 @@ export default function CustomCreateAccountBtn({
 
           showToastSuccess(
             "Profile created successfully!",
-            "top-right",
+            md ? "top-center" : "bottom-right",
             5000,
             true
           );
@@ -75,7 +77,7 @@ export default function CustomCreateAccountBtn({
       setLoading(false);
       queryClient.invalidateQueries({ queryKey: ["profile"] });
     }
-  }, [queryClient, selectedProfile, setIsModalOpen]);
+  }, [md, queryClient, selectedProfile, setIsModalOpen]);
 
   return (
     <button

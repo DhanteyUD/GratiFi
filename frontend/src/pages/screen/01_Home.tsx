@@ -92,7 +92,7 @@ function Home() {
 
         <div className="flex gap-5 items-center mt-4 justify-end h-[40px]">
           <button
-            className="px-5 py-3 bg-primary text-main hover:bg-primaryHover font-calSans h-full"
+            className="px-5 bg-compulsory/80 text-white font-calSans h-full transition-all duration-300 ease-in-out"
             onClick={() => setIsModalOpen(false)}
           >
             Close
@@ -101,9 +101,9 @@ function Home() {
             disabled={!selectedProfile}
             selectedProfile={selectedProfile ?? undefined}
             className={clsx(
-              "flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 h-full py-3 text-sm w-[220px] md:text-base",
+              "flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 h-full text-sm w-[220px] md:text-base",
               selectedProfile
-                ? "bg-primary hover:bg-primaryHover cursor-pointer"
+                ? "bg-primary cursor-pointer"
                 : "bg-gray-300 cursor-not-allowed"
             )}
             setIsModalOpen={setIsModalOpen}

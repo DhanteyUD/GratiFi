@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
+import UseScreenSize from "@/hooks/UseScreenSize";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
 import axios from "axios";
@@ -20,6 +21,7 @@ export default function CustomCreateAccountBtn({
 }) {
   const navigate = useNavigate();
   const { signIn } = useUser();
+  const { md } = UseScreenSize();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleCreateAccount = useCallback(async () => {
@@ -48,7 +50,12 @@ export default function CustomCreateAccountBtn({
           storageService.setToken(app_token);
           storageService.setUser(data);
 
-          showToastSuccess(message, "top-right", 5000, true);
+          showToastSuccess(
+            message,
+            md ? "top-center" : "bottom-right",
+            5000,
+            true
+          );
 
           navigate("/home");
         }
@@ -69,7 +76,7 @@ export default function CustomCreateAccountBtn({
     } finally {
       setLoading(false);
     }
-  }, [navigate, selectedProfile, signIn]);
+  }, [md, navigate, selectedProfile, signIn]);
 
   return (
     <button
