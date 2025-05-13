@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { moreMenuItems } from "@/routes/path";
 import clsx from "clsx";
-import storageService from "@/services/storage.service";
 
 interface MenuItem {
   path: string;
@@ -180,8 +179,8 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
             {moreMenuItems.map((item, index) => {
               const handleAction = (action: string): void => {
                 if (action === "Log out") {
+                  localStorage.clear();
                   sessionStorage.clear();
-                  storageService.clearStorage();
 
                   navigate("/");
                 }
