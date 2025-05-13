@@ -11,6 +11,6 @@ export const profiles = [
     icon: Star,
     title: "GratiStar",
     subtitle:
-      "Monetize your influence, engage your audience, and earn rewards.",
+      "Monetize your contents, engage your audience, and earn rewards.",
   },
 ];

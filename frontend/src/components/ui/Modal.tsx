@@ -1,3 +1,4 @@
+// src/components/Modal.tsx
 import React from "react";
 import { X } from "lucide-react";
 import clsx from "clsx";
@@ -20,22 +21,26 @@ const Modal: React.FC<ModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div
         className={clsx(
-          "relative bg-white rounded-lg shadow-xl p-6 w-full max-w-md",
+          "bg-white rounded-xl w-auto p-6 relative shadow-xl",
           className
         )}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-600 hover:text-black"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        {title && <h2 className="text-lg font-semibold mb-4">{title}</h2>}
-
+        <div className="flex items-center mb-4">
+          {title && (
+            <h1 className="text-lg font-semibold font-calSans bg-secondary text-main">
+              {title}
+            </h1>
+          )}
+          <button
+            onClick={onClose}
+            className="z-[2] absolute group top-4 right-4 text-gray-500 hover:text-black p-1 rounded-full hover:bg-primaryHover cursor_pointer transition-colors duration-300"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
         {children}
       </div>
     </div>
