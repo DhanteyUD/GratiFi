@@ -58,7 +58,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
           onClick={() => (goBack ? goBack() : navigate(-1))}
         />
 
-        <h1 className="hidden md:flex text-main font-calSans text-[20px] md:text-[25px] font-[700]">
+        <h1 className="hidden md:flex text-main font-calSans text-[20px] md:text-[25px] font-[700] bg-secondary">
           {helperService.capitalize(currentPage)}
         </h1>
       </div>
