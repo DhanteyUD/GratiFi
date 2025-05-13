@@ -117,11 +117,7 @@ export default function CreatePost({
         <div
           className={clsx(
             "text-right text-sm mt-1",
-            text.length > characterLimit
-              ? "text-red-600"
-              : text.length > characterLimit - 30
-              ? "text-orange-500"
-              : "text-gray-500"
+            text.length > characterLimit ? "text-red-600" : "text-gray-500"
           )}
         >
           {text.length}/{characterLimit}
