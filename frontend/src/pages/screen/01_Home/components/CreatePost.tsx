@@ -89,6 +89,14 @@ export default function CreatePost({
         body: formData,
       });
 
+      onPost({
+        audience: selectedAudience.value,
+        text,
+        media: media.length
+          ? media.map((file) => URL.createObjectURL(file)).join(",")
+          : null,
+        scheduledAt: schedule || new Date(),
+      });
       setText("");
       setMedia([]);
       setSchedule(null);
