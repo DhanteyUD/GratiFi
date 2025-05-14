@@ -6,6 +6,8 @@ import {
   Loader2,
   Clock,
   ChevronDown,
+  Earth,
+  Users,
 } from "lucide-react";
 import EmojiPicker from "./EmojiPicker";
 import DatePicker from "react-datepicker";
@@ -24,8 +26,8 @@ type CreatePostProps = {
 };
 
 const audienceOptions = [
-  { label: "Everyone", value: "everyone" },
-  { label: "My Communities", value: "communities" },
+  { label: "Everyone", value: "everyone", icon: Earth },
+  { label: "My Communities", value: "communities", icon: Users },
 ];
 
 export default function CreatePost({
@@ -110,7 +112,7 @@ export default function CreatePost({
           </button>
 
           {showAudienceMenu && (
-            <div className="absolute mt-1 bg-white border border-gray-200 rounded-md shadow-md z-10 w-48">
+            <div className="absolute mt-1 bg-white border border-gray-200 rounded-md shadow-md z-10 w-48 py-2 text-main">
               <ul className="text-sm">
                 {audienceOptions.map((option) => (
                   <li key={option.value}>
@@ -119,8 +121,9 @@ export default function CreatePost({
                         setSelectedAudience(option);
                         setShowAudienceMenu(false);
                       }}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                     >
+                      <option.icon size={20} />
                       {option.label}
                     </button>
                   </li>
