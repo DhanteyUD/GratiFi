@@ -6,12 +6,21 @@ import {
   Loader2,
   Clock,
   ChevronDown,
+  X,
 } from "lucide-react";
 import { audienceOptions } from "@/json";
 import EmojiPicker from "./EmojiPicker";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from "clsx";
+import moment from "moment";
+
+// {
+//     "audience": "communities",
+//     "text": "😆🫣🤣 A bit of everything",
+//     "media": "blob:http://localhost:5173/b26a8ce8-1d77-4fa3-8d92-56c218ea0bc0,blob:http://localhost:5173/fbf20add-18ca-435a-9a09-dfe95ffb1392,blob:http://localhost:5173/66107d84-4ac8-4bb3-bce9-d0073789e850,blob:http://localhost:5173/e13da431-d229-4aa5-aaf1-86c2c8b7ca5f",
+//     "scheduledAt": "2025-05-15T01:30:00.000Z"
+// }
 
 type CreatePostProps = {
   onPost: (newPost: {
@@ -115,7 +124,7 @@ export default function CreatePost({
         className="w-10 h-10 rounded-full object-cover mr-4"
       />
 
-      <div className="flex-1">
+      <div className="relative flex-1">
         {/* Audience Dropdown */}
         <div className="relative mb-5">
           <button
@@ -190,14 +199,13 @@ export default function CreatePost({
                   key={idx}
                   className="relative w-full h-40 bg-black rounded-lg overflow-hidden"
                 >
-                  {/* Remove button */}
                   <button
                     onClick={() =>
                       setMedia((prev) => prev.filter((_, i) => i !== idx))
                     }
-                    className="absolute top-1 right-1 z-10 bg-black/50 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-black/80"
+                    className="absolute top-1 right-1 bg-black/50 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-black/80 p-1 transition-all duration-300 ease-in-out"
                   >
-                    ×
+                    <X />
                   </button>
 
                   {isVideo ? (
@@ -230,7 +238,10 @@ export default function CreatePost({
 
         {schedule && (
           <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
-            <Clock size={16} /> Will send on: {schedule.toLocaleString()}
+            <Clock size={16} /> Will send on{" "}
+            {moment(schedule.toLocaleString(), "DD/MM/YYYY, HH:mm:ss").format(
+              "ddd, MMM D, YYYY [at] h:mm A"
+            )}
           </p>
         )}
 
@@ -307,7 +318,7 @@ export default function CreatePost({
         </div>
 
         {showEmojiPicker && (
-          <div className="mt-2 relative z-10">
+          <div className="mt-2 absolute z-10 top-0">
             <EmojiPicker onSelect={handleEmojiSelect} />
           </div>
         )}

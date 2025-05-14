@@ -8,7 +8,7 @@ type EmojiPickerProps = {
 export default function EmojiPicker({ onSelect }: EmojiPickerProps) {
   return (
     <div className="absolute bg-white shadow-lg rounded-lg">
-      <Picker data={data} onEmojiSelect={onSelect} theme="light" />
+      <Picker data={data} onEmojiSelect={onSelect} theme="dark" />
     </div>
   );
 }
