@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// POST:
+// GET:
 const getUserProfile = async (
   req: Request,
   res: Response,
@@ -35,4 +35,20 @@ const getUserProfile = async (
   return;
 };
 
-export { getUserProfile };
+// GET:
+const getAllUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  const users = await prisma.user.findMany();
+
+  res.status(200).json({
+    message: "Users fetched successfully",
+    users,
+  });
+
+  return;
+};
+
+export { getUserProfile, getAllUsers };
