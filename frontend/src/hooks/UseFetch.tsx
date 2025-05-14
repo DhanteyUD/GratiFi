@@ -6,6 +6,7 @@ function FetchUserProfile() {
     queryKey: ["profile"],
     queryFn: fetchProfile,
     select: (data) => data?.data?.user,
+    staleTime: Infinity,
   });
 
   return { fetchingProfile, profile };
