@@ -77,16 +77,17 @@ export default function PostCard({
                   media.length === 3 && "grid-cols-2 grid-rows-2",
                   media.length >= 4 && "grid-cols-2 grid-rows-2"
                 )}
-                style={
-                  media.length === 3
-                    ? {
-                        gridTemplateAreas: `
-              "media1 media2"
-              "media1 media3"
-            `,
-                      }
-                    : undefined
-                }
+                style={{
+                  ...(media.length === 3 && {
+                    gridTemplateAreas: `
+          "media1 media2"
+          "media1 media3"
+        `,
+                  }),
+                  ...(media.length > 2 && {
+                    maxHeight: "300px", // adjust this value to your preference
+                  }),
+                }}
               >
                 {media.map((m, idx) => {
                   let gridArea = undefined;
@@ -103,9 +104,10 @@ export default function PostCard({
                       src={m}
                       alt={`media-${idx}`}
                       className={clsx(
-                        "object-cover w-full",
-                        media.length > 2 && "h-full",
-                        media.length === 3 && "aspect-square"
+                        "object-cover w-full h-full",
+                        media.length === 1 && "rounded-2xl",
+                        media.length === 2 && "aspect-video",
+                        media.length > 2 && "rounded-none"
                       )}
                       style={gridArea ? { gridArea } : {}}
                     />
