@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { MoveLeft, Search, Bell, Fan, Star } from "lucide-react";
 import { UserButton } from "@civic/auth/react";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile } from "@/hooks/UseFetch";
 import clsx from "clsx";
 import helperService from "../../services/helper.service";
 
@@ -15,7 +15,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
-  const { profile } = FetchProfile();
+  const { profile } = FetchUserProfile();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 

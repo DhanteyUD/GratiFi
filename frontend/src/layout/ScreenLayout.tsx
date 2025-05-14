@@ -10,7 +10,7 @@ import { getScreenMenuItems } from "@/routes/path";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
 import { PanelLeftClose } from "lucide-react";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile } from "@/hooks/UseFetch";
 import UseScreenSize from "@/hooks/UseScreenSize";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
@@ -29,7 +29,7 @@ function ScreenLayout({
   const [isSideNavCollapsed, setIsSideNavCollapsed] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-  const { profile } = FetchProfile();
+  const { profile } = FetchUserProfile();
 
   const handleToggleSidebar = () => {
     setIsSideNavCollapsed((prev) => !prev);

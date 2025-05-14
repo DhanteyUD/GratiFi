@@ -4,7 +4,7 @@ import { Modal } from "@/components";
 import { profiles } from "@/json";
 import { Fan, Star } from "lucide-react";
 import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile } from "@/hooks/UseFetch";
 import Tabs from "./components/Tabs";
 import CreatePost from "./components/CreatePost";
 import clsx from "clsx";
@@ -13,7 +13,7 @@ import helperService from "@/services/helper.service";
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
-  const { fetchingProfile, profile } = FetchProfile();
+  const { fetchingProfile, profile } = FetchUserProfile();
 
   const [activeTab, setActiveTab] = useState("For you");
 

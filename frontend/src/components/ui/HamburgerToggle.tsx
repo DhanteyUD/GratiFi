@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
 import { moreMenuItems } from "@/routes/path";
 import { Fan, Star } from "lucide-react";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile } from "@/hooks/UseFetch";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
@@ -19,7 +19,7 @@ interface HamburgerToggleProps {
 
 export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
   const navigate = useNavigate();
-  const { profile } = FetchProfile();
+  const { profile } = FetchUserProfile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleAction = (action: string): void => {

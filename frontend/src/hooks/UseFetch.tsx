@@ -1,11 +1,7 @@
 import { fetchProfile } from "@/api";
-import {
-  useQuery,
-  // useMutation,
-  // useQueryClient
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
-export function FetchProfile() {
+function FetchUserProfile() {
   const { isPending: fetchingProfile, data: profile = {} } = useQuery({
     queryKey: ["profile"],
     queryFn: fetchProfile,
@@ -14,3 +10,5 @@ export function FetchProfile() {
 
   return { fetchingProfile, profile };
 }
+
+export { FetchUserProfile };
