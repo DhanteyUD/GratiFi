@@ -6,9 +6,8 @@ import {
   Loader2,
   Clock,
   ChevronDown,
-  Earth,
-  Users,
 } from "lucide-react";
+import { audienceOptions } from "@/json";
 import EmojiPicker from "./EmojiPicker";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,11 +23,6 @@ type CreatePostProps = {
   userAvatar: string;
   userType: "GratiFan" | "GratiStar";
 };
-
-const audienceOptions = [
-  { label: "Everyone", value: "everyone", icon: Earth },
-  { label: "My Communities", value: "communities", icon: Users },
-];
 
 export default function CreatePost({
   onPost,

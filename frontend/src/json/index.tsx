@@ -1,4 +1,4 @@
-import { FanIcon, Star } from "lucide-react";
+import { FanIcon, Star, Earth, UsersRound } from "lucide-react";
 
 export const profiles = [
   {
@@ -12,4 +12,9 @@ export const profiles = [
     title: "GratiStar",
     subtitle: "Monetize your contents, engage your audience, and earn rewards.",
   },
+];
+
+export const audienceOptions = [
+  { label: "Everyone", value: "everyone", icon: Earth },
+  { label: "My Communities", value: "communities", icon: UsersRound },
 ];
