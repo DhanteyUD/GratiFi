@@ -72,7 +72,7 @@ export default function PostCard({
             {media.length > 0 && (
               <div
                 className={clsx(
-                  "mt-2 grid gap-1 rounded-[20px] overflow-hidden",
+                  "mt-2 grid gap-[2px] rounded-[20px] overflow-hidden",
                   media.length === 1 && "grid-cols-1",
                   media.length === 2 && "grid-cols-2 h-[400px]",
                   media.length === 3 && "grid-cols-2 grid-rows-2",
