@@ -85,7 +85,7 @@ export default function CreatePost({
       <div className="flex-1">
         <div className="relative w-full overflow-auto border-b border-gray-300">
           <div
-            className="absolute top-0 left-0 w-full p-3 text-base font-normal break-words whitespace-pre-wrap z-0"
+            className="absolute top-0 left-0 w-full text-base font-normal break-words whitespace-pre-wrap z-0"
             aria-hidden="true"
             style={{
               minHeight: "3.5rem",
@@ -100,7 +100,7 @@ export default function CreatePost({
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="What's happening?"
-            className="relative z-[1] text-base p-3 w-full resize-none outline-none text-main placeholder-gray-400 bg-transparent"
+            className="relative z-[1] text-base w-full resize-none outline-none text-main placeholder-gray-400 bg-transparent"
             style={{
               lineHeight: "1.5",
               backgroundColor: "transparent",
