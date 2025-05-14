@@ -15,10 +15,10 @@ import clsx from "clsx";
 
 type CreatePostProps = {
   onPost: (newPost: {
-    text: string;
-    image: string | null;
-    createdAt: Date;
     audience: string;
+    text: string;
+    media: string | null;
+    scheduledAt: Date;
   }) => void;
   userAvatar: string;
   userType: "GratiFan" | "GratiStar";
@@ -36,8 +36,8 @@ export default function CreatePost({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [media, setMedia] = useState<File[]>([]);
-  const [scheduledDate, setScheduledDate] = useState<Date | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [schedule, setSchedule] = useState<Date | null>(null);
   const [isPosting, setIsPosting] = useState(false);
 
   const [selectedAudience, setSelectedAudience] = useState(audienceOptions[0]);
@@ -69,21 +69,34 @@ export default function CreatePost({
   };
 
   const handlePost = async () => {
+    if (overLimit || isPosting || (!text && media.length === 0)) return;
+
     setIsPosting(true);
 
-    setTimeout(() => {
-      onPost({
-        text,
-        image: media.length ? URL.createObjectURL(media[0]) : null,
-        createdAt: scheduledDate ?? new Date(),
-        audience: selectedAudience.value,
+    const formData = new FormData();
+    formData.append("audience", selectedAudience.value);
+    formData.append("text", text);
+    media.forEach((file) => {
+      formData.append("media", file);
+    });
+    if (schedule) {
+      formData.append("scheduledAt", schedule.toISOString());
+    }
+
+    try {
+      await fetch("/api/posts", {
+        method: "POST",
+        body: formData,
       });
 
       setText("");
       setMedia([]);
-      setScheduledDate(null);
+      setSchedule(null);
+    } catch (err) {
+      console.error("Post submission failed:", err);
+    } finally {
       setIsPosting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -170,38 +183,46 @@ export default function CreatePost({
         </div>
 
         {/* Media Preview */}
-        {media.length > 0 && (
-          <div className="mt-2 grid grid-cols-2 gap-3">
-            {media.map((file, idx) => {
-              const url = URL.createObjectURL(file);
-              const isVideo = file.type.startsWith("video/");
-              return (
-                <div
-                  key={idx}
-                  className="relative w-full h-40 bg-black rounded-lg overflow-hidden"
+        <div className="mt-2 grid grid-cols-2 gap-3">
+          {media.map((file, idx) => {
+            const url = URL.createObjectURL(file);
+            const isVideo = file.type.startsWith("video/");
+            return (
+              <div
+                key={idx}
+                className="relative w-full h-40 bg-black rounded-lg overflow-hidden"
+              >
+                {/* Remove button */}
+                <button
+                  onClick={() =>
+                    setMedia((prev) => prev.filter((_, i) => i !== idx))
+                  }
+                  className="absolute top-1 right-1 z-10 bg-black/50 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-black/80"
                 >
-                  {isVideo ? (
-                    <video
-                      src={url}
-                      controls
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <img
-                      src={url}
-                      alt={`media-${idx}`}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
+                  ×
+                </button>
 
-        {scheduledDate && (
+                {isVideo ? (
+                  <video
+                    src={url}
+                    controls
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={url}
+                    alt={`media-${idx}`}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {schedule && (
           <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
-            <Clock size={16} /> Scheduled for: {scheduledDate.toLocaleString()}
+            <Clock size={16} /> Scheduled for: {schedule.toLocaleString()}
           </p>
         )}
 
@@ -237,8 +258,8 @@ export default function CreatePost({
             {/* Date Picker */}
             <div className="flex pt-1">
               <DatePicker
-                selected={scheduledDate}
-                onChange={(date) => setScheduledDate(date)}
+                selected={schedule}
+                onChange={(date) => setSchedule(date)}
                 showTimeSelect
                 dateFormat="Pp"
                 customInput={
@@ -254,11 +275,17 @@ export default function CreatePost({
           </div>
 
           <button
-            disabled={!text || overLimit || isPosting}
+            disabled={
+              (text.trim() === "" && media.length === 0) ||
+              overLimit ||
+              isPosting
+            }
             onClick={handlePost}
             className={clsx(
               "bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition",
-              !text || overLimit || isPosting
+              (text.trim() === "" && media.length === 0) ||
+                overLimit ||
+                isPosting
                 ? "bg-gray-400 text-white opacity-50 cursor-not-allowed"
                 : ""
             )}
