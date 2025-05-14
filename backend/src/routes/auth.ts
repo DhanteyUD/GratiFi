@@ -1,7 +1,6 @@
 import { Router } from "express";
-import { createAccount } from "@/controllers/authController";
-import { login } from "@/controllers/authController";
 import { asyncHandler } from "@/middleware/asyncHandler";
+import { createAccount, login } from "@/controllers/authController";
 
 const router = Router();
 

@@ -6,7 +6,8 @@ import { sendWelcomeEmail } from "@/utils/emailService";
 
 const prisma = new PrismaClient();
 
-export const createAccount = async (
+// POST:
+const createAccount = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -53,7 +54,8 @@ export const createAccount = async (
   return;
 };
 
-export const login = async (
+// POST:
+const login = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -104,3 +106,5 @@ export const login = async (
 
   return;
 };
+
+export { createAccount, login };

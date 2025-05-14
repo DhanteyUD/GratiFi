@@ -1,3 +1,6 @@
+// npx prisma generate
+// npx prisma migrate dev --name <label>
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,15 +11,27 @@ datasource db {
 }
 
 model User {
-  id         String   @id @default(cuid())
-  name       String
-  email      String   @unique
-  picture    String?
-  user_type  String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  picture   String?
+  user_type String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Post      Post[]
 }
 
+model Post {
+  id          String    @id @default(uuid())
+  text        String?
+  media       String[] 
+  audience    String
+  scheduledAt DateTime?
+  createdAt   DateTime  @default(now())
+  isPublished Boolean   @default(false)
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    String
+}
 
 // model Creator {
 //   id      Int    @id @default(autoincrement())
