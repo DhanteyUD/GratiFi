@@ -88,15 +88,29 @@ export default function PostCard({
                 }}
               >
                 {media.map((m, idx) => {
-                  let gridArea = undefined;
-
+                  let gridArea;
                   if (media.length === 3) {
                     if (idx === 0) gridArea = "media1";
                     if (idx === 1) gridArea = "media2";
                     if (idx === 2) gridArea = "media3";
                   }
 
-                  return (
+                  const isVideo = /\.(mp4|webm|ogg)$/i.test(m);
+
+                  return isVideo ? (
+                    <video
+                      key={idx}
+                      src={m}
+                      controls
+                      className={clsx(
+                        "w-full h-full object-cover",
+                        media.length === 1 && "rounded-2xl aspect-video",
+                        media.length === 2 && "aspect-video",
+                        media.length > 2 && "rounded-none"
+                      )}
+                      style={gridArea ? { gridArea } : {}}
+                    />
+                  ) : (
                     <img
                       key={idx}
                       src={m}
