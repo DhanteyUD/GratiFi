@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Modal } from "@/components";
 import { profiles } from "@/json";
-import { Fan, Star } from "lucide-react";
 import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
 import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
+import { UserTypeIcon } from "@/components";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import Tabs from "./components/Tabs";
@@ -42,11 +42,6 @@ function Home() {
   });
 
   const [activeTab, setActiveTab] = useState("For you");
-
-  const renderIcon = () => {
-    if (selectedProfile === "GratiFan") return <Fan size={18} />;
-    if (selectedProfile === "GratiStar") return <Star size={18} />;
-  };
 
   useEffect(() => {
     if (!fetchingUserProfile && helperService.isEmptyObject(userProfile)) {
@@ -168,7 +163,9 @@ function Home() {
             setIsModalOpen={setIsModalOpen}
           >
             {selectedProfile ? `Continue as ${selectedProfile}` : "Select"}
-            {selectedProfile && renderIcon()}
+            {selectedProfile && (
+              <UserTypeIcon userType={selectedProfile} size={18} />
+            )}
           </CustomCreateProfileBtn>
         </div>
       </Modal>

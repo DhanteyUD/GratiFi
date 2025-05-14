@@ -71,6 +71,14 @@ class HelperService {
 
     return Time.format("MMM D");
   }
+
+  getUserTypeBg(userType: string) {
+    return userType === "GratiStar" ? "bg-secondary" : "bg-primary";
+  }
+
+  getUserTypeColor(userType: string) {
+    return userType === "GratiStar" ? "text-secondary" : "text-primary";
+  }
 }
 
 const helperService = new HelperService();

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
 import { moreMenuItems } from "@/routes/path";
-import { Fan, Star } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
+import UserTypeIcon from "./UserTypeIcon";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
@@ -31,11 +31,6 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
     }
   };
 
-  const renderIcon = (userType: string) => {
-    if (userType === "GratiFan") return <Fan size={18} />;
-    if (userType === "GratiStar") return <Star size={18} />;
-  };
-
   return (
     <>
       <div className="fixed top-[15px] right-[1.25rem] h-12 bg-[#2a2a2a] rounded-[10px] z-[999] flex items-center justify-center">
@@ -55,12 +50,13 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
           <div className="flex justify-end w-full">
             <div
               className={clsx(
-                "gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full",
+                "gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 rounded-full",
+                helperService.getUserTypeBg(userProfile?.user_type),
                 helperService.isEmptyObject(userProfile) ? "hidden" : "flex"
               )}
             >
               <p>{userProfile?.user_type}</p>
-              {renderIcon(userProfile?.user_type || "")}
+              <UserTypeIcon userType={userProfile?.user_type} size={18} />
             </div>
           </div>
 

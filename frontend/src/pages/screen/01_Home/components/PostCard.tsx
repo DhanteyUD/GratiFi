@@ -10,6 +10,7 @@ import {
 import { UserTypeIcon } from "@/components";
 import gratifiIcon from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
+import helperService from "@/services/helper.service";
 
 type PostProps = {
   authorImage: string;
@@ -51,7 +52,7 @@ export default function PostCard({
               <span
                 className={clsx(
                   "rounded-full p-1",
-                  userType === "GratiStar" ? "bg-secondary" : "bg-primary"
+                  helperService.getUserTypeBg(userType)
                 )}
               >
                 <UserTypeIcon userType={userType} size={8} />
@@ -73,19 +74,16 @@ export default function PostCard({
                 className={clsx(
                   "mt-2 grid gap-1 rounded-[20px] overflow-hidden",
                   media.length === 1 && "grid-cols-1",
-                  media.length === 2 && "grid-cols-2",
+                  media.length === 2 && "grid-cols-2 h-[400px]",
                   media.length === 3 && "grid-cols-2 grid-rows-2",
                   media.length >= 4 && "grid-cols-2 grid-rows-2"
                 )}
                 style={{
                   ...(media.length === 3 && {
-                    gridTemplateAreas: `
-          "media1 media2"
-          "media1 media3"
-        `,
+                    gridTemplateAreas: `"media1 media2" "media1 media3"`,
                   }),
                   ...(media.length > 2 && {
-                    maxHeight: "300px", // adjust this value to your preference
+                    maxHeight: "300px",
                   }),
                 }}
               >
@@ -105,7 +103,7 @@ export default function PostCard({
                       alt={`media-${idx}`}
                       className={clsx(
                         "object-cover w-full h-full",
-                        media.length === 1 && "rounded-2xl",
+                        media.length === 1 && "rounded-2xl aspect-square",
                         media.length === 2 && "aspect-video",
                         media.length > 2 && "rounded-none"
                       )}
