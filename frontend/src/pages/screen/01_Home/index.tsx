@@ -38,7 +38,6 @@ function Home() {
         <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto md:border-r-[1px] border-gray-300">
           <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
           <CreatePost
-            onPost={(newPost) => console.log("Posted:", newPost)}
             userAvatar={profile.picture}
             userType={profile?.user_type}
           />

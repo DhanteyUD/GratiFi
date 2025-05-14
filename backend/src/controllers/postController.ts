@@ -108,7 +108,7 @@ const createPost = async (req: Request, res: Response) => {
     });
 
     return res.status(201).json({
-      message: "Post created successfully!",
+      message: "Your post was sent.",
       data: post,
     });
   });

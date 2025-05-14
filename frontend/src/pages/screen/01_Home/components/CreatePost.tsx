@@ -16,23 +16,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from "clsx";
 import moment from "moment";
+import { showToastSuccess } from "@/utils/notification.utils";
 
 type CreatePostProps = {
-  onPost: (newPost: {
-    audience: string;
-    text: string;
-    media: string | null;
-    scheduledAt: Date;
-  }) => void;
   userAvatar: string;
   userType: "GratiFan" | "GratiStar";
 };
 
-export default function CreatePost({
-  onPost,
-  userAvatar,
-  userType,
-}: CreatePostProps) {
+export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
   const queryClient = useQueryClient();
 
   const [text, setText] = useState("");
@@ -75,17 +66,9 @@ export default function CreatePost({
 
   const { isPending: creatingPost, mutate: createPostMutation } = useMutation({
     mutationFn: createPost,
-    onSuccess: (data, variables) => {
-      onPost({
-        audience: variables.audience,
-        text: variables.text,
-        media: variables.media.length
-          ? variables.media.map((file) => URL.createObjectURL(file)).join(",")
-          : null,
-        scheduledAt: variables.schedule || new Date(),
-      });
-
+    onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["post"] });
+      showToastSuccess(data?.message, "bottom-center", 3000, true);
 
       setText("");
       setMedia([]);
