@@ -92,6 +92,13 @@ a {
   width: 16px !important;
 }
 
+.react-datepicker-popper {
+  padding-left: 1.5rem !important;
+  width: 400px !important;
+  display: flex !important;
+  justify-content: right !important;
+}
+
 .app-scroll-bar {
   position: fixed;
   top: 0;
