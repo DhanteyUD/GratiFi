@@ -1,5 +1,12 @@
 import { useRef, useState } from "react";
-import { Smile, Calendar, ImageIcon, Loader2, Clock } from "lucide-react";
+import {
+  Smile,
+  Calendar,
+  ImageIcon,
+  Loader2,
+  Clock,
+  ChevronDown,
+} from "lucide-react";
 import EmojiPicker from "./EmojiPicker";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,10 +17,16 @@ type CreatePostProps = {
     text: string;
     image: string | null;
     createdAt: Date;
+    audience: string;
   }) => void;
   userAvatar: string;
   userType: "GratiFan" | "GratiStar";
 };
+
+const audienceOptions = [
+  { label: "Everyone", value: "everyone" },
+  { label: "My Communities", value: "communities" },
+];
 
 export default function CreatePost({
   onPost,
@@ -30,6 +43,9 @@ export default function CreatePost({
   const [scheduledDate, setScheduledDate] = useState<Date | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
+
+  const [selectedAudience, setSelectedAudience] = useState(audienceOptions[0]);
+  const [showAudienceMenu, setShowAudienceMenu] = useState(false);
 
   const getFormattedText = () => {
     const allowed = text.slice(0, characterLimit);
@@ -59,12 +75,12 @@ export default function CreatePost({
   const handlePost = async () => {
     setIsPosting(true);
 
-    // Simulate API post delay
     setTimeout(() => {
       onPost({
         text,
         image: media.length ? URL.createObjectURL(media[0]) : null,
         createdAt: scheduledDate ?? new Date(),
+        audience: selectedAudience.value,
       });
 
       setText("");
@@ -83,9 +99,38 @@ export default function CreatePost({
       />
 
       <div className="flex-1">
-        <div className="mb-5">
-          <p>Everyone</p>
+        {/* Audience Dropdown */}
+        <div className="relative mb-5">
+          <button
+            onClick={() => setShowAudienceMenu((prev) => !prev)}
+            className="flex items-center gap-1 text-sm text-primary font-medium px-3 py-1 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+          >
+            {selectedAudience.label}
+            <ChevronDown size={16} />
+          </button>
+
+          {showAudienceMenu && (
+            <div className="absolute mt-1 bg-white border border-gray-200 rounded-md shadow-md z-10 w-48">
+              <ul className="text-sm">
+                {audienceOptions.map((option) => (
+                  <li key={option.value}>
+                    <button
+                      onClick={() => {
+                        setSelectedAudience(option);
+                        setShowAudienceMenu(false);
+                      }}
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                    >
+                      {option.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
+
+        {/* Textarea Overlay */}
         <div className="relative w-full overflow-auto border-b border-gray-300">
           <div
             className="absolute top-0 left-0 w-full text-base font-normal break-words whitespace-pre-wrap z-0"
@@ -165,7 +210,7 @@ export default function CreatePost({
 
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-3">
-            {/* Image */}
+            {/* Image Upload */}
             {media.length < 4 && (
               <button onClick={() => fileInputRef.current?.click()}>
                 <ImageIcon
@@ -174,7 +219,6 @@ export default function CreatePost({
                 />
               </button>
             )}
-
             <input
               ref={fileInputRef}
               type="file"
@@ -184,7 +228,7 @@ export default function CreatePost({
               multiple
             />
 
-            {/* Emoji */}
+            {/* Emoji Picker */}
             <button onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
               <Smile
                 size={20}
@@ -192,7 +236,7 @@ export default function CreatePost({
               />
             </button>
 
-            {/* Schedule date */}
+            {/* Date Picker */}
             <div className="flex pt-1">
               <DatePicker
                 selected={scheduledDate}
