@@ -171,7 +171,7 @@ export default function CreatePost({
 
         {/* Media Preview */}
         {media.length > 0 && (
-          <div className="mt-2 grid grid-cols-2 gap-3 border border-[red]">
+          <div className="mt-2 grid grid-cols-2 gap-3">
             {media.map((file, idx) => {
               const url = URL.createObjectURL(file);
               const isVideo = file.type.startsWith("video/");
