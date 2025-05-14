@@ -74,39 +74,43 @@ export default function PostCard({
                   "mt-2 grid gap-1 rounded-[20px] overflow-hidden",
                   media.length === 1 && "grid-cols-1",
                   media.length === 2 && "grid-cols-2",
-                  media.length === 3 && "grid-cols-3 grid-rows-2",
+                  media.length === 3 && "grid-cols-2 grid-rows-2",
                   media.length >= 4 && "grid-cols-2 grid-rows-2"
                 )}
                 style={
                   media.length === 3
                     ? {
-                        gridTemplateAreas: `"a b" "a c"`,
+                        gridTemplateAreas: `
+              "media1 media2"
+              "media1 media3"
+            `,
                       }
                     : undefined
                 }
               >
-                {media.map((m, idx) => (
-                  <img
-                    key={idx}
-                    src={m}
-                    alt={`media-${idx}`}
-                    className={clsx(
-                      "object-cover w-full",
-                      media.length > 2 && "h-40",
-                      media.length === 3 &&
-                        (idx === 0
-                          ? "col-span-1 row-span-2"
-                          : "row-span-1 col-span-1")
-                    )}
-                    style={
-                      media.length === 3
-                        ? {
-                            gridArea: idx === 0 ? "a" : idx === 1 ? "b" : "c",
-                          }
-                        : {}
-                    }
-                  />
-                ))}
+                {media.map((m, idx) => {
+                  let gridArea = undefined;
+
+                  if (media.length === 3) {
+                    if (idx === 0) gridArea = "media1";
+                    if (idx === 1) gridArea = "media2";
+                    if (idx === 2) gridArea = "media3";
+                  }
+
+                  return (
+                    <img
+                      key={idx}
+                      src={m}
+                      alt={`media-${idx}`}
+                      className={clsx(
+                        "object-cover w-full",
+                        media.length > 2 && "h-full",
+                        media.length === 3 && "aspect-square"
+                      )}
+                      style={gridArea ? { gridArea } : {}}
+                    />
+                  );
+                })}
               </div>
             )}
           </div>
