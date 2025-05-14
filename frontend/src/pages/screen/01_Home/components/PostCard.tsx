@@ -68,11 +68,47 @@ export default function PostCard({
           <p className="text-sm mt-1 mb-2 text-main">{content}</p>
 
           <div className="rounded-[20px] overflow-hidden">
-            {media.map((m, idx) => (
-              <span key={idx}>
-                <img src={m} />
-              </span>
-            ))}
+            {media.length > 0 && (
+              <div
+                className={clsx(
+                  "mt-2 grid gap-1 rounded-[20px] overflow-hidden",
+                  media.length === 1 && "grid-cols-1",
+                  media.length === 2 && "grid-cols-2",
+                  media.length === 3 && "grid-cols-3 grid-rows-2",
+                  media.length >= 4 && "grid-cols-2 grid-rows-2"
+                )}
+                style={
+                  media.length === 3
+                    ? {
+                        gridTemplateAreas: `"a b" "a c"`,
+                      }
+                    : undefined
+                }
+              >
+                {media.map((m, idx) => (
+                  <img
+                    key={idx}
+                    src={m}
+                    alt={`media-${idx}`}
+                    className={clsx(
+                      "object-cover w-full",
+                      media.length > 2 && "h-40",
+                      media.length === 3 &&
+                        (idx === 0
+                          ? "col-span-1 row-span-2"
+                          : "row-span-1 col-span-1")
+                    )}
+                    style={
+                      media.length === 3
+                        ? {
+                            gridArea: idx === 0 ? "a" : idx === 1 ? "b" : "c",
+                          }
+                        : {}
+                    }
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex justify-between text-gray-500 text-sm mt-3 max-w-md">
