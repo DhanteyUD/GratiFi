@@ -1,20 +1,24 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import { errorMiddleware } from "@/middleware/errorMiddleware";
 import authRoutes from "@/routes/auth";
 import userRoutes from "@/routes/user";
-import { errorMiddleware } from "@/middleware/errorMiddleware";
+import postRoutes from "@/routes/post";
 // import { errorHandler } from "@/middleware/errorHandler";
-// import apiRoutes from "@/routes/api";
 
 dotenv.config();
 
 const app = express();
 app.use(cors(), express.json());
 
-app.use("/api", authRoutes);
-app.use("/api", userRoutes);
-// app.use("/api", apiRoutes);
+const apiRouter = express.Router();
+
+apiRouter.use("/auth", authRoutes);
+apiRouter.use("/user", userRoutes);
+apiRouter.use("/post", postRoutes);
+
+app.use("/api/v1", apiRouter);
 
 app.use(errorMiddleware);
 // app.use(errorHandler);

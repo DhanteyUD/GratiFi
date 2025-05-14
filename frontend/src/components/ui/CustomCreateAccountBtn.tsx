@@ -40,7 +40,7 @@ export default function CustomCreateAccountBtn({
           user_type: selectedProfile,
         };
 
-        const api = `${configKeys.apiURL}/create-account`;
+        const api = `${configKeys.apiURL}/auth/create-account`;
         const res = await axios.post(api, payload);
         const resData = res.data;
 

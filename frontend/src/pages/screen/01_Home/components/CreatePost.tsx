@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createPost } from "@/hooks/UseCreate";
 import {
   Smile,
   Calendar,
@@ -14,13 +16,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from "clsx";
 import moment from "moment";
-
-// {
-//     "audience": "communities",
-//     "text": "😆🫣🤣 A bit of everything",
-//     "media": "blob:http://localhost:5173/b26a8ce8-1d77-4fa3-8d92-56c218ea0bc0,blob:http://localhost:5173/fbf20add-18ca-435a-9a09-dfe95ffb1392,blob:http://localhost:5173/66107d84-4ac8-4bb3-bce9-d0073789e850,blob:http://localhost:5173/e13da431-d229-4aa5-aaf1-86c2c8b7ca5f",
-//     "scheduledAt": "2025-05-15T01:30:00.000Z"
-// }
 
 type CreatePostProps = {
   onPost: (newPost: {
@@ -38,6 +33,8 @@ export default function CreatePost({
   userAvatar,
   userType,
 }: CreatePostProps) {
+  const queryClient = useQueryClient();
+
   const [text, setText] = useState("");
   const characterLimit = userType === "GratiFan" ? 280 : 25000;
   const overLimit = text.length > characterLimit;
@@ -47,7 +44,6 @@ export default function CreatePost({
   const [media, setMedia] = useState<File[]>([]);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [schedule, setSchedule] = useState<Date | null>(null);
-  const [isPosting, setIsPosting] = useState(false);
 
   const [selectedAudience, setSelectedAudience] = useState(audienceOptions[0]);
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
@@ -77,43 +73,38 @@ export default function CreatePost({
     setShowEmojiPicker(false);
   };
 
-  const handlePost = async () => {
-    if (overLimit || isPosting || (!text && media.length === 0)) return;
-
-    setIsPosting(true);
-
-    const formData = new FormData();
-    formData.append("audience", selectedAudience.value);
-    formData.append("text", text);
-    media.forEach((file) => {
-      formData.append("media", file);
-    });
-    if (schedule) {
-      formData.append("scheduledAt", schedule.toISOString());
-    }
-
-    try {
-      await fetch("/api/posts", {
-        method: "POST",
-        body: formData,
-      });
-
+  const { isPending: creatingPost, mutate: createPostMutation } = useMutation({
+    mutationFn: createPost,
+    onSuccess: (data, variables) => {
       onPost({
-        audience: selectedAudience.value,
-        text,
-        media: media.length
-          ? media.map((file) => URL.createObjectURL(file)).join(",")
+        audience: variables.audience,
+        text: variables.text,
+        media: variables.media.length
+          ? variables.media.map((file) => URL.createObjectURL(file)).join(",")
           : null,
-        scheduledAt: schedule || new Date(),
+        scheduledAt: variables.schedule || new Date(),
       });
+
+      queryClient.invalidateQueries({ queryKey: ["post"] });
+
       setText("");
       setMedia([]);
       setSchedule(null);
-    } catch (err) {
-      console.error("Post submission failed:", err);
-    } finally {
-      setIsPosting(false);
-    }
+    },
+    onError: (error) => {
+      console.error("Post submission failed:", error);
+    },
+  });
+
+  const handlePost = async () => {
+    if (overLimit || creatingPost || (!text && media.length === 0)) return;
+
+    createPostMutation({
+      audience: selectedAudience.value,
+      text,
+      media,
+      schedule,
+    });
   };
 
   return (
@@ -297,19 +288,19 @@ export default function CreatePost({
             disabled={
               (text.trim() === "" && media.length === 0) ||
               overLimit ||
-              isPosting
+              creatingPost
             }
             onClick={handlePost}
             className={clsx(
               "bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition",
               (text.trim() === "" && media.length === 0) ||
                 overLimit ||
-                isPosting
+                creatingPost
                 ? "bg-gray-400 text-white opacity-50 cursor-not-allowed"
                 : ""
             )}
           >
-            {isPosting ? (
+            {creatingPost ? (
               <Loader2 className="animate-spin" size={18} />
             ) : (
               "Post"

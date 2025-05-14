@@ -25,15 +25,14 @@ const createPost = async ({
       formData.append("scheduledAt", schedule.toISOString());
     }
 
-    const response = await axiosInstance.post("/api/posts", formData);
+    const response = await axiosInstance.post("/post/create-post", formData);
     return response.data;
   } catch (error: unknown) {
     const axiosError = error as AxiosError<{ message?: string }>;
-    const message =
-      axiosError.response?.data?.message || "Failed to create post";
+    const message = axiosError.response?.data?.message || "Error creating post";
 
     console.error("Failed to create post:", error);
-    showToastError(message, "top-center", 5000, true);
+    showToastError(message, "top-center", 3000, true);
   }
 };
 

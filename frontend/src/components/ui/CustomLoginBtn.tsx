@@ -36,7 +36,7 @@ export default function CustomLoginBtn({
           user_type: "",
         };
 
-        const api = `${configKeys.apiURL}/login`;
+        const api = `${configKeys.apiURL}/auth/login`;
         const res = await axios.post(api, payload);
         const resData = res.data;
 
