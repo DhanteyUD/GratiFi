@@ -179,6 +179,44 @@ export default function CreatePost({
               target.style.height = target.scrollHeight + "px";
             }}
           />
+
+          {/* Media Preview */}
+          <div className="my-2 grid grid-cols-2 gap-3">
+            {media.map((file, idx) => {
+              const url = URL.createObjectURL(file);
+              const isVideo = file.type.startsWith("video/");
+              return (
+                <div
+                  key={idx}
+                  className="relative w-full h-40 bg-black rounded-lg overflow-hidden"
+                >
+                  {/* Remove button */}
+                  <button
+                    onClick={() =>
+                      setMedia((prev) => prev.filter((_, i) => i !== idx))
+                    }
+                    className="absolute top-1 right-1 z-10 bg-black/50 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-black/80"
+                  >
+                    ×
+                  </button>
+
+                  {isVideo ? (
+                    <video
+                      src={url}
+                      controls
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={url}
+                      alt={`media-${idx}`}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div
@@ -190,47 +228,9 @@ export default function CreatePost({
           {text.length}/{characterLimit}
         </div>
 
-        {/* Media Preview */}
-        <div className="mt-2 grid grid-cols-2 gap-3">
-          {media.map((file, idx) => {
-            const url = URL.createObjectURL(file);
-            const isVideo = file.type.startsWith("video/");
-            return (
-              <div
-                key={idx}
-                className="relative w-full h-40 bg-black rounded-lg overflow-hidden"
-              >
-                {/* Remove button */}
-                <button
-                  onClick={() =>
-                    setMedia((prev) => prev.filter((_, i) => i !== idx))
-                  }
-                  className="absolute top-1 right-1 z-10 bg-black/50 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-black/80"
-                >
-                  ×
-                </button>
-
-                {isVideo ? (
-                  <video
-                    src={url}
-                    controls
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <img
-                    src={url}
-                    alt={`media-${idx}`}
-                    className="w-full h-full object-cover"
-                  />
-                )}
-              </div>
-            );
-          })}
-        </div>
-
         {schedule && (
           <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
-            <Clock size={16} /> Scheduled for: {schedule.toLocaleString()}
+            <Clock size={16} /> Will send on: {schedule.toLocaleString()}
           </p>
         )}
 
