@@ -83,6 +83,9 @@ export default function CreatePost({
       />
 
       <div className="flex-1">
+        <div className="mb-5">
+          <p>Everyone</p>
+        </div>
         <div className="relative w-full overflow-auto border-b border-gray-300">
           <div
             className="absolute top-0 left-0 w-full text-base font-normal break-words whitespace-pre-wrap z-0"
