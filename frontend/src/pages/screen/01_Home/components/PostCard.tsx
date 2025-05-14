@@ -115,22 +115,26 @@ export default function PostCard({
             )}
           </div>
 
-          <div className="flex justify-between text-gray-500 text-sm mt-3 max-w-md">
-            <button className="flex items-center gap-1">
-              <MessageCircle size={16} /> {comments}
-            </button>
-            <button className="flex items-center gap-1">
-              <Repeat2 size={16} /> {reposts}
-            </button>
-            <button className="flex items-center gap-1">
-              <Heart size={16} /> {likes}
-            </button>
-            <button>
-              <Bookmark size={16} />
-            </button>
-            <button>
-              <Share2 size={16} />
-            </button>
+          <div className="flex justify-between mt-3">
+            <div className="flex justify-between text-gray-500 text-sm max-w-md w-[50%]">
+              <button className="flex items-center gap-1">
+                <MessageCircle size={16} /> {comments}
+              </button>
+              <button className="flex items-center gap-1">
+                <Repeat2 size={16} /> {reposts}
+              </button>
+              <button className="flex items-center gap-1">
+                <Heart size={16} /> {likes}
+              </button>
+            </div>
+            <div className="flex gap-3 justify-between text-gray-500 text-sm max-w-md w-auto">
+              <button>
+                <Bookmark size={16} />
+              </button>
+              <button>
+                <Share2 size={16} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
