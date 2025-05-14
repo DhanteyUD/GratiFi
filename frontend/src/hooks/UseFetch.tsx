@@ -6,7 +6,6 @@ function FetchUserProfile() {
     queryKey: ["user-profile"],
     queryFn: fetchUserProfile,
     select: (data) => data?.data?.user,
-    staleTime: Infinity,
   });
 
   return { fetchingUserProfile, userProfile };
@@ -17,7 +16,6 @@ function FetchAllPosts() {
     queryKey: ["all-posts"],
     queryFn: fetchAllPosts,
     select: (data) => data?.data?.posts,
-    // staleTime: Infinity,
   });
 
   return { fetchingAllPosts, allPosts };

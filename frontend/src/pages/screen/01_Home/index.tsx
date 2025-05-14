@@ -58,7 +58,7 @@ function Home() {
         {/* Left */}
         <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
           <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
-          <div className="bg-primaryHover md:border-l md:border-r border-main-300">
+          <div className="bg-white/40 md:border-l md:border-r border-main-300">
             <CreatePost
               userAvatar={userProfile.picture}
               userType={userProfile?.user_type}

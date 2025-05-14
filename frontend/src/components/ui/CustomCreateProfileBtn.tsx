@@ -75,7 +75,7 @@ export default function CustomCreateAccountBtn({
       );
     } finally {
       setLoading(false);
-      queryClient.invalidateQueries({ queryKey: ["profile"] });
+      queryClient.invalidateQueries({ queryKey: ["user-profile"] });
     }
   }, [md, queryClient, selectedProfile, setIsModalOpen]);
 

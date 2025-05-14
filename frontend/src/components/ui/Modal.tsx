@@ -30,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({
       >
         <div className="flex items-center mb-4">
           {title && (
-            <h1 className="text-xl font-semibold font-calSans bg-secondary text-main">
+            <h1 className="text-xl font-semibold font-calSans text-main">
               {title}
             </h1>
           )}

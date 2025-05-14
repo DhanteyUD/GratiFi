@@ -108,12 +108,12 @@ function ScreenLayout({
 
         <div
           className={clsx(
-            "relative gap-[1rem] flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
-            layoutPadding ? "pt-0 px-5" : "px-4"
+            "relative gap-8 md:gap-4 flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
+            layoutPadding ? "pt-0 md:px-5" : "md:px-4"
           )}
         >
           <ScreenHeader goBack={goBack} layoutPadding={layoutPadding} />
-          <div className="p-1 h-auto">{children}</div>
+          <div className="md:p-1 h-auto">{children}</div>
         </div>
 
         {md && (
