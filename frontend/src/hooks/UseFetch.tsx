@@ -1,15 +1,26 @@
-import { fetchProfile } from "@/api";
 import { useQuery } from "@tanstack/react-query";
+import { fetchUserProfile, fetchAllPosts } from "@/api";
 
 function FetchUserProfile() {
-  const { isPending: fetchingProfile, data: profile = {} } = useQuery({
-    queryKey: ["profile"],
-    queryFn: fetchProfile,
+  const { isPending: fetchingUserProfile, data: userProfile = {} } = useQuery({
+    queryKey: ["user-profile"],
+    queryFn: fetchUserProfile,
     select: (data) => data?.data?.user,
     staleTime: Infinity,
   });
 
-  return { fetchingProfile, profile };
+  return { fetchingUserProfile, userProfile };
 }
 
-export { FetchUserProfile };
+function FetchAllPosts() {
+  const { isPending: fetchingAllPosts, data: allPosts = [] } = useQuery({
+    queryKey: ["all-posts"],
+    queryFn: fetchAllPosts,
+    select: (data) => data?.data?.posts,
+    // staleTime: Infinity,
+  });
+
+  return { fetchingAllPosts, allPosts };
+}
+
+export { FetchUserProfile, FetchAllPosts };

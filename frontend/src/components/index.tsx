@@ -13,3 +13,4 @@ export { default as Modal } from "@/components/ui/Modal";
 export { default as ScreenHeader } from "@/components/ui/ScreenHeader";
 export { default as ScreenOverlay } from "@/components/ui/ScreenOverlay";
 export { SideNavMenu } from "@/components/ui/SideNavMenu";
+export { default as UserTypeIcon } from "@/components/ui/UserTypeIcon";

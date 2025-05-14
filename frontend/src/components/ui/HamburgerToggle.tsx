@@ -19,7 +19,7 @@ interface HamburgerToggleProps {
 
 export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
   const navigate = useNavigate();
-  const { profile } = FetchUserProfile();
+  const { userProfile } = FetchUserProfile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleAction = (action: string): void => {
@@ -56,11 +56,11 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
             <div
               className={clsx(
                 "gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 bg-secondary rounded-full",
-                helperService.isEmptyObject(profile) ? "hidden" : "flex"
+                helperService.isEmptyObject(userProfile) ? "hidden" : "flex"
               )}
             >
-              <p>{profile?.user_type}</p>
-              {renderIcon(profile?.user_type || "")}
+              <p>{userProfile?.user_type}</p>
+              {renderIcon(userProfile?.user_type || "")}
             </div>
           </div>
 

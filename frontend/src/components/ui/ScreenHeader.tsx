@@ -15,7 +15,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
-  const { profile } = FetchUserProfile();
+  const { userProfile } = FetchUserProfile();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
@@ -68,11 +68,13 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
           <div
             className={clsx(
               "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 bg-secondary rounded-full border border-primary",
-              helperService.isEmptyObject(profile) ? "hidden" : "hidden md:flex"
+              helperService.isEmptyObject(userProfile)
+                ? "hidden"
+                : "hidden md:flex"
             )}
           >
-            <p className="hidden lg:block">{profile?.user_type}</p>
-            {renderIcon(profile?.user_type || "")}
+            <p className="hidden lg:block">{userProfile?.user_type}</p>
+            {renderIcon(userProfile?.user_type || "")}
           </div>
           <div className="h-full flex">
             <Search

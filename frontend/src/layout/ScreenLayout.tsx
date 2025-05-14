@@ -29,7 +29,7 @@ function ScreenLayout({
   const [isSideNavCollapsed, setIsSideNavCollapsed] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-  const { profile } = FetchUserProfile();
+  const { userProfile } = FetchUserProfile();
 
   const handleToggleSidebar = () => {
     setIsSideNavCollapsed((prev) => !prev);
@@ -65,7 +65,7 @@ function ScreenLayout({
       <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
         {md && (
           <HamburgerToggle
-            menu={getScreenMenuItems(profile?.user_type || "")}
+            menu={getScreenMenuItems(userProfile?.user_type || "")}
           />
         )}
         {!md && (
@@ -91,7 +91,7 @@ function ScreenLayout({
             </div>
 
             <SideNavMenu
-              menu={getScreenMenuItems(profile?.user_type || "")}
+              menu={getScreenMenuItems(userProfile?.user_type || "")}
               isSideNavCollapsed={isSideNavCollapsed}
             />
             <PanelLeftClose
@@ -108,7 +108,7 @@ function ScreenLayout({
 
         <div
           className={clsx(
-            "relative gap-[2rem] flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
+            "relative gap-[1rem] flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
             layoutPadding ? "pt-0 px-5" : "px-4"
           )}
         >
@@ -118,7 +118,7 @@ function ScreenLayout({
 
         {md && (
           <MobileActionNMenu
-            menu={getScreenMenuItems(profile?.user_type || "")}
+            menu={getScreenMenuItems(userProfile?.user_type || "")}
           />
         )}
       </div>

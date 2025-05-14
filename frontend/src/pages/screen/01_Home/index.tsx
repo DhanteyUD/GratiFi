@@ -1,19 +1,45 @@
-// src/pages/Home.tsx
 import { useEffect, useState } from "react";
 import { Modal } from "@/components";
 import { profiles } from "@/json";
 import { Fan, Star } from "lucide-react";
 import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
-import { FetchUserProfile } from "@/hooks/UseFetch";
-import Tabs from "./components/Tabs";
-import CreatePost from "./components/CreatePost";
+import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
+import Tabs from "./components/Tabs";
+import CreatePost from "./components/CreatePost";
+import PostCard from "./components/PostCard";
+
+type Post = {
+  id: string;
+  text: string;
+  media: string[];
+  audience: "everyone" | "communities" | string;
+  scheduledAt: string | null;
+  createdAt: string;
+  isPublished: boolean;
+  authorId: string;
+  author: {
+    id: string;
+    name: string;
+    email: string;
+    picture: string;
+    user_type: "GratiStar" | "GratiFan" | string;
+    createdAt: string;
+    updatedAt: string;
+  };
+};
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
-  const { fetchingProfile, profile } = FetchUserProfile();
+  const { fetchingUserProfile, userProfile } = FetchUserProfile();
+  const { fetchingAllPosts, allPosts } = FetchAllPosts();
+
+  console.log({
+    fetchingAllPosts,
+    allPosts,
+  });
 
   const [activeTab, setActiveTab] = useState("For you");
 
@@ -23,24 +49,41 @@ function Home() {
   };
 
   useEffect(() => {
-    if (!fetchingProfile && helperService.isEmptyObject(profile)) {
+    if (!fetchingUserProfile && helperService.isEmptyObject(userProfile)) {
       setIsModalOpen(true);
     }
-  }, [fetchingProfile, profile]);
+  }, [fetchingUserProfile, userProfile]);
 
   return (
     <>
-      {fetchingProfile && (
+      {fetchingUserProfile && (
         <ScreenOverlay message="we are fetching your profile" />
       )}
-      <div className="flex h-[calc(100vh-135px)] overflow-hidden">
+      <div className="flex h-[calc(100vh-120px)] overflow-hidden">
         {/* Left */}
-        <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto md:border-r-[1px] border-gray-300">
+        <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
           <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
-          <CreatePost
-            userAvatar={profile.picture}
-            userType={profile?.user_type}
-          />
+          <div className="bg-primaryHover md:border-l md:border-r border-main-300">
+            <CreatePost
+              userAvatar={userProfile.picture}
+              userType={userProfile?.user_type}
+            />
+            {allPosts.map((post: Post) => (
+              <PostCard
+                key={post.id}
+                authorImage={post.author.picture}
+                authorName={post.author.name}
+                authorUsername={post.author.email.split("@")[0]}
+                userType={post.author.user_type}
+                timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
+                content={post.text}
+                media={post.media}
+                comments={0}
+                reposts={0}
+                likes={0}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Right */}

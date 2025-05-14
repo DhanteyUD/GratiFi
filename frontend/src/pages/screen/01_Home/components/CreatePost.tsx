@@ -67,7 +67,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
   const { isPending: creatingPost, mutate: createPostMutation } = useMutation({
     mutationFn: createPost,
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["post"] });
+      queryClient.invalidateQueries({ queryKey: ["all-posts"] });
       showToastSuccess(data?.message, "bottom-center", 3000, true);
 
       setText("");
