@@ -61,7 +61,6 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
 
   const handleEmojiSelect = (emoji: { native: string }) => {
     setText((prev) => prev + emoji.native);
-    setShowEmojiPicker(false);
   };
 
   const { isPending: creatingPost, mutate: createPostMutation } = useMutation({
@@ -292,8 +291,11 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
         </div>
 
         {showEmojiPicker && (
-          <div className="mt-2 absolute z-10 top-0">
-            <EmojiPicker onSelect={handleEmojiSelect} />
+          <div className="absolute mt-2 z-10 bottom-0 rounded shadow-lg">
+            <EmojiPicker
+              onSelect={handleEmojiSelect}
+              onClick={() => setShowEmojiPicker(false)}
+            />
           </div>
         )}
       </div>
