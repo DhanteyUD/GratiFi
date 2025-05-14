@@ -205,6 +205,7 @@ export default function CreatePost({
           </p>
         )}
 
+        {/* Image, Emoji, and Scheduled data actions */}
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-3">
             {/* Image Upload */}
