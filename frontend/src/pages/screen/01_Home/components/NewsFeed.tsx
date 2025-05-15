@@ -14,7 +14,7 @@ const NewsFeed = () => {
   // );
 
   return (
-    <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-2">
+    <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-4">
       <h1 className="text-[20px] font-calSans font-[600] text-main">
         What's happening
       </h1>
@@ -25,7 +25,7 @@ const NewsFeed = () => {
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-start gap-3 w-full hover:bg-gray-100 p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          className="flex items-start gap-3 w-full hover:bg-primaryHover/50 p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
         >
           <img
             src={item.photo_url || newsPlaceHolder}
@@ -71,7 +71,7 @@ const NewsFeed = () => {
       {newsFeed.length > 3 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="mt-2 text-sm font-semibold text-primary hover:underline"
+          className="mt-2 text-sm font-semibold text-primary hover:text-main transition-colors duration-300 ease-in-out"
         >
           {showAll ? "Show Less" : "See More"}
         </button>

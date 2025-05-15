@@ -1,8 +1,11 @@
+import { Crown } from "lucide-react";
+
 function SubscribePremium() {
   return (
     <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-2">
-      <h2 className="text-[20px] font-calSans font-[600] text-primary">
+      <h2 className="text-[20px] font-calSans font-[600] text-primary flex gap-2 items-center">
         Subscribe to Premium
+        <Crown size={18} className="animate-pulse" />
       </h2>
       <p className="text-main text-[16px]">
         Enjoy exclusive features and tools with your Premium subscription.
