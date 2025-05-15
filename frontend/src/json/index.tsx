@@ -21,166 +21,519 @@ export const audienceOptions = [
 
 export const newsFeed = [
   {
-    title: "FBI Issues Warning For Home Internet Attacks",
-    link: "https://www.yahoo.com/news/fbi-issues-warning-home-internet-072019380.html",
+    title:
+      "Google DeepMind creates super-advanced AI that can invent new algorithms",
+    link: "https://arstechnica.com/ai/2025/05/google-deepmind-creates-super-advanced-ai-that-can-invent-new-algorithms/",
     snippet:
-      "On May 7, the FBI issued an announcement warning that out-of-date home Internet routers could allow hackers a way to place a type of malware ...",
+      "Google's DeepMind research division claims its newest AI agent marks a significant step toward using the technology to tackle big problems ...",
     photo_url:
-      "https://s.yimg.com/ny/api/res/1.2/2LlmDgjBXtf3vgDJ7_0.QQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD04MjY-/https://media.zenfs.com/en/men_s_journal_718/d9dcc7acf9c4bf3a3904f98a3f641d5d",
+      "https://cdn.arstechnica.net/wp-content/uploads/2025/05/alphaevolve-640x360.jpg",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNWtPVEV5VnkxeU1Fb3dTRTVOVFJEREF4aW5CU2dLTWdZWlU0eXNNUVU=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T07:20:19.000Z",
-    authors: ["Kevin Harrish"],
-    source_url: "https://www.yahoo.com",
-    source_name: "Yahoo",
+      "https://news.google.com/api/attachments/CC8iK0NnNWtNMlZWV0ZsRWVYTmZlbEpLVFJEb0FoaUFCU2dLTWdZQmtJZ090UVk=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T21:01:58.000Z",
+    authors: ["Ryan Whitwam"],
+    source_url: "https://arstechnica.com",
+    source_name: "Ars Technica",
     source_logo_url: null,
     source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.yahoo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://arstechnica.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
     source_publication_id:
-      "CAAqIggKIhxDQklTRHdnTWFnc0tDWGxoYUc5dkxtTnZiU2dBUAE",
+      "CAAqKggKIiRDQklTRlFnTWFoRUtEMkZ5YzNSbFkyaHVhV05oTG1OdmJTZ0FQAQ",
     related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhsc2JYTnNNQklDWlc0b0FBUAE",
-        topic_name: "Kevin Harrish",
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTURSNGJqZHFOaElDWlc0b0FBUAE",
+        topic_name: "Ryan Whitwam",
       },
     ],
-  },
-  {
-    title: "High-speed internet coming to Highway 112 corridor",
-    link: "https://www.peninsuladailynews.com/news/high-speed-internet-coming-to-highway-112-corridor/",
-    snippet:
-      "PORT ANGELES — A project to install fiber optic cable along 15 miles of state Highway 112 that is currently underway will enable residents ...",
-    photo_url:
-      "https://www.peninsuladailynews.com/wp-content/uploads/2025/05/39382330_web1_webbroadband-pdn-250514.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iI0NnNU5NRFJNYkdSVFJUUlVORTFaVFJDR0F4aVNCaWdLTWdB=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T12:00:00.000Z",
-    authors: [],
-    source_url: "https://www.peninsuladailynews.com",
-    source_name: "Peninsula Daily News",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.peninsuladailynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqNAgKIi5DQklTSEFnTWFoZ0tGbkJsYm1sdWMzVnNZV1JoYVd4NWJtVjNjeTVqYjIwb0FBUAE",
-    related_topics: [],
-  },
-  {
-    title: "The Internet Can’t Resist the Conclave (the Real Thing)",
-    link: "https://www.nytimes.com/2025/05/07/world/europe/pope-conclave-social-media.html",
-    snippet:
-      "The conclave is one of the world's most solemn, sacred and consequential elections. It is also a secretive meeting of older men who wear red ...",
-    photo_url:
-      "https://static01.nyt.com/images/2025/05/05/multimedia/00int-socialmedia-conclave01-photo-hpqc/00int-socialmedia-conclave01-photo-hpqc-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNVBTMUV5V25oSGFrazVRVGx6VFJDaEF4allCQ2dLTWdrTkFaeUhEaXh6NWdJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-07T04:01:07.000Z",
-    authors: ["Emma Bubola"],
-    source_url: "https://www.nytimes.com",
-    source_name: "The New York Times",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.nytimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDMjU1ZEdsdFpYTXVZMjl0S0FBUAE",
-    related_topics: [
+    sub_articles: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxWm1jMGR6QnFYeElDWlc0b0FBUAE",
-        topic_name: "Emma Bubola",
+        title:
+          "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+        link: "https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        photo_url:
+          "https://lh3.googleusercontent.com/Gw688MNwkQVBeUALSFtQz46Oh4NFoZAe10mEpvtmZhKuWhlQsi5uh2KFHKbxH8NhBnOGUNza6O6-0HElml2zEN06vI_9oAsjAxFVzxjDL5DOw7HsAw=w1072-h603-n-nu",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNU5kM2RHUkV0VFgwSkxWMWhIVFJDb0FSaXNBaWdCTWdZQmtJYnV0QVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T15:01:07.000Z",
+        authors: [],
+        source_url: "https://deepmind.google",
+        source_name: "Google DeepMind",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://deepmind.google&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEMlJsWlhCdGFXNWtMbWR2YjJkc1pTZ0FQAQ",
+        related_topics: [],
       },
-    ],
-  },
-  {
-    title: "Maybe AI Slop Is Killing the Internet, After All",
-    link: "https://www.bloomberg.com/news/articles/2025-05-08/maybe-ai-slop-is-killing-the-internet-after-all",
-    snippet:
-      "The assertion that bots are choking off human life online has never seemed more true.",
-    photo_url:
-      "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iFhYdLelIXNs/v0/-1x-1.webp",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNVRORWN3U0Vjek4xRlBjbFJxVFJERUF4aW1CU2dLTWdrQkFJREpsU0s1MXdB=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-08T11:00:30.000Z",
-    authors: ["Issie Lapowsky"],
-    source_url: "https://www.bloomberg.com",
-    source_name: "Bloomberg.com",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.bloomberg.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKAgKIiJDQklTRXdnTWFnOEtEV0pzYjI5dFltVnlaeTVqYjIwb0FBUAE",
-    related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsd2R6a3lkeElDWlc0b0FBUAE",
-        topic_name: "Issie Lapowsky",
+        title:
+          "Meet AlphaEvolve, the Google AI that writes its own code—and just saved millions in computing costs",
+        link: "https://venturebeat.com/ai/meet-alphaevolve-the-google-ai-that-writes-its-own-code-and-just-saved-millions-in-computing-costs/",
+        photo_url:
+          "https://venturebeat.com/wp-content/uploads/2025/05/nuneybits_Vector_art_of_evolving_code_tree_in_Google_colors_2e392766-16da-4fbf-b4da-2c23cfbd7cb4.webp?w=400",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVplWEpLWTNkTVNrOXBZVlIwVFJEZ0FSaVBBeWdLTWdhcFVZYlJvQWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T15:00:00.000Z",
+        authors: ["Michael Nunez"],
+        source_url: "https://venturebeat.com",
+        source_name: "VentureBeat",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://venturebeat.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEM1psYm5SMWNtVmlaV0YwTG1OdmJTZ0FQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTkdzMGNHTnVjaElDWlc0b0FBUAE",
+            topic_name: "Michael Nunez",
+          },
+        ],
+      },
+      {
+        title: "New AI Model Advances the “Kissing Problem” And More",
+        link: "https://spectrum.ieee.org/deepmind-alphaevolve",
+        photo_url: "https://assets.rbl.ms/60214792/origin.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iJ0NnNVdSRE0xUXpOWk9UQm5XVWxFVFJDMkF4aTlCU2dLTWdPQmNSbw=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T23:12:55.000Z",
+        authors: ["Dina Genkina"],
+        source_url: "https://spectrum.ieee.org",
+        source_name: "IEEE Spectrum",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://spectrum.ieee.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLQgKIidDQklTRndnTWFoTUtFWE53WldOMGNuVnRMbWxsWldVdWIzSm5LQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1vM09XczBNUklDWlc0b0FBUAE",
+            topic_name: "Dina Genkina",
+          },
+        ],
       },
     ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lDaVozMkRSRVFKQmNKeTZxS2NDZ0FQAQ",
   },
   {
     title:
-      "How Google became the internet giant at the center of a government crackdown",
-    link: "https://www.cnn.com/2025/05/09/business/google-internet-giant-crackdown",
+      "89 Million Steam Accounts Allegedly Compromised in a Data Breach. Our Advice: Change Your Password Now",
+    link: "https://www.cnet.com/tech/services-and-software/89-million-steam-accounts-allegedly-compromised-in-a-data-breach-our-advice-change-your-password-now/",
     snippet:
-      "Since 2023, two separate federal judges and a federal jury have ruled that Google has an illegal monopoly in its search engine, online ...",
+      "A recent data breach has reportedly affected users of Steam, Valve's wildly popular online gaming store and distribution platform.",
     photo_url:
-      "https://media.cnn.com/api/v1/images/stellar/prod/c-ap25107544836055.jpg?c=16x9&q=h_833,w_1480,c_fill",
+      "https://www.cnet.com/a/img/resize/c9034b8a2d8895cbc2776457d8f72a3703ad4437/hub/2025/05/14/8843feac-f094-4fb6-9622-7a943db60da7/gettyimages-1234720850.jpg?auto=webp&fit=crop&height=675&width=1200",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNWhOMmRQUmtGcWJFWTVUamR0VFJDZkF4amlCU2dLTWdtbEk0S1F6V0pqeHdJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-09T11:00:00.000Z",
-    authors: ["Clare Duffy", "Lisa Eadicicco"],
-    source_url: "https://www.cnn.com",
-    source_name: "CNN",
+      "https://news.google.com/api/attachments/CC8iK0NnNDNUaTFDUTNkR1lVTk5RbXhVVFJDZkF4ampCU2dLTWdZUlU0cG90UVU=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T18:19:00.000Z",
+    authors: ["Evan Zimmer"],
+    source_url: "https://www.cnet.com",
+    source_name: "CNET",
     source_logo_url: null,
     source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.cnn.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMk51Ymk1amIyMG9BQVAB",
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.cnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDR051WlhRdVkyOXRLQUFQAQ",
     related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhseFgyTnhOaElDWlc0b0FBUAE",
-        topic_name: "Clare Duffy",
-      },
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsemMyczNheElDWlc0b0FBUAE",
-        topic_name: "Lisa Eadicicco",
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYwTVhSamRHYzFNeElDWlc0b0FBUAE",
+        topic_name: "Evan Zimmer",
       },
     ],
-  },
-  {
-    title: "EVA Airways to upgrade inflight Internet service",
-    link: "https://www.taipeitimes.com/News/taiwan/archives/2025/05/15/2003836917",
-    snippet:
-      "EVA Airways yesterday announced that it would upgrade its free inflight Wi-Fi service starting in July, making Internet available to ...",
-    photo_url:
-      "https://www.taipeitimes.com/images/2025/05/15/p02-250515-010.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNU1iMmN5WjFaSVNtTjNUVGQzVFJDM0FSaVRBaWdCTWdhcGNwWXdyUWM=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T16:00:00.000Z",
-    authors: ["Samantha Garcia"],
-    source_url: "https://www.taipeitimes.com",
-    source_name: "Taipei Times",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.taipeitimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEM1JoYVhCbGFYUnBiV1Z6TG1OdmJTZ0FQAQ",
-    related_topics: [
+    sub_articles: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYyY21vMU5qTTBOUklDWlc0b0FBUAE",
-        topic_name: "Samantha Garcia",
+        title: "Twilio denies breach following leak of alleged Steam 2FA codes",
+        link: "https://www.bleepingcomputer.com/news/security/twilio-denies-breach-following-leak-of-alleged-steam-2fa-codes/",
+        photo_url:
+          "https://www.bleepstatic.com/content/hl-images/2022/09/12/steam-header-new.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNDNMWGxSWkhobU1FeHJlRWhKVFJDZkF4ampCU2dLTWdhaEFvN050UVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T19:16:46.000Z",
+        authors: ["Bill Toulas"],
+        source_url: "https://www.bleepingcomputer.com",
+        source_name: "BleepingComputer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.bleepingcomputer.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMQgKIitDQklTR2dnTWFoWUtGR0pzWldWd2FXNW5ZMjl0Y0hWMFpYSXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1wemVEVm9NaElDWlc0b0FBUAE",
+            topic_name: "Bill Toulas",
+          },
+        ],
+      },
+      {
+        title:
+          "89 million Steam accounts reportedly leaked. Change your password now.",
+        link: "https://mashable.com/article/89-million-steam-accounts-leaked-change-your-password",
+        photo_url:
+          "https://helios-i.mashable.com/imagery/articles/05mKEv2HKG7EgiHKtximy17/hero-image.fill.size_1248x702.v1747231462.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNWhNVFoxTmxwdmNrRldkR1o0VFJDZkF4amlCU2dLTWdtTklZYkZHQ3BVekFB=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T14:25:47.000Z",
+        authors: ["Cecily Mauran"],
+        source_url: "https://mashable.com",
+        source_name: "Mashable",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://mashable.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtERzFoYzJoaFlteGxMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4T1RSMmRHWXhiQklDWlc0b0FBUAE",
+            topic_name: "Cecily Mauran",
+          },
+        ],
+      },
+      {
+        title: "Now's a good time to check in on your Steam account security",
+        link: "https://www.engadget.com/gaming/nows-a-good-time-to-check-in-on-your-steam-account-security-205807479.html",
+        photo_url:
+          "https://s.yimg.com/ny/api/res/1.2/kKXbCxoDG1GSLp01_NYf1g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNw--/https://s.yimg.com/os/creatr-uploaded-images/2025-05/fe220270-3103-11f0-bcf6-faa29fd706b8",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUNkR0ZCY0ZKVWRHdHpRVUpZVFJDckF4aUFCU2dLTWdZVnc0eEtSUVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T22:38:08.000Z",
+        authors: ["Anna Washenko"],
+        source_url: "https://www.engadget.com",
+        source_name: "Engadget",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.engadget.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtER1Z1WjJGa1oyVjBMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtWDJ4dE9EUjZlUklDWlc0b0FBUAE",
+            topic_name: "Anna Washenko",
+          },
+        ],
       },
     ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2prMi0zeURSSFA5ZlRvc3JzTGxTZ0FQAQ",
   },
   {
     title:
-      "The Internet's Biggest-Ever Black Market Just Shut Down Amid a Telegram Purge",
-    link: "https://www.wired.com/story/the-internets-biggest-ever-black-market-shuts-down-after-a-telegram-purge/",
+      "'FOMO Has Infected Modern Games,' Says Remedy Director of FBC: Firebreak",
+    link: "https://www.ign.com/articles/fomo-has-infected-modern-games-says-remedy-director-of-fbc-firebreak",
     snippet:
-      "Following a WIRED inquiry, Telegram banned thousands of accounts used for crypto-scam money laundering, including those of Haowang Guarantee ...",
+      "Launching on June 17, 2025 and costing $39.99/£32.99 (as well as on both Game Pass and PS Plus), Firebreak is looking towards this newly ...",
     photo_url:
-      "https://media.wired.com/photos/6824dc118019769f392eb5ca/1:1/w_2560%2Cc_limit/Haowang-Guarantee-sec--%2520608297881.jpg",
+      "https://assets-prd.ignimgs.com/2025/05/14/firebreak-news-blog-1747223966033.jpg",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVJUVXBvUTFsQ2MycERNSE5wVFJDcUJCaXFCQ2dLTWdhbFJaak5uUWs=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T20:00:00.000Z",
-    authors: ["Andy Greenberg"],
+      "https://news.google.com/api/attachments/CC8iK0NnNW9UWEJmTm1ocVpXUXlRMVp1VFJDZkF4ampCU2dLTWdhVkVvSnFsUU0=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T13:00:59.000Z",
+    authors: ["Simon Cardy"],
+    source_url: "https://www.ign.com",
+    source_name: "IGN",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.ign.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMmxuYmk1amIyMG9BQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxY0RRemJXSm1PUklDWlc0b0FBUAE",
+        topic_name: "Simon Cardy",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "'FBC: Firebreak' preview: Controlled chaos",
+        link: "https://www.engadget.com/gaming/fbc-firebreak-preview-controlled-chaos-183106500.html",
+        photo_url:
+          "https://s.yimg.com/ny/api/res/1.2/EbXIfVVCSKV_YI6HyW8I3w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://s.yimg.com/os/creatr-uploaded-images/2025-05/f4d302d0-30ec-11f0-affe-7fe92507a3b5",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVdSbTlrVkc1U01XOWZaV1pzVFJEb0FoaUFCU2dLTWdZQllJb1NPUVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T18:31:07.000Z",
+        authors: ["Jessica Conditt"],
+        source_url: "https://www.engadget.com",
+        source_name: "Engadget",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.engadget.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtER1Z1WjJGa1oyVjBMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtYUhOM2NYUnVaaElDWlc0b0FBUAE",
+            topic_name: "Jessica Conditt",
+          },
+        ],
+      },
+      {
+        title:
+          'FBC: Firebreak Preview - Hands-On With A Game Taking The "Opposite Approach" Of Fortnite',
+        link: "https://gameinformer.com/preview/2025/05/14/hands-on-with-a-game-taking-the-opposite-approach-of-fortnite",
+        photo_url:
+          "https://gameinformer.com/sites/default/files/styles/thumbnail/public/2025/05/13/b129b60c/fbc_firebreak_paperchase_1ss_04.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iMkNnNUlTVWxsT0hObllYVnllSGd4VFJDZkF4ampCU2dLTWdzQmNJS2tzR1Bnck9sU0xn=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T13:09:21.000Z",
+        authors: ["Charles Harte"],
+        source_url: "https://gameinformer.com",
+        source_name: "Game Informer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://gameinformer.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFR2RoYldWcGJtWnZjbTFsY2k1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4TVdwNWNHUmZNQklDWlc0b0FBUAE",
+            topic_name: "Charles Harte",
+          },
+        ],
+      },
+      {
+        title:
+          "Multiplayer chaos and the supernatural reign supreme in FBC: Firebreak",
+        link: "https://store.epicgames.com/en-US/blog/multiplayer-chaos-and-the-supernatural-reign-supreme-in-fbc-firebreak",
+        photo_url:
+          "https://cdn2.unrealengine.com/multiplayer-chaos-and-the-supernatural-reign-supreme-in-fbc-firebreak-3840x2160-47ca40551e22.png",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNVlNVFZVTTNscmR6RkpabmRPVFJDZkF4ampCU2dLTWdrQlVZcnFxR2RNc1FF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T14:03:59.000Z",
+        authors: ["Aron Garst"],
+        source_url: "https://store.epicgames.com",
+        source_name: "Epic Games",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://store.epicgames.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMAgKIipDQklTR1FnTWFoVUtFM04wYjNKbExtVndhV05uWVcxbGN5NWpiMjBvQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhoeVgyaHlOaElDWlc0b0FBUAE",
+            topic_name: "Aron Garst",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pYbHJEekRSRUhGeW9kemhhbFZDZ0FQAQ",
+  },
+  {
+    title: "Microsoft starts testing ‘Hey, Copilot!’ in Windows",
+    link: "https://www.theverge.com/news/667167/windows-hey-copilot-ai-wake-word-voice-activation",
+    snippet:
+      "Microsoft is testing a feature for Copilot Voice that will let Windows 11 users start a conversation with the app by saying “Hey Copilot!",
+    photo_url:
+      "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/Hey-Copilot-approved.jpg?quality=90&strip=all&crop=5.42,0,84.36,100",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNW5TMmhDYzFnd2JVWkpUM0IyVFJERkF4aWxCU2dLTWdZQmNJeURNZ1k=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T19:48:22.000Z",
+    authors: ["Richard Lawler"],
+    source_url: "https://www.theverge.com",
+    source_name: "The Verge",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.theverge.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJggKIiBDQklTRWdnTWFnNEtESFJvWlhabGNtZGxMbU52YlNnQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhoeWQydHdOUklDWlc0b0FBUAE",
+        topic_name: "Richard Lawler",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Copilot on Windows: “Hey, Copilot!” begins rolling out to Windows Insiders",
+        link: "https://blogs.windows.com/windows-insider/2025/05/14/copilot-on-windows-hey-copilot-begins-rolling-out-to-windows-insiders/",
+        photo_url:
+          "https://winblogs.thesourcemediaassets.com/sites/44/2025/05/Hey-Copilot-approved.png",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNTZUbHBVU0dSUWFEZ3pMUzFXVFJDZkF4ampCU2dLTWdZRmdJcUZOZ1k=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T16:51:58.000Z",
+        authors: [],
+        source_url: "https://blogs.windows.com",
+        source_name: "Windows Blog",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://blogs.windows.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLQgKIidDQklTRndnTWFoTUtFV0pzYjJkekxuZHBibVJ2ZDNNdVkyOXRLQUFQAQ",
+        related_topics: [],
+      },
+      {
+        title:
+          "No clicks needed: Windows 11 users can now activate Copilot with just a word",
+        link: "https://www.windowscentral.com/software-apps/copilot-just-got-even-smarter-wake-word-activation-lands-on-windows-11",
+        photo_url:
+          "https://cdn.mos.cms.futurecdn.net/M5YpQbAz56NiiPgttttFfm.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVljelZsWkcxMk0wSlZSblpFVFJDZkF4amlCU2dLTWdZSmM1Skd0UVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T19:36:39.000Z",
+        authors: ["Daniel Rubino"],
+        source_url: "https://www.windowscentral.com",
+        source_name: "Windows Central",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.windowscentral.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLggKIihDQklTR0FnTWFoUUtFbmRwYm1SdmQzTmpaVzUwY21Gc0xtTnZiU2dBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4Ym1KemFIZDNkaElDWlc0b0FBUAE",
+            topic_name: "Daniel Rubino",
+          },
+        ],
+      },
+      {
+        title: "‘Hey, Cortana’ becomes ‘Hey, Copilot’ in Windows 11",
+        link: "https://www.pcworld.com/article/2783211/hey-cortana-becomes-hey-copilot-in-windows-11.html",
+        photo_url:
+          "https://www.pcworld.com/wp-content/uploads/2025/05/Copilot-Voice.jpg?quality=50&strip=all",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNHlkWGd0UzJKMlRIVnJWMnRUVFJEb0FoalRCaWdLTWdhaG80NnNQUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T22:12:00.000Z",
+        authors: ["Mark Hachman"],
+        source_url: "https://www.pcworld.com",
+        source_name: "pcworld.com",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.pcworld.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0JqZDI5eWJHUXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4Ym1NNWFHcDBhQklDWlc0b0FBUAE",
+            topic_name: "Mark Hachman",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lZM3R2dURSSFA1VjJQQlphM2tpZ0FQAQ",
+  },
+  {
+    title:
+      "Galaxy S25 Edge’s First Camera Sample Against The Galaxy S25 Ultra Shows Superior Image Quality At 4x Zoom Thanks To Samsung’s Improved Algorithms And Optimizations",
+    link: "https://wccftech.com/galaxy-s25-edge-better-image-quality-than-galaxy-s25-ultra-at-4x-zoom/",
+    snippet:
+      "Samsung has claimed that the primary 200MP belonging to the Galaxy S25 Edge is capable of capturing 2x optical zoom-quality shots · Deal of the ...",
+    photo_url:
+      "https://cdn.wccftech.com/wp-content/uploads/2025/05/Galaxy-S25-Edge-6-1-scaled.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iJ0NnNVBZa2RYUm1GNU56QTJYMUp6VFJDZkF4ampCU2dLTWdPMW9nbw=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T11:32:00.000Z",
+    authors: ["Omar Sohail"],
+    source_url: "https://wccftech.com",
+    source_name: "Wccftech",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://wccftech.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJggKIiBDQklTRWdnTWFnNEtESGRqWTJaMFpXTm9MbU52YlNnQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvWDNrMFkzWjRkeElDWlc0b0FBUAE",
+        topic_name: "Omar Sohail",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "Do you want a skinny smartphone with worse battery life?",
+        link: "https://www.washingtonpost.com/technology/2025/05/13/iphone-17-samsung-s25-edge-thin-phones-battery/",
+        photo_url:
+          "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/XVT3NVZWH5AWTIQERIHGV5ZILI.jpg&w=1200",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNXFkR1oxTm1ocE0wY3hWbWt6VFJERUF4aW1CU2dLTWdraFJZak9uU1dUcmdF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T21:41:36.000Z",
+        authors: ["Shira Ovide"],
+        source_url: "https://www.washingtonpost.com",
+        source_name: "The Washington Post",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.washingtonpost.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLggKIihDQklTR0FnTWFoUUtFbmRoYzJocGJtZDBiMjV3YjNOMExtTnZiU2dBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhGdWNqWTRkQklDWlc0b0FBUAE",
+            topic_name: "Shira Ovide",
+          },
+        ],
+      },
+      {
+        title:
+          "Samsung Blindsides Apple With Razor-Thin Galaxy S25 Edge: Here's How Much It Will Cost",
+        link: "https://finance.yahoo.com/news/samsung-blindsides-apple-razor-thin-233132623.html",
+        photo_url:
+          "https://s.yimg.com/ny/api/res/1.2/FlWNej4h20NJlOHby5uPyg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://media.zenfs.com/en/Benzinga/910a24b26cf23d9cfb76f3695cba70cf",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNW9aa0ZzWDBoWGJrMUZlbXMxVFJEb0FoaUFCU2dLTWdhVkE0aXFGUXM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T23:31:32.000Z",
+        authors: ["Ananya Gairola"],
+        source_url: "https://finance.yahoo.com",
+        source_name: "Yahoo Finance",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://finance.yahoo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLQgKIidDQklTRndnTWFoTUtFV1pwYm1GdVkyVXVlV0ZvYjI4dVkyOXRLQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhwNE5qVjRjQklDWlc0b0FBUAE",
+            topic_name: "Ananya Gairola",
+          },
+        ],
+      },
+      {
+        title:
+          "Samsung launches slimmest smartphone in race against rival Apple",
+        link: "https://www.reuters.com/world/asia-pacific/samsung-launches-slimmest-smartphone-races-against-rival-apple-2025-05-13/",
+        photo_url:
+          "https://www.reuters.com/resizer/v2/B2DMGM6Y6VNTLMWIQA2NVYLWIU.jpg?auth=1c8d32265df0d0c981651ad1099a0d69a46660c69270f4d12bb2bce9e7a0a03b&width=1080&quality=80",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUJWR2t6UVhkNmFtaFJRUzB5VFJERUF4aW1CU2dLTWdZUklwSXBtUWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T13:06:24.000Z",
+        authors: ["Heekyong Yang"],
+        source_url: "https://www.reuters.com",
+        source_name: "Reuters",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reuters.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0psZFhSbGNuTXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ3Wmpoa2F6TndjUklDWlc0b0FBUAE",
+            topic_name: "Heekyong Yang",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2k4MnRmckRSSG55YUlxSU1jeDdpZ0FQAQ",
+  },
+  {
+    title: "Google’s Advanced Protection for Vulnerable Users Comes to Android",
+    link: "https://www.wired.com/story/google-advanced-protection-vulnerable-users-lockdown-android-16/",
+    snippet:
+      "A new extra-secure mode for Android 16 will let at-risk users lock their devices down.",
+    photo_url:
+      "https://media.wired.com/photos/68236102e26eb5d77efa7115/3:2/w_2560%2Cc_limit/GettyImages-2169510488.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iL0NnNDFlRVpSWjFKU1dYbHJhRzluVFJERUF4aW1CU2dLTWdtWlFZd0pyaVJzS3dJ=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T18:33:06.000Z",
+    authors: ["Lily Hay Newman"],
     source_url: "https://www.wired.com",
     source_name: "WIRED",
     source_logo_url: null,
@@ -190,1527 +543,2311 @@ export const newsFeed = [
       "CAAqIggKIhxDQklTRHdnTWFnc0tDWGRwY21Wa0xtTnZiU2dBUAE",
     related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZpZDJZMWRuSmZkQklDWlc0b0FBUAE",
-        topic_name: "Andy Greenberg",
-      },
-    ],
-  },
-  {
-    title: "Against the Scroll: Yehwan Song and the Internet We Forgot",
-    link: "https://hypebeast.com/2025/5/yehwan-song-and-the-internet-we-forgot",
-    snippet:
-      "The Korean artist and designer known for her browser-based experiments and immersive kinetic installations. By HB Team.",
-    photo_url:
-      "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2025%2F05%2F13%2Fyehwan-song-and-the-internet-we-forgot-teaser-main.jpg?w=2000&cbr=1&q=90&fit=max",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNU1VMnh4YUVWWGJtbEpUMHhwVFJDM0FSaVRBaWdCTWdtWk1vaXVuU2c5OGdB=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T20:04:44.000Z",
-    authors: ["Charles L. Kane"],
-    source_url: "https://hypebeast.com",
-    source_name: "hypebeast.com",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://hypebeast.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKAgKIiJDQklTRXdnTWFnOEtEV2g1Y0dWaVpXRnpkQzVqYjIwb0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqJAgKIh5DQkFTRUFvS0wyMHZNSEZ6WW5CaU9SSUNaVzRvQUFQAQ",
-        topic_name: "Charles L. Kane",
-      },
-    ],
-  },
-  {
-    title:
-      "This Mythical Landscape Has Completely Changed: Internet Users Are Shocked",
-    link: "https://3dvf.com/en/this-mythical-landscape-has-completely-changed-internet-users-are-shocked/",
-    snippet:
-      "This mythical landscape has changed completely: internet users are shocked · A world-renowned wallpaper · From lush greenery to rows of vineyards.",
-    photo_url:
-      "https://3dvf.com/wp-content/uploads/2025/05/this-mythical-landscape-has-completely-changed-internet-users-are-shocked.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iJ0NnNXNkVGxQUm1WUmVWRmljRGhqVFJDZkF4ampCU2dLTWdNQkFBMA=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T09:18:50.000Z",
-    authors: ["Clement Pessaux"],
-    source_url: "https://3dvf.com",
-    source_name: "3DVF",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://3dvf.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDRE5rZG1ZdVkyOXRLQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYyZDJSaU1IaG9haElDWlc0b0FBUAE",
-        topic_name: "Clement Pessaux",
-      },
-    ],
-  },
-  {
-    title:
-      "Grab 900 of your closest internet strangers and hit the road, online",
-    link: "https://www.pcgamer.com/hardware/grab-900-of-your-closest-internet-strangers-and-hit-the-road-online/",
-    snippet:
-      "This virtual journey puts you in a shared front seat in an invisible vehicle, making its way through Google Maps streets. A disembodied steering ...",
-    photo_url: "https://cdn.mos.cms.futurecdn.net/3hYkwXoHN7grnWYMDdagSU.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNUZhbXBhT0ZRMldFeHBWR0ZsVFJDZkF4amlCU2dLTWdrdEFJQTZsS0p6Z0FN=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T05:32:38.000Z",
-    authors: ["Hope Corrigan"],
-    source_url: "https://www.pcgamer.com",
-    source_name: "PC Gamer",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.pcgamer.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0JqWjJGdFpYSXVZMjl0S0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4Ym1NeVptWTFZaElDWlc0b0FBUAE",
-        topic_name: "Hope Corrigan",
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVc0MmJHMXVZaElDWlc0b0FBUAE",
+        topic_name: "Lily Hay Newman",
       },
     ],
     sub_articles: [
       {
-        title:
-          "900 People Are Collectively Driving an 'Internet Roadtrip' on Google Street View",
-        link: "https://www.404media.co/900-people-are-collectively-driving-an-internet-roadtrip-on-google-street-view/",
+        title: "Google has a solution for those ‘unpaid toll’ text scams",
+        link: "https://www.cnn.com/2025/05/13/tech/unpaid-toll-scam-text-message-detection-google-android",
         photo_url:
-          "https://www.404media.co/content/images/size/w2000/2025/05/InternetRoadtripo.png",
+          "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1246718551.jpg?c=16x9&q=h_833,w_1480,c_fill",
         thumbnail_url:
-          "https://news.google.com/api/attachments/CC8iK0NnNVpjVGh6VDI5cVZEWkVRWFprVFJDb0FSaXJBaWdCTWdZQjRJQ04zUUE=-w200-h200-p-df-rw",
-        published_datetime_utc: "2025-05-12T15:52:56.000Z",
-        authors: ["Matthew Gault"],
-        source_url: "https://www.404media.co",
-        source_name: "404 Media",
+          "https://news.google.com/api/attachments/CC8iK0NnNXJPVFI2WW5KQ1Z6TmhaazFSVFJDZkF4amlCU2dLTWdhTlJKU3RMUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:00:00.000Z",
+        authors: ["Lisa Eadicicco"],
+        source_url: "https://www.cnn.com",
+        source_name: "CNN",
         source_logo_url: null,
         source_favicon_url:
-          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.404media.co&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.cnn.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
         source_publication_id:
-          "CAAqJQgKIh9DQklTRVFnTWFnMEtDelF3TkcxbFpHbGhMbU52S0FBUAE",
+          "CAAqIAgKIhpDQklTRFFnTWFna0tCMk51Ymk1amIyMG9BQVAB",
         related_topics: [
           {
             topic_id:
-              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvTlc1dWJYTnhPUklDWlc0b0FBUAE",
-            topic_name: "Matthew Gault",
-          },
-        ],
-      },
-      {
-        title: "Internet Roadtrip heads for the Canadian border",
-        link: "https://boingboing.net/2025/05/14/internet-roadtrip-heads-for-the-canadian-border.html",
-        photo_url:
-          "https://i0.wp.com/boingboing.net/wp-content/uploads/2025/05/Internet-Roadtrip.jpg?fit=1080%2C489&quality=60&ssl=1",
-        thumbnail_url:
-          "https://news.google.com/api/attachments/CC8iMkNnNWZkV0UyUmtwV1FUaGtUV2haVFJEMEFoaTNCaWdLTWdzQkFJRE9nVzE3dDhoRlBR=-w200-h200-p-df-rw",
-        published_datetime_utc: "2025-05-14T11:15:07.000Z",
-        authors: ["Rob Beschizza"],
-        source_url: "https://boingboing.net",
-        source_name: "Boing Boing",
-        source_logo_url: null,
-        source_favicon_url:
-          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://boingboing.net&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-        source_publication_id:
-          "CAAqKQgKIiNDQklTRkFnTWFoQUtEbUp2YVc1blltOXBibWN1Ym1WMEtBQVAB",
-        related_topics: [
-          {
-            topic_id:
-              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTlRSelozZHpjQklDWlc0b0FBUAE",
-            topic_name: "Rob Beschizza",
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsemMyczNheElDWlc0b0FBUAE",
+            topic_name: "Lisa Eadicicco",
           },
         ],
       },
       {
         title:
-          "Almost 1,000 people are virtually driving across America together",
-        link: "https://supercarblondie.com/people-virtually-driving-across-america-internet-road-trip/",
+          "Your Android phone is getting a huge security upgrade for free - what's new",
+        link: "https://www.zdnet.com/article/your-android-phone-is-getting-a-huge-security-upgrade-for-free-whats-new/",
         photo_url:
-          "https://supercarblondie.com/wp-content/uploads/roadtrip.png",
+          "https://www.zdnet.com/a/img/resize/09cc6d0f36cdee9e9a49a3630050d2485a15c57b/2025/05/12/4f8bed24-4704-4785-82e8-874de0221b40/google-says-these-8-features-will-keep-your-android-phone-as-secure-as-possible.jpg?auto=webp&width=1280",
         thumbnail_url:
-          "https://news.google.com/api/attachments/CC8iK0NnNVRWVXBQV0V4YU1IUXhjMGhOVFJDMkF4aTlCU2dLTWdZcEJZQ3ZBUTA=-w200-h200-p-df-rw",
-        published_datetime_utc: "2025-05-14T01:30:00.000Z",
-        authors: ["Claire Reid"],
-        source_url: "https://supercarblondie.com",
-        source_name: "supercarblondie.com",
+          "https://news.google.com/api/attachments/CC8iK0NnNW5NbVIyWXkxbmQwNHhUWGxrVFJDa0F4amFCU2dLTWdhbFZJYnVNUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:00:00.000Z",
+        authors: ["Lance Whitney"],
+        source_url: "https://www.zdnet.com",
+        source_name: "ZDNET",
         source_logo_url: null,
         source_favicon_url:
-          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://supercarblondie.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.zdnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
         source_publication_id:
-          "CAAqMAgKIipDQklTR1FnTWFoVUtFM04xY0dWeVkyRnlZbXh2Ym1ScFpTNWpiMjBvQUFQAQ",
+          "CAAqIggKIhxDQklTRHdnTWFnc0tDWHBrYm1WMExtTnZiU2dBUAE",
         related_topics: [
           {
             topic_id:
-              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYzTkRrME1IUnFlUklDWlc0b0FBUAE",
-            topic_name: "Claire Reid",
+              "CAAqJggKIiBDQkFTRWdvTUwyY3ZNVEZ0ZG5sblpIUnRFZ0psYmlnQVAB",
+            topic_name: "Lance Whitney",
+          },
+        ],
+      },
+      {
+        title:
+          "We 'Stole' a Phone From Google's Sameer Samat and Were Dazzled by Android 16",
+        link: "https://www.cnet.com/tech/mobile/we-stole-a-phone-from-googles-sameer-samat-and-were-dazzled-by-android-16/",
+        photo_url:
+          "https://www.cnet.com/a/img/resize/a473fadd80573df23d8ceff10f5a8674702099f1/hub/2025/05/13/140af5ab-52b2-4af3-b267-a444d886a79e/android-google-io-2025-5254.jpg?auto=webp&fit=crop&height=675&width=1200",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNUhTR05EWlRNNVVVWkNjSGRTVFJDZkF4ampCU2dLTWdtQmNKaXpzQ2ZCS1FJ=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:00:00.000Z",
+        authors: ["Patrick Holland"],
+        source_url: "https://www.cnet.com",
+        source_name: "CNET",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.cnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIQgKIhtDQklTRGdnTWFnb0tDR051WlhRdVkyOXRLQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWnpRNFh6WXhOQklDWlc0b0FBUAE",
+            topic_name: "Patrick Holland",
           },
         ],
       },
     ],
     story_id:
-      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pyb1pEckRSRjgyTWNad2EtVmVTZ0FQAQ",
-  },
-  {
-    title: "How the Internet Left 4chan Behind",
-    link: "https://www.newyorker.com/culture/infinite-scroll/how-the-internet-left-4chan-behind",
-    snippet:
-      "After a week and a half, 4chan limped back online over the weekend, but an air of embarrassment hung over its return. The hackers had leaked ...",
-    photo_url:
-      "https://media.newyorker.com/photos/6812376569ed72c4bce75057/4:3/w_2560%2Cc_limit/Chayka_4chan_final.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNDNORE55TjNoM2NFTk9VVkp1VFJEZ0F4aUFCU2dLTWdZUmdZaU94UVE=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-30T07:00:00.000Z",
-    authors: ["Kyle Chayka"],
-    source_url: "https://www.newyorker.com",
-    source_name: "The New Yorker",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.newyorker.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKAgKIiJDQklTRXdnTWFnOEtEVzVsZDNsdmNtdGxjaTVqYjIwb0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsdGNYazVkeElDWlc0b0FBUAE",
-        topic_name: "Kyle Chayka",
-      },
-    ],
-  },
-  {
-    title: "Tired of Slow Internet? Here's How I Got Mine Faster (Free)",
-    link: "https://www.cnet.com/home/internet/tired-of-slow-internet-heres-how-i-got-mine-faster-free/",
-    snippet:
-      "Through all my moves, I've built up a toolkit of free ways to maximize my internet connection, no matter how pokey it is. While you can throw ...",
-    photo_url:
-      "https://www.cnet.com/a/img/resize/bf3319a166867b3de3783f09289f1781112dc751/hub/2024/09/18/e45aa885-dbaa-4056-94ab-c686a179fe1c/cnet-broadband-promo-images-v1.jpg?auto=webp&fit=crop&height=900&width=1200",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNDNNak5rVUhneWRWSjNUbkJmVFJEZ0F4aUFCU2dLTWdhUlVvanZMUWc=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-03T07:00:00.000Z",
-    authors: ["Nelson Aguilar"],
-    source_url: "https://www.cnet.com",
-    source_name: "CNET",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.cnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDR051WlhRdVkyOXRLQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhkamRtTjVhQklDWlc0b0FBUAE",
-        topic_name: "Nelson Aguilar",
-      },
-    ],
-  },
-  {
-    title: "Drei Greets New Subscribers with Free Internet, Device Giveaways",
-    link: "https://www.thefastmode.com/services-and-innovations/41746-drei-greets-new-subscribers-with-free-internet-device-giveaways",
-    snippet:
-      "Drei has announced that it is giving all new home internet customers free access for their first three months. Starting with the DataNet 200 ...",
-    photo_url:
-      "https://www.thefastmode.com/media/k2/items/src/7988280635623a2109e75d19138039ba.jpg?t=20250515_023618",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNVVRa2hsV2w5TlVVMDVlRlIxVFJDbEFSaXhBaWdCTWdrQkVJd2praW9lRWdF=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-15T01:57:33.000Z",
-    authors: ["Tara Neal"],
-    source_url: "https://www.thefastmode.com",
-    source_name: "The Fast Mode",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.thefastmode.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEM1JvWldaaGMzUnRiMlJsTG1OdmJTZ0FQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtYUhOcU1qbHpPUklDWlc0b0FBUAE",
-        topic_name: "Tara Neal",
-      },
-    ],
-  },
-  {
-    title: "Go Delete Yourself From the Internet. Seriously, Here’s How.",
-    link: "https://www.wsj.com/tech/personal-tech/personal-information-privacy-deleteme-2ceea2ad",
-    snippet:
-      "Go Delete Yourself From the Internet. Seriously, Here's How. Find your data, request removal…and repeat. Illustration of a hand wiping a Google ...",
-    photo_url: "https://images.wsj.net/im-28361642?width=1280&height=853",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNDFkeTFVWWtWQ2EwTmZkeTB0VFJERUF4aW1CU2dLTWdhWlE0QnlZUUk=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-20T07:00:00.000Z",
-    authors: ["Nicole Nguyen"],
-    source_url: "https://www.wsj.com",
-    source_name: "WSJ",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.wsj.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCM2R6YWk1amIyMG9BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYwTVdnMk1tZzRYeElDWlc0b0FBUAE",
-        topic_name: "Nicole Nguyen",
-      },
-    ],
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2k5MlpfcERSRlZxamJ1NFllX1JDZ0FQAQ",
   },
   {
     title:
-      "AT&T's internet master plan? Reportedly, FWA now — fiber takeover later",
-    link: "https://www.phonearena.com/news/at-t-internet-master-plan-reportedly-fwa-now-fiber-takeover-later_id170364",
+      "Android Auto prepares media player change that might ruin your muscle memory",
+    link: "https://9to5google.com/2025/05/14/android-auto-media-player-buttons-beta-change/",
     snippet:
-      "AT&T's Jeff McElfresh has shed some light on AT&T's fiber and FWA plans. AT&T seems to have big plans for its extensive fiber network expansion.",
+      "Google is preparing a potential change to Android Auto that shuffles the media player buttons around, breaking muscle memory.",
     photo_url:
-      "https://m-cdn.phonearena.com/images/article/170364-wide-two_1200/AT-Ts-internet-master-plan-Reportedly-FWA-now--fiber-takeover-later.jpg",
+      "https://9to5google.com/wp-content/uploads/sites/4/2023/01/android-auto-dashboard-22.jpg?quality=82&strip=all&w=1600",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNXFTMkZ2VkU1NmJrSkRkamxLVFJDZkF4ampCU2dLTWdZSlVwb1NMUWc=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T07:34:08.000Z",
-    authors: [],
-    source_url: "https://www.phonearena.com",
-    source_name: "PhoneArena",
+      "https://news.google.com/api/attachments/CC8iK0NnNVFYMDVxT0VKTWRtcFlURU51VFJDSEF4aVBCaWdLTWdZQkpZVHNJUVk=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T16:05:00.000Z",
+    authors: ["Ben Schoon"],
+    source_url: "https://9to5google.com",
+    source_name: "9to5Google",
     source_logo_url: null,
     source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.phonearena.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://9to5google.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
     source_publication_id:
-      "CAAqKQgKIiNDQklTRkFnTWFoQUtEbkJvYjI1bFlYSmxibUV1WTI5dEtBQVAB",
+      "CAAqKQgKIiNDQklTRkFnTWFoQUtEamwwYnpWbmIyOW5iR1V1WTI5dEtBQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhwdE5HTmlheElDWlc0b0FBUAE",
+        topic_name: "Ben Schoon",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Android Auto's upcoming media player redesign could shuffle key controls",
+        link: "https://www.androidpolice.com/android-auto-redesigned-media-controls/",
+        photo_url:
+          "https://static1.anpoimages.com/wordpress/wp-content/uploads/2025/01/android-auto-2-ap25-hero.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWtVRWhJZFdKeE5GTjRPVVEzVFJDZkF4ampCU2dLTWdZWkFJN05yUVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T21:06:00.000Z",
+        authors: ["Karandeep Oberoi"],
+        source_url: "https://www.androidpolice.com",
+        source_name: "Android Police",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.androidpolice.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLQgKIidDQklTRndnTWFoTUtFV0Z1WkhKdmFXUndiMnhwWTJVdVkyOXRLQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4T1RSMmNITXdheElDWlc0b0FBUAE",
+            topic_name: "Karandeep Oberoi",
+          },
+        ],
+      },
+      {
+        title:
+          "Drivers finally seeing return of fan-favorite feature they’ve been begging for – it changes your car ride completely",
+        link: "https://www.the-sun.com/motors/14194080/drivers-love-new-car-feature/",
+        photo_url:
+          "https://www.the-sun.com/wp-content/uploads/sites/6/2025/05/newspress-collage-3l7xi9q8j-1746721126019.jpg?w=620",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNWpSRGxIWDFwRVNtUnRkbEpaVFJDZEF4anNCQ2dLTWdtQllvZ0RVNk5NS1FJ=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-10T16:02:09.000Z",
+        authors: ["Michael Golson"],
+        source_url: "https://www.the-sun.com",
+        source_name: "The US Sun",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.the-sun.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDM1JvWlMxemRXNHVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4Ym1KM2EzRTJjUklDWlc0b0FBUAE",
+            topic_name: "Michael Golson",
+          },
+        ],
+      },
+      {
+        title:
+          "Google has just released an update to Android Auto, and we tell you how to get it now",
+        link: "https://en.as.com/meristation/news/google-has-just-released-an-update-to-android-auto-and-we-tell-you-how-to-get-it-now-n/",
+        photo_url:
+          "https://img.asmedia.epimg.net/resizer/v2/EEXPGIWWBRHQVGXWDQD5GXKLGU.jpg?auth=dc074dcdfb0575370b0ff8823df2b38178fe3d089523921024fd9c51cc5c90e6&width=1472&height=828&smart=true",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNUZiSHBtU2xFMk9VVklTRk4wVFJDZkF4ampCU2dLTWdrVk01SXdHV3FxU2dJ=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-06T20:18:09.000Z",
+        authors: ["Gabriel Huerta"],
+        source_url: "https://en.as.com",
+        source_name: "Diario AS",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://en.as.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIggKIhxDQklTRHdnTWFnc0tDV1Z1TG1GekxtTnZiU2dBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYyTkRKa2R6RXdkQklDWlc0b0FBUAE",
+            topic_name: "Gabriel Huerta",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lhd3VyeERSRkNMZmk0clItU1lTZ0FQAQ",
+  },
+  {
+    title: "TikTok’s newest AI filter turns your photos into videos",
+    link: "https://9to5mac.com/2025/05/13/tiktok-ai-alive-filter-turns-photos-into-videos/",
+    snippet:
+      "TikTok announced AI Alive, a filter that will allow users to animate static photos through prompts in the apps Story Camera.",
+    photo_url:
+      "https://9to5mac.com/wp-content/uploads/sites/6/2024/12/TikTok-ban-%E2%80%93-Supreme-Court-asked-for-emergency-injunction.webp",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNWtXVkpxVG1wdFRVbzNSVXBxVFJDSEF4aVBCaWdLTWdhdFZJNnZzUVk=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T23:19:00.000Z",
+    authors: [],
+    source_url: "https://9to5mac.com",
+    source_name: "9to5Mac",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://9to5mac.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJQgKIh9DQklTRVFnTWFnMEtDemwwYnpWdFlXTXVZMjl0S0FBUAE",
+    related_topics: [],
+    sub_articles: [
+      {
+        title:
+          "Introducing AI Alive: Bringing Your Photos to Life on TikTok Stories",
+        link: "https://newsroom.tiktok.com/en-us/introducing-tiktok-ai-alive",
+        photo_url:
+          "https://sf-tb-sg.ibytedtos.com/obj/tiktok-web-sg/tt-sg-article-cover-207ba60ebec2ece89dc985ea175aa398.png",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWxVVzR5ZHkxelNFcFRNVUUwVFJEbEFoamFCaWdLTWdhQlVKWWxLd2s=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:12:59.000Z",
+        authors: [],
+        source_url: "https://newsroom.tiktok.com",
+        source_name: "Newsroom | TikTok",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://newsroom.tiktok.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMAgKIipDQklTR1FnTWFoVUtFMjVsZDNOeWIyOXRMblJwYTNSdmF5NWpiMjBvQUFQAQ",
+        related_topics: [],
+      },
+      {
+        title: "TikTok Adds New Option To Animate Still Images With AI",
+        link: "https://www.socialmediatoday.com/news/tiktok-stories-convert-image-to-video-with-ai-alive/748007/",
+        photo_url:
+          "https://imgproxy.divecdn.com/k9xRred60ZNrse-JcidQDUmb34Th6b0kilhl_bLO590/g:ce/rs:fit:1600:0/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS90aWt0b2tfYWlfbGl2ZS5wbmc=.webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNVpha0Z4ZWxoU1ZVMUtkMDVPVFJET0FoaThCU2dLTWdrRlFZd0lwYWJCYUFJ=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T01:43:04.000Z",
+        authors: ["Andrew Hutchinson"],
+        source_url: "https://www.socialmediatoday.com",
+        source_name: "Social Media Today",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.socialmediatoday.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMQgKIitDQklTR2dnTWFoWUtGSE52WTJsaGJHMWxaR2xoZEc5a1lYa3VZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id: "CAAqJAgKIh5DQkFTRUFvS0wyMHZNR3QyWkdwdWR4SUNaVzRvQUFQAQ",
+            topic_name: "Andrew Hutchinson",
+          },
+        ],
+      },
+      {
+        title: "TikTok launches TikTok AI Alive, a new image-to-video tool",
+        link: "https://techcrunch.com/2025/05/13/tiktok-launches-tiktok-ai-alive-a-new-image-to-video-tool/",
+        photo_url:
+          "https://techcrunch.com/wp-content/uploads/2023/03/GettyImages-1248373545.jpg?w=1024",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iMkNnNDVVamhxVGkxclJITjJiVTB3VFJEQUF4aXNCU2dLTWdzQklJb2dxeWNlcE9yZ2ln=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:56:34.000Z",
+        authors: ["Aisha Malik"],
+        source_url: "https://techcrunch.com",
+        source_name: "TechCrunch",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://techcrunch.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKQgKIiNDQklTRkFnTWFoQUtEblJsWTJoamNuVnVZMmd1WTI5dEtBQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ5ZW1kdGEySnJkQklDWlc0b0FBUAE",
+            topic_name: "Aisha Malik",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2o3N3ZiMERSRlVXTmtGWUNONXZDZ0FQAQ",
+  },
+  {
+    title: "'Assassin's Creed' no saviour for struggling Ubisoft",
+    link: "https://www.france24.com/en/live-news/20250514-assassin-s-creed-no-saviour-for-struggling-ubisoft",
+    snippet:
+      'A bumper release for the latest "Assassin\'s Creed" instalment did not save French video games giant Ubisoft from falling back into the red ...',
+    photo_url:
+      "https://s.france24.com/media/display/8f73c318-30e0-11f0-8730-005056bfb2b6/w:1280/p:16x9/c0bac7650cd49a4d1f4c8679e33939d1f0b68ad3.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNTBjVlpPUTJ0YWJXcHBZM2szVFJDZkF4ampCU2dLTWdaQkFJNXpGQW8=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T16:29:10.000Z",
+    authors: [],
+    source_url: "https://www.france24.com",
+    source_name: "France 24",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.france24.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJggKIiBDQklTRWdnTWFnNEtER1p5WVc1alpUSTBMbU52YlNnQVAB",
+    related_topics: [],
+    sub_articles: [
+      {
+        title:
+          'Ubisoft\'s FY24-25 financials report "solid balance sheet" despite hefty drops in revenue and back-catalog sales',
+        link: "https://www.gamesindustry.biz/ubisofts-fy24-25-financials-report-solid-balance-sheet-despite-hefty-drops-in-revenue-and-back-catalog-sales",
+        photo_url:
+          "https://assetsio.gnwcdn.com/ss_4e9fd21649583759b7fa770a79083d0fa7317ed8.1920x1080.jpg?width=414&quality=70&format=jpg&auto=webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXRVamhmVGtRd2VtaFpjMlpyVFJEcEFSaWVBeWdLTWdZQlFvNVBwUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T19:00:47.000Z",
+        authors: ["Vikki Blake"],
+        source_url: "https://www.gamesindustry.biz",
+        source_name: "GamesIndustry.biz",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.gamesindustry.biz&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLQgKIidDQklTRndnTWFoTUtFV2RoYldWemFXNWtkWE4wY25rdVltbDZLQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhseU9XZHRjeElDWlc0b0FBUAE",
+            topic_name: "Vikki Blake",
+          },
+        ],
+      },
+      {
+        title:
+          "Ubisoft Has Delayed Its Significant IPs to Improve Game Quality",
+        link: "https://insider-gaming.com/ubisoft-has-delayed-its-significant-ips-to-improve-game-quality/",
+        photo_url:
+          "https://insider-gaming.com/wp-content/uploads/2024/04/splinter-cell-remake.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWxUSEpZYjJGd2VsWndOVk01VFJDZkF4ampCU2dLTWdZOWNvN3pyQVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T16:24:28.000Z",
+        authors: ["Tom Henderson"],
+        source_url: "https://insider-gaming.com",
+        source_name: "Insider Gaming",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://insider-gaming.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLggKIihDQklTR0FnTWFoUUtFbWx1YzJsa1pYSXRaMkZ0YVc1bkxtTnZiU2dBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYyTUdaa2JIZzFlUklDWlc0b0FBUAE",
+            topic_name: "Tom Henderson",
+          },
+        ],
+      },
+      {
+        title:
+          "Assassin’s Creed Maker Ubisoft Sees Flat Sales in New Fiscal Year",
+        link: "https://www.wsj.com/business/earnings/assassins-creed-maker-ubisoft-sees-flat-sales-in-new-fiscal-year-886d8e2c",
+        photo_url: "https://images.wsj.net/im-54878131?width=700&height=467",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iJ0NnNXlTR3gwUlVGaGRqTmpkMkpEVFJERUF4aW1CU2dLTWdNQmNBZw=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T16:24:00.000Z",
+        authors: ["Mauro Orru"],
+        source_url: "https://www.wsj.com",
+        source_name: "WSJ",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.wsj.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIAgKIhpDQklTRFFnTWFna0tCM2R6YWk1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxWm1jME1ubG5ZaElDWlc0b0FBUAE",
+            topic_name: "Mauro Orru",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lIbnJmMURSRXNZZUlBd0FpV0Z5Z0FQAQ",
+  },
+  {
+    title:
+      "Helldivers 2 Major ‘Heart of Democracy’ Update Leaked by PlayStation",
+    link: "https://insider-gaming.com/helldivers-2-leak-heart-of-democracy-update/",
+    snippet:
+      "A PlayStation social media account has inadvertently leaked an upcoming Helldivers 2 update dubbed 'Heart of Democracy'.",
+    photo_url:
+      "https://insider-gaming.com/wp-content/uploads/2025/05/helldivers-2-update.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNUNSRE5RVFY5NGFXc3RMV3huVFJDZkF4ampCU2dLTWdZQlE0NmtxUVk=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T08:31:22.000Z",
+    authors: [],
+    source_url: "https://insider-gaming.com",
+    source_name: "Insider Gaming",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://insider-gaming.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqLggKIihDQklTR0FnTWFoUUtFbWx1YzJsa1pYSXRaMkZ0YVc1bkxtTnZiU2dBUAE",
+    related_topics: [],
+    sub_articles: [
+      {
+        title:
+          "Helldivers 2: Illuminate set sights on Super Earth, new enemy types deployed",
+        link: "https://blog.playstation.com/2025/05/13/helldivers-2-illuminate-set-sights-on-super-earth-new-enemy-types-deployed/",
+        photo_url:
+          "https://blog.playstation.com/tachyon/2025/05/213d48ad6f0041ff52dc4c772bcf63950f4c2d2e.jpg?resize=1088%2C612&crop_strategy=smart",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXpia3hwTTFoelYzZFpibkpOVFJDZkF4ampCU2dLTWdZRmM1SnBzUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T09:00:04.000Z",
+        authors: ["Katherine A. Baskin"],
+        source_url: "https://blog.playstation.com",
+        source_name: "PlayStation.Blog",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://blog.playstation.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMQgKIitDQklTR2dnTWFoWUtGR0pzYjJjdWNHeGhlWE4wWVhScGIyNHVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ3ZW5SM1l6Qm1lQklDWlc0b0FBUAE",
+            topic_name: "Katherine A. Baskin",
+          },
+        ],
+      },
+      {
+        title:
+          "Helldivers 2: Galactic Emergency Announced, New Enemies And Weapon Customizations",
+        link: "https://wccftech.com/helldivers-2-galactic-emergency-announced-new-enemies-and-weapon-customizations/",
+        photo_url:
+          "https://cdn.wccftech.com/wp-content/uploads/2024/02/helldivers-2-game-master.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWFSbFJYT0hKblRWTlpNVU5LVFJDZkF4ampCU2dLTWdZcE5Zek9uUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T16:39:00.000Z",
+        authors: ["David Carcasole"],
+        source_url: "https://wccftech.com",
+        source_name: "Wccftech",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://wccftech.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtESGRqWTJaMFpXTm9MbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ1T0dJMlh6UmtZaElDWlc0b0FBUAE",
+            topic_name: "David Carcasole",
+          },
+        ],
+      },
+      {
+        title:
+          "Helldivers 2's enemy squids are headed to Super Earth, so now you can tinker with your guns more",
+        link: "https://www.rockpapershotgun.com/helldivers-2s-enemy-squids-are-headed-to-super-earth-so-now-you-can-tinker-with-your-guns-more",
+        photo_url:
+          "https://assetsio.gnwcdn.com/helldivers-2-weapon-customisation.jpg?width=382&quality=70&format=jpg&auto=webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iJ0NnNHdia3RuVkZkaFoweG1RVFJpVFJDekFSai1BaWdLTWdPUk1Bdw=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T09:00:50.000Z",
+        authors: ["Graham Smith"],
+        source_url: "https://www.rockpapershotgun.com",
+        source_name: "Rock Paper Shotgun",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.rockpapershotgun.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMQgKIitDQklTR2dnTWFoWUtGSEp2WTJ0d1lYQmxjbk5vYjNSbmRXNHVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0ZG5Sc05YZ3dlUklDWlc0b0FBUAE",
+            topic_name: "Graham Smith",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2oydUxqdERSRU15V3dQWjM2dkJTZ0FQAQ",
+  },
+  {
+    title:
+      "New 2025 iPad Now Costs Less Than AirPods Pro, Amazon Clears Out Stock",
+    link: "https://gizmodo.com/new-2025-ipad-now-costs-less-than-airpods-pro-amazon-clears-out-stock-2000602403",
+    snippet:
+      "It's incredible to receive a brand-new 2025 iPad (which is powered by Apple's advanced A16 chip) at an all-time low price on Amazon.",
+    photo_url: "https://gizmodo.com/app/uploads/2024/12/ipad-.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNTRNV3QzYUVzNE1uWjVXRzE2VFJERUF4aW1CU2dLTWdZcFZJeU9zUVU=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T20:05:54.000Z",
+    authors: [],
+    source_url: "https://gizmodo.com",
+    source_name: "Gizmodo",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://gizmodo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJQgKIh9DQklTRVFnTWFnMEtDMmRwZW0xdlpHOHVZMjl0S0FBUAE",
+    related_topics: [],
+    sub_articles: [
+      {
+        title:
+          "The Apple iPad Air (M3) is at its lowest price ever right now: Deal of the Day",
+        link: "https://www.nbcnews.com/select/shopping/apple-ipad-air-m3-deal-of-the-day-2025-rcna205835",
+        photo_url:
+          "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2025-05/250512-deal-of-the-day-apple-ipad-air-m3-kb-main-90447b.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNU9iM1p6VlhsSk1GOHlUVWRxVFJDSEF4aVBCaWdLTWdZQlFKcmtJZ2s=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-12T16:17:44.000Z",
+        authors: ["Harry Rabinowitz"],
+        source_url: "https://www.nbcnews.com",
+        source_name: "NBC News",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.nbcnews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDMjVpWTI1bGQzTXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUY4eWRISjNjaElDWlc0b0FBUAE",
+            topic_name: "Harry Rabinowitz",
+          },
+        ],
+      },
+      {
+        title:
+          "I skipped the pricey iPad Pro for the $299 base model and have no regrets. Here's why",
+        link: "https://www.zdnet.com/article/i-skipped-the-pricey-ipad-pro-for-the-299-base-model-and-have-no-regrets-heres-why/",
+        photo_url:
+          "https://www.zdnet.com/a/img/resize/be1d728bdd3204d6bd76bd2526221d0604c51a7a/2025/04/30/b8127718-8775-4c05-9d18-89836e0dbde2/8.jpg?auto=webp&width=1280",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWZObWQzUkVaaVZVbFpiVFV0VFJDZkF4ampCU2dLTWdZQk1KQ3RyUVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T10:00:00.000Z",
+        authors: [],
+        source_url: "https://www.zdnet.com",
+        source_name: "ZDNET",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.zdnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIggKIhxDQklTRHdnTWFnc0tDWHBrYm1WMExtTnZiU2dBUAE",
+        related_topics: [],
+      },
+      {
+        title:
+          "Today's deals: $299 iPad 11, $497 LG 65-inch smart TV, $30 Philips Sonicare toothbrush, $499 Traeger grill, more",
+        link: "https://bgr.com/deals/todays-deals-299-ipad-11-497-lg-65-inch-smart-tv-30-philips-sonicare-toothbrush-499-traeger-grill-more/",
+        photo_url:
+          "https://bgr.com/wp-content/uploads/2023/04/BGR-Deals-Of-The-Day-2023-Wednesday.jpg?quality=82&strip=all&w=1020&h=574&crop=1",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXlkMHBTUnpoVE1YTTVOa2xqVFJDZkF4amlCU2dLTWdhQmtKSUROd2M=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T11:53:00.000Z",
+        authors: ["Maren Estrada"],
+        source_url: "https://bgr.com",
+        source_name: "Boy Genius Report",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://bgr.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIAgKIhpDQklTRFFnTWFna0tCMkpuY2k1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhsamFHSXlOaElDWlc0b0FBUAE",
+            topic_name: "Maren Estrada",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2o5NnZYckRSRkN3VUhJbUgyTDJTZ0FQAQ",
+  },
+  {
+    title:
+      "Material 3 Expressive is Coming to Wear OS 6, First Look on Pixel Watch",
+    link: "https://www.droid-life.com/2025/05/13/wear-os-6-material-3-expressive-update/",
+    snippet:
+      "Find out how Wear OS 6 with Material 3 Expressive transforms your Pixel Watch, when you'll receive the update.",
+    photo_url:
+      "https://www.droid-life.com/wp-content/uploads/2025/05/Wear-OS-6-1200x1200-cropped.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iJ0NnNWhVRWRyYkZFMmVGVnVaVkp2VFJDcUJCaXFCQ2dLTWdPVmtoUQ=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T17:00:04.000Z",
+    authors: [],
+    source_url: "https://www.droid-life.com",
+    source_name: "Droid Life",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.droid-life.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqKQgKIiNDQklTRkFnTWFoQUtEbVJ5YjJsa0xXeHBabVV1WTI5dEtBQVAB",
+    related_topics: [],
+    sub_articles: [
+      {
+        title: "The Android Show: I/O Edition",
+        link: "https://blog.google/products/android/the-android-show-io-2025/",
+        photo_url:
+          "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/TAS_Collection.max-1440x449.format-webp.webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iKkNnNVBiRmMyY0ZSSE4zbDFSalp4VFJCOUdKSURLQUV5QnFFampDdXFCdw=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:04:16.000Z",
+        authors: [],
+        source_url: "https://blog.google",
+        source_name: "Google Blog",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://blog.google&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDMkpzYjJjdVoyOXZaMnhsS0FBUAE",
+        related_topics: [],
+      },
+      {
+        title: "Google Unveils Major Android Redesign Ahead of iPhone Overhaul",
+        link: "https://www.bloomberg.com/news/articles/2025-05-13/android-material-3-expressive-design-set-to-debut-at-google-i-o-2025",
+        photo_url:
+          "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iLKpEVlV1DFs/v0/-1x-1.webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNTBVVGR2WmpaUVZscHZlVnBMVFJDZ0F4amlCU2dLTWdZQkFJU01KQVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:00:26.000Z",
+        authors: ["Vlad Savov"],
+        source_url: "https://www.bloomberg.com",
+        source_name: "Bloomberg.com",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.bloomberg.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEV0pzYjI5dFltVnlaeTVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhrd2JERndjeElDWlc0b0FBUAE",
+            topic_name: "Vlad Savov",
+          },
+        ],
+      },
+      {
+        title:
+          "I'm a diehard Pixel user, and the Android 16 design overhaul has me more excited than ever",
+        link: "https://www.zdnet.com/article/im-a-diehard-pixel-user-and-the-android-16-design-overhaul-has-me-more-excited-than-ever/",
+        photo_url:
+          "https://www.zdnet.com/a/img/resize/15cd25384ed0f0afb7996ef6f176489f0724d217/2024/09/03/501edd42-fb18-4b60-acf4-7590b5aa1e68/dsc01816.jpg?auto=webp&width=1280",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNDVORVpoTmswNVVrTlNNWEZLVFJDZkF4ampCU2dLTWdZbE5ZcnVIUW8=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T13:35:00.000Z",
+        authors: ["Jack Wallen"],
+        source_url: "https://www.zdnet.com",
+        source_name: "ZDNET",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.zdnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIggKIhxDQklTRHdnTWFnc0tDWHBrYm1WMExtTnZiU2dBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTURSemJHY3pkQklDWlc0b0FBUAE",
+            topic_name: "Jack Wallen",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2ozdmRmakRSRVdvS2RQSEd3cDJDZ0FQAQ",
+  },
+  {
+    title: "New Switch 2 specs show large performance dip in undocked mode",
+    link: "https://arstechnica.com/gaming/2025/05/new-switch-2-specs-show-large-performance-dip-in-undocked-mode/",
+    snippet:
+      "New Switch 2 specs show large performance dip in undocked mode ; CPU clock, 998 Mhz, 1101 Mhz ; GPU clock, 1007 Mhz, 561 Mhz ; Ray-tracing, 20 ...",
+    photo_url:
+      "https://cdn.arstechnica.net/wp-content/uploads/2025/04/Screenshot-2025-04-02-at-9.17.48%E2%80%AFAM.png",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNHhiSGRsUzNaRWQxRjJVamRqVFJDZUF4amtCU2dLTWdhcGM0eHZNUVU=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T16:40:43.000Z",
+    authors: ["Kyle Orland"],
+    source_url: "https://arstechnica.com",
+    source_name: "Ars Technica",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://arstechnica.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqKggKIiRDQklTRlFnTWFoRUtEMkZ5YzNSbFkyaHVhV05oTG1OdmJTZ0FQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqJAgKIh5DQkFTRUFvS0wyMHZNR295ZERVd05CSUNaVzRvQUFQAQ",
+        topic_name: "Kyle Orland",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Nintendo Switch 2: final tech specs and system reservations confirmed",
+        link: "https://www.eurogamer.net/digitalfoundry-2025-nintendo-switch-2-final-tech-specs-and-system-reservations-confirmed",
+        photo_url:
+          "https://assetsio.gnwcdn.com/SWITCH-SPECS-THUMB.jpg?width=414&quality=70&format=jpg&auto=webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNURSMFZMYUVKUGIxOXFkblZrVFJEcEFSaWVBeWdLTWdhaGdaVE1NUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T14:00:00.000Z",
+        authors: ["Richard Leadbetter"],
+        source_url: "https://www.eurogamer.net",
+        source_name: "Eurogamer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.eurogamer.net&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEV1YxY205bllXMWxjaTV1WlhRb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuT1c0eWVEVTRNaElDWlc0b0FBUAE",
+            topic_name: "Richard Leadbetter",
+          },
+        ],
+      },
+      {
+        title:
+          "Nintendo Switch 2 official specs confirm GPU similar to a mobile RTX 2050",
+        link: "https://www.tomshardware.com/pc-components/gpus/nintendo-switch-2-official-specs-confirm-gpu-similar-to-a-mobile-rtx-2050",
+        photo_url:
+          "https://cdn.mos.cms.futurecdn.net/jicsBbmavzfiGuLrA5RDSS.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNW5SMFJMYmtJeWFFOUJaSFZYVFJDZkF4ampCU2dLTWdZRllJNXJNUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T18:46:26.000Z",
+        authors: ["Aaron Klotz"],
+        source_url: "https://www.tomshardware.com",
+        source_name: "Tom's Hardware",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.tomshardware.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFSFJ2YlhOb1lYSmtkMkZ5WlM1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ3ZGpSM01ucGZiQklDWlc0b0FBUAE",
+            topic_name: "Aaron Klotz",
+          },
+        ],
+      },
+      {
+        title:
+          "Nintendo Switch 2 Final System Specifications Confirm CPU, GPU Max Clock Speeds, Available RAM for Games, Multiple NVIDIA DLSS Options",
+        link: "https://wccftech.com/nintendo-switch-2-final-system-specifications-cpu-gpu-dlss/",
+        photo_url:
+          "https://cdn.wccftech.com/wp-content/uploads/2025/01/16x9-NintendoSwitch2-HD-scaled.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNTRkbE5LTUVGNlV5MTVUelV4VFJDZkF4ampCU2dLTWdrSmdKS2x0dVpFN2dF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T14:57:00.000Z",
+        authors: ["Francesco De Meo"],
+        source_url: "https://wccftech.com",
+        source_name: "Wccftech",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://wccftech.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtESGRqWTJaMFpXTm9MbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvTlhBd2N6UXdiUklDWlc0b0FBUAE",
+            topic_name: "Francesco De Meo",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lJNTdmc0RSRng1SWFMY2FJVlhTZ0FQAQ",
+  },
+  {
+    title:
+      "Hogwarts Legacy Civilization 7 , And More Reveal $10 Upgrade Fees For Switch 2 Improvements",
+    link: "https://kotaku.com/switch-2-upgrade-pack-hogwarts-legacy-civ-7-1851780505",
+    snippet:
+      "The 'next-gen' tax PS5 and Xbox Series X/S players suffered through comes to Switch 2.",
+    photo_url:
+      "https://i.kinja-img.com/image/upload/c_fit,q_60,w_645/aee94ecc58c3ce726d5237112ce3677d.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNDBObkZRYVc1aGJFcHhNRGxMVFJEckFoaUZCU2dLTWdZZFlwWXFJZ2s=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T19:01:35.000Z",
+    authors: ["Ethan Gach"],
+    source_url: "https://kotaku.com",
+    source_name: "Kotaku",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://kotaku.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJAgKIh5DQklTRUFnTWFnd0tDbXR2ZEdGcmRTNWpiMjBvQUFQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTmpkbmQzSm1PQklDWlc0b0FBUAE",
+        topic_name: "Ethan Gach",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "Hogwarts Legacy",
+        link: "https://www.nintendo.com/us/store/products/hogwarts-legacy-switch-2/",
+        photo_url:
+          "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch-2/70010000095417/1474ec0ae203ee7a392f89ad9cf9d630b7f2d13b1300c65d27e435a607c0bda5",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNTJjMEYwZW1KdVIwbEtZMHhZVFJDb0FSaXJBaWdCTWdZUkk0NUpsUW8=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-12T16:23:56.000Z",
+        authors: [],
+        source_url: "https://www.nintendo.com",
+        source_name: "Nintendo",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.nintendo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtERzVwYm5SbGJtUnZMbU52YlNnQVAB",
+        related_topics: [],
+      },
+      {
+        title:
+          "Hogwarts Legacy Switch 1 Players Can Upgrade For $10 To Get Better Graphics And No Loading Screens on Switch 2",
+        link: "https://www.ign.com/articles/hogwarts-legacy-switch-1-players-can-upgrade-for-10-to-get-better-graphics-and-no-loading-screens-on-switch-2",
+        photo_url:
+          "https://assets-prd.ignimgs.com/2025/05/14/screenshot-2025-05-14-at-12-56-22-1747223795492.png?width=1280",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXFSbXc1TjJNMWVrbG5SV040VFJDT0F4aUNCaWdLTWdZQkVKcDRuQWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T12:04:17.000Z",
+        authors: ["Vikki Blake"],
+        source_url: "https://www.ign.com",
+        source_name: "IGN",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.ign.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIAgKIhpDQklTRFFnTWFna0tCMmxuYmk1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhseU9XZHRjeElDWlc0b0FBUAE",
+            topic_name: "Vikki Blake",
+          },
+        ],
+      },
+      {
+        title:
+          "Hogwarts Legacy major update officially confirmed, but it'll cost you",
+        link: "https://www.gamingbible.com/news/platform/nintendo/hogwarts-legacy-major-update-confirmed-cost-451926-20250513",
+        photo_url:
+          "https://images.ladbible.com/resize?type=webp&quality=70&width=3840&fit=contain&gravity=auto&url=https://images.ladbiblegroup.com/v3/assets/bltbc1876152fcd9f07/blt752a4bd6a8f08055/682303521df4b17d541c6d74/hogwartsupdateswitch2.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWxha2RyU0RSalFWRkRjMWxDVFJDZkF4ampCU2dLTWdZQk1JYVN2QU0=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T08:32:05.000Z",
+        authors: ["Kate Harrold"],
+        source_url: "https://www.gamingbible.com",
+        source_name: "GAMINGbible",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.gamingbible.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEMmRoYldsdVoySnBZbXhsTG1OdmJTZ0FQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTW1KcWJtZzVkQklDWlc0b0FBUAE",
+            topic_name: "Kate Harrold",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pPOHB6bkRSRmt6T0dxYnBLRlVDZ0FQAQ",
+  },
+  {
+    title:
+      "Windows 10 and Microsoft 365 support deadlines didn't change - why this story just won't die",
+    link: "https://www.zdnet.com/article/windows-10-and-microsoft-365-support-deadlines-didnt-change-why-this-story-just-wont-die/",
+    snippet:
+      "No, Microsoft has not changed Windows 10 or Microsoft 365 support deadlines. Here's what actually happened.",
+    photo_url:
+      "https://www.zdnet.com/a/img/resize/d3bf8afbfb4c26a579538958436196c989543681/2025/05/13/9610a676-d12a-4700-b540-28ec19439c72/no-microsoft-has-not-changed-support-deadlines-for-windows-10-or-microsoft-365.jpg?auto=webp&width=1280",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iL0NnNVFUREY2Um1oUWRGbFdTVGhHVFJDa0F4amFCU2dLTWdrQklJQ3BLQ00xeUFJ=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T14:24:00.000Z",
+    authors: ["Ed Bott"],
+    source_url: "https://www.zdnet.com",
+    source_name: "ZDNET",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.zdnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqIggKIhxDQklTRHdnTWFnc0tDWHBrYm1WMExtTnZiU2dBUAE",
+    related_topics: [
+      {
+        topic_id: "CAAqJQgKIh9DQkFTRVFvTEwyMHZNREV5T0RGaU4zb1NBbVZ1S0FBUAE",
+        topic_name: "Ed Bott",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "Microsoft Confirms New Free Update Deadline For Windows Users",
+        link: "https://www.forbes.com/sites/zakdoffman/2025/05/13/microsoft-confirms-new-free-update-deadline-for-windows-users/",
+        photo_url:
+          "https://imageio.forbes.com/specials-images/imageserve/67e16f26f3e59256a03d32a7/Microsoft-logo-on-HQ/0x0.jpg?format=jpg&crop=1826,981,x1002,y981,safe&width=960",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNUhlbFJYZDFwZldqTmthVTg1VFJDV0F4anpCU2dLTWdtSklZSVJHZWlKN2dB=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T21:17:00.000Z",
+        authors: ["Zak Doffman"],
+        source_url: "https://www.forbes.com",
+        source_name: "Forbes",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.forbes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJAgKIh5DQklTRUFnTWFnd0tDbVp2Y21KbGN5NWpiMjBvQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTURGamVHcGtjaElDWlc0b0FBUAE",
+            topic_name: "Zak Doffman",
+          },
+        ],
+      },
+      {
+        title:
+          "Microsoft extends Windows 10 support, but only for Microsoft 365 users",
+        link: "https://www.pcworld.com/article/2780749/microsoft-extends-windows-10-support-but-just-for-microsoft-365.html",
+        photo_url:
+          "https://www.pcworld.com/wp-content/uploads/2025/05/Microsoft365-2.jpg?quality=50&strip=all&w=1024",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNVBRa2xvVW5wd1dXcFZiWFpTVFJDZkF4ampCU2dLTWdrSlVZb0hMYVpFTlFF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T18:30:00.000Z",
+        authors: ["Mark Hachman"],
+        source_url: "https://www.pcworld.com",
+        source_name: "pcworld.com",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.pcworld.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0JqZDI5eWJHUXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4Ym1NNWFHcDBhQklDWlc0b0FBUAE",
+            topic_name: "Mark Hachman",
+          },
+        ],
+      },
+      {
+        title: "Microsoft extends Office app support on Windows 10 to 2028",
+        link: "https://www.theverge.com/news/665599/microsoft-365-office-apps-windows-10-end-of-support-extension-2028",
+        photo_url:
+          "https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STKB334_MICROSOFT_OFFICE_C.jpg?quality=90&strip=all&crop=0,0,100,100",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWxRakF5TTBOM1h6RndaVEZoVFJERUF4aW1CU2dLTWdZWlU0eHNLUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T11:14:52.000Z",
+        authors: ["Tom Warren"],
+        source_url: "https://www.theverge.com",
+        source_name: "The Verge",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.theverge.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtESFJvWlhabGNtZGxMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZEhZM2NtSjVZaElDWlc0b0FBUAE",
+            topic_name: "Tom Warren",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2ljNEtIa0RSRm00R3dHTXFDM0hTZ0FQAQ",
+  },
+  {
+    title: "Google tests replacing ‘I’m Feeling Lucky’ with ‘AI Mode’",
+    link: "https://techcrunch.com/2025/05/13/google-tests-replacing-im-feeling-lucky-with-ai-mode/",
+    snippet:
+      'Google is testing a redesign of its homepage in which an experimental AI-powered search feature replaces its "I\'m Feeling Lucky" button.',
+    photo_url:
+      "https://techcrunch.com/wp-content/uploads/2018/06/google-search-magnifying-glass.png",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNXhlbVY0TWpKc1VXUnZjMFZPVFJDVEF4ajRCU2dLTWdZWms0Nk1OUVk=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T22:26:26.000Z",
+    authors: ["Maxwell Zeff"],
+    source_url: "https://techcrunch.com",
+    source_name: "TechCrunch",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://techcrunch.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqKQgKIiNDQklTRkFnTWFoQUtEblJsWTJoamNuVnVZMmd1WTI5dEtBQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4Ym1Od1p6STRaeElDWlc0b0FBUAE",
+        topic_name: "Maxwell Zeff",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "Google is testing AI search on its homepage",
+        link: "https://www.cnbc.com/2025/05/13/google-ai-mode-search-home-page.html",
+        photo_url:
+          "https://image.cnbcfm.com/api/v1/image/108097839-1738771465882-gettyimages-2189493210-vcg111536239150.jpeg?v=1738771522&w=1600&h=900",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXROMjR6Y1hSd1gzQkdaMVJPVFJDZkF4ampCU2dLTWdhSllZelFRQVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T19:53:45.000Z",
+        authors: ["Jennifer Elias"],
+        source_url: "https://www.cnbc.com",
+        source_name: "CNBC",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.cnbc.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIQgKIhtDQklTRGdnTWFnb0tDR051WW1NdVkyOXRLQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZzYTJwNk1qVjNNaElDWlc0b0FBUAE",
+            topic_name: "Jennifer Elias",
+          },
+        ],
+      },
+      {
+        title:
+          "Google might replace the ‘I’m Feeling Lucky’ button with AI Mode",
+        link: "https://www.theverge.com/news/665560/google-search-ai-mode-feeling-lucky-tests",
+        photo_url:
+          "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/Google-AI-Mode-Feeling-Lucky.jpg?quality=90&strip=all&crop=0,0,100,100",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNU1iRkJyUjNKNlFVaFVkSEZ6VFJERUF4aW1CU2dLTWdZaFZJeHJvUWc=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T09:07:32.000Z",
+        authors: ["Jess Weatherbed"],
+        source_url: "https://www.theverge.com",
+        source_name: "The Verge",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.theverge.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtESFJvWlhabGNtZGxMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ5WjJkblkzbzJOUklDWlc0b0FBUAE",
+            topic_name: "Jess Weatherbed",
+          },
+        ],
+      },
+      {
+        title:
+          "Google Tests AI Overviews In Turkey, Sweden, Netherlands & More Prior To I/O",
+        link: "https://www.seroundtable.com/google-ai-overviews-in-turkey-sweden-netherlands-39390.html",
+        photo_url:
+          "https://images.seroundtable.com/swedish-robot-google-logo-phone-1746824590.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUlWSEZwWkVSclJHRmpiblZvVFJDaUF4amRCU2dLTWdZVk00b0pJZ2c=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-12T11:41:00.000Z",
+        authors: ["Barry Schwartz"],
+        source_url: "https://www.seroundtable.com",
+        source_name: "Search Engine Roundtable",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.seroundtable.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFSE5sY205MWJtUjBZV0pzWlM1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id: "CAAqJAgKIh5DQkFTRUFvS0wyMHZNREkzYUc0NU54SUNaVzRvQUFQAQ",
+            topic_name: "Barry Schwartz",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lWbUxMd0RSRVpFZ05JY1dSY2JDZ0FQAQ",
+  },
+  {
+    title:
+      "Microsoft Fixes 78 Flaws, 5 Zero-Days Exploited; CVSS 10 Bug Impacts Azure DevOps Server",
+    link: "https://thehackernews.com/2025/05/microsoft-fixes-78-flaws-5-zero-days.html",
+    snippet:
+      "Microsoft patched 78 flaws, including 5 exploited zero-days, prompting CISA mandates for June 3 fixes.",
+    photo_url:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuG1FlWcHuSdTpgw5oeAY68yYuCSI5FgWxSR-VYV839hL-CkrqO0kdndW2oc51bwS2Gf_6LinSe7POQrnfAw1X3xxqxQE5hzQdajYSMXi6ykh-GMiLsBq88Tp64XQ7cfBlaXxsl7rYv4DhSlnIC93ShugEQzg1RlVPGotGfd2o6RhMj49yMTVVmw2ZV5Q8/s728-rw-e365/windows.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNXJjREZ1V1hORlZITkJhVVkxVFJEOEFoallCU2dLTWdZVnhvb0t4Z1U=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T08:14:00.000Z",
+    authors: ["Ravie Lakshmanan"],
+    source_url: "https://thehackernews.com",
+    source_name: "The Hacker News",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://thehackernews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqLQgKIidDQklTRndnTWFoTUtFWFJvWldoaFkydGxjbTVsZDNNdVkyOXRLQUFQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0ZG5ONGVHcHRjQklDWlc0b0FBUAE",
+        topic_name: "Ravie Lakshmanan",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "Patch Tuesday, May 2025 Edition",
+        link: "https://krebsonsecurity.com/2025/05/patch-tuesday-may-2025-edition/",
+        photo_url:
+          "https://krebsonsecurity.com/wp-content/uploads/2022/07/winupdatedate.png",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXZYM2MzU0RGalNpMW1SVE5IVFJEQ0F4aXBCU2dLTWdhUkpKUW90Z2M=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T12:05:01.000Z",
+        authors: [],
+        source_url: "https://krebsonsecurity.com",
+        source_name: "Krebs on Security",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://krebsonsecurity.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMAgKIipDQklTR1FnTWFoVUtFMnR5WldKemIyNXpaV04xY21sMGVTNWpiMjBvQUFQAQ",
+        related_topics: [],
+      },
+      {
+        title: "Windows Zero-Day Bug Exploited for Browser-Led RCE",
+        link: "https://www.darkreading.com/vulnerabilities-threats/windows-zero-day-bug-exploited-browser-rce",
+        photo_url:
+          "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt14579ad600afe174/6823addd1fbba48e86745eca/hacker-Westend61_GmbH-Alamy.jpg?width=1280&auto=webp&quality=95&format=jpg&disable=upscale",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWxNWGgzVms1RmJXOXpNVFUwVFJDZkF4ampCU2dLTWdhTmxJNG5OZ1k=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T21:48:37.000Z",
+        authors: ["Tara Seals"],
+        source_url: "https://www.darkreading.com",
+        source_name: "Dark Reading",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.darkreading.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEMlJoY210eVpXRmthVzVuTG1OdmJTZ0FQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhjNE9IUjViQklDWlc0b0FBUAE",
+            topic_name: "Tara Seals",
+          },
+        ],
+      },
+      {
+        title: "Windows 11 KB5058411 and KB5058405 cumulative updates released",
+        link: "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5058411-and-kb5058405-cumulative-updates-released/",
+        photo_url:
+          "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXBTWEp6V2tkQ2NWQTRielpVVFJDZkF4ampCU2dLTWdZcFlZVFBzUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:31:33.000Z",
+        authors: ["Mayank Parmar"],
+        source_url: "https://www.bleepingcomputer.com",
+        source_name: "BleepingComputer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.bleepingcomputer.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMQgKIitDQklTR2dnTWFoWUtGR0pzWldWd2FXNW5ZMjl0Y0hWMFpYSXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0ZG5Rd2VYaHFOUklDWlc0b0FBUAE",
+            topic_name: "Mayank Parmar",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pnNF9YMERSR2NfOU9Ud2FEckFpZ0FQAQ",
+  },
+  {
+    title:
+      "Don’t Miss This: One of the Best VPNs Is Practically Free Right Now",
+    link: "https://gizmodo.com/dont-miss-this-one-of-the-best-vpns-is-practically-free-right-now-2000600889",
+    snippet:
+      "Why is everyone so hyped about NordVPN's discount? Because it's significant and slashes the price by up to 77%. Check it out here.",
+    photo_url:
+      "https://gizmodo.com/app/uploads/2025/05/NordVPN-Good-Deal-Pricing.jpeg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNVdkakkwYWxoVWVFcDZRemh6VFJERUF4aW1CU2dLTWdhQms1S3ROUWM=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T22:00:12.000Z",
+    authors: [],
+    source_url: "https://gizmodo.com",
+    source_name: "Gizmodo",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://gizmodo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJQgKIh9DQklTRVFnTWFnMEtDMmRwZW0xdlpHOHVZMjl0S0FBUAE",
+    related_topics: [],
+    sub_articles: [
+      {
+        title:
+          "Get Up to 76% Off NordVPN + Free eSIM Data During This Deal Event",
+        link: "https://www.tvguide.com/news/nordvpn-saily-deal/",
+        photo_url:
+          "https://www.tvguide.com/a/img/resize/3c71225bdb17363ec13957263c290e829bcf5424/hub/2025/05/12/4ef553b7-fe0f-4b12-8c95-84e8ef3c3c97/affiliate-nord-vpn-saily-2025-campaign-800x600-us.png?auto=webp&width=1092",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWhRMWw0V2w5Zk1pMVJTbVYwVFJDb0FSaXJBaWdCTWdZQk1ZcTNIQWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T15:09:00.000Z",
+        authors: ["Tyler Schoeber"],
+        source_url: "https://www.tvguide.com",
+        source_name: "TVGuide.com",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.tvguide.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDM1IyWjNWcFpHVXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvZWpSc2JtSnROUklDWlc0b0FBUAE",
+            topic_name: "Tyler Schoeber",
+          },
+        ],
+      },
+      {
+        title:
+          "Travel securely this Memorial Day with a free eSIM from NordVPN",
+        link: "https://www.tomsguide.com/computing/vpns/travel-securely-this-memorial-day-with-a-free-esim-from-nordvpn",
+        photo_url:
+          "https://cdn.mos.cms.futurecdn.net/yDE3w56mriXhcs5oxiUdS3-1200-80.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUxNRTlhZURGRlYwZFFkalpoVFJDZkF4ampCU2dLTWdZcFJZck9IUWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T08:00:00.000Z",
+        authors: [],
+        source_url: "https://www.tomsguide.com",
+        source_name: "Tom's Guide",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.tomsguide.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEWFJ2YlhObmRXbGtaUzVqYjIwb0FBUAE",
+        related_topics: [],
+      },
+      {
+        title:
+          "Worried About Privacy Online? This Top-Rated VPN Is Up to 77% Off",
+        link: "https://tech.yahoo.com/vpn/deals/articles/worried-privacy-online-top-rated-195902259.html",
+        photo_url:
+          "https://s.yimg.com/ny/api/res/1.2/3DI778dIf9sG1q9Nj3rzIg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD04Mjg-/https://media.zenfs.com/en/rolling_stone_ecomm_619/003950f5230b16d0682a864838bb4ee3",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNTNWak5VVGxCdmNtTXhSMkZGVFJDa0F4ajJCQ2dLTWdrZGhJYUxSYU43N1FF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T19:59:02.000Z",
+        authors: ["Jonathan Zavaleta"],
+        source_url: "https://tech.yahoo.com",
+        source_name: "Yahoo",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://tech.yahoo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKQgKIiNDQklTRkFnTWFoQUtEblJsWTJndWVXRm9iMjh1WTI5dEtBQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYwTVhONk0yUmtYeElDWlc0b0FBUAE",
+            topic_name: "Jonathan Zavaleta",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2l1MmRmckRSRnBHLTdSLVZ0b2dTZ0FQAQ",
+  },
+  {
+    title:
+      "DJI said Mavic 4 Pro wouldn’t launch in US but these stores are selling it anyhow",
+    link: "https://www.theverge.com/drone/666425/dji-mavic-4-pro-on-sale-preorder-adorama-bh-photo",
+    snippet:
+      "Apparently DJI isn't entirely skipping the United States, as its Mavic 4 Pro went on sale at Adorama and possibly B&H.",
+    photo_url:
+      "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/dji-mavic-4-pro-3.jpg?quality=90&strip=all&crop=0.0033593120129041%2C0%2C99.993281375974%2C100&w=2400",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iL0NnNVVWbWx6TjFaVmVVeHVObUl0VFJER0F4aWpCU2dLTWdrSmNaRHlOS2FwS2dJ=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T22:49:24.000Z",
+    authors: ["Sean Hollister"],
+    source_url: "https://www.theverge.com",
+    source_name: "The Verge",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.theverge.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJggKIiBDQklTRWdnTWFnNEtESFJvWlhabGNtZGxMbU52YlNnQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuZVRRNGRHSXhNUklDWlc0b0FBUAE",
+        topic_name: "Sean Hollister",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "DJI Mavic 4 Pro: Revolutionary Features, Rave Reviews, and U.S. Availability Challenges",
+        link: "https://dronelife.com/2025/05/13/dji-mavic-4-pro-revolutionary-features-rave-reviews-and-u-s-availability-challenges/",
+        photo_url:
+          "https://dronelife.com/wp-content/uploads/2025/05/unnamed-203.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNTJNMkZGVjNOblgzcDFNRGhmVFJEekFoaTZCaWdLTWdhcHRJeXR1UVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T15:23:28.000Z",
+        authors: ["Miriam Mcnabb"],
+        source_url: "https://dronelife.com",
+        source_name: "Dronelife",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://dronelife.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEV1J5YjI1bGJHbG1aUzVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhoak0zWnlhaElDWlc0b0FBUAE",
+            topic_name: "Miriam Mcnabb",
+          },
+        ],
+      },
+      {
+        title:
+          "DJI Mavic 4 Pro Spins Up a Game-Changing Drone with the Mavic 4 Pro; Learn More Info at B&H",
+        link: "https://www.globenewswire.com/news-release/2025/05/13/3080084/0/en/DJI-Mavic-4-Pro-Spins-Up-a-Game-Changing-Drone-with-the-Mavic-4-Pro-Learn-More-Info-at-B-H.html",
+        photo_url:
+          "https://ml.globenewswire.com/Resource/Download/1eb070ed-9eb2-4105-a4d6-195150c6f85d?size=2",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUxRVkZPTFZkelozQjBXSEJEVFJEQ0FSaURBaWdCTWdZVlk0VExzUU0=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T12:07:24.000Z",
+        authors: [],
+        source_url: "https://www.globenewswire.com",
+        source_name: "GlobeNewswire",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.globenewswire.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLQgKIidDQklTRndnTWFoTUtFV2RzYjJKbGJtVjNjM2RwY21VdVkyOXRLQUFQAQ",
+        related_topics: [],
+      },
+      {
+        title:
+          "DJI looks to push creativity boundaries with triple-camera Mavic 4 Pro",
+        link: "https://newatlas.com/drones/dji-mavic-4-pro/",
+        photo_url:
+          "https://assets.newatlas.com/dims4/default/6fccd16/2147483647/strip/true/crop/1718x1145+0+72/resize/1200x800!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F74%2F7b%2F9127337449e18097d6ad2d490993%2F01.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXVPRmhYVDNwTWVucDNTekZFVFJERUF4aW1CU2dLTWdZaE1wUlBLUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T15:59:34.000Z",
+        authors: ["Paul Ridden"],
+        source_url: "https://newatlas.com",
+        source_name: "New Atlas",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://newatlas.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtERzVsZDJGMGJHRnpMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxY3pSc1lqWTBlaElDWlc0b0FBUAE",
+            topic_name: "Paul Ridden",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2p0MHEzb0RSR2c4Nm5IUnd5TmJ5Z0FQAQ",
+  },
+  {
+    title: "12 Games Are Coming To PS Plus Game Catalog Next Week",
+    link: "https://kotaku.com/ps-plus-extra-free-games-may-2025-catalog-stalker-ps5-1851780673",
+    snippet:
+      "12 Games Are Coming To PS Plus Game Catalog Next Week · Technically, the STALKER trilogy is three games so that's why its 12 and not 10.",
+    photo_url:
+      "https://i.kinja-img.com/image/upload/c_fit,q_60,w_645/957f2bbd5d3a7e85548176fda70b54b3.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNDNWVk41ZEVjNVJFbFpNRkZRVFJEckFoaUZCU2dLTWdhQk1KRGpLZ2M=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T17:45:00.000Z",
+    authors: ["Zack Zwiezen"],
+    source_url: "https://kotaku.com",
+    source_name: "Kotaku",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://kotaku.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJAgKIh5DQklTRUFnTWFnd0tDbXR2ZEdGcmRTNWpiMjBvQUFQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsd2QyWTBjQklDWlc0b0FBUAE",
+        topic_name: "Zack Zwiezen",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "PlayStation Plus Game Catalog for May: Sand Land, Soul Hackers 2, Five Nights at Freddy’s: Help Wanted, Battlefield V and more",
+        link: "https://blog.playstation.com/2025/05/14/playstation-plus-game-catalog-for-may-sand-land-soul-hackers-2-five-nights-at-freddys-help-wanted-battlefield-v-and-more/",
+        photo_url:
+          "https://blog.playstation.com/tachyon/2025/05/d87e44a0f6f5a9ebf039d7ea4745cc080951ef50-scaled.jpg?resize=1088%2C612&crop_strategy=smart",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUVVbU5tZDJWd1VXRnRhVlEzVFJDZkF4ampCU2dLTWdZQlVKRGpzZ2M=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T15:30:04.000Z",
+        authors: ["Adam Michel"],
+        source_url: "https://blog.playstation.com",
+        source_name: "PlayStation.Blog",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://blog.playstation.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMQgKIitDQklTR2dnTWFoWUtGR0pzYjJjdWNHeGhlWE4wWVhScGIyNHVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ6Y0RCM2VITXhjeElDWlc0b0FBUAE",
+            topic_name: "Adam Michel",
+          },
+        ],
+      },
+      {
+        title: "PlayStation Plus drops 10 new free games for May",
+        link: "https://www.gamingbible.com/news/platform/playstation/playstation-plus-drops-10-new-free-games-may-186902-20250514",
+        photo_url:
+          "https://images.ladbible.com/resize?type=webp&quality=1&width=3840&fit=contain&gravity=auto&url=https://images.ladbiblegroup.com/v3/assets/bltbc1876152fcd9f07/blt9dc402a382384636/6824a7929684ea82ea6fe534/psplusincrease.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNUZURmQzVkMxMlkyOXRlbTlUVFJDZkF4ampCU2dLTWdZcFpZeXRKUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T15:39:26.000Z",
+        authors: ["Kate Harrold"],
+        source_url: "https://www.gamingbible.com",
+        source_name: "GAMINGbible",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.gamingbible.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEMmRoYldsdVoySnBZbXhsTG1OdmJTZ0FQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTW1KcWJtZzVkQklDWlc0b0FBUAE",
+            topic_name: "Kate Harrold",
+          },
+        ],
+      },
+      {
+        title: "Here are your PS Plus Catalogue additions for May",
+        link: "https://www.eurogamer.net/here-are-your-ps-plus-catalogue-additions-for-may",
+        photo_url:
+          "https://assetsio.gnwcdn.com/sand-land-psplus.png?width=414&quality=70&format=jpg&auto=webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWFVVzloZVhkRVdWUkJXWGxJVFJEcEFSaWVBeWdLTWdZUlFZcXNwUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T16:09:53.000Z",
+        authors: ["Ed Nightingale"],
+        source_url: "https://www.eurogamer.net",
+        source_name: "Eurogamer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.eurogamer.net&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEV1YxY205bllXMWxjaTV1WlhRb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxWTNKbU1teHdNeElDWlc0b0FBUAE",
+            topic_name: "Ed Nightingale",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pJNjdYd0RSRlN3WHFra2RtT1RDZ0FQAQ",
+  },
+  {
+    title: "Gemini is coming to Samsung Galaxy Buds 3 and earbuds from Sony",
+    link: "https://9to5google.com/2025/05/13/samsung-promises-gemini-for-galaxy-buds-and-watch-in-coming-months/",
+    snippet:
+      "Gemini is coming to Samsung Galaxy Buds 3 and earbuds from Sony ... Google Gemini has become the go-to default AI assistant for Android devices, ...",
+    photo_url:
+      "https://9to5google.com/wp-content/uploads/sites/4/2024/07/galaxy-buds-3-10.jpg?quality=82&strip=all&w=1600",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNDFhRFIwUlRWTWVYVndibWxhVFJDSEF4aVBCaWdLTWdhQlE0eHVLUWM=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T21:10:00.000Z",
+    authors: ["Andrew Romero"],
+    source_url: "https://9to5google.com",
+    source_name: "9to5Google",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://9to5google.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqKQgKIiNDQklTRkFnTWFoQUtEamwwYnpWbmIyOW5iR1V1WTI5dEtBQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4WW1oM2RuUm1NeElDWlc0b0FBUAE",
+        topic_name: "Andrew Romero",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Google is upgrading Android Auto in 5 useful ways - including a big one for voice inputs",
+        link: "https://www.zdnet.com/article/google-is-upgrading-android-auto-in-5-useful-ways-including-a-big-one-for-voice-inputs/",
+        photo_url:
+          "https://www.zdnet.com/a/img/resize/ae1ce079837834da63172b5ea041fe11d6eb0818/2025/05/12/cfb7aaec-713e-41bf-88da-224b305e97ad/gemini-is-coming-to-android-auto-5-surprising-ways-you-didnt-know-you-could-use-it.jpg?auto=webp&width=1280",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNU1jMHgwY2pCMlNVdFFMV2hYVFJDa0F4amFCU2dLTWdZRklvcHJMUVU=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T13:42:00.000Z",
+        authors: ["Artie Beaty"],
+        source_url: "https://www.zdnet.com",
+        source_name: "ZDNET",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.zdnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIggKIhxDQklTRHdnTWFnc0tDWHBrYm1WMExtTnZiU2dBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhsNGNIaHdhaElDWlc0b0FBUAE",
+            topic_name: "Artie Beaty",
+          },
+        ],
+      },
+      {
+        title: "Gemini smarts are coming to more Android devices",
+        link: "https://blog.google/products/android/gemini-watches-cars-tvs-xr/",
+        photo_url:
+          "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/TAS_Gemini_Across_Devices_Blog_He.width-200.format-webp.webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iKkNnNDRkbFZvWTE4d2ExbDRSazF6VFJCd0dNZ0JLQW95QmdXQWxLYTFCdw=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T17:04:16.000Z",
+        authors: [],
+        source_url: "https://blog.google",
+        source_name: "Google Blog",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://blog.google&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDMkpzYjJjdVoyOXZaMnhsS0FBUAE",
+        related_topics: [],
+      },
+      {
+        title: "Google's Gemini AI is coming for your car, watch, and TV",
+        link: "https://mashable.com/article/android-16-event-google-gemini-updates",
+        photo_url:
+          "https://helios-i.mashable.com/imagery/articles/05UmlWkim3ywa9Zr3XeT9i1/hero-image.fill.size_1248x702.v1747159710.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNUxhMlpEVFRBeU5GOTZlR0k0VFJDZkF4ampCU2dLTWdtZEFZaXpqS3RyeHdJ=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T18:36:25.000Z",
+        authors: ["Cecily Mauran"],
+        source_url: "https://mashable.com",
+        source_name: "Mashable",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://mashable.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtERzFoYzJoaFlteGxMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4T1RSMmRHWXhiQklDWlc0b0FBUAE",
+            topic_name: "Cecily Mauran",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lYclBYMERSSDM1X0x1aXZtUFZ5Z0FQAQ",
+  },
+  {
+    title:
+      "Kingdom Hearts Missing-Link cancelled, but Kingdom Hearts 4 still on the way",
+    link: "https://www.eurogamer.net/kingdom-hearts-missing-link-cancelled-but-kingdom-hearts-4-still-on-the-way",
+    snippet:
+      "Square Enix has cancelled development of mobile game Kingdom Hearts Missing-Link. In a statement on social media, the company stated it ...",
+    photo_url:
+      "https://assetsio.gnwcdn.com/KINGDOM-HEARTS-20th-ANNIVERSARY-ANNOUNCEMENT-TRAILER-4-58-screenshot.png?width=414&quality=70&format=jpg&auto=webp",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNWZiVU5tY2paRU1UQjNXVlJRVFJEcEFSaWVBeWdLTWdZWlk0SXBKZ2c=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T10:10:39.000Z",
+    authors: ["Ed Nightingale"],
+    source_url: "https://www.eurogamer.net",
+    source_name: "Eurogamer",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.eurogamer.net&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqKAgKIiJDQklTRXdnTWFnOEtEV1YxY205bllXMWxjaTV1WlhRb0FBUAE",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxWTNKbU1teHdNeElDWlc0b0FBUAE",
+        topic_name: "Ed Nightingale",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Kingdom Hearts IV Development Update, New Screenshots Released By Square Enix",
+        link: "https://www.gameinformer.com/2025/05/14/kingdom-hearts-iv-development-update-new-screenshots-released-by-square-enix",
+        photo_url:
+          "https://www.gameinformer.com/sites/default/files/styles/thumbnail/public/2025/05/14/41efd924/khiso2.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iMkNnNXJPRXhPV1V3M2NIWkRhR1JaVFJDZkF4ampCU2dLTWdzQmNJQWx3YUp5RFhxTExR=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-15T02:18:00.000Z",
+        authors: ["Brian Shea"],
+        source_url: "https://www.gameinformer.com",
+        source_name: "Game Informer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.gameinformer.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFR2RoYldWcGJtWnZjbTFsY2k1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZzWjNKdU5Hc3hjQklDWlc0b0FBUAE",
+            topic_name: "Brian Shea",
+          },
+        ],
+      },
+      {
+        title:
+          "Kingdom Hearts Missing-Link Mobile Game Cancelled, But It's Not All Bad News As Square Enix Teases It Is 'Hard at Work on Kingdom Hearts 4'",
+        link: "https://www.ign.com/articles/kingdom-hearts-missing-link-mobile-game-cancelled-but-its-not-all-bad-news-as-square-enix-teases-it-is-hard-at-work-on-kingdom-hearts-4",
+        photo_url:
+          "https://assets-prd.ignimgs.com/2022/04/10/kingdom-1649590477998.png",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVRlRVpxVmpVM01VWmxNbWxZVFJDZkF4ampCU2dLTWdhWllvSXBKZ2c=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T09:00:17.000Z",
+        authors: ["Vikki Blake"],
+        source_url: "https://www.ign.com",
+        source_name: "IGN",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.ign.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIAgKIhpDQklTRFFnTWFna0tCMmxuYmk1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhseU9XZHRjeElDWlc0b0FBUAE",
+            topic_name: "Vikki Blake",
+          },
+        ],
+      },
+      {
+        title: "Kingdom Hearts Missing-Link Mobile Game Canceled",
+        link: "https://www.crunchyroll.com/news/latest/2025/5/14/kingdom-hearts-missing-link-mobile-game-canceled",
+        photo_url:
+          "https://a.storyblok.com/f/178900/960x540/1842928483/kingdom-hearts-missing-link-cancellation.jpg/m/filters:quality(95)format(webp)",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXBOMk5qUWt0MU1VZENPR3hIVFJDZkF4ampCU2dLTWdhcEJZek5rUWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T14:40:00.000Z",
+        authors: ["Joseph Luster"],
+        source_url: "https://www.crunchyroll.com",
+        source_name: "Crunchyroll",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.crunchyroll.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEMk55ZFc1amFIbHliMnhzTG1OdmJTZ0FQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTVRGdWRuTndkeElDWlc0b0FBUAE",
+            topic_name: "Joseph Luster",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lQNXRQMURSR0RycGxEV3BIQW5TZ0FQAQ",
+  },
+  {
+    title: "Apple Vision Pro Is Getting Brain-Computer Interface Support",
+    link: "https://www.uploadvr.com/apple-vision-pro-getting-bci-brain-computer-interface-support/",
+    snippet:
+      "Apple Vision Pro's visionOS will get support for brain-computer interface (BCI) devices later this year, starting with Synchron's Stentrode.",
+    photo_url:
+      "https://www.uploadvr.com/content/images/size/w1024/format/webp/2025/05/Apple-Vision-Pro-BCI-support-coming.png",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iL0NnNVdSbkJmU2taTFRrMW9kRXMyVFJDb0FSaXNBaWdCTWdtQlFaWURKMmc5aGdJ=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T16:22:41.000Z",
+    authors: ["David Heaney"],
+    source_url: "https://www.uploadvr.com",
+    source_name: "UploadVR",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.uploadvr.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJggKIiBDQklTRWdnTWFnNEtESFZ3Ykc5aFpIWnlMbU52YlNnQVAB",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvTVY4d2N6bDBiUklDWlc0b0FBUAE",
+        topic_name: "David Heaney",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Exclusive | Apple to Support Brain-Implant Control of Its Devices",
+        link: "https://www.wsj.com/tech/apple-brain-computer-interface-9ec69919",
+        photo_url: "https://images.wsj.net/im-44410918?width=700&height=379",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXJiMHBoWDA5SVdHRk5iRUZaVFJEN0FoaThCU2dLTWdZZFFvaHBtZ2s=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T12:00:00.000Z",
+        authors: ["Rolfe Winkler"],
+        source_url: "https://www.wsj.com",
+        source_name: "WSJ",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.wsj.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqIAgKIhpDQklTRFFnTWFna0tCM2R6YWk1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsd1ozZzVkeElDWlc0b0FBUAE",
+            topic_name: "Rolfe Winkler",
+          },
+        ],
+      },
+      {
+        title:
+          "Synchron To Achieve First Native Brain-Computer Interface Integration with iPhone, iPad and Apple Vision Pro",
+        link: "https://www.businesswire.com/news/home/20250513927084/en/Synchron-To-Achieve-First-Native-Brain-Computer-Interface-Integration-with-iPhone-iPad-and-Apple-Vision-Pro",
+        photo_url:
+          "https://mms.businesswire.com/media/20250513927084/en/2467611/4/Stentrode_photograph_2_SR.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNHhaMlZYYVZrMFlUQXhZMk4zVFJEQUFoamdBeWdLTWdZRmtKSkp3Z1k=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T13:00:00.000Z",
+        authors: [],
+        source_url: "https://www.businesswire.com",
+        source_name: "Business Wire",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.businesswire.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFR0oxYzJsdVpYTnpkMmx5WlM1amIyMG9BQVAB",
+        related_topics: [],
+      },
+      {
+        title: "Synchron announces BCI integration with Apple tech",
+        link: "https://www.massdevice.com/synchron-bci-integration-apple-tech/",
+        photo_url:
+          "https://www.massdevice.com/wp-content/uploads/2024/07/Synchron-brain-computer-interface-BCI-Apple-Vision-Pro-300x195.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNW9WMDh6UW1obVYwUTJVWEpHVFJEREFSaXNBaWdLTWdZSldvcmtKZ2c=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T15:52:57.000Z",
+        authors: ["Sean Whooley"],
+        source_url: "https://www.massdevice.com",
+        source_name: "MassDevice",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.massdevice.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKQgKIiNDQklTRkFnTWFoQUtEbTFoYzNOa1pYWnBZMlV1WTI5dEtBQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvWDNrNE1IcHRaaElDWlc0b0FBUAE",
+            topic_name: "Sean Whooley",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2l2bUpUMURSRnY2VHB6T0NlOEJDZ0FQAQ",
+  },
+  {
+    title: "NYT Spelling Bee Answers for May 14, 2025",
+    link: "https://www.nytimes.com/2025/05/14/crosswords/spelling-bee-forum.html",
+    snippet:
+      "Hi, busy bees! Welcome to today's Spelling Bee forum. Enter the comments section to see hints, conversation, helpful tips and creative ...",
+    photo_url:
+      "https://static01.nyt.com/images/2025/05/14/crosswords/14bee-forum/14bee-forum-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iL0NnNTVSMlZDUzFaV1MzRjFNak0yVFJDUUF4allCQ2dLTWdrVlVvQ3NMYUdpZFFB=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T07:03:38.000Z",
+    authors: [],
+    source_url: "https://www.nytimes.com",
+    source_name: "The New York Times",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.nytimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJQgKIh9DQklTRVFnTWFnMEtDMjU1ZEdsdFpYTXVZMjl0S0FBUAE",
     related_topics: [],
   },
   {
-    title: "IQ Fiber launches business internet services",
-    link: "http://www.pontevedrarecorder.com/stories/iq-fiber-launches-business-internet-services,127263",
+    title:
+      "'Huge' Number Of People Cancelling DOOM Pre-Orders Over 'Botched Physical Release'",
+    link: "https://www.purexbox.com/news/2025/05/huge-number-of-people-cancelling-doom-pre-orders-over-botched-physical-release",
     snippet:
-      "IQ Fiber, a rapidly expanding Jacksonville-based 100% fiber-optic internet service provider announces the launch of business internet service ...",
-    photo_url:
-      "https://beta.creativecirclecdn.com/pvr/original/20250514-171448-799-phpevuSO7.jpg",
+      "Back at the end of last week, we reported how DOOM: The Dark Ages' physical version seemingly had a tiny amount of content on the disc, ...",
+    photo_url: "https://images.purexbox.com/b1b07b19f31ec/large.jpg",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNDVkRzA1V1VKRWVrbzNXamxmVFJEQ0FSaURBaWdCTWdrQk1KQWhuR3JJSlFN=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T21:46:00.000Z",
-    authors: [],
-    source_url: "http://www.pontevedrarecorder.com",
-    source_name: "The Ponte Vedra Recorder",
+      "https://news.google.com/api/attachments/CC8iK0NnNDJTemczTlhNNVVFTlZkMVZUVFJDWUF4andCU2dLTWdhcFFJcU9JUVU=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T19:15:00.000Z",
+    authors: ["Fraser Gilbert"],
+    source_url: "https://www.purexbox.com",
+    source_name: "Pure Xbox",
     source_logo_url: null,
     source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=http://www.pontevedrarecorder.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.purexbox.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
     source_publication_id:
-      "CAAqNAgKIi5DQklTSEFnTWFoZ0tGbkJ2Ym5SbGRtVmtjbUZ5WldOdmNtUmxjaTVqYjIwb0FBUAE",
-    related_topics: [],
-  },
-  {
-    title: "CIRA’s award-winning ‘What’s up with the internet?’ podcast",
-    link: "https://www.globenewswire.com/news-release/2025/05/14/3081067/0/en/CIRA-s-award-winning-What-s-up-with-the-internet-podcast-returns-for-its-third-season-to-investigate-the-impact-of-online-misinformation.html",
-    snippet:
-      "CIRA's award-winning 'What's up with the internet?' podcast returns for its third season to investigate the impact of online misinformation.",
-    photo_url: null,
-    thumbnail_url: null,
-    published_datetime_utc: "2025-05-14T12:00:53.000Z",
-    authors: [],
-    source_url: "https://www.globenewswire.com",
-    source_name: "GlobeNewswire",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.globenewswire.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLQgKIidDQklTRndnTWFoTUtFV2RzYjJKbGJtVjNjM2RwY21VdVkyOXRLQUFQAQ",
-    related_topics: [],
-  },
-  {
-    title: "Opinion: The Internet has ruined spoiler culture",
-    link: "https://www.knightcrier.org/opinion/2025/05/14/opinion-the-internet-has-ruined-spoiler-culture/",
-    snippet:
-      "Opinion: The Internet has ruined spoiler culture ... Spoiler culture has become an increasing issue in modern society. Caroline Walsh.",
-    photo_url:
-      "https://www.knightcrier.org/wp-content/uploads/2025/05/photo-output.jpeg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iMkNnNTBiR0pQWlV0QlkzSjZNVEpFVFJDZkF4amlCU2dLTWdzQmtKS0RNbWMwa05uZWV3=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-15T01:32:06.000Z",
-    authors: ["Caroline Walsh"],
-    source_url: "https://www.knightcrier.org",
-    source_name: "The Knight Crier",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.knightcrier.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEMnR1YVdkb2RHTnlhV1Z5TG05eVp5Z0FQAQ",
+      "CAAqJggKIiBDQklTRWdnTWFnNEtESEIxY21WNFltOTRMbU52YlNnQVAB",
     related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYzYURsNFgzUm1iUklDWlc0b0FBUAE",
-        topic_name: "Caroline Walsh",
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1vMmFtZ3lOeElDWlc0b0FBUAE",
+        topic_name: "Fraser Gilbert",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "DOOM: The Dark Ages GeForce Game Ready Driver Released",
+        link: "https://www.nvidia.com/en-us/geforce/news/doom-the-dark-ages-geforce-game-ready-driver/",
+        photo_url:
+          "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/doom-the-dark-ages-geforce-game-ready-driver/doom-the-dark-ages-geforce-game-ready-driver-download-now-ogimage.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVZYMjF2ZDNsWE9YZE1RV1pPVFJDakFSaTJBaWdCTWdhQlM0NUNJd2c=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-12T13:18:22.000Z",
+        authors: ["Andrew Burnes"],
+        source_url: "https://www.nvidia.com",
+        source_name: "NVIDIA",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.nvidia.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJAgKIh5DQklTRUFnTWFnd0tDbTUyYVdScFlTNWpiMjBvQUFQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEY1TlRGaWR6ZDZOQklDWlc0b0FBUAE",
+            topic_name: "Andrew Burnes",
+          },
+        ],
+      },
+      {
+        title: "Doom: The Dark Ages Review - Believe In The Shield",
+        link: "https://www.gameinformer.com/review/doom-the-dark-ages/believe-in-the-shield",
+        photo_url:
+          "https://www.gameinformer.com/sites/default/files/styles/full/public/2025/05/14/d5087f4c/doomthedarkages_2.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNHljVXd4TjA5VVN5MVNXWHByVFJDZkF4ampCU2dLTWdrQklJUnJIV1pOckFF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T23:10:00.000Z",
+        authors: ["Marcus Stewart"],
+        source_url: "https://www.gameinformer.com",
+        source_name: "Game Informer",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.gameinformer.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFR2RoYldWcGJtWnZjbTFsY2k1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0YUhrd2JuZDJkQklDWlc0b0FBUAE",
+            topic_name: "Marcus Stewart",
+          },
+        ],
+      },
+      {
+        title:
+          "Doom: The Dark Ages review – id Software gets medieval in a dramatic rewrite of the shooter’s rules",
+        link: "https://www.theguardian.com/games/2025/may/09/doom-the-dark-ages-review-id-software",
+        photo_url:
+          "https://i.guim.co.uk/img/media/04582948d35b385af87401502f656301a6e63419/180_0_2700_2160/master/2700.jpg?width=465&dpr=1&s=none&crop=none",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNTBSSEUyYjFOUU5HaDBRM0Z6VFJEMEFoalJBeWdLTWdhZFE1Q3RJUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-09T14:00:00.000Z",
+        authors: ["Rick Lane"],
+        source_url: "https://www.theguardian.com",
+        source_name: "The Guardian",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.theguardian.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKggKIiRDQklTRlFnTWFoRUtEM1JvWldkMVlYSmthV0Z1TG1OdmJTZ0FQAQ",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1vNFozQXdiQklDWlc0b0FBUAE",
+            topic_name: "Rick Lane",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lZMkw3b0RSRjdwV3JDUGVtV3ZpZ0FQAQ",
+  },
+  {
+    title:
+      "Best Buy confirms late-night Nintendo Switch 2 release date sales as pre-order alternative",
+    link: "https://www.notebookcheck.net/Best-Buy-confirms-late-night-Nintendo-Switch-2-release-date-sales-as-pre-order-alternative.1015126.0.html",
+    snippet:
+      "On the June 5th Switch 2 release date, US Best Buy locations will sell a small quantity of handhelds. Lucky buyers can anticipate a free bonus, ...",
+    photo_url:
+      "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc4/BestBuySwitch2Sales.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNDVWRk5RYWpOU2RGOXZTSGhXVFJEZ0F4aUFCU2dLTWdhbEpJcXRtUW8=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T17:37:00.000Z",
+    authors: ["Adam Corsetti"],
+    source_url: "https://www.notebookcheck.net",
+    source_name: "Notebookcheck",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.notebookcheck.net&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqLQgKIidDQklTRndnTWFoTUtFVzV2ZEdWaWIyOXJZMmhsWTJzdWJtVjBLQUFQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZyTkhFNWNYbG5aaElDWlc0b0FBUAE",
+        topic_name: "Adam Corsetti",
+      },
+    ],
+    sub_articles: [
+      {
+        title:
+          "Nintendo Switch 2 pre-orders live: latest restock updates and retailers to check now",
+        link: "https://www.tomsguide.com/live/news/nintendo-switch-2-pre-orders-live-updates-and-restocks",
+        photo_url:
+          "https://cdn.mos.cms.futurecdn.net/6hsHgCKUCtD6emc8yVfZ9P-1200-80.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXJhMVUxWkc1RFYybzNUbFpHVFJDb0FSaXNBaWdCTWdZUlFvNzBvQWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T21:30:03.000Z",
+        authors: ["Rory Mellon", "Tony Polanco", "Louis Ramirez"],
+        source_url: "https://www.tomsguide.com",
+        source_name: "Tom's Guide",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.tomsguide.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEWFJ2YlhObmRXbGtaUzVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ3ZGpSelh6RmlhaElDWlc0b0FBUAE",
+            topic_name: "Rory Mellon",
+          },
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZxTld4aU9HWmpjUklDWlc0b0FBUAE",
+            topic_name: "Tony Polanco",
+          },
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTW1KNGR6YzRlaElDWlc0b0FBUAE",
+            topic_name: "Louis Ramirez",
+          },
+        ],
+      },
+      {
+        title:
+          "Nintendo Switch 2 pre-orders live: UK stock is live at multiple retailers, plus all the best US retailers to check",
+        link: "https://www.techradar.com/live/news/nintendo-switch-2-pre-orders-week-five-us-uk-stock-updates-where-to-buy",
+        photo_url:
+          "https://cdn.mos.cms.futurecdn.net/VuQjnFw5gwYdnEwnuKzkGT-1200-80.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXNhVUZDU25kWFZucENiR1pwVFJDZkF4ampCU2dLTWdZaGhaYnJNUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T08:35:05.000Z",
+        authors: ["Dashiell Wood", "Rob Dwiar"],
+        source_url: "https://www.techradar.com",
+        source_name: "TechRadar",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.techradar.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEWFJsWTJoeVlXUmhjaTVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ1WjNSaWNqTTFPQklDWlc0b0FBUAE",
+            topic_name: "Dashiell Wood",
+          },
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4T1RSNWEzQjNOaElDWlc0b0FBUAE",
+            topic_name: "Rob Dwiar",
+          },
+        ],
+      },
+      {
+        title: "‘Most’ Best Buys will have extra Switch 2s available in-store",
+        link: "https://www.theverge.com/news/665958/nintendo-switch-2-best-buy-stock-launch-day",
+        photo_url:
+          "https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/STKR001_NINTENDO_SWITCH_4_B.jpg?quality=90&strip=all&crop=0,0,100,100",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVlYMjQzWjNKdWFuSnNVM2w2VFJERUF4aW1CU2dLTWdZWmRJaXRzUVk=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T16:21:16.000Z",
+        authors: ["Jay Peters"],
+        source_url: "https://www.theverge.com",
+        source_name: "The Verge",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.theverge.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJggKIiBDQklTRWdnTWFnNEtESFJvWlhabGNtZGxMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvWDNoblpERTRlQklDWlc0b0FBUAE",
+            topic_name: "Jay Peters",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2oyM3RidERSRzdVSk1yeS1Wb195Z0FQAQ",
+  },
+  {
+    title:
+      "I Just Murdered A Very Rare, Near-Worthless Keyboard And I Might Have To Stop Playing PC Games Forever",
+    link: "https://kotaku.com/mechanical-keyboard-microsoft-squidgy-keys-1851780616",
+    snippet:
+      "I just threw half a pint of Cherry Pepsi Max across my keyboard. It was the penultimate keyboard I'll ever be able to use.",
+    photo_url:
+      "https://i.kinja-img.com/image/upload/c_fit,q_60,w_645/b9480939101ce265cc62060e284e97a1.jpg",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iK0NnNXNUWE5WZDBOTFRteHVSVEU1VFJEckFoaUZCU2dLTWdZWlU1Q3JwUWM=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T15:10:00.000Z",
+    authors: ["John Walker"],
+    source_url: "https://kotaku.com",
+    source_name: "Kotaku",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://kotaku.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqJAgKIh5DQklTRUFnTWFnd0tDbXR2ZEdGcmRTNWpiMjBvQUFQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYwZDJwcWRtZDNNQklDWlc0b0FBUAE",
+        topic_name: "John Walker",
       },
     ],
   },
   {
     title:
-      "2025 Leading Analyst Firm Snapshot reveals millions lost: 42% of eCommerce companies face $6M+ in annual Internet disruption costs",
-    link: "https://finance.yahoo.com/news/2025-leading-analyst-firm-snapshot-123000034.html",
+      "Nintendo says its low-balled Switch 2 forecast is about price, not tariffs",
+    link: "https://www.polygon.com/nintendo-switch-2/598877/nintendo-switch-2-forecast-price-not-tariffs",
     snippet:
-      "The results are clear: companies that monitor the full Internet Stack lose 54% less to disruptions annually compared to those without full ...",
+      "Nintendo president Shuntaro Furukawa denied that its conservative estimate of Switch 2 sales is in response to Trump's tariffs, ...",
     photo_url:
-      "https://s.yimg.com/ny/api/res/1.2/6OHa72NLnLJm96kGhpsvAQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD0zMTY-/https://media.zenfs.com/en/business-wire.com/4fb6dadc41764778d1c010a3e4635929",
+      "https://platform.polygon.com/wp-content/uploads/sites/2/2025/04/switch2-hand-bg.png?quality=90&strip=all&crop=7.8125,0,84.375,100",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVRjR2huTjBSNFlsWTVUa0ZmVFJDY0FoaTRDQ2dLTWdZRmdKU2tOQWM=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T12:30:00.000Z",
-    authors: [],
-    source_url: "https://finance.yahoo.com",
-    source_name: "Yahoo Finance",
+      "https://news.google.com/api/attachments/CC8iK0NnNXliakZvWkhSWGJrSkZTV1kzVFJERkF4aWxCU2dLTWdZbFZJcXV3UVE=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-13T17:08:25.000Z",
+    authors: ["Oli Welsh"],
+    source_url: "https://www.polygon.com",
+    source_name: "Polygon",
     source_logo_url: null,
     source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://finance.yahoo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.polygon.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
     source_publication_id:
-      "CAAqLQgKIidDQklTRndnTWFoTUtFV1pwYm1GdVkyVXVlV0ZvYjI4dVkyOXRLQUFQAQ",
-    related_topics: [],
-  },
-  {
-    title:
-      "Gov. Evers Urges Trump Administration to Prevent Delays in Funding for High-Speed Internet Infrastructure Projects Across Wisconsin",
-    link: "https://urbanmilwaukee.com/pressrelease/read-gov-evers-urges-trump-administration-to-prevent-delays-in-funding-for-high-speed-internet-infrastructure-projects-across-wisconsin/",
-    snippet:
-      "MADISON — Gov. Tony Evers today released a letter to the Trump Administration urging the administration not to delay or obstruct key funding ...",
-    photo_url: null,
-    thumbnail_url: null,
-    published_datetime_utc: "2025-05-14T10:01:00.000Z",
-    authors: [],
-    source_url: "https://urbanmilwaukee.com",
-    source_name: "Urban Milwaukee",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://urbanmilwaukee.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLggKIihDQklTR0FnTWFoUUtFblZ5WW1GdWJXbHNkMkYxYTJWbExtTnZiU2dBUAE",
-    related_topics: [],
-  },
-  {
-    title:
-      "Bartlett to Gain Nation’s Fastest Major Internet with Metronet Expansion",
-    link: "https://www.businesswire.com/news/home/20250514368423/en/Bartlett-to-Gain-Nations-Fastest-Major-Internet-with-Metronet-Expansion",
-    snippet:
-      "Metronet, named PCMag's fastest major ISP, announced today plans to invest tens of millions of dollars to bring 100% fiber-optic internet to ...",
-    photo_url:
-      "https://mms.businesswire.com/media/20250514368423/en/2469052/22/Metronet_Monogram_wLogotype_RGB.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNUNRWFJQVVRWdE0yOXhXbmRYVFJDSEF4aVBCaWdLTWdhQlVZS2xaUU0=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T14:33:00.000Z",
-    authors: [],
-    source_url: "https://www.businesswire.com",
-    source_name: "Business Wire",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.businesswire.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFR0oxYzJsdVpYTnpkMmx5WlM1amIyMG9BQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Hegseth had an unsecured internet line set up in his office to connect to Signal, AP sources say",
-    link: "https://apnews.com/article/hegseth-signal-chat-dirty-internet-line-6a64707f10ca553eb905e5a70e10bd9d",
-    snippet:
-      "Hegseth had an unsecured internet line set up in his office to connect to Signal, AP sources say · A 'dirty' internet line to use Signal.",
-    photo_url:
-      "https://dims.apnews.com/dims4/default/271e029/2147483647/strip/true/crop/5525x3678+0+3/resize/320x213!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F0c%2Fe9%2F62d42a0ee45e7dce07dc8b776242%2Fc67d687531d04db39a97f8c5171d04b5",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNW9jMUJSYTJkUmVFMUVlR3BZVFJEVkFSakFBaWdLTWdZVk5Kak5LUWc=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-24T07:00:00.000Z",
-    authors: ["Tara Copp"],
-    source_url: "https://apnews.com",
-    source_name: "AP News",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://apnews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJAgKIh5DQklTRUFnTWFnd0tDbUZ3Ym1WM2N5NWpiMjBvQUFQAQ",
+      "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0J2YkhsbmIyNHVZMjl0S0FBUAE",
     related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsd2NqUnJjeElDWlc0b0FBUAE",
-        topic_name: "Tara Copp",
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuT1cxdFoyWjRZaElDWlc0b0FBUAE",
+        topic_name: "Oli Welsh",
       },
     ],
+    sub_articles: [
+      {
+        title:
+          "Nintendo president says the Switch 2's lower than expected sales forecast is due to its high price, not US tariffs",
+        link: "https://www.techradar.com/gaming/nintendo-president-says-the-switch-2s-lower-than-expected-sales-forecast-is-due-to-its-high-price-not-us-tariffs",
+        photo_url:
+          "https://cdn.mos.cms.futurecdn.net/VuQjnFw5gwYdnEwnuKzkGT-1200-80.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXNhVUZDU25kWFZucENiR1pwVFJDZkF4ampCU2dLTWdZaGhaYnJNUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-13T16:32:49.000Z",
+        authors: ["Demi Williams"],
+        source_url: "https://www.techradar.com",
+        source_name: "TechRadar",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.techradar.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEWFJsWTJoeVlXUmhjaTVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ1T0RnMFluRTRjaElDWlc0b0FBUAE",
+            topic_name: "Demi Williams",
+          },
+        ],
+      },
+      {
+        title: "Nintendo predicts record-breaking Switch 2 launch",
+        link: "https://www.videogameschronicle.com/news/nintendo-predicts-record-breaking-switch-2-launch-and-switch-1-to-outsell-ps2-this-year/",
+        photo_url:
+          "https://www.videogameschronicle.com/files/2024/06/nintendo-logo-wall-320x240.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXZMVzlIV1Vsa01YWkxZV1pYVFJEd0FSakFBaWdLTWdhTmRaaklMUWc=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-08T07:11:18.000Z",
+        authors: ["Andy Robinson"],
+        source_url: "https://www.videogameschronicle.com",
+        source_name: "Video Games Chronicle",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.videogameschronicle.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqNQgKIi9DQklTSFFnTWFoa0tGM1pwWkdWdloyRnRaWE5qYUhKdmJtbGpiR1V1WTI5dEtBQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ6TVdSaWVtTTFPUklDWlc0b0FBUAE",
+            topic_name: "Andy Robinson",
+          },
+        ],
+      },
+      {
+        title:
+          "Nintendo Gives Conservative Switch 2 Sales Outlook of 15 Million",
+        link: "https://www.bloomberg.com/news/articles/2025-05-08/nintendo-gives-conservative-switch-2-sales-outlook-of-15-million",
+        photo_url:
+          "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iM2o_kcelVEo/v0/-1x-1.webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNWFXWE55YTNkUE5EYzNMV3BJVFJERUF4aW1CU2dLTWdZWms1SUt0Z1k=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-09T10:00:47.000Z",
+        authors: ["Takashi Mochizuki"],
+        source_url: "https://www.bloomberg.com",
+        source_name: "Bloomberg.com",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.bloomberg.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEV0pzYjI5dFltVnlaeTVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtYTNGdGJEazBiUklDWlc0b0FBUAE",
+            topic_name: "Takashi Mochizuki",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lwa2Vma0RSR2otR045T0FNOE9pZ0FQAQ",
+  },
+  {
+    title: "GTA 6 map comparison leaves fans absolutely floored",
+    link: "https://www.gamingbible.com/news/gta-6-map-comparison-422069-20250514",
+    snippet:
+      "Set in a fictionalised Miami and surrounding areas, Grand Theft Auto VI is expected to feature the biggest open-world map in Rockstar history ...",
+    photo_url:
+      "https://images.ladbible.com/resize?type=webp&quality=70&width=1200&fit=contain&gravity=auto&url=https://images.ladbiblegroup.com/v3/assets/bltbc1876152fcd9f07/bltd02c3400928da4ca/68245700f428cd0bd405dfe6/Screenshot_2025-05-14_at_09.38.39.png",
+    thumbnail_url:
+      "https://news.google.com/api/attachments/CC8iL0NnNTFSV2hxTXpOeVpYRlVNRXBrVFJDZkF4ampCU2dLTWdrQllJWkZ1dVVsTWdF=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T08:59:12.000Z",
+    authors: ["Angharad Redden"],
+    source_url: "https://www.gamingbible.com",
+    source_name: "GAMINGbible",
+    source_logo_url: null,
+    source_favicon_url:
+      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.gamingbible.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+    source_publication_id:
+      "CAAqKggKIiRDQklTRlFnTWFoRUtEMmRoYldsdVoySnBZbXhsTG1OdmJTZ0FQAQ",
+    related_topics: [
+      {
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYyYWpad2NEUTNjaElDWlc0b0FBUAE",
+        topic_name: "Angharad Redden",
+      },
+    ],
+    sub_articles: [
+      {
+        title: "‘Grand Theft Auto VI’ Delay Impacts Every Game Company",
+        link: "https://www.bloomberg.com/news/newsletters/2025-05-09/-grand-theft-auto-vi-delay-is-impacting-every-game-company",
+        photo_url:
+          "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i4XtOpFTFqcc/v2/-1x-1.webp",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNDBWRmxXYVdvNE9HMU5NVk5VVFJDZkF4ampCU2dLTWdhdEk0eHZsUWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-09T17:00:26.000Z",
+        authors: ["Jason Schreier"],
+        source_url: "https://www.bloomberg.com",
+        source_name: "Bloomberg.com",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.bloomberg.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKAgKIiJDQklTRXdnTWFnOEtEV0pzYjI5dFltVnlaeTVqYjIwb0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTTJkcmVuWmplUklDWlc0b0FBUAE",
+            topic_name: "Jason Schreier",
+          },
+        ],
+      },
+      {
+        title:
+          "‘Grand Theft Auto VI’ Trailer Smashes Past 475 Million Views in First Day (Exclusive)",
+        link: "https://www.hollywoodreporter.com/business/digital/grand-theft-auto-6-trailer-views-record-1236210396/",
+        photo_url:
+          "https://www.hollywoodreporter.com/wp-content/uploads/2025/05/Jason_and_Lucia_02_With_Logos_landscape.jpg?crop=0px%2C8px%2C3840px%2C2148px&resize=2000%2C1126",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNXhVWEpsVDAxWWJqSlRVbkU0VFJDZkF4amlCU2dLTWdZcE5ZcXRwUWM=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-08T00:16:49.000Z",
+        authors: ["Alex Weprin"],
+        source_url: "https://www.hollywoodreporter.com",
+        source_name: "The Hollywood Reporter",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.hollywoodreporter.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqMggKIixDQklTR3dnTWFoY0tGV2h2Ykd4NWQyOXZaSEpsY0c5eWRHVnlMbU52YlNnQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTURGb2QyNTJPQklDWlc0b0FBUAE",
+            topic_name: "Alex Weprin",
+          },
+        ],
+      },
+      {
+        title:
+          "Videogame publishers rush to seize fall launch window after 'GTA VI' delay",
+        link: "https://www.reuters.com/business/media-telecom/videogame-publishers-rush-seize-fall-launch-window-after-gta-vi-delay-2025-05-12/",
+        photo_url:
+          "https://www.reuters.com/resizer/v2/LSAPGD267FOURKKX5DFAUVKI64.jpg?auth=5af473c8ba646a3cb9e97314604c0ffe9c17c477c5a8537460f435fdd54e3007&height=1005&width=1920&quality=80&smart=true",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iL0NnNDVRbnA1Y1dKVlRtUjZYMFpvVFJDUUF4ai1CU2dLTWdtUmNvSm9xdWRFY0FF=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-12T11:44:34.000Z",
+        authors: ["Zaheer Kachwala"],
+        source_url: "https://www.reuters.com",
+        source_name: "Reuters",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reuters.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0psZFhSbGNuTXVZMjl0S0FBUAE",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZzTW5Rd2NUSjJjaElDWlc0b0FBUAE",
+            topic_name: "Zaheer Kachwala",
+          },
+        ],
+      },
+    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lRa3AzaURSRjZfUzFjMXhNVlBpZ0FQAQ",
   },
   {
     title:
-      "Crane County Sheriff’s Office office calls down due to another internet outage",
-    link: "https://www.firstalert7.com/2025/05/14/crane-county-sheriffs-office-office-calls-down-due-another-internet-outage/",
+      "Microsoft Cuts Off Access to Bing Search Data as It Shifts Focus to Chatbots",
+    link: "https://www.wired.com/story/bing-microsoft-api-support-ending/",
     snippet:
-      "CRANE COUNTY, Texas (KOSA) - The Crane County Sheriff's Office will not be able to answer calls due to another internet outage.",
+      "Microsoft is limiting access to tools that boosted its rivals, but larger customers like DuckDuckGo say they won't be affected.",
     photo_url:
-      "https://gray-kosa-prod.gtv-cdn.com/resizer/v2/AX2B2WC2NNAD7KMZYNKSU2TAKM.jpg?auth=907ccd1465857a9bd0ccc882a0126c5ecc59a3c9aa5a069851aa3fd65d670e7c&width=1200&height=600&smart=true",
+      "https://media.wired.com/photos/6824b3007c780e4b8a79335f/3:2/w_2560%2Cc_limit/bing-biz-1258297934.jpg",
     thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVRaR05aZFhkSVZIaHZaVmhQVFJDSEF4aVBCaWdLTWdZcEJZYXNuUVk=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T15:16:00.000Z",
-    authors: [],
-    source_url: "https://www.firstalert7.com",
-    source_name: "CBS7",
+      "https://news.google.com/api/attachments/CC8iL0NnNDJhMnRzT1RsMWFHOXNTek5VVFJERUF4aW1CU2dLTWdtRmdwU3J0ZWRNS3dJ=-w200-h200-p-df-rw",
+    published_datetime_utc: "2025-05-14T18:15:46.000Z",
+    authors: ["Paresh Dave"],
+    source_url: "https://www.wired.com",
+    source_name: "WIRED",
     source_logo_url: null,
     source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.firstalert7.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.wired.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
     source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEMlpwY25OMFlXeGxjblEzTG1OdmJTZ0FQAQ",
-    related_topics: [],
-  },
-  {
-    title:
-      "Russian internet shutdown that disrupted essential services condemned by rights groups",
-    link: "https://therecord.media/russian-internet-shutdown-condemned-by-rights-groups",
-    snippet:
-      "Russian authorities restricted mobile internet access from May 5 to May 9, citing security concerns related to the preparation and celebration ...",
-    photo_url:
-      "https://cms.therecord.media/uploads/format_webp/small_victory_day_parade_54d810ea18.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iMkNnNWlNbFpxWDBwdlF6bDJVbWhpVFJDckFSaW5BaWdCTWdzQmNJU0F1Q05FdWNoRmN3=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T15:29:35.000Z",
-    authors: ["Daryna Antoniuk"],
-    source_url: "https://therecord.media",
-    source_name: "The Record from Recorded Future News",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://therecord.media&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEM1JvWlhKbFkyOXlaQzV0WldScFlTZ0FQAQ",
+      "CAAqIggKIhxDQklTRHdnTWFnc0tDWGRwY21Wa0xtTnZiU2dBUAE",
     related_topics: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0YUhoNWQzZDVNUklDWlc0b0FBUAE",
-        topic_name: "Daryna Antoniuk",
+        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZqTnpOeVltaHFaaElDWlc0b0FBUAE",
+        topic_name: "Paresh Dave",
       },
     ],
-  },
-  {
-    title:
-      "Remove Your Home Address Off the Internet with These 9 Tips and Stay Safe",
-    link: "https://www.cnet.com/home/security/remove-home-address-off-the-internet/",
-    snippet:
-      "Remove Your Home Address Off the Internet with These 9 Tips and Stay Safe · 1. Blur your current address on map apps · 2. Report your address ...",
-    photo_url:
-      "https://www.cnet.com/a/img/resize/1112c513249366e35599785ccc5c935330a32476/hub/2025/05/01/3440f9d8-003a-4e1f-a092-ee90e9ce5bb0/gettyimages-182479924.jpg?auto=webp&fit=crop&height=675&width=1200",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVZlblE0TW1rMGRFeEhOSE52VFJDZkF4ampCU2dLTWdhOVVaTDBLQWM=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-03T07:00:00.000Z",
-    authors: ["Tyler Lacoma"],
-    source_url: "https://www.cnet.com",
-    source_name: "CNET",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.cnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDR051WlhRdVkyOXRLQUFQAQ",
-    related_topics: [
+    sub_articles: [
       {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTUhsd2NEUTVjeElDWlc0b0FBUAE",
-        topic_name: "Tyler Lacoma",
+        title: "Bing Search APIs To Retire August 11, 2025",
+        link: "https://www.seroundtable.com/bing-search-apis-retiring-august-11-2025-39406.html",
+        photo_url:
+          "https://images.seroundtable.com/bing-data-api-1747217288.jpg",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVVkams0VWxGWVpsaG9RbTlrVFJDaUF4amRCU2dLTWdhQlJJak10UVE=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-14T11:31:00.000Z",
+        authors: ["Barry Schwartz"],
+        source_url: "https://www.seroundtable.com",
+        source_name: "Search Engine Roundtable",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.seroundtable.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqLAgKIiZDQklTRmdnTWFoSUtFSE5sY205MWJtUjBZV0pzWlM1amIyMG9BQVAB",
+        related_topics: [
+          {
+            topic_id: "CAAqJAgKIh5DQkFTRUFvS0wyMHZNREkzYUc0NU54SUNaVzRvQUFQAQ",
+            topic_name: "Barry Schwartz",
+          },
+        ],
+      },
+      {
+        title:
+          "Microsoft to Sunset Bing Search APIs by August 11, 2025, Pushing Developers Toward Azure AI Integration",
+        link: "https://www.webpronews.com/microsoft-to-sunset-bing-search-apis-by-august-11-2025-pushing-developers-toward-azure-ai-integration/",
+        photo_url:
+          "https://i0.wp.com/www.webpronews.com/wp-content/uploads/2025/05/xai-tmp-imgen-00899eb9-fb4f-49c0-897c-a638e9f490f0.jpeg?fit=1024%2C768&ssl=1",
+        thumbnail_url:
+          "https://news.google.com/api/attachments/CC8iK0NnNVRTa2cwYm5sRlgyWTFVSFp2VFJEZ0F4aUFCU2dLTWdZcEpaeXVtUWs=-w200-h200-p-df-rw",
+        published_datetime_utc: "2025-05-15T02:07:22.000Z",
+        authors: ["Rich Ord"],
+        source_url: "https://www.webpronews.com",
+        source_name: "WebProNews",
+        source_logo_url: null,
+        source_favicon_url:
+          "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.webpronews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+        source_publication_id:
+          "CAAqKQgKIiNDQklTRkFnTWFoQUtEbmRsWW5CeWIyNWxkM011WTI5dEtBQVAB",
+        related_topics: [
+          {
+            topic_id:
+              "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZWpKc2RESXlOaElDWlc0b0FBUAE",
+            topic_name: "Rich Ord",
+          },
+        ],
       },
     ],
-  },
-  {
-    title: "New year, no shutdowns: the Q1 2025 Internet disruption summary",
-    link: "https://blog.cloudflare.com/q1-2025-internet-disruption-summary/",
-    snippet:
-      "In Q1 2025, we observed Internet disruptions around the world caused by cable damage, power outages, natural disasters, fire, a cyberattack, ...",
-    photo_url:
-      "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/3yRJWO0rE4eEgR9lG7yUvv/91b19cf1bcf481b36c867a44143e9352/image1.png",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVhjMkZYWDNwcGQyYzNVakpRVFJDZkF4amlCU2dLTWdhbGRKQ3RzUVk=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-22T07:00:00.000Z",
-    authors: ["David Belson"],
-    source_url: "https://blog.cloudflare.com",
-    source_name: "The Cloudflare Blog",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://blog.cloudflare.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMAgKIipDQklTR1FnTWFoVUtFMkpzYjJjdVkyeHZkV1JtYkdGeVpTNWpiMjBvQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtZVhRd1l6a3dOQklDWlc0b0FBUAE",
-        topic_name: "David Belson",
-      },
-    ],
-  },
-  {
-    title: "BPU & TEC To Bring High-Speed Internet To Henry County",
-    link: "https://www.radionwtn.com/2025/05/14/bpu-tec-to-bring-high-speed-internet-to-henry-county/",
-    snippet:
-      "The partnership aims to build a state-of-the-art fiber network to support grid modernization and provide high-speed broadband services to the ...",
-    photo_url:
-      "https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/1293/2025/05/14151048/bpu-tec-terry-scott.webp",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNXRiVFZzYWtWSFZFOVJjVWRsVFJDYkF4anJCU2dLTWdrQmdJN0ZOT1lzYXdJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T20:14:58.000Z",
-    authors: ["Shannon Mcfarlin"],
-    source_url: "https://www.radionwtn.com",
-    source_name: "Radio NWTN",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.radionwtn.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKAgKIiJDQklTRXdnTWFnOEtEWEpoWkdsdmJuZDBiaTVqYjIwb0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZyTkhCcU5uaDBlUklDWlc0b0FBUAE",
-        topic_name: "Shannon Mcfarlin",
-      },
-    ],
-  },
-  {
-    title:
-      "R.I. man pleads guilty to laundering more than $35m in cash in internet fraud schemes",
-    link: "https://www.bostonglobe.com/2025/05/14/metro/ri-man-pleads-guilty-35-million-laundering-internet-fraud/",
-    snippet:
-      "R.I. man pleads guilty to laundering more than $35m in cash in internet fraud schemes · Craig Clayton, 75, of Cranston, “founded shell companies ...",
-    photo_url:
-      "https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/TJLO6HDJKZFZNILLTQ6AHHVDDI.jpg?auth=79af00197d2316812a514fd6fccc098c7d7304c7cfaeef5dd782cc0feb4eda59&width=1440&height=810&focal=2250,5",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNWxhMFpZUjJOb1dqQlVOREZRVFJDb0FSaXNBaWdCTWdZcFJZck5LUVU=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T12:40:00.000Z",
-    authors: ["Christopher Gavin"],
-    source_url: "https://www.bostonglobe.com",
-    source_name: "The Boston Globe",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.bostonglobe.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEMkp2YzNSdmJtZHNiMkpsTG1OdmJTZ0FQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuZUhCMmRtZHhjUklDWlc0b0FBUAE",
-        topic_name: "Christopher Gavin",
-      },
-    ],
-  },
-  {
-    title: "Internet Advertising Revenue Report: Full Year 2024",
-    link: "https://www.iab.com/insights/internet-advertising-revenue-report-full-year-2024/",
-    snippet:
-      "The digital advertising industry reached a record $259 billion in revenue in 2024—a 15% year-over-year increase, highlighting its ability to ...",
-    photo_url:
-      "https://www.iab.com/wp-content/uploads/2025/04/fy-2024-internet-ad-revenue-report-2-e1744730927302-2000x610.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iMkNnNHlPSEl4ZUhsME5sSlRRa0pXVFJDeUFoanJCeWdLTWdzRlVZYTJwS2k1VEJsWGd3=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-17T07:00:00.000Z",
-    authors: [],
-    source_url: "https://www.iab.com",
-    source_name: "IAB",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.iab.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMmxoWWk1amIyMG9BQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Congress Takes Another Step Toward Enabling Broad Internet Censorship",
-    link: "https://www.eff.org/deeplinks/2025/04/congress-takes-another-step-toward-enabling-broad-internet-censorship",
-    snippet:
-      "This bill mandates a notice-and-takedown system that threatens free expression, user privacy, and due process, without meaningfully addressing ...",
-    photo_url:
-      "https://www.eff.org/files/styles/teaser/public/banner_library/tossed-2.jpg?itok=u4V5tgq5",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNWpNVzlSZEhaNFIwNUpObkZLVFJENkFSajBBeWdLTWdZaGRKQ09OUVk=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-10T07:00:00.000Z",
-    authors: [],
-    source_url: "https://www.eff.org",
-    source_name: "Electronic Frontier Foundation",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.eff.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMlZtWmk1dmNtY29BQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Exclusive: Germany funds Eutelsat internet in Ukraine as Musk tensions rise",
-    link: "https://www.reuters.com/business/media-telecom/germany-funds-eutelsat-internet-ukraine-musk-tensions-rise-2025-04-04/",
-    snippet:
-      "Berlin has been paying for Ukraine's access to a satellite-internet network operated by France's Eutelsat (ETL.PA), as Europe seeks alternatives to Elon Musk's ...",
-    photo_url:
-      "https://www.reuters.com/resizer/v2/QAGRPJUCDNNL7IWM6RRA22ROPU.jpg?auth=35480e20100b7032db9b3ceb16bf9da15d1636dc55461128af9a2d4b8bad3cdf&width=1080&quality=80",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNUVaSE5RV1hGdFdrbEJkVXRMVFJERUF4aW1CU2dLTWdhbEZwb01sZ28=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-04T07:00:00.000Z",
-    authors: ["Gianluca Lo", "Barbara Erling"],
-    source_url: "https://www.reuters.com",
-    source_name: "Reuters",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reuters.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0psZFhSbGNuTXVZMjl0S0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYzYlhKdFl6SnVNaElDWlc0b0FBUAE",
-        topic_name: "Gianluca Lo",
-      },
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYzTkRrMGExOXNOeElDWlc0b0FBUAE",
-        topic_name: "Barbara Erling",
-      },
-    ],
-  },
-  {
-    title: "Visualized: Daily Internet Activity in 2025",
-    link: "https://www.visualcapitalist.com/visualized-daily-internet-activity-in-2025/",
-    snippet:
-      "Discover the scale of daily internet activity across platforms like email, Google, and Zoom in this data-driven infographic.",
-    photo_url:
-      "https://www.visualcapitalist.com/wp-content/uploads/2025/04/Daily_Internet_Activity_SHAREABLE.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNUZNVTVOU2tOWE5tSTNkMVZqVFJDUUF4ai1CU2dLTWdhWkFvUm9XZ0k=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-01T07:00:00.000Z",
-    authors: ["Marcus Lu"],
-    source_url: "https://www.visualcapitalist.com",
-    source_name: "Visual Capitalist",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.visualcapitalist.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMQgKIitDQklTR2dnTWFoWUtGSFpwYzNWaGJHTmhjR2wwWVd4cGMzUXVZMjl0S0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0ZG5RMmVYWnFlaElDWlc0b0FBUAE",
-        topic_name: "Marcus Lu",
-      },
-    ],
-  },
-  {
-    title: "Controversial Stealing Stories That Split The Internet -",
-    link: "https://www.facebook.com/GroovyHistory/photos/controversial-stealing-stories-that-split-the-internet-/987655730241777/",
-    snippet:
-      "People Share The Inappropriate Song Lyrics They Completely Misunderstood As Kids (And As Adults) · May be an image of 1 person and text that ...",
-    photo_url:
-      "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=987655730241777",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNHdVRTg0VVZKV2FUWTNMVlJpVFJDX0FoaWVBU2dCTWdtSk1ZeWpNR1dxaHdJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T21:43:12.000Z",
-    authors: [],
-    source_url: "https://www.facebook.com",
-    source_name: "Facebook",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.facebook.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJggKIiBDQklTRWdnTWFnNEtER1poWTJWaWIyOXJMbU52YlNnQVAB",
-    related_topics: [],
-  },
-  {
-    title: "Spectrum Launches Gigabit Broadband in Citrus County, Florida",
-    link: "https://corporate.charter.com/newsroom/spectrum-launches-gigabit-broadband-in-citrus-county-florida",
-    snippet:
-      "Spectrum has launched Internet, Mobile, TV and Voice services to nearly 3100 homes and small businesses in Citrus County, Florida.",
-    photo_url:
-      "https://corporate.charter.com/static/63b01de1763be1fafb656146c86855ba/27792/RDOF_Generic_17.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNVdTMlUyZEVkWE1rUmhZVWhCVFJDTUF4aUdCaWdLTWdtUklZd3dsV2lDekFF=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T13:36:23.000Z",
-    authors: [],
-    source_url: "https://corporate.charter.com",
-    source_name: "Charter Communications",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://corporate.charter.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMggKIixDQklTR3dnTWFoY0tGV052Y25CdmNtRjBaUzVqYUdGeWRHVnlMbU52YlNnQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Viral Tweet Highlights Al Gore's Internet Invention: Social Media Trends and Crypto Market Sentiment Analysis 2025 | Flash News Detail",
-    link: "https://blockchain.news/flashnews/viral-tweet-highlights-al-gore-s-internet-invention-social-media-trends-and-crypto-market-sentiment-analysis-2025",
-    snippet:
-      "According to @akshat_hk, a humorous tweet referencing Al Gore's role in inventing the internet has gone viral, sparking increased engagement ...",
-    photo_url: null,
-    thumbnail_url: null,
-    published_datetime_utc: "2025-05-14T21:59:35.000Z",
-    authors: [],
-    source_url: "https://blockchain.news",
-    source_name: "Blockchain News",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://blockchain.news&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEMkpzYjJOclkyaGhhVzR1Ym1WM2N5Z0FQAQ",
-    related_topics: [],
-  },
-  {
-    title:
-      "Top 10 African Countries with the Highest Number of Internet Users in 2025",
-    link: "https://africanexponent.com/top-10-african-countries-with-the-highest-number-of-internet-users-in-2025/",
-    snippet:
-      "Nigeria has 107 million users, followed by Egypt (96.3 million) and South Africa (50.8 million). Jointly, the Top 10 countries are responsible ...",
-    photo_url:
-      "https://www.africanexponent.com/content/images/2025/05/1000653342.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNW9WMHhYTm10d1dGWXRXbEJQVFJDb0FSaXNBaWdCTWdZQkVJYU9HUWc=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T14:53:33.000Z",
-    authors: [],
-    source_url: "https://africanexponent.com",
-    source_name: "The African Exponent",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://africanexponent.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMAgKIipDQklTR1FnTWFoVUtFMkZtY21sallXNWxlSEJ2Ym1WdWRDNWpiMjBvQUFQAQ",
-    related_topics: [],
-  },
-  {
-    title: "OGE warns of new internet scam for utility bills",
-    link: "https://www.okenergytoday.com/2025/05/oge-warns-of-new-internet-scam-for-utility-bills/",
-    snippet:
-      "Customers have reported that a fraudulent phone number comes up when they use Google and type in “OG&E payments” or “how to pay my OG&E bill” ...",
-    photo_url: null,
-    thumbnail_url: null,
-    published_datetime_utc: "2025-05-14T14:32:59.000Z",
-    authors: [],
-    source_url: "https://www.okenergytoday.com",
-    source_name: "Oklahoma Energy Today",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.okenergytoday.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLQgKIidDQklTRndnTWFoTUtFVzlyWlc1bGNtZDVkRzlrWVhrdVkyOXRLQUFQAQ",
-    related_topics: [],
-  },
-  {
-    title: "Detailed Analysis of Internet-based Fitness Training Market |",
-    link: "https://www.openpr.com/news/4016152/detailed-analysis-of-internet-based-fitness-training-market",
-    snippet:
-      "It encloses in-depth Research on the Internet-based Fitness Training Market state and the competitive landscape globally. This report analyzes ...",
-    photo_url: null,
-    thumbnail_url: null,
-    published_datetime_utc: "2025-05-14T14:33:00.000Z",
-    authors: [],
-    source_url: "https://www.openpr.com",
-    source_name: "openPR.com",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.openpr.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJAgKIh5DQklTRUFnTWFnd0tDbTl3Wlc1d2NpNWpiMjBvQUFQAQ",
-    related_topics: [],
-  },
-  {
-    title: "Reclaim the internet: Mozilla’s rebrand for the next era of tech",
-    link: "https://blog.mozilla.org/en/mozilla/mozilla-brand-next-era-of-tech/",
-    snippet:
-      "The custom typefaces are bespoke and an evolution of its Mozilla slab serif today. It stands out in a sea of tech sans. The new interpretation ...",
-    photo_url:
-      "https://blog.mozilla.org/wp-content/blogs.dir/278/files/2024/12/00_thumbnail-1024x576.png",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNU5NM1IwYTB4aVExOTVTVmREVFJDZkF4ampCU2dLTWdZcGhaYk9MUWc=-w200-h200-p-df-rw",
-    published_datetime_utc: "2024-12-04T08:00:00.000Z",
-    authors: [],
-    source_url: "https://blog.mozilla.org",
-    source_name: "The Mozilla Blog",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://blog.mozilla.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFR0pzYjJjdWJXOTZhV3hzWVM1dmNtY29BQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Comcast Upgrades Speeds for More Than 20 Million Xfinity Internet Customers for No Additional Cost",
-    link: "https://corporate.comcast.com/press/releases/comcast-upgrades-speeds-million-xfinity-internet-customers-no-additional-cost",
-    snippet:
-      "WiFi PowerBoost delivers Xfinity Mobile customers speeds up to 1 Gbps over WiFi at home or at millions of WiFi hotspots across the country.",
-    photo_url:
-      "https://corporate.comcast.com/media/img/1000w/2025/03/corporate_Xfinity-Speed-Increase-16x9.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVViWFI0TUVOblkxcGhRbnBDVFJDb0FSaXJBaWdCTWdhbFJJYk53UVE=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-03-11T07:00:00.000Z",
-    authors: [],
-    source_url: "https://corporate.comcast.com",
-    source_name: "Comcast Corporation",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://corporate.comcast.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMggKIixDQklTR3dnTWFoY0tGV052Y25CdmNtRjBaUzVqYjIxallYTjBMbU52YlNnQVAB",
-    related_topics: [],
-  },
-  {
-    title: "The deep-sea 'emergency service' that keeps the internet running",
-    link: "https://www.bbc.com/future/article/20241014-the-deep-sea-emergency-service-that-keeps-the-internet-running",
-    snippet:
-      "How our data travels. There are 1.4 million km (870,000 miles) of telecommunication cables on the seafloor, covering every ocean on the planet.",
-    photo_url: "https://ichef.bbci.co.uk/images/ic/480xn/p0jxm92x.jpg.webp",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNTBiekpsV1Zsd1YzTmpUVk5sVFJDT0FoamdBeWdLTWdtQmtZNzB0R2FpelFF=-w200-h200-p-df-rw",
-    published_datetime_utc: "2024-10-15T07:00:00.000Z",
-    authors: [],
-    source_url: "https://www.bbc.com",
-    source_name: "BBC",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.bbc.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMkppWXk1amIyMG9BQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "How to Stop Advertisers From Tracking Your Teen Across the Internet",
-    link: "https://www.eff.org/deeplinks/2024/09/how-stop-advertisers-tracking-your-teen-across-internet?language=sv",
-    snippet:
-      "Deleting Advertising IDs off your teen's devices can increase their privacy and stop advertisers collecting their data.",
-    photo_url:
-      "https://i0.wp.com/turockadvisory.com/wp-content/uploads/mobile-privacy-c0zRzk.png?fit=1200%2C600&ssl=1&resize=350%2C200",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNVlUR1JNVkZCMmVHeG5jRGRCVFJESUFSamVBaWdLTWdtQk1ZeHJOYWFLaHdJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2024-10-01T07:00:00.000Z",
-    authors: ["Erica Portnoy", "Guest Author"],
-    source_url: "https://www.eff.org",
-    source_name: "Electronic Frontier Foundation",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.eff.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMlZtWmk1dmNtY29BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1obk4yMWpYeElDWlc0b0FBUAE",
-        topic_name: "Erica Portnoy",
-      },
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYzY0hOME1EQXdiUklDWlc0b0FBUAE",
-        topic_name: "Guest Author",
-      },
-    ],
-  },
-  {
-    title:
-      "Make space! Jeff Bezos’ Project Kuiper eyes India’s satellite internet market after Musk’s Starlink",
-    link: "https://m.economictimes.com/industry/telecom/telecom-news/make-space-jeff-bezos-project-kuiper-eyes-indias-satellite-internet-market-after-musks-starlink/articleshow/121170115.cms",
-    snippet:
-      "Jeff Bezos' Project Kuiper is seeking expedited approval from the Department of Telecommunications to enter India's satellite internet market, ...",
-    photo_url:
-      "https://m.economictimes.com/thumb/msid-121170171,width-1200,height-900,resizemode-4,imgsize-146262/satellite-war-over-rural-india.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNUlRamsxVkZSWFRWSkpSVlpZVFJEZ0F4aUFCU2dLTWdZQklZSE8zQUU=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T18:26:18.000Z",
-    authors: ["Kiran Rathee"],
-    source_url: "https://m.economictimes.com",
-    source_name: "The Economic Times",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://m.economictimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLQgKIidDQklTRndnTWFoTUtFV1ZqYjI1dmJXbGpkR2x0WlhNdVkyOXRLQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1kb2EydDNPUklDWlc0b0FBUAE",
-        topic_name: "Kiran Rathee",
-      },
-    ],
-  },
-  {
-    title: "EFCC arrests 17 suspected internet fraudsters in Kwara",
-    link: "https://punchng.com/efcc-arrests-17-suspected-internet-fraudsters-in-kwara/",
-    snippet:
-      "Operatives of the Ilorin Zonal Directorate of the Economic and Financial Crimes Commission have arrested 17 suspected internet fraudsters in ...",
-    photo_url:
-      "https://cdn.punchng.com/wp-content/uploads/2025/05/14090335/Kwara-EFCC.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNTBNWGxSVmprNWNVeG5NMWhpVFJDZUF4amtCU2dLTWdZQlFKZ3JJUW8=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T08:07:31.000Z",
-    authors: ["Tunde Oyekola"],
-    source_url: "https://punchng.com",
-    source_name: "Punch Newspapers",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://punchng.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDM0IxYm1Ob2JtY3VZMjl0S0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0ZHpGZmVIRXhiQklDWlc0b0FBUAE",
-        topic_name: "Tunde Oyekola",
-      },
-    ],
-  },
-  {
-    title:
-      "ALERT Internet Child Exploitation unit members presents about online safety in Ponoka",
-    link: "https://www.lacombeexpress.com/home2/alert-internet-child-exploitation-unit-members-presents-about-online-safety-in-ponoka-7925343",
-    snippet:
-      "NOTE: The following story discusses child sexual exploitation and may be triggering or disturbing for some readers.",
-    photo_url:
-      "https://www.bpmcdn.com/f/files/ponoka/may-2025/alert2.jpg;w=960;h=640;bgcolor=000000",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNWlTSEZoZG5jeGJUaGZNRXBZVFJDM0FSaVRBaWdCTWdhWlI1aEpuZ2s=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T17:09:00.000Z",
-    authors: ["Emily Jaycox"],
-    source_url: "https://www.lacombeexpress.com",
-    source_name: "Lacombe Express",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.lacombeexpress.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLggKIihDQklTR0FnTWFoUUtFbXhoWTI5dFltVmxlSEJ5WlhOekxtTnZiU2dBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZuWW1wc2NtMHhkaElDWlc0b0FBUAE",
-        topic_name: "Emily Jaycox",
-      },
-    ],
-  },
-  {
-    title:
-      "We're Not Just Scaling a Platform—We're Orchestrating the Internet Moment for Logistics",
-    link: "https://techbullion.com/were-not-just-scaling-a-platform-were-orchestrating-the-internet-moment-for-logistics/",
-    snippet:
-      "We didn't walk away from everything just to build another tech company. We left to reimagine the infrastructure of global trade.",
-    photo_url:
-      "https://techbullion.com/wp-content/uploads/2025/05/Scaling-a-Platform.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iJ0NnNUZNVU41WDFOaFZXOHhaMnhaVFJEY0FoanhCaWdLTWdNRkFnNA=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T06:24:16.000Z",
-    authors: [],
-    source_url: "https://techbullion.com",
-    source_name: "TechBullion",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://techbullion.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEM1JsWTJoaWRXeHNhVzl1TG1OdmJTZ0FQAQ",
-    related_topics: [],
-  },
-  {
-    title: "High-speed fiber internet arrives in Bethel",
-    link: "https://www.kyuk.org/economy/2025-05-13/high-speed-fiber-internet-arrives-in-bethel",
-    snippet:
-      "The AIRRAQ project has promised to bring cheaper, faster internet to the Yukon-Kuskokwim Delta through hundreds of miles of underwater and ...",
-    photo_url:
-      "https://npr.brightspotcdn.com/dims4/default/ac04fa4/2147483647/strip/true/crop/4752x3168+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F32%2F59%2Ffea2bc68417ca39462ee9c3d88e3%2Fimg-5061.JPG",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNWpiVFJoTmpNMFVFeE1aemROVFJERUF4aW1CU2dLTWdZQkFZRGlEZ3M=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T01:02:00.000Z",
-    authors: ["sage smiley"],
-    source_url: "https://www.kyuk.org",
-    source_name: "KYUK",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.kyuk.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDR3Q1ZFdzdWIzSm5LQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ4TVdkM2N6WTVlaElDWlc0b0FBUAE",
-        topic_name: "sage smiley",
-      },
-    ],
-  },
-  {
-    title: "The hack that almost broke the internet : Planet Money",
-    link: "https://www.npr.org/2024/05/17/1197959102/open-source-xz-hack",
-    snippet:
-      "On today's show, we get the story behind the XZ hack and what made it possible. How the hackers took advantage of the strange way we make modern ...",
-    photo_url:
-      "https://media.npr.org/assets/img/2024/05/17/guinness-world-records-challenge-jenga-enthusiasts-to-build-news_wide-173347abcdaf25df4fbc07588e389cca9f2a936d.jpg?s=1100&c=50&f=jpeg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNVFObEpKZG5WRGFuRnNhemcwVFJDZkF4ampCU2dLTWdrZEpZZ3FGaXFMTXdF=-w200-h200-p-df-rw",
-    published_datetime_utc: "2024-05-17T07:00:00.000Z",
-    authors: ["Jeff Guo"],
-    source_url: "https://www.npr.org",
-    source_name: "NPR",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.npr.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIAgKIhpDQklTRFFnTWFna0tCMjV3Y2k1dmNtY29BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ6T0RadGFISTNkeElDWlc0b0FBUAE",
-        topic_name: "Jeff Guo",
-      },
-    ],
-  },
-  {
-    title:
-      "Child abuse: Internet hotline warns of dangerous dissemination scheme",
-    link: "https://www.heise.de/en/news/Child-abuse-Internet-hotline-warns-of-dangerous-dissemination-scheme-10381514.html",
-    snippet:
-      "According to experts, the pyramid scheme poses a threat to children and the general public. As a result, the commercial sites advertised through ...",
-    photo_url:
-      "https://heise.cloudimg.io/width/610/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/4/8/5/2/8/5/8/shutterstock_2206630585-8219dbad2f6296fa.jpeg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVZlR05zTWpSVGIxZGFUM0U1VFJEWEFoamlCQ2dLTWdZaGRvd01zZ1k=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T20:22:00.000Z",
-    authors: ["Stefan Krempl"],
-    source_url: "https://www.heise.de",
-    source_name: "heise online",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.heise.de&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDR2hsYVhObExtUmxLQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqJQgKIh9DQkFTRVFvTEwyY3ZNVEl3ZDJ0NE1XUVNBbVZ1S0FBUAE",
-        topic_name: "Stefan Krempl",
-      },
-    ],
-  },
-  {
-    title: "ECOWAS Court declares Senegal’s internet shutdown unlawful",
-    link: "https://www.premiumtimesng.com/foreign/west-africa-foreign/794267-ecowas-court-declares-senegals-internet-shutdown-unlawful.html",
-    snippet:
-      "The ECOWAS Court has declared Senegal's shutdown of internet services and social media platforms in June/July 2023 unlawful and that it ...",
-    photo_url:
-      "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2024/03/ECOWAS-Court-of-Justice.jpeg?resize=1140%2C570&ssl=1",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iMkNnNWhhRXAyWldwM04yd3dNblpJVFJDSEF4aVBCaWdLTWdzQlFJSUYxR0tTbzVxQlpB=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T16:30:33.000Z",
-    authors: [],
-    source_url: "https://www.premiumtimesng.com",
-    source_name: "Premium Times Nigeria",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.premiumtimesng.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLggKIihDQklTR0FnTWFoUUtFbkJ5WlcxcGRXMTBhVzFsYzI1bkxtTnZiU2dBUAE",
-    related_topics: [],
-  },
-  {
-    title:
-      "Telus Gives Public Mobile Users ‘Exclusive’ PureFibre Internet Deal",
-    link: "https://www.iphoneincanada.ca/2025/05/14/telus-gives-public-mobile-users-exclusive-purefibre-internet-deal/",
-    snippet:
-      "Telus has started targeting its Public Mobile customers with what it's calling an “exclusive” PureFibre internet deal via text message.",
-    photo_url:
-      "https://cdn.iphoneincanada.ca/wp-content/uploads/2025/03/telus-hero-march-2025.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNDVVV1pNV0hSelNVdzFOMHg2VFJERUF4aW5CU2dLTWdhUmtwUkt0UVk=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T16:42:44.000Z",
-    authors: ["Austin Blake"],
-    source_url: "https://www.iphoneincanada.ca",
-    source_name: "iPhone in Canada",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.iphoneincanada.ca&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLQgKIidDQklTRndnTWFoTUtFV2x3YUc5dVpXbHVZMkZ1WVdSaExtTmhLQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ6ZEhOa1pqUnRhQklDWlc0b0FBUAE",
-        topic_name: "Austin Blake",
-      },
-    ],
-  },
-  {
-    title:
-      "Satellite Internet in India: Scindia Says Tech Will Complement, Not Replace, Existing Networks",
-    link: "https://www.deccanherald.com/business/satellite-internet-to-complement-not-replace-existing-system-scindia-3540916",
-    snippet:
-      "Digital Push: Scindia confirms satellite internet will support, not disrupt, telecom sector; Starlink, OneWeb, Jio among key players with ...",
-    photo_url:
-      "https://images.deccanherald.com/deccanherald%2F2025-05-06%2Frs7b1zjs%2Ffile7xmdwo52k9hgn70h9ql.jpg?auto=format%2Ccompress&fmt=webp&fit=max&format=webp&q=70&w=400&dpr=2",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNW1Rek5hZFVkd2NGRnRNazFyVFJEU0FoallCQ2dLTWdZdE5ZaXZIUWs=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T16:33:42.000Z",
-    authors: ["Gyanendra Keshri"],
-    source_url: "https://www.deccanherald.com",
-    source_name: "Deccan Herald",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.deccanherald.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFR1JsWTJOaGJtaGxjbUZzWkM1amIyMG9BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ1ZUhJd2QyUXhiaElDWlc0b0FBUAE",
-        topic_name: "Gyanendra Keshri",
-      },
-    ],
-  },
-  {
-    title: "New era: Germany announces phase-out of DSL internet connection",
-    link: "https://www.iamexpat.de/expat-info/germany-news/new-era-germany-announces-phase-out-dsl-internet-connection",
-    snippet:
-      "Germany's Federal Network Agency has published a paper detailing how the country will phase out its DSL internet connection and transition ...",
-    photo_url:
-      "https://www.iamexpat.de/_next/image?url=https%3A%2F%2Fdirectus.iamexpat.com%2Fassets%2F9553a101-e7fb-4f2e-8ba6-fc918fe052f8&w=1920&q=75",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNDVhVzQzTmpCbE5YcHlkVVozVFJDakFSaTJBaWdCTWdhZFlveHh4UVU=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T12:20:00.000Z",
-    authors: ["Olivia Logan"],
-    source_url: "https://www.iamexpat.de",
-    source_name: "IamExpat in Germany",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.iamexpat.de&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDMmxoYldWNGNHRjBMbVJsS0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ1YldaMGFESjNheElDWlc0b0FBUAE",
-        topic_name: "Olivia Logan",
-      },
-    ],
-  },
-  {
-    title:
-      "Mobile internet inequality persists as affordability trips up progress",
-    link: "https://www.itweb.co.za/article/mobile-internet-inequality-persists-as-affordability-trips-up-progress/mYZRXM9g68EvOgA8",
-    snippet:
-      "Only 50 million women started using mobile internet in 2024, compared to 85 million in 2023, when the mobile internet gender gap narrowed, it ...",
-    photo_url:
-      "https://lh3.googleusercontent.com/iQtpSp3BA5YS1luYKt5D8jH8YF-mTLvV5UpQ0JZABsKHSprD8QotVts7xBeyzbJkb0Dl5fAApHF9ZJPgVWeYU4JzJCpiNzhADNe_Sw",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNTBOM2xhVnpWbFpXVm5la05rVFJDZ0FoaUFCQ2dLTWdrSkVJYW1sV29lU2dJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T11:35:44.000Z",
-    authors: ["Simnikiwe Mzekandaba"],
-    source_url: "https://www.itweb.co.za",
-    source_name: "ITWeb",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.itweb.co.za&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDMmwwZDJWaUxtTnZMbnBoS0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ5ZDNNM05YQXdjaElDWlc0b0FBUAE",
-        topic_name: "Simnikiwe Mzekandaba",
-      },
-    ],
-  },
-  {
-    title:
-      "Donald Trump returns salute to Saudi military officials and the Internet has a lot to say",
-    link: "https://www.financialexpress.com/trending/donald-trump-returns-salute-to-saudi-military-officials-and-the-internet-has-a-lot-to-say/3843872/",
-    snippet:
-      "US President Donald Trump and Crown Prince Mohammed bin Salman signed a $600 billion defence deal.",
-    photo_url:
-      "https://www.financialexpress.com/wp-content/uploads/2025/05/doanld-trump-salutes-military-general-saudi.png?w=440",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNDNlV1oyU0ZwRlNWVTJYMFJ1VFJEM0FSaTNBeWdLTWdtRkFwNFREV3V4eFFJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T02:20:54.000Z",
-    authors: [],
-    source_url: "https://www.financialexpress.com",
-    source_name: "The Financial Express",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.financialexpress.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMQgKIitDQklTR2dnTWFoWUtGR1pwYm1GdVkybGhiR1Y0Y0hKbGMzTXVZMjl0S0FBUAE",
-    related_topics: [],
-  },
-  {
-    title:
-      "Comcast Launches Five-Year Price Guarantee for Xfinity Internet Customers",
-    link: "https://corporate.comcast.com/press/releases/comcast-launches-five-year-guarantee-for-xfinity-internet-customers",
-    snippet:
-      "New Plans Start at $55 a Month Guaranteed for Five Years; Includes Best-in-Class WiFi Equipment and Unlimited Data; No Annual Contract ...",
-    photo_url:
-      "https://corporate.comcast.com/media/img/1000w/2025/04/corporate_5-Year-Price-Guarantee-16x9-Thumb.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNXpiazR3VDNCaWRUVTFlVEpQVFJDb0FSaXJBaWdCTWdhSk1wQUdJUWs=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-15T07:00:00.000Z",
-    authors: ["Steve Croney"],
-    source_url: "https://corporate.comcast.com",
-    source_name: "Comcast Corporation",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://corporate.comcast.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMggKIixDQklTR3dnTWFoY0tGV052Y25CdmNtRjBaUzVqYjIxallYTjBMbU52YlNnQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZtTURFd00yb3lYeElDWlc0b0FBUAE",
-        topic_name: "Steve Croney",
-      },
-    ],
-  },
-  {
-    title:
-      "SSAP on entrepreneurship development commends Legend Internet Plc's milestone listing, reaffirms government support for digital innovation",
-    link: "https://nairametrics.com/2025/05/13/ssap-on-entrepreneurship-development-commends-legend-internet-plcs-milestone-listing-reaffirms-government-support-for-digital-innovation/",
-    snippet:
-      "The Office of the Senior Special Assistant to the President expressed readiness to support Legend and its affiliate company, Suburban, in future ...",
-    photo_url:
-      "https://nairametrics.com/wp-content/uploads/2025/05/Image-2025-05-13T135435.054-e1747141006843.jpeg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNWxjR2hHVkVaeUxXZDFTRzE1VFJEb0F4ajFCQ2dLTWdtSlFZd1VLZW14cndF=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T12:59:13.000Z",
-    authors: [],
-    source_url: "https://nairametrics.com",
-    source_name: "Nairametrics",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://nairametrics.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFRzVoYVhKaGJXVjBjbWxqY3k1amIyMG9BQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Internet Penetration In Rural Areas Likely To Grow By 4-5 Per Cent By FY26: CRISIL",
-    link: "https://news.abplive.com/business/internet-penetration-in-rural-areas-likely-to-grow-by-4-5-per-cent-by-fy26-crisil-1772043",
-    snippet:
-      "Rural internet user base stayed resilient over the past year even in the face of tariff hikes introduced in mid-2024, reflecting high ...",
-    photo_url:
-      "https://feeds.abplive.com/onecms/images/uploaded-images/2024/11/26/5b38ce77d8767d7ffa9861b8cfe40d561732602449457800_original.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNHpkVEozT1hWTGJFaEZhVkk1VFJDZkF4ampCU2dLTWdZMWRJUnhzUVE=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T12:11:48.000Z",
-    authors: [],
-    source_url: "https://news.abplive.com",
-    source_name: "ABP Live English",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://news.abplive.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFRzVsZDNNdVlXSndiR2wyWlM1amIyMG9BQVAB",
-    related_topics: [],
-  },
-  {
-    title: "HK’s Internet traffic grows by 37% from 2023 to 2025",
-    link: "https://hongkongbusiness.hk/information-technology/news/hks-internet-traffic-grows-37-2023-2025",
-    snippet:
-      "Hong Kong's peak internet exchange traffic grew by 37% from April 2023 to April 2025, according to an Equinix report.",
-    photo_url:
-      "https://hongkongbusiness.hk/s3/files/styles/article_details_tablet_image/public/2025-05/pexels-divinetechygirl-1181248.jpg.webp?itok=nYROH_G1",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNW9UR2RNUmt4RE1sbHpUbU15VFJDb0FSaXNBaWdCTWdZQmhJWUdOZ1k=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T04:08:06.000Z",
-    authors: [],
-    source_url: "https://hongkongbusiness.hk",
-    source_name: "Hong Kong Business",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://hongkongbusiness.hk&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqMAgKIipDQklTR1FnTWFoVUtFMmh2Ym1kcmIyNW5ZblZ6YVc1bGMzTXVhR3NvQUFQAQ",
-    related_topics: [],
-  },
-  {
-    title: "Faster home internet is coming",
-    link: "https://www.telstra.com.au/connected/internet/nbn-high-speed-tiers",
-    snippet:
-      "NBN plans with faster internet speed are coming to Telstra. Live a connected life by upgrading your internet experience with our new high-speed tiers.",
-    photo_url:
-      "https://www.telstra.com.au/content/dam/tcom/library/edl-editorial/better-connected/high-speed-tiers-1648x928.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNTRNRnA0UVZaUE9UVTJaMFJWVFJDb0FSaXJBaWdCTWdaRlFJaTJvQWM=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T02:37:36.000Z",
-    authors: [],
-    source_url: "https://www.telstra.com.au",
-    source_name: "Telstra Personal",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.telstra.com.au&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKQgKIiNDQklTRkFnTWFoQUtEblJsYkhOMGNtRXVZMjl0TG1GMUtBQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "Safaricom Partners with Quickmart to Accelerate 4G & 5G Home Internet Access",
-    link: "https://www.itnewsafrica.com/2025/05/safaricom-partners-with-quickmart-to-accelerate-4g-5g-home-internet-access/",
-    snippet:
-      "Customers can now conveniently purchase 4G or 5G routers in locations near them, allowing them to enjoy seamless and worry-free home internet. “ ...",
-    photo_url:
-      "https://www.itnewsafrica.com/wp-content/uploads/2025/05/Image-2-Saf-and-Quickmart-Reps-696x418.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iL0NnNWFTa1pDTjNNNVdXWTJSMVZvVFJDaUF4aTRCU2dLTWdrQllKaXpKS2pBU2dJ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T14:45:48.000Z",
-    authors: ["Mamsi Nkosi"],
-    source_url: "https://www.itnewsafrica.com",
-    source_name: "IT News Africa",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.itnewsafrica.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFR2wwYm1WM2MyRm1jbWxqWVM1amIyMG9BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ5WjJjNU5IWXplaElDWlc0b0FBUAE",
-        topic_name: "Mamsi Nkosi",
-      },
-    ],
-  },
-  {
-    title:
-      "Now watch free TV, videos without internet, Direct-to-Mobile technology to..., smartphones to get...",
-    link: "https://www.india.com/news/india/direct-to-mobile-d2m-iphone-smartphone-samsung-ministry-of-information-and-broadcasting-modi-government-nokia-netfix-amazon-hotstar-7819849/",
-    snippet:
-      "Now watch free TV, videos without internet, Direct-to-Mobile technology to. Image for representational purposes.",
-    photo_url:
-      "https://static.india.com/wp-content/uploads/2025/01/ibm-simon-first-smartphone.png?impolicy=Medium_Resize&w=1200&h=800",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNXZXalpNVkhSTmJYTm1iRXBFVFJERUF4aW1CU2dLTWdhQkFvWnRuUVk=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T08:59:50.000Z",
-    authors: ["Victor Dasgupta"],
-    source_url: "https://www.india.com",
-    source_name: "India.Com",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.india.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqIggKIhxDQklTRHdnTWFnc0tDV2x1WkdsaExtTnZiU2dBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ0TkRNd2JuTXplaElDWlc0b0FBUAE",
-        topic_name: "Victor Dasgupta",
-      },
-    ],
-  },
-  {
-    title: "All West continues fiber expansion in Evanston, Wyoming",
-    link: "https://bbcmag.com/all-west-continues-fiber-expansion-in-evanston-wyoming/",
-    snippet:
-      "All West Communications is continuing to bring the future of the internet to Uinta County with the expansion of its fiber optic internet service in Evanston ...",
-    photo_url:
-      "https://bbcmag.com/wp-content/uploads/2025/05/3079201-1280x640.jpg?crop=1",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iJ0NnNURXRUoxVUZoUlkyeHVMVVZNVFJDSEF4aVBCaWdLTWdNbE1ndw=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T19:58:25.000Z",
-    authors: ["Brad Randall"],
-    source_url: "https://bbcmag.com",
-    source_name: "Broadband Communities",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://bbcmag.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJAgKIh5DQklTRUFnTWFnd0tDbUppWTIxaFp5NWpiMjBvQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYyYkhKd09EVmtZeElDWlc0b0FBUAE",
-        topic_name: "Brad Randall",
-      },
-    ],
-  },
-  {
-    title:
-      "AirTel Users Face Internet And Network Connectivity Issues In Delhi, Chennai And Other Regions! Check Latest Updates News24 -",
-    link: "https://news24online.com/tech/airtel-users-face-internet-and-network-connectivity-issues-in-delhi-chennai-and-other-regions-check-latest-updates/561306/",
-    snippet:
-      "According to Downdetector- 66% the majority of airtel users reported having no signal. Around 21% faced issues with mobile phone services and 13 ...",
-    photo_url: "https://news24online.com/wp-content/uploads/2025/01/Airtel.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNVhSSFYyVkU5MlQwZDRZMGR5VFJDZkF4ampCU2dLTWdhaE5JRHR5UUU=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T07:48:21.000Z",
-    authors: ["Shriyansh Garg"],
-    source_url: "https://news24online.com",
-    source_name: "news24online.com",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://news24online.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFRzVsZDNNeU5HOXViR2x1WlM1amIyMG9BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEYzZDJKdGEyTnhZeElDWlc0b0FBUAE",
-        topic_name: "Shriyansh Garg",
-      },
-    ],
-  },
-  {
-    title: "Tracking how our bodies work could change our lives",
-    link: "https://www.weforum.org/stories/2020/06/internet-of-bodies-covid19-recovery-governance-health-data/",
-    snippet:
-      "This means collecting our physical data via devices that can be implanted, swallowed or simply worn, generating huge amounts of health-related information.",
-    photo_url:
-      "https://assets.weforum.org/article/image/large_tCdNqbCNczTBWEFuB778zdGZx_1mtytf2f-ka_EWQxw.JPG",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iK0NnNWlabXB5VjFaeVRqWjNkekpaVFJEc0FoakxCaWdLTWdZZE5vRU40Z0k=-w200-h200-p-df-rw",
-    published_datetime_utc: "2020-06-04T07:00:00.000Z",
-    authors: ["Xiao Liu"],
-    source_url: "https://www.weforum.org",
-    source_name: "The World Economic Forum",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.weforum.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqJQgKIh9DQklTRVFnTWFnMEtDM2RsWm05eWRXMHViM0puS0FBUAE",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZvWTJSeGQzbG9aQklDWlc0b0FBUAE",
-        topic_name: "Xiao Liu",
-      },
-    ],
-  },
-  {
-    title:
-      "Can Your Internet Provider Throttle Your Speeds? Yes, But Here's How to Make It Stop",
-    link: "https://www.cnet.com/home/internet/can-your-internet-provider-throttle-your-speeds-yes-it-can-heres-how-to-make-it-stop/",
-    snippet:
-      "How do I stop my ISP from throttling my bandwidth? A VPN, or virtual private network, is a good solution to help combat internet throttling.",
-    photo_url:
-      "https://www.cnet.com/a/img/resize/7c85f8bc094ef58ebe6f495ba9edbdf3a40ad62c/hub/2025/04/10/035a7506-c52c-4ea2-acb7-74d2e0b03886/gettyimages-1322943745.jpg?auto=webp&fit=crop&height=675&width=1200",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iJ0NnNVVObVZYTVhGRFYzVjBXRU5OVFJDZkF4ampCU2dLTWdNdFl4UQ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-04-13T07:00:00.000Z",
-    authors: ["Cierra Noffke", "Trisha Jandoc"],
-    source_url: "https://www.cnet.com",
-    source_name: "CNET",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.cnet.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id: "CAAqIQgKIhtDQklTRGdnTWFnb0tDR051WlhRdVkyOXRLQUFQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ6WHpCZk5UZHhiaElDWlc0b0FBUAE",
-        topic_name: "Cierra Noffke",
-      },
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ5Y1hjNU4ybzRYeElDWlc0b0FBUAE",
-        topic_name: "Trisha Jandoc",
-      },
-    ],
-  },
-  {
-    title: "Aussie families face internet lags as homes juggle 20 devices",
-    link: "https://telconews.com.au/story/aussie-families-face-internet-lags-as-homes-juggle-20-devices",
-    snippet:
-      "An increase in the number of devices per household is leading to widespread internet connectivity issues for families across Australia.",
-    photo_url:
-      "https://telconews.com.au/uploads/story/2025/05/15/techday_f_f2337431b68c096c55fd.webp",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iI0NnNVZUMkpLTkc1VGJVdGhia1pEVFJDZ0F4amhCU2dLTWdB=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T19:37:00.000Z",
-    authors: ["Kaleah Salmon"],
-    source_url: "https://telconews.com.au",
-    source_name: "telconews.com.au",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://telconews.com.au&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqLAgKIiZDQklTRmdnTWFoSUtFSFJsYkdOdmJtVjNjeTVqYjIwdVlYVW9BQVAB",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZ5ZDNNMWNXb3pjQklDWlc0b0FBUAE",
-        topic_name: "Kaleah Salmon",
-      },
-    ],
-  },
-  {
-    title:
-      "Bell Canada scraps Labrador high-speed internet project, plans to invest in U.S.",
-    link: "https://paherald.sk.ca/bell-canada-scraps-labrador-high-speed-internet-project-plans-to-invest-in-u-s/",
-    snippet:
-      "Bell Canada's cancellation of a $32-million dollar contract to expand high-speed internet and cell service on Labrador's north coast comes as ...",
-    photo_url:
-      "https://paherald.sk.ca/wp-content/uploads/2025/05/DA-A23-baseimage88-768x410.jpg",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iJ0NnNWphRUZzT0ZRd1QxSXRhM05DVFJDVUF4ajJCU2dLTWdNQmNBbw=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-13T20:59:07.000Z",
-    authors: [],
-    source_url: "https://paherald.sk.ca",
-    source_name: "Prince Albert Daily Herald",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://paherald.sk.ca&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKQgKIiNDQklTRkFnTWFoQUtEbkJoYUdWeVlXeGtMbk5yTG1OaEtBQVAB",
-    related_topics: [],
-  },
-  {
-    title:
-      "SeerBit, Spectranet to Revolutionise Internet Subscription Payments",
-    link: "https://www.thisdaylive.com/index.php/2025/05/15/seerbit-spectranet-to-revolutionise-internet-subscription-payments/",
-    snippet:
-      "Leading Pan-African payment solutions provider SeerBit has partnered Spectranet, Nigeria's pioneer 4G LTE broadband service…",
-    photo_url:
-      "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/SeerBit-1280x720.png",
-    thumbnail_url:
-      "https://news.google.com/api/attachments/CC8iJ0NnNTZSWFEyYkV4T1ptSllaSEE1VFJDZkF4ampCU2dLTWdNUnd4UQ=-w200-h200-p-df-rw",
-    published_datetime_utc: "2025-05-14T22:30:00.000Z",
-    authors: ["Adeyinka Salami"],
-    source_url: "https://www.thisdaylive.com",
-    source_name: "THISDAYLIVE",
-    source_logo_url: null,
-    source_favicon_url:
-      "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.thisdaylive.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
-    source_publication_id:
-      "CAAqKggKIiRDQklTRlFnTWFoRUtEM1JvYVhOa1lYbHNhWFpsTG1OdmJTZ0FQAQ",
-    related_topics: [
-      {
-        topic_id: "CAAqKAgKIiJDQkFTRXdvTkwyY3ZNVEZyTkd0aU1qYzRYeElDWlc0b0FBUAE",
-        topic_name: "Adeyinka Salami",
-      },
-    ],
+    story_id:
+      "CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pDLWVEekRSSGt3dElfOVo3clppZ0FQAQ",
   },
 ];

@@ -1,62 +1,13 @@
-import { useEffect, useState } from "react";
-import { configKeys } from "@/config";
-import axios from "axios";
+import { newsFeed } from "@/json";
+import newsPlaceHolder from "@/assets/image/news-image.webp";
+// import { configKeys } from "@/config";
+// import { UseNews } from "@/hooks/UseNews";
 
 const NewsFeed = () => {
-  interface NewsItem {
-    title: string;
-    link: string;
-    snippet: string;
-    photo_url: string;
-    thumbnail_url: string;
-    published_datetime_utc: string;
-    authors: string[];
-    source_url: string;
-    source_name: string;
-    source_logo_url?: string;
-    source_favicon_url?: string;
-  }
-
-  const [news, setNews] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  const fetchNews = async () => {
-    try {
-      const response = await axios.request({
-        method: "GET",
-        url: "https://real-time-news-data.p.rapidapi.com/topic-news-by-section",
-        params: {
-          topic: "TECHNOLOGY",
-          section:
-            "CAQiSkNCQVNNUW9JTDIwdk1EZGpNWFlTQldWdUxVZENHZ0pKVENJT0NBUWFDZ29JTDIwdk1ETnliSFFxQ2hJSUwyMHZNRE55YkhRb0FBKi4IACoqCAoiJENCQVNGUW9JTDIwdk1EZGpNWFlTQldWdUxVZENHZ0pKVENnQVABUAE",
-          limit: "500",
-          country: "US",
-          lang: "en",
-        },
-        headers: {
-          "x-rapidapi-host": "real-time-news-data.p.rapidapi.com",
-          "x-rapidapi-key": configKeys.rapidApi,
-        },
-      });
-
-      setNews(response?.data?.data || []);
-    } catch (err) {
-      setError("Failed to fetch news.");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchNews();
-  }, []);
-
-  if (loading) return <p>Loading news...</p>;
-  if (error) return <p>{error}</p>;
-
-  console.log({ news });
+  // const { news, loading, error } = UseNews(
+  //   "TECHNOLOGY",
+  //   configKeys.rapidSectionId
+  // );
 
   return (
     <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-2">
@@ -64,7 +15,7 @@ const NewsFeed = () => {
         What's happening
       </h1>
 
-      {news.map((item) => (
+      {newsFeed.map((item) => (
         <a
           key={item.link}
           href={item.link}
@@ -73,7 +24,7 @@ const NewsFeed = () => {
           className="flex items-start gap-3 w-full hover:bg-gray-100 p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
         >
           <img
-            src={item.photo_url}
+            src={item.photo_url === null ? newsPlaceHolder : item?.photo_url}
             alt={item.title}
             className="w-16 h-16 object-cover rounded-md flex-shrink-0"
           />
