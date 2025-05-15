@@ -19,11 +19,11 @@ function Users() {
   const { userProfile } = FetchUserProfile();
   const { fetchingAllUsers, allUsers } = FetchAllUsers();
 
-  const allExceptUser: User[] = allUsers.filter(
+  const otherUsers: User[] = allUsers.filter(
     (user: User) => user.email !== (userProfile as User).email
   );
 
-  const itemsToShow = showAll ? allExceptUser : allExceptUser.slice(0, 2);
+  const itemsToShow = showAll ? otherUsers : otherUsers.slice(0, 2);
 
   console.log({ fetchingAllUsers, allUsers });
 
