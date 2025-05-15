@@ -64,7 +64,7 @@ export default function CustomLoginBtn({
       }>;
 
       showToastError(
-        axiosError?.response?.data?.message || "Yikes! GratiFi glitched. One more time?"
+        axiosError?.response?.data?.message || "Uh-oh! GratiFi’s feeling shy. Retry?"
       );
     } finally {
       setLoading(false);
