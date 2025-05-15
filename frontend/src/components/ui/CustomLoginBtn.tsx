@@ -64,7 +64,7 @@ export default function CustomLoginBtn({
       }>;
 
       showToastError(
-        axiosError?.response?.data?.message || "Network Error... check your internet connection"
+        axiosError?.response?.data?.message || "Uh-oh! GratiFi’s feeling shy. Retry?"
       );
     } finally {
       setLoading(false);

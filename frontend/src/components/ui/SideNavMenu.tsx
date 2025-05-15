@@ -184,8 +184,10 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
 
                   navigate("/");
                 } else {
-                  if (item.path) {
-                    navigate(`/${item.path}`);
+                  if ('path' in item && item.path) {
+                    if (item.path) {
+                      navigate(`/${item.path}`);
+                    }
                   }
                 }
               };
