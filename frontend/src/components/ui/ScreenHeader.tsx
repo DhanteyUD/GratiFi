@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { MoveLeft, Search, Bell, Fan, Star } from "lucide-react";
+import { ChevronLeft, Search, Bell } from "lucide-react";
 import { UserButton } from "@civic/auth/react";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile } from "@/hooks/UseFetch";
 import clsx from "clsx";
-import helperService from "../../services/helper.service";
+import helperService from "@/services/helper.service";
+import UserTypeIcon from "./UserTypeIcon";
 
 interface ScreenHeaderProps {
   goBack?: () => void;
@@ -15,18 +16,13 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
-  const { profile } = FetchProfile();
+  const { userProfile } = FetchUserProfile();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
   const [notificationCount] = useState(0);
   // const [searchTerm, setSearchTerm] = useState("");
   const [showingSearchInput, setShowingSearchInput] = useState(false);
-
-  const renderIcon = (userType: string) => {
-    if (userType === "GratiFan") return <Fan size={18} />;
-    if (userType === "GratiStar") return <Star size={18} />;
-  };
 
   const handleShowSearchInput = () => {
     setShowingSearchInput(!showingSearchInput);
@@ -48,17 +44,21 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   return (
     <div
       className={clsx(
-        "w-full h-auto z-[2] sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
-        !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1"
+        "w-full h-auto sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
+        !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1 px-2"
       )}
     >
       <div className="flex items-center gap-5">
-        <MoveLeft
+        <ChevronLeft
           className="hidden md:flex w-10 h-10 text-main hover:bg-primary p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
           onClick={() => (goBack ? goBack() : navigate(-1))}
         />
 
-        <h1 className="hidden md:flex text-main font-calSans text-[20px] md:text-[25px] font-[700]">
+        <h1
+          className={clsx(
+            "hidden md:flex text-main font-calSans text-[20px] md:text-[25px] font-[700]"
+          )}
+        >
           {helperService.capitalize(currentPage)}
         </h1>
       </div>
@@ -67,12 +67,15 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
         <div className="relative flex items-start gap-3">
           <div
             className={clsx(
-              "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 bg-secondary rounded-full border border-primary",
-              helperService.isEmptyObject(profile) ? "hidden" : "hidden md:flex"
+              "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 rounded-full border border-primary",
+              helperService.getUserTypeBg(userProfile?.user_type),
+              helperService.isEmptyObject(userProfile)
+                ? "hidden"
+                : "hidden md:flex"
             )}
           >
-            <p className="hidden lg:block">{profile?.user_type}</p>
-            {renderIcon(profile?.user_type || "")}
+            <p className="hidden lg:block">{userProfile?.user_type}</p>
+            <UserTypeIcon userType={userProfile?.user_type} size={18} />
           </div>
           <div className="h-full flex">
             <Search

@@ -10,7 +10,7 @@ import { getScreenMenuItems } from "@/routes/path";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
 import { PanelLeftClose } from "lucide-react";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile } from "@/hooks/UseFetch";
 import UseScreenSize from "@/hooks/UseScreenSize";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
@@ -29,7 +29,7 @@ function ScreenLayout({
   const [isSideNavCollapsed, setIsSideNavCollapsed] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-  const { profile } = FetchProfile();
+  const { userProfile } = FetchUserProfile();
 
   const handleToggleSidebar = () => {
     setIsSideNavCollapsed((prev) => !prev);
@@ -65,13 +65,13 @@ function ScreenLayout({
       <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
         {md && (
           <HamburgerToggle
-            menu={getScreenMenuItems(profile?.user_type || "")}
+            menu={getScreenMenuItems(userProfile?.user_type || "")}
           />
         )}
         {!md && (
           <div
             className={clsx(
-              "relative bg-white h-full border border-b-[20px] border-main py-5 px-3 text-white flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
+              "relative bg-white h-full rounded-[20px_0_20px_20px] border border-primary py-5 px-3 text-white flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
               isSideNavCollapsed ? "w-[10%]" : "w-[20%]"
             )}
           >
@@ -91,34 +91,34 @@ function ScreenLayout({
             </div>
 
             <SideNavMenu
-              menu={getScreenMenuItems(profile?.user_type || "")}
+              menu={getScreenMenuItems(userProfile?.user_type || "")}
               isSideNavCollapsed={isSideNavCollapsed}
             />
             <PanelLeftClose
               size={20}
               onClick={handleToggleSidebar}
               className={clsx(
-                "absolute top-1 left-1 text-primary hover:text-main cursor-pointer",
+                "absolute -top-[3px] -right-[18px] text-primary/50 hover:text-primary cursor-pointer",
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />
-            <span className="absolute top-2 right-2 w-[10px] h-[10px] rounded-full bg-background border border-main" />
+            <span className="absolute top-3 left-3 w-[10px] h-[10px] rounded-full bg-background border border-main" />
           </div>
         )}
 
         <div
           className={clsx(
-            "relative gap-[2rem] flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
-            layoutPadding ? "pt-0 pb-5 px-5" : "px-4"
+            "relative gap-8 md:gap-4 flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
+            layoutPadding ? "pt-0 md:px-5" : "md:px-4"
           )}
         >
           <ScreenHeader goBack={goBack} layoutPadding={layoutPadding} />
-          <div className="p-1 h-auto">{children}</div>
+          <div className="md:p-1 h-auto">{children}</div>
         </div>
 
         {md && (
           <MobileActionNMenu
-            menu={getScreenMenuItems(profile?.user_type || "")}
+            menu={getScreenMenuItems(userProfile?.user_type || "")}
           />
         )}
       </div>

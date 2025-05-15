@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
 import { moreMenuItems } from "@/routes/path";
+import { FetchUserProfile } from "@/hooks/UseFetch";
+import UserTypeIcon from "./UserTypeIcon";
+import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
 interface MenuItem {
@@ -16,6 +19,7 @@ interface HamburgerToggleProps {
 
 export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
   const navigate = useNavigate();
+  const { userProfile } = FetchUserProfile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleAction = (action: string): void => {
@@ -29,7 +33,7 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
   return (
     <>
-      <div className="fixed top-[15px] right-[1.25rem] h-12 bg-[#2a2a2a] rounded-[10px] z-[999] flex items-center justify-center">
+      <div className="fixed top-[15px] right-[0.5rem] h-12 bg-[#2a2a2a] rounded-[10px] z-[999] flex items-center justify-center">
         {menu.length > 0 && (
           <Hamburger
             toggle={setIsMenuOpen}
@@ -42,7 +46,20 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed items-start top-[75px] left-[1.25rem] w-[90%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
+        <div className="fixed items-start top-[75px] left-[0.5rem] w-[96%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
+          <div className="flex justify-end w-full">
+            <div
+              className={clsx(
+                "gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 rounded-full",
+                helperService.getUserTypeBg(userProfile?.user_type),
+                helperService.isEmptyObject(userProfile) ? "hidden" : "flex"
+              )}
+            >
+              <p>{userProfile?.user_type}</p>
+              <UserTypeIcon userType={userProfile?.user_type} size={18} />
+            </div>
+          </div>
+
           {menu.slice(5).map((item, index) => (
             <div
               key={index}

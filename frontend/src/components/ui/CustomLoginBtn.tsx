@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
+import UseScreenSize from "@/hooks/UseScreenSize";
 import axios from "axios";
 import storageService from "@/services/storage.service";
 
@@ -16,6 +17,7 @@ export default function CustomLoginBtn({
 }) {
   const navigate = useNavigate();
   const { signIn } = useUser();
+  const { md } = UseScreenSize();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = useCallback(async () => {
@@ -34,7 +36,7 @@ export default function CustomLoginBtn({
           user_type: "",
         };
 
-        const api = `${configKeys.apiURL}/login`;
+        const api = `${configKeys.apiURL}/auth/login`;
         const res = await axios.post(api, payload);
         const resData = res.data;
 
@@ -46,7 +48,12 @@ export default function CustomLoginBtn({
           storageService.setToken(app_token);
           storageService.setUser(data);
 
-          showToastSuccess(message, "top-right", 5000, true);
+          showToastSuccess(
+            message,
+            md ? "top-center" : "bottom-right",
+            5000,
+            true
+          );
         }
       }
     } catch (error) {
@@ -57,13 +64,13 @@ export default function CustomLoginBtn({
       }>;
 
       showToastError(
-        axiosError?.response?.data?.message || "An unexpected error occurred"
+        axiosError?.response?.data?.message || "Network Error... check your internet connection"
       );
     } finally {
       setLoading(false);
       navigate("/home");
     }
-  }, [navigate, signIn]);
+  }, [md, navigate, signIn]);
 
   return (
     <button disabled={loading} className={className} onClick={handleLogin}>

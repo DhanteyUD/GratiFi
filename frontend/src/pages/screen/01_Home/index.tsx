@@ -1,36 +1,95 @@
-// src/pages/Home.tsx
 import { useEffect, useState } from "react";
 import { Modal } from "@/components";
 import { profiles } from "@/json";
-import { Fan, Star } from "lucide-react";
 import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
-import { FetchProfile } from "@/lib";
+import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
+import { UserTypeIcon } from "@/components";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
+import Tabs from "./components/Tabs";
+import CreatePost from "./components/CreatePost";
+import PostCard from "./components/PostCard";
+import SubscribePremium from "./components/SubscribePremium";
+import NewsFeed from "./components/NewsFeed";
+import User from "./components/Users";
+
+type Post = {
+  id: string;
+  text: string;
+  media: string[];
+  audience: "everyone" | "communities" | string;
+  scheduledAt: string | null;
+  createdAt: string;
+  isPublished: boolean;
+  authorId: string;
+  author: {
+    id: string;
+    name: string;
+    email: string;
+    picture: string;
+    user_type: "GratiStar" | "GratiFan" | string;
+    createdAt: string;
+    updatedAt: string;
+  };
+};
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
-  const { fetchingProfile, profile } = FetchProfile();
+  const { fetchingUserProfile, userProfile } = FetchUserProfile();
+  const { fetchingAllPosts, allPosts } = FetchAllPosts();
 
-  const renderIcon = () => {
-    if (selectedProfile === "GratiFan") return <Fan size={18} />;
-    if (selectedProfile === "GratiStar") return <Star size={18} />;
-  };
+  console.log({
+    fetchingAllPosts,
+    allPosts,
+  });
+
+  const [activeTab, setActiveTab] = useState("For you");
 
   useEffect(() => {
-    if (!fetchingProfile && helperService.isEmptyObject(profile)) {
+    if (!fetchingUserProfile && helperService.isEmptyObject(userProfile)) {
       setIsModalOpen(true);
     }
-  }, [fetchingProfile, profile]);
+  }, [fetchingUserProfile, userProfile]);
 
   return (
     <>
-      {fetchingProfile && (
+      {fetchingUserProfile && (
         <ScreenOverlay message="we are fetching your profile" />
       )}
-      <div className="text-gray-800 text-xl font-semibold border border-[orange] p-4">
-        Welcome to GratiFi!
+      <div className="flex h-[calc(100vh-120px)] overflow-hidden">
+        {/* Left */}
+        <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
+          <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
+          <div className="bg-white/60 md:border-l md:border-r border-gray-300">
+            <CreatePost
+              userAvatar={userProfile.picture}
+              userType={userProfile?.user_type}
+            />
+            {allPosts.map((post: Post) => (
+              <PostCard
+                key={post.id}
+                authorImage={post.author.picture}
+                authorName={post.author.name}
+                authorUsername={post.author.email.split("@")[0]}
+                userType={post.author.user_type}
+                timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
+                content={post.text}
+                media={post.media}
+                comments={0}
+                reposts={0}
+                likes={0}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Right */}
+        <div className="hidden md:flex w-[40%] h-full flex-col gap-4 overflow-auto pl-5 pr-1 pt-8">
+          <SubscribePremium />
+          <NewsFeed />
+          <User />
+        </div>
       </div>
 
       <Modal
@@ -92,7 +151,7 @@ function Home() {
 
         <div className="flex gap-5 items-center mt-4 justify-end h-[40px]">
           <button
-            className="px-5 py-3 bg-primary text-main hover:bg-primaryHover font-calSans h-full"
+            className="px-5 bg-compulsory/80 text-white font-calSans h-full transition-all duration-300 ease-in-out"
             onClick={() => setIsModalOpen(false)}
           >
             Close
@@ -101,15 +160,17 @@ function Home() {
             disabled={!selectedProfile}
             selectedProfile={selectedProfile ?? undefined}
             className={clsx(
-              "flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 h-full py-3 text-sm w-[220px] md:text-base",
+              "flex justify-center items-center gap-2 font-calSans font-medium text-main transition-all duration-300 h-full text-sm w-[220px] md:text-base",
               selectedProfile
-                ? "bg-primary hover:bg-primaryHover cursor-pointer"
+                ? "bg-primary cursor-pointer"
                 : "bg-gray-300 cursor-not-allowed"
             )}
             setIsModalOpen={setIsModalOpen}
           >
             {selectedProfile ? `Continue as ${selectedProfile}` : "Select"}
-            {selectedProfile && renderIcon()}
+            {selectedProfile && (
+              <UserTypeIcon userType={selectedProfile} size={18} />
+            )}
           </CustomCreateProfileBtn>
         </div>
       </Modal>

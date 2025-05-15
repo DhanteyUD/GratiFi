@@ -1,3 +1,5 @@
+import moment from "moment";
+
 class HelperService {
   handleMoneyFormat(
     number: number | null | undefined,
@@ -47,6 +49,35 @@ class HelperService {
 
   isEmptyObject(obj: object) {
     return obj && Object.keys(obj).length === 0 && obj.constructor === Object;
+  }
+
+  formatTimeWithMoment(dateString: string): string {
+    const now = moment();
+    const Time = moment(dateString);
+    const diffInMinutes = now.diff(Time, "minutes");
+    const diffInHours = now.diff(Time, "hours");
+
+    if (diffInMinutes < 1) {
+      return "now";
+    }
+
+    if (diffInMinutes < 60) {
+      return `${diffInMinutes}m`;
+    }
+
+    if (diffInHours < 24) {
+      return `${diffInHours}h`;
+    }
+
+    return Time.format("MMM D");
+  }
+
+  getUserTypeBg(userType: string) {
+    return userType === "GratiStar" ? "bg-secondary" : "bg-primary";
+  }
+
+  getUserTypeColor(userType: string) {
+    return userType === "GratiStar" ? "text-secondary" : "text-primary";
   }
 }
 
