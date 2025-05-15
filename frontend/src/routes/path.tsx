@@ -8,7 +8,7 @@ import {
   // Compass,
   MessageCircle,
   Wallet,
-  // Bell,
+  Bell,
   // Gift,
   UserRound,
   // Settings,
@@ -49,7 +49,7 @@ const generatePath = (base: string, items: MenuItem[]): MenuItem[] => {
 const sharedMenuItems: MenuItem[] = [
   { name: "Home", path: "home", icon: HomeIcon },
   // { name: "Explore", path: "explore", icon: Compass },
-  // { name: "Notifications", path: "notifications", icon: Bell },
+  { name: "Notifications", path: "notifications", icon: Bell },
   { name: "Wallet", path: "wallet", icon: Wallet },
   { name: "Messages", path: "messages", icon: MessageCircle },
   // { name: "Bookmarks", path: "bookmarks", icon: Bookmark },

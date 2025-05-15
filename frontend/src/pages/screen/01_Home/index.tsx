@@ -4,6 +4,8 @@ import { profiles } from "@/json";
 import { CustomCreateProfileBtn, ScreenOverlay } from "@/components";
 import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
+import { Search } from "lucide-react";
+import { Tooltip } from "@/components";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import Tabs from "./components/Tabs";
@@ -39,13 +41,14 @@ function Home() {
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
   const { fetchingAllPosts, allPosts } = FetchAllPosts();
-
-  console.log({
-    fetchingAllPosts,
-    allPosts,
-  });
-
   const [activeTab, setActiveTab] = useState("For you");
+
+  // const [searchTerm, setSearchTerm] = useState("");
+  const [showingSearchInput, setShowingSearchInput] = useState(false);
+
+  const handleShowSearchInput = () => {
+    setShowingSearchInput(!showingSearchInput);
+  };
 
   useEffect(() => {
     if (!fetchingUserProfile && helperService.isEmptyObject(userProfile)) {
@@ -58,7 +61,7 @@ function Home() {
       {fetchingUserProfile && (
         <ScreenOverlay message="Fetching your GratiFi profile — spoiler: you’re the good guy." />
       )}
-      <div className="flex h-[calc(100vh-120px)] overflow-hidden">
+      <div className="flex h-full md:h-[calc(100vh-115px)] overflow-hidden">
         {/* Left */}
         <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
           <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
@@ -90,7 +93,31 @@ function Home() {
         </div>
 
         {/* Right */}
-        <div className="hidden md:flex w-[40%] h-full flex-col gap-4 overflow-auto pl-5 pr-1 pt-8">
+        <div className="hidden md:flex w-[40%] flex-col gap-4 overflow-auto pl-5 pr-1 mt-[35px]">
+          <div className="sticky top-0 w-full flex justify-end z-[2] bg-">
+            <div className="relative group">
+              <Search
+                onClick={handleShowSearchInput}
+                className={clsx(
+                  "w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary",
+                  showingSearchInput
+                    ? "rounded-full md:border-r-0 md:rounded-[50px_0_0_50px] "
+                    : "rounded-full "
+                )}
+              />
+
+              <Tooltip label="Search" />
+            </div>
+            <input
+              type="search"
+              className={clsx(
+                "w-full outline-none border text-main border-primary pl-2 pr-3 transition-all duration-300 ease-in-out",
+                showingSearchInput
+                  ? "hidden md:flex border-l-0 rounded-[0_50px_50px_0]"
+                  : "hidden"
+              )}
+            />
+          </div>
           <SubscribePremium />
           <NewsFeed />
           <User />

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ChevronLeft, Search, Bell, ChevronDown } from "lucide-react";
+import { ChevronLeft, Bell, ChevronDown, Wallet } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
+import Tooltip from "./Tooltip";
 
 interface ScreenHeaderProps {
   goBack?: () => void;
-  layoutPadding?: boolean;
 }
 interface ProfileDropdownOption {
   label: string;
@@ -17,23 +17,20 @@ interface ProfileDropdownOption {
   icon: React.ComponentType<{ size: number }>;
 }
 
-function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
+function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
-
+  const [notificationCount] = useState(0);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
-  const [notificationCount] = useState(0);
-  // const [searchTerm, setSearchTerm] = useState("");
-  const [showingSearchInput, setShowingSearchInput] = useState(false);
-
-  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-
-  const handleShowSearchInput = () => {
-    setShowingSearchInput(!showingSearchInput);
+  const handleWalletAction = () => {
+    // Wallet connection logic here
+    // Next: if wallet is connected_
+    // navigate("/wallet");
   };
 
   const handleProfileDropdown = (option: ProfileDropdownOption): void => {
@@ -63,13 +60,8 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   }, [currentPage]);
 
   return (
-    <div
-      className={clsx(
-        "w-full h-auto sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3]",
-        !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1 px-2"
-      )}
-    >
-      <div className="flex items-center gap-5">
+    <div className="sticky w-full h-auto flex top-2 md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3]">
+      <div className="flex items-center gap-5 pl-2 md:pl-4">
         <ChevronLeft
           className="hidden md:flex w-10 h-10 text-main hover:bg-primary p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
           onClick={() => (goBack ? goBack() : navigate(-1))}
@@ -84,7 +76,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
         </h1>
       </div>
 
-      <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row bg-background gap-3">
+      <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-3">
         <div className="relative flex items-start gap-3">
           <div
             className={clsx(
@@ -98,31 +90,18 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
             <p className="hidden lg:block">{userProfile?.user_type}</p>
             <UserTypeIcon userType={userProfile?.user_type} size={18} />
           </div>
-          <div className="h-full flex">
-            <Search
-              onClick={handleShowSearchInput}
-              className={clsx(
-                "w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary",
-                showingSearchInput
-                  ? "rounded-full md:border-r-0 md:rounded-[50px_0_0_50px] "
-                  : "rounded-full "
-              )}
-            />
-            <input
-              type="search"
-              className={clsx(
-                "w-auto outline-none border text-main border-primary pl-2 pr-3 transition-all duration-300 ease-in-out",
-                showingSearchInput
-                  ? "hidden md:flex border-l-0 rounded-[0_50px_50px_0]"
-                  : "hidden"
-              )}
-            />
+          <div
+            onClick={handleWalletAction}
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary"
+          >
+            <Wallet />
+            <Tooltip label="Select wallet" />
           </div>
-          <div className="relative">
-            <Bell
-              className="w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary rounded-full transition-all duration-300 ease-in-out border border-primary"
-              onClick={() => navigate("/notifications")}
-            />
+          <div
+            onClick={() => navigate("/notifications")}
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary"
+          >
+            <Bell />
             {notificationCount > 0 && (
               <div className="absolute min-w-[15px] h-[15px] bg-compulsory rounded-full flex items-center justify-center -top-1 right-0 p-1">
                 <p className="text-white text-[9px] font-semibold">
@@ -130,6 +109,8 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
                 </p>
               </div>
             )}
+
+            <Tooltip label="Notification" />
           </div>
         </div>
 
@@ -139,7 +120,9 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
                 "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primary transition-colors duration-300 ease-in-out",
-                showProfileDropdown ? "rounded-[25px_10px_0_0]" : "rounded-full"
+                showProfileDropdown
+                  ? "rounded-[10px_25px_0_0] md:rounded-[25px_10px_0_0]"
+                  : "rounded-full"
               )}
             >
               <div className="flex items-center gap-2">
@@ -184,15 +167,6 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
           )}
         </div>
       </div>
-
-      {showingSearchInput && (
-        <input
-          type="search"
-          className={clsx(
-            "flex md:hidden absolute left-0 top-16 w-full outline-none border border-primary px-5 transition-all duration-300 ease-in-out rounded-xl h-[45px] slit-in-horizontal"
-          )}
-        />
-      )}
     </div>
   );
 }

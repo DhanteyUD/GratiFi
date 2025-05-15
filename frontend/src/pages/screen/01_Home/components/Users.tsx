@@ -26,8 +26,6 @@ function Users() {
 
   const itemsToShow = showAll ? otherUsers : otherUsers.slice(0, 2);
 
-  console.log({ fetchingAllUsers, allUsers });
-
   return (
     <>
       {fetchingAllUsers ? (

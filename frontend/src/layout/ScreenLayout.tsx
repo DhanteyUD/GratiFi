@@ -18,11 +18,9 @@ import clsx from "clsx";
 function ScreenLayout({
   children,
   goBack,
-  layoutPadding = true,
 }: {
   children: React.ReactNode;
   goBack?: () => void;
-  layoutPadding?: boolean;
 }) {
   const { md } = UseScreenSize();
   const navigate = useNavigate();
@@ -63,12 +61,11 @@ function ScreenLayout({
     <CivicAuthProvider clientId={configKeys.clientId}>
       {/* {!md && getAnimatedCursor()} */}
       <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
-        {md && (
+        {md ? (
           <HamburgerToggle
             menu={getScreenMenuItems(userProfile?.user_type || "")}
           />
-        )}
-        {!md && (
+        ) : (
           <div
             className={clsx(
               "relative bg-white h-full rounded-[20px_0_20px_20px] border border-primary py-5 px-3 text-white flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
@@ -106,13 +103,8 @@ function ScreenLayout({
           </div>
         )}
 
-        <div
-          className={clsx(
-            "relative gap-8 md:gap-4 flex flex-col overflow-auto mb-[83px] w-full md:mb-0 p-0",
-            layoutPadding ? "pt-0 md:px-5" : "md:px-4"
-          )}
-        >
-          <ScreenHeader goBack={goBack} layoutPadding={layoutPadding} />
+        <div className="relative gap-8 md:gap-4 flex flex-col overflow-auto mb-[83px] md:mb-0 w-full">
+          <ScreenHeader goBack={goBack} />
           <div className="md:p-1 h-auto">{children}</div>
         </div>
 
