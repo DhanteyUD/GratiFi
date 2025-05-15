@@ -56,7 +56,7 @@ export default function PostCard({
 
   return (
     <>
-      <div className="p-4 border-b border-gray-300">
+      <div className="p-4 border-b border-gray-300 hover:bg-primaryHover/50 cursor-pointer transition-colors duration-300 ease-linear">
         <div className="flex gap-3">
           <img
             src={authorImage || gratifiIcon}

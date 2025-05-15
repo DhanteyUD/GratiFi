@@ -9,6 +9,8 @@ import helperService from "@/services/helper.service";
 import Tabs from "./components/Tabs";
 import CreatePost from "./components/CreatePost";
 import PostCard from "./components/PostCard";
+import SubscribePremium from "./components/SubscribePremium";
+import NewsFeed from "./components/NewsFeed";
 
 type Post = {
   id: string;
@@ -58,7 +60,7 @@ function Home() {
         {/* Left */}
         <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
           <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
-          <div className="bg-white/40 md:border-l md:border-r border-main-300">
+          <div className="bg-white/60 md:border-l md:border-r border-main-300">
             <CreatePost
               userAvatar={userProfile.picture}
               userType={userProfile?.user_type}
@@ -82,8 +84,9 @@ function Home() {
         </div>
 
         {/* Right */}
-        <div className="hidden md:flex w-[40%] px-5">
-          <p className="font-outfit">right</p>
+        <div className="hidden md:flex w-[40%] h-full flex-col gap-4 overflow-auto pl-5 pr-1 pt-8">
+          <SubscribePremium />
+          <NewsFeed />
         </div>
       </div>
 
