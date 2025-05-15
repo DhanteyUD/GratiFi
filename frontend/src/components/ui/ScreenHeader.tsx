@@ -44,7 +44,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   return (
     <div
       className={clsx(
-        "w-full h-auto z-[2] sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
+        "w-full h-auto sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
         !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1 px-2"
       )}
     >
