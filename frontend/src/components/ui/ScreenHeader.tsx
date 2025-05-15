@@ -138,10 +138,8 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
             <div
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
-                "!bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer rounded-full",
-                showProfileDropdown
-                  ? "border-primary rounded-[25px_10px_0_0]"
-                  : "border-primary hover:bg-primary"
+                "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primary transition-colors duration-300 ease-in-out",
+                showProfileDropdown ? "rounded-[25px_10px_0_0]" : "rounded-full"
               )}
             >
               <div className="flex items-center gap-2">
@@ -152,7 +150,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
                 />
                 <div className="flex flex-col items-start leading-4">
                   <p className="text-[15px] font-calSans">{userProfile.name}</p>
-                  <span className="text-primary text-[12px]">
+                  <span className="text-primary text-[12px] group-hover:text-white/50 transition-colors duration-300 ease-in-out">
                     @{userProfile.name}
                   </span>
                 </div>
