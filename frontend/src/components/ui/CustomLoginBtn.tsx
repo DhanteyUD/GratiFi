@@ -2,12 +2,9 @@ import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
-import {
-  showToastSuccess,
-  showToastError,
-  showToastInfo,
-} from "@/utils/notification.utils";
+import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
+import UseScreenSize from "@/hooks/UseScreenSize";
 import axios from "axios";
 import storageService from "@/services/storage.service";
 
@@ -19,7 +16,8 @@ export default function CustomLoginBtn({
   children?: React.ReactNode;
 }) {
   const navigate = useNavigate();
-  const { signIn, user } = useUser();
+  const { signIn } = useUser();
+  const { md } = UseScreenSize();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = useCallback(async () => {
@@ -32,22 +30,30 @@ export default function CustomLoginBtn({
 
       if (civicUser) {
         const payload = {
+          name: civicUser.name,
           email: civicUser.email,
+          picture: civicUser.picture,
+          user_type: "",
         };
 
-        const api = `${configKeys.apiURL}/login`;
+        const api = `${configKeys.apiURL}/auth/login`;
         const res = await axios.post(api, payload);
         const resData = res.data;
 
         const { message, app_token, data } = resData;
 
-        if (res?.status === 200) {
+        const acceptedStatus = [200, 201, 202];
+
+        if (acceptedStatus.includes(res?.status)) {
           storageService.setToken(app_token);
           storageService.setUser(data);
 
-          showToastSuccess(message, "top-right", 5000, true);
-
-          navigate("/home");
+          showToastSuccess(
+            message,
+            md ? "top-center" : "bottom-right",
+            5000,
+            true
+          );
         }
       }
     } catch (error) {
@@ -57,30 +63,18 @@ export default function CustomLoginBtn({
         message: string;
       }>;
 
-      if (axiosError.status === 404) {
-        showToastInfo(
-          axiosError?.response?.data?.message || "Create your profile",
-          "top-right",
-          5000,
-          true
-        );
-      } else {
-        showToastError(
-          axiosError?.response?.data?.message || "An unexpected error occurred"
-        );
-      }
+      showToastError(
+        axiosError?.response?.data?.message || "Network Error... check your internet connection"
+      );
     } finally {
       setLoading(false);
+      navigate("/home");
     }
-  }, [navigate, signIn]);
+  }, [md, navigate, signIn]);
 
   return (
-    <>
-      {!user && (
-        <button disabled={loading} className={className} onClick={handleLogin}>
-          {loading ? <CustomSpinner theme="#3c315b" /> : children}
-        </button>
-      )}
-    </>
+    <button disabled={loading} className={className} onClick={handleLogin}>
+      {loading ? <CustomSpinner theme="#3c315b" /> : children}
+    </button>
   );
 }

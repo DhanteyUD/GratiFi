@@ -24,6 +24,8 @@
   --grey: rgba(39, 39, 39, 1);
   --sub-text: rgba(67, 67, 67, 1);
   --white: rgba(255, 255, 255, 1);
+  --side-nav: rgba(42, 42, 42, 1);
+  --compulsory: rgba(240, 16, 16, 1);
 
   --prata: "Prata", serif;
   --pacifico: "Pacifico", cursive;
@@ -35,6 +37,31 @@
   --jetBrains: "JetBrains Mono", monospace;
   --jakarta: "Plus Jakarta", sans-serif;
   --inter: "Inter", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  /* Comment the line below if you want a customized sidebar instead */
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0 0 5px #ab9ff2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3c315b;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3c315b;
+  cursor: pointer;
 }
 
 * {
@@ -65,6 +92,13 @@ a {
   width: 16px !important;
 }
 
+.react-datepicker-popper {
+  padding-left: 1.5rem !important;
+  width: 400px !important;
+  display: flex !important;
+  justify-content: right !important;
+}
+
 .app-scroll-bar {
   position: fixed;
   top: 0;
@@ -79,7 +113,7 @@ h2,
 .animatedText {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgb(171 159 242) 0%, rgb(60 49 91) 100%);
+  background: linear-gradient(90deg,rgb(60 49 91)  0%, rgb(171 159 242)  100%);
 
   background-clip: text;
   color: transparent;
@@ -107,7 +141,7 @@ h2,
   width: auto !important;
   font-size: 14px !important;
   font-weight: 400 !important;
-  color: var(--white) !important;
+  color: var(--main) !important;
   font-family: var(--jetBrains) !important;
 }
 
@@ -123,8 +157,8 @@ h2,
   border-radius: 0 !important;
   padding: 0 20px !important;
   margin-bottom: 0 !important;
-  background: var(--main) !important;
-  border-bottom: 10px solid var(--primary) !important;
+  background: var(--white) !important;
+  border-bottom: 10px solid var(--main) !important;
 }
 
 .Toastify__toast::before,
@@ -190,7 +224,7 @@ h2,
     width: auto !important;
     font-size: 14px !important;
     font-weight: 400 !important;
-    color: var(--white) !important;
+    color: var(--main) !important;
     font-family: var(--jetBrains) !important;
   }
 }
@@ -391,5 +425,71 @@ h2,
   100% {
     transform: translateX(0);
     animation-timing-function: ease-out;
+  }
+}
+
+.shake-bottom {
+  animation: shake-bottom 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite
+    both;
+}
+
+@keyframes shake-bottom {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
+.slit-in-vertical {
+  animation: slit-in-vertical 0.45s ease-out both;
+}
+
+@keyframes slit-in-vertical {
+  0% {
+    transform: translateZ(-800px) rotateY(90deg);
+    opacity: 0;
+  }
+  54% {
+    transform: translateZ(-160px) rotateY(87deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(0) rotateY(0);
+  }
+}
+
+.slit-in-horizontal {
+  animation: slit-in-horizontal 0.3s ease-out both;
+}
+
+@keyframes slit-in-horizontal {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
   }
 }

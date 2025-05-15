@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { DesktopNavMenu, MobileNavMenu } from "@/components";
 import { ScrollLinkedAnimation } from "@/animations";
-import ScreenLayout from "./ScreenLayout";
+import BaseLayout from "./BaseLayout";
 
 interface OnboardingLayoutProps {
   menu: { to: string; label?: string; icon?: React.ReactNode }[];
@@ -19,7 +19,7 @@ function OnboardingLayout({
   children,
 }: OnboardingLayoutProps) {
   return (
-    <ScreenLayout>
+    <BaseLayout>
       <MobileNavMenu menu={menu} canLogin={canLogin} canSignup={canSignup} />
       <DesktopNavMenu
         menu={menu}
@@ -30,7 +30,7 @@ function OnboardingLayout({
       {children}
 
       <ScrollLinkedAnimation />
-    </ScreenLayout>
+    </BaseLayout>
   );
 }
 

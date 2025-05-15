@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Fan, Star } from "lucide-react";
 import { profiles } from "@/json";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { CustomCreateAccountBtn } from "@/components";
 import { configKeys } from "@/config";
+import { UserTypeIcon } from "@/components";
 import OnboardingLayout from "@/layout/OnboardingLayout";
 import clsx from "clsx";
 
@@ -21,11 +21,6 @@ export default function CreateAccount() {
       default:
         return "";
     }
-  };
-
-  const renderIcon = () => {
-    if (selectedProfile === "GratiFan") return <Fan size={18} />;
-    if (selectedProfile === "GratiStar") return <Star size={18} />;
   };
 
   useEffect(() => {
@@ -104,7 +99,9 @@ export default function CreateAccount() {
               )}
             >
               {selectedProfile ? `Join as a ${selectedProfile}` : "Join"}
-              {selectedProfile && renderIcon()}
+              {selectedProfile && (
+                <UserTypeIcon userType={selectedProfile} size={18} />
+              )}
             </CustomCreateAccountBtn>
 
             <p className="text-main/70 text-sm text-center">

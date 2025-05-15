@@ -10,7 +10,7 @@ export const sendWelcomeEmail = async (to: string, userName: string) => {
   const html = await render(React.createElement(WelcomeEmail, { userName }));
 
   const { data, error } = await resend.emails.send({
-    from: "GratiFi <noreply@yourdomain.com>",
+    from: "GratiFi <noreply@gratifi.com>",
     to,
     subject: "Welcome to GratiFi 🎉",
     html,
