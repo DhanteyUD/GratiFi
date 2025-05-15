@@ -63,8 +63,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: "/messages",
-    element: withAuth(<Messages />),
+    path: "/notifications",
+    element: withAuth(<Notifications />),
     errorElement: <ErrorBoundary />,
   },
   {
@@ -73,8 +73,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: "/notifications",
-    element: withAuth(<Notifications />),
+    path: "/messages",
+    element: withAuth(<Messages />),
     errorElement: <ErrorBoundary />,
   },
   {

@@ -11,13 +11,10 @@ interface MobileActionMenuProps {
 }
 
 function MobileActionMenu({ menu = [] }: MobileActionMenuProps) {
-  const swappedMenu = [...menu];
-  [swappedMenu[2], swappedMenu[4]] = [swappedMenu[4], swappedMenu[2]];
-
   return (
     <nav className="fixed bottom-0 w-full h-[83px] bg-[#2a2a2a] border-t border-[rgba(134,146,166,0.1)] z-[100] flex justify-around items-center px-[10px] shadow-md">
       <div className="flex items-center justify-center w-full h-full py-2">
-        {swappedMenu.slice(0, 5).map((item, index) => (
+        {menu.slice(0, 5).map((item, index) => (
           <NavLink
             to={item.path}
             key={index}
