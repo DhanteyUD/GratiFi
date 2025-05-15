@@ -102,7 +102,7 @@ function ScreenLayout({
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />
-            <span className="absolute top-2 left-2 w-[10px] h-[10px] rounded-full bg-background border border-main" />
+            <span className="absolute top-3 left-3 w-[10px] h-[10px] rounded-full bg-background border border-main" />
           </div>
         )}
 
