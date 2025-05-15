@@ -19,6 +19,8 @@ import {
   // Briefcase,
   // Sparkles,
   // HeartPlus,
+  // User,
+  LogOut,
 } from "lucide-react";
 
 export const landingPageMenuItems = [
@@ -75,6 +77,16 @@ export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
       : [];
   return generatePath("", [...sharedMenuItems, ...roleExtras]);
 };
+
+export const headerNavMenuItems = [
+  // { label: "Your Profile", path: "profile", icon: User },
+  // { label: "Settings", path: "settings", icon: Settings },
+  {
+    label: "Sign out",
+    path: "",
+    icon: LogOut,
+  },
+];
 
 export const moreMenuItems = [
   // { name: "Jobs", path: "jobs", icon: Briefcase },

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ChevronLeft, Search, Bell } from "lucide-react";
-import { UserButton } from "@civic/auth/react";
+import { ChevronLeft, Search, Bell, ChevronDown } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
+import { headerNavMenuItems } from "@/routes/path";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
@@ -11,12 +11,18 @@ interface ScreenHeaderProps {
   goBack?: () => void;
   layoutPadding?: boolean;
 }
+interface ProfileDropdownOption {
+  label: string;
+  path: string;
+  icon: React.ComponentType<{ size: number }>;
+}
 
 function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = location.pathname.split("/")[1];
-  const { userProfile } = FetchUserProfile();
+
+  const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
@@ -24,8 +30,23 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   // const [searchTerm, setSearchTerm] = useState("");
   const [showingSearchInput, setShowingSearchInput] = useState(false);
 
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+
   const handleShowSearchInput = () => {
     setShowingSearchInput(!showingSearchInput);
+  };
+
+  const handleProfileDropdown = (option: ProfileDropdownOption): void => {
+    if (option.label === "Sign out") {
+      localStorage.clear();
+      sessionStorage.clear();
+
+      navigate("/login");
+    } else {
+      navigate(`/${option.path}`);
+    }
+
+    setShowProfileDropdown(false);
   };
 
   useEffect(() => {
@@ -44,7 +65,7 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
   return (
     <div
       className={clsx(
-        "w-full h-auto sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px]",
+        "w-full h-auto sticky flex top-[10px] md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3]",
         !layoutPadding ? "px-5 pb-5 md:px-4" : "p-1 px-2"
       )}
     >
@@ -112,7 +133,58 @@ function ScreenHeader({ goBack, layoutPadding }: ScreenHeaderProps) {
           </div>
         </div>
 
-        <UserButton className="!bg-white !text-main !border !border-primary !p-3 hover:!bg-primary !font-calSans" />
+        <div className="relative">
+          {fetchingUserProfile ? null : (
+            <div
+              onClick={() => setShowProfileDropdown((prev) => !prev)}
+              className={clsx(
+                "!bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer rounded-full",
+                showProfileDropdown
+                  ? "border-primary rounded-[25px_10px_0_0]"
+                  : "border-primary hover:bg-primary"
+              )}
+            >
+              <div className="flex items-center gap-2">
+                <img
+                  src={userProfile.picture}
+                  alt={userProfile.name}
+                  className="w-[30px] h-[30px] rounded-full"
+                />
+                <div className="flex flex-col items-start leading-4">
+                  <p className="text-[15px] font-calSans">{userProfile.name}</p>
+                  <span className="text-primary text-[12px]">
+                    @{userProfile.name}
+                  </span>
+                </div>
+              </div>
+              <ChevronDown
+                size={25}
+                className={clsx(
+                  "cursor-pointer",
+                  showProfileDropdown ? "-scale-y-[1]" : ""
+                )}
+              />
+            </div>
+          )}
+
+          {showProfileDropdown && (
+            <div className="absolute flex bg-white border border-t-0 border-primary rounded-[0_0_10px_10px] shadow-md w-full py-2 text-main">
+              <ul className="text-sm w-full">
+                {headerNavMenuItems.map((option) => (
+                  <li key={option.label}>
+                    <button
+                      onClick={() => handleProfileDropdown(option)}
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-primaryHover/50"
+                    >
+                      <option.icon size={18} className="text-gray-500" />
+                      {option.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       {showingSearchInput && (
