@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FetchAllUsers } from "@/hooks/UseFetch";
+import { FetchAllUsers, FetchUserProfile } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
@@ -16,9 +16,14 @@ type User = {
 
 function Users() {
   const [showAll, setShowAll] = useState(false);
+  const { userProfile } = FetchUserProfile();
   const { fetchingAllUsers, allUsers } = FetchAllUsers();
 
-  const itemsToShow = showAll ? allUsers : allUsers.slice(0, 2);
+  const allExceptUser: User[] = allUsers.filter(
+    (user: User) => user.email !== (userProfile as User).email
+  );
+
+  const itemsToShow = showAll ? allExceptUser : allExceptUser.slice(0, 2);
 
   console.log({ fetchingAllUsers, allUsers });
 
