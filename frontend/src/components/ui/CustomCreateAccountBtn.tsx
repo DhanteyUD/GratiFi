@@ -71,7 +71,7 @@ export default function CustomCreateAccountBtn({
       sessionStorage.clear();
 
       showToastError(
-        axiosError?.response?.data?.message || "An unexpected error occurred"
+        axiosError?.response?.data?.message || "Network Error... check your internet connection"
       );
     } finally {
       setLoading(false);

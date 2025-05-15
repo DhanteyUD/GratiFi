@@ -153,7 +153,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
           : null}
       </div>
 
-      <div className="bg-white sticky bottom-0 flex z-[3] flex-col gap-4 p-2 border-t-2 border-primary">
+      <div className="bg-white sticky bottom-0 flex z-[3] flex-col gap-4 p-2 border-t border-primary">
         <div
           className="flex items-center justify-center gap-3 w-full !h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
           onClick={() => setShowMore((prev) => !prev)}

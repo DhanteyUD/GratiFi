@@ -70,17 +70,17 @@ const NewsFeed = () => {
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-start gap-3 w-full hover:bg-gray-100 p-2 rounded-lg transition"
+          className="flex items-start gap-3 w-full hover:bg-gray-100 p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
         >
           <img
-            src={item.thumbnail_url}
+            src={item.photo_url}
             alt={item.title}
             className="w-16 h-16 object-cover rounded-md flex-shrink-0"
           />
           <div className="flex-1">
-            <h2 className="text-sm font-semibold text-gray-900 hover:underline">
+            <h3 className="text-left text-sm font-semibold text-main hover:underline">
               {item.title}
-            </h2>
+            </h3>
             <p className="text-xs text-gray-600 line-clamp-2">{item.snippet}</p>
             {item.authors.length > 0 && (
               <p className="text-[10px] text-gray-500 mt-1">
@@ -105,7 +105,7 @@ const NewsFeed = () => {
                 href={item.source_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:underline cursor-pointer"
               >
                 {item.source_name}
               </a>

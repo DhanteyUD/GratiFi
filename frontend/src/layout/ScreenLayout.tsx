@@ -71,7 +71,7 @@ function ScreenLayout({
         {!md && (
           <div
             className={clsx(
-              "relative bg-white h-full border border-b-[20px] border-main py-5 px-3 text-white flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
+              "relative bg-white h-full rounded-[20px_0_20px_20px] border border-primary py-5 px-3 text-white flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
               isSideNavCollapsed ? "w-[10%]" : "w-[20%]"
             )}
           >
@@ -98,7 +98,7 @@ function ScreenLayout({
               size={20}
               onClick={handleToggleSidebar}
               className={clsx(
-                "absolute -top-[3px] -right-[18px] text-primary hover:text-main cursor-pointer",
+                "absolute -top-[3px] -right-[18px] text-primary/50 hover:text-primary cursor-pointer",
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />

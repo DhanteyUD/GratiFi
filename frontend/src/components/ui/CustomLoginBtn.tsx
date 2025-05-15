@@ -64,7 +64,7 @@ export default function CustomLoginBtn({
       }>;
 
       showToastError(
-        axiosError?.response?.data?.message || "An unexpected error occurred"
+        axiosError?.response?.data?.message || "Network Error... check your internet connection"
       );
     } finally {
       setLoading(false);
