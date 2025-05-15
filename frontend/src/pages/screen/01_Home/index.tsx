@@ -12,6 +12,7 @@ import PostCard from "./components/PostCard";
 import SubscribePremium from "./components/SubscribePremium";
 import NewsFeed from "./components/NewsFeed";
 import User from "./components/Users";
+import PostCardSkeleton from "./components/PostCardSkeleton";
 
 type Post = {
   id: string;
@@ -55,7 +56,7 @@ function Home() {
   return (
     <>
       {fetchingUserProfile && (
-        <ScreenOverlay message="we are fetching your profile" />
+        <ScreenOverlay message="Fetching your GratiFi profile — spoiler: you’re the good guy." />
       )}
       <div className="flex h-[calc(100vh-120px)] overflow-hidden">
         {/* Left */}
@@ -66,21 +67,25 @@ function Home() {
               userAvatar={userProfile.picture}
               userType={userProfile?.user_type}
             />
-            {allPosts.map((post: Post) => (
-              <PostCard
-                key={post.id}
-                authorImage={post.author.picture}
-                authorName={post.author.name}
-                authorUsername={post.author.email.split("@")[0]}
-                userType={post.author.user_type}
-                timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
-                content={post.text}
-                media={post.media}
-                comments={0}
-                reposts={0}
-                likes={0}
-              />
-            ))}
+            {fetchingAllPosts ? (
+              <PostCardSkeleton />
+            ) : (
+              allPosts.map((post: Post) => (
+                <PostCard
+                  key={post.id}
+                  authorImage={post.author.picture}
+                  authorName={post.author.name}
+                  authorUsername={post.author.email.split("@")[0]}
+                  userType={post.author.user_type}
+                  timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
+                  content={post.text}
+                  media={post.media}
+                  comments={0}
+                  reposts={0}
+                  likes={0}
+                />
+              ))
+            )}
           </div>
         </div>
 
