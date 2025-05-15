@@ -1,5 +1,7 @@
+import { ScreenFallback } from "@/components";
+
 function Explore() {
-  return <div>02_Explore</div>;
+  return <ScreenFallback />;
 }
 
 export default Explore;

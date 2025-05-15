@@ -2,24 +2,24 @@ import {
   Cog,
   Star,
   Users,
-  // UsersRound,
+  UsersRound,
   CircleHelp,
   HomeIcon,
-  // Compass,
+  Compass,
   MessageCircle,
   Wallet,
   Bell,
-  // Gift,
+  Gift,
   UserRound,
-  // Settings,
-  // BarChart,
-  // Clock,
+  Settings,
+  BarChart,
+  Clock,
   Power,
-  // Bookmark,
-  // Briefcase,
-  // Sparkles,
-  // HeartPlus,
-  // User,
+  Bookmark,
+  Briefcase,
+  Sparkles,
+  HeartPlus,
+  User,
   LogOut,
 } from "lucide-react";
 
@@ -48,24 +48,24 @@ const generatePath = (base: string, items: MenuItem[]): MenuItem[] => {
 
 const sharedMenuItems: MenuItem[] = [
   { name: "Home", path: "home", icon: HomeIcon },
-  // { name: "Explore", path: "explore", icon: Compass },
+  { name: "Explore", path: "explore", icon: Compass },
   { name: "Notifications", path: "notifications", icon: Bell },
   { name: "Wallet", path: "wallet", icon: Wallet },
   { name: "Messages", path: "messages", icon: MessageCircle },
-  // { name: "Bookmarks", path: "bookmarks", icon: Bookmark },
-  // { name: "Communities", path: "communities", icon: UsersRound },
+  { name: "Bookmarks", path: "bookmarks", icon: Bookmark },
+  { name: "Communities", path: "communities", icon: UsersRound },
   { name: "Profile", path: "profile", icon: UserRound },
 ];
 
 const gratiStarExtras: MenuItem[] = [
-  // { name: "Tips Received", path: "tips", icon: Gift },
-  // { name: "My GratiFans", path: "supporters", icon: HeartPlus },
-  // { name: "Analytics", path: "analytics", icon: BarChart },
+  { name: "Tips Received", path: "tips", icon: Gift },
+  { name: "My GratiFans", path: "supporters", icon: HeartPlus },
+  { name: "Analytics", path: "analytics", icon: BarChart },
 ];
 
 const gratiFanExtras: MenuItem[] = [
-  // { name: "Support History", path: "history", icon: Clock },
-  // { name: "My GratiStars", path: "creators", icon: Sparkles },
+  { name: "Support History", path: "history", icon: Clock },
+  { name: "My GratiStars", path: "creators", icon: Sparkles },
 ];
 
 export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
@@ -79,8 +79,8 @@ export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
 };
 
 export const headerNavMenuItems = [
-  // { label: "Your Profile", path: "profile", icon: User },
-  // { label: "Settings", path: "settings", icon: Settings },
+  { label: "Your Profile", path: "profile", icon: User },
+  { label: "Settings", path: "settings", icon: Settings },
   {
     label: "Sign out",
     path: "",
@@ -89,8 +89,8 @@ export const headerNavMenuItems = [
 ];
 
 export const moreMenuItems = [
-  // { name: "Jobs", path: "jobs", icon: Briefcase },
-  // { name: "Settings & Privacy", path: "settings", icon: Settings },
+  { name: "Jobs", path: "jobs", icon: Briefcase },
+  { name: "Settings & Privacy", path: "settings", icon: Settings },
   {
     name: "Log out",
     icon: Power,
