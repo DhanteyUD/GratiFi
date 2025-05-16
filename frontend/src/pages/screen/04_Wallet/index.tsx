@@ -71,7 +71,7 @@ export default function WalletPage() {
 
         {/* Wallet Card */}
         <div className="bg-white p-4 text-center w-auto border border-gray-300 border-t-0 rounded-[0_0_10px_10px] mb-4">
-          <div className="shadow-inset-dual rounded-xl">
+          <div className="shadow-inset-dual rounded-lg">
             {publicKey ? (
               <div className="text-left bg-primaryHover/50 p-4 rounded-xl border space-y-4">
                 <div>
