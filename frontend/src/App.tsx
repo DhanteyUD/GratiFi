@@ -6,7 +6,7 @@ import UseScreenSize from "./hooks/UseScreenSize";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 0,
+      staleTime: Infinity,
       retry: false,
       // refetchOnWindowFocus: false,
     },

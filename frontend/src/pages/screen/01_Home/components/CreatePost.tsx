@@ -11,12 +11,12 @@ import {
   X,
 } from "lucide-react";
 import { audienceOptions } from "@/json";
+import { showToastSuccess } from "@/utils/notification.utils";
 import EmojiPicker from "./EmojiPicker";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from "clsx";
 import moment from "moment";
-import { showToastSuccess } from "@/utils/notification.utils";
 
 type CreatePostProps = {
   userAvatar: string;
@@ -105,7 +105,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
             className="flex items-center gap-1 text-sm text-primary font-medium px-3 py-1 rounded-full border border-gray-300 hover:bg-gray-100 transition"
           >
             {selectedAudience.label}
-            <ChevronDown size={16} />
+            <ChevronDown size={16} className={clsx(showAudienceMenu ? "-scale-y-[1] transition-all" : "")} />
           </button>
 
           {showAudienceMenu && (

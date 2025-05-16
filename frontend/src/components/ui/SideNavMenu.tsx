@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { moreMenuItems } from "@/routes/path";
+import Tooltip from "./Tooltip";
 import clsx from "clsx";
 
 interface MenuItem {
@@ -97,14 +98,10 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
                       {item.name}
                     </div>
 
-                    <div
-                      className={clsx(
-                        "absolute -bottom-10 left-1/2 z-[2] w-max -translate-x-1/2 scale-0 transform rounded bg-main px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 font-calSans",
-                        isSideNavCollapsed ? "flex" : "flex lg:hidden"
-                      )}
-                    >
-                      {item.name}
-                    </div>
+                    <Tooltip
+                      label={item.name}
+                      className={isSideNavCollapsed ? "flex" : "flex lg:hidden"}
+                    />
 
                     {hasChildren && (
                       <ChevronDown
@@ -184,7 +181,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
 
                   navigate("/");
                 } else {
-                  if ('path' in item && item.path) {
+                  if ("path" in item && item.path) {
                     if (item.path) {
                       navigate(`/${item.path}`);
                     }
@@ -214,14 +211,10 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
                     {item.name}
                   </p>
 
-                  <div
-                    className={clsx(
-                      "absolute -bottom-10 left-1/2 z-[2] w-max -translate-x-1/2 scale-0 transform rounded bg-main px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 font-calSans",
-                      isSideNavCollapsed ? "flex" : "flex lg:hidden"
-                    )}
-                  >
-                    {item.name}
-                  </div>
+                  <Tooltip
+                    label={item.name}
+                    className={isSideNavCollapsed ? "flex" : "flex lg:hidden"}
+                  />
                 </div>
               );
             })}

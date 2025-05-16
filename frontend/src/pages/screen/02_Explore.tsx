@@ -1,5 +1,12 @@
+import { ScreenFallback } from "@/components";
+
 function Explore() {
-  return <div>02_Explore</div>;
+  return (
+    <ScreenFallback
+      message="Page Under Review by the GratiFi Vibes Committee."
+      subText="We take the vibes very seriously."
+    />
+  );
 }
 
 export default Explore;
