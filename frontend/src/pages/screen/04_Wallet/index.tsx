@@ -236,7 +236,7 @@ export default function WalletPage() {
         <h1 className="text-xl font-semibold mb-5 text-right font-calSans text-primary">
           {chain} / USDT
         </h1>
-        <div className="flex-1">
+        <div className="flex-1 bg-white">
           <SolChart symbol={selectedSymbol} />
         </div>
       </div>
