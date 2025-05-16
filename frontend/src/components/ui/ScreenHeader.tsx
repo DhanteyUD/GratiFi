@@ -12,6 +12,7 @@ import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import axiosInstance from "@/services/api.service";
 import WalletInfo from "./WalletInfo";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
@@ -74,6 +75,24 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
     setShowProfileDropdown(false);
   };
+
+  useEffect(() => {
+    if (connected && publicKey && userProfile?.email) {
+      const saveWallet = async () => {
+        try {
+          const res = await axiosInstance.post("/wallet/create-wallet", {
+            publicKey: publicKey.toString(),
+            email: userProfile.email,
+          });
+          console.log("Wallet saved:", res.data);
+        } catch (err) {
+          console.error("Error saving wallet:", err);
+        }
+      };
+
+      saveWallet();
+    }
+  }, [connected, publicKey, userProfile?.email]);
 
   useEffect(() => {
     if (helperService.isEmptyObject(civicUser)) {
