@@ -5,24 +5,22 @@ declare global {
     TradingView: { widget: new (...args: unknown[]) => unknown };
   }
 }
+
 interface SolChartProps {
   symbol: string;
 }
 
-export default function SolChart({
-  symbol = "BINANCE:SOLUSDT",
-}: SolChartProps) {
+export default function SolChart({ symbol = "BINANCE:SOLUSDT" }: SolChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const CONTAINER_ID = "sol_usd_chart";
 
   useEffect(() => {
     const container = containerRef.current;
 
-    if (!container || !window.TradingView) return;
+    if (!container) return;
 
     const createWidget = () => {
-      if (!containerRef.current || !window.TradingView) return;
-
-      containerRef.current.innerHTML = "";
+      if (!window.TradingView || !document.getElementById(CONTAINER_ID)) return;
 
       new window.TradingView.widget({
         autosize: true,
@@ -30,7 +28,7 @@ export default function SolChart({
         interval: "15",
         timezone: "Etc/UTC",
         theme: "light",
-        container_id: containerRef.current.id,
+        container_id: CONTAINER_ID,
         toolbar_bg: "#f1f3f6",
         hide_side_toolbar: false,
         allow_symbol_change: true,
@@ -47,17 +45,18 @@ export default function SolChart({
       script.src = "https://s3.tradingview.com/tv.js";
       script.async = true;
       script.onload = createWidget;
-      container.appendChild(script);
+      document.head.appendChild(script);
     }
 
     return () => {
+      const container = document.getElementById(CONTAINER_ID);
       if (container) container.innerHTML = "";
     };
   }, [symbol]);
 
   return (
     <div
-      id="sol_usd_chart"
+      id={CONTAINER_ID}
       ref={containerRef}
       style={{ width: "100%", height: "100%" }}
     />
