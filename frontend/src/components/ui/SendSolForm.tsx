@@ -23,9 +23,10 @@ type User = {
 
 type Props = {
   users: User[];
+  onClose?: () => void;
 };
 
-export const SendSolForm = ({ users: allUsers }: Props) => {
+export const SendSolForm = ({ users: allUsers, onClose }: Props) => {
   const { userProfile } = FetchUserProfile();
   const { mutate: sendSol, isPending, isSuccess, error } = useSendSol();
 
@@ -143,7 +144,14 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
       </div>
 
       {/* Send Button */}
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-3">
+        <button
+          onClick={onClose}
+          disabled={isPending}
+          className="px-6 py-2 rounded-lg bg-gray-600 text-white font-semibold hover:opacity-90 transition disabled:opacity-50"
+        >
+          Close
+        </button>
         <button
           onClick={handleSend}
           disabled={isPending}

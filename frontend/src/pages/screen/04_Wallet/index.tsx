@@ -31,7 +31,7 @@ export default function WalletPage() {
 
   const [showBalance, setShowBalance] = useState(true);
   const [viewingQR, setViewingQR] = useState(false);
-  const [viewingSendSolForm, sendViewingSendSolForm] = useState(false);
+  const [viewingSendSolForm, setViewingSendSolForm] = useState(false);
 
   const { fetchingAllUsers, allUsers } = FetchAllUsers();
 
@@ -52,7 +52,7 @@ export default function WalletPage() {
   };
 
   const handleSend = () => {
-    sendViewingSendSolForm(true);
+    setViewingSendSolForm(true);
   };
 
   const handleCopy = () => {
@@ -227,7 +227,10 @@ export default function WalletPage() {
           ) : null}
 
           {!fetchingAllUsers && viewingSendSolForm ? (
-            <SendSolForm users={allUsers} />
+            <SendSolForm
+              users={allUsers}
+              onClose={() => setViewingSendSolForm(false)}
+            />
           ) : null}
 
           {/* Transactions */}
