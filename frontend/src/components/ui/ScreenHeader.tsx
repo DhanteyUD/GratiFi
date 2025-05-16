@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronLeft, Bell, ChevronDown, Wallet, User } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
+import { useWallet } from "@solana/wallet-adapter-react";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
@@ -25,11 +26,16 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
+  const { publicKey } = useWallet();
+  const shortAddress = publicKey
+    ? `${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}`
+    : "";
+
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
   const handleWalletAction = () => {
     // Wallet connection logic here
-    // Next: if wallet is connected_
+    // Next: if wallet is connected
     // navigate("/wallet");
   };
 
@@ -92,14 +98,26 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           </div>
           <div
             onClick={handleWalletAction}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary"
+            className={clsx(
+              "relative group flex justify-center items-center cursor-pointer rounded-full animated_cursor bg-white border border-primary hover:bg-primaryHover transition-all duration-300",
+              publicKey
+                ? "gap-3 px-[15px] py-[10x] h-10 p-[10px]"
+                : "w-10 h-10 p-[10px]"
+            )}
           >
-            <Wallet />
-            <Tooltip label="Select wallet" />
+            <Wallet size={publicKey ? 20 : undefined} />
+
+            {shortAddress && (
+              <p className="text-sm font-jetBrains text-gray-600 group-hover:text-main truncate max-w-[100px]">
+                {shortAddress}
+              </p>
+            )}
+
+            <Tooltip label={publicKey ? `${publicKey}` : "Connect Wallet"} />
           </div>
           <div
             onClick={() => navigate("/notifications")}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary"
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
           >
             <Bell />
             {notificationCount > 0 && (
@@ -124,7 +142,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             <div
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
-                "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primary transition-colors duration-300 ease-in-out",
+                "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primaryHover transition-colors duration-300 ease-in-out",
                 showProfileDropdown
                   ? "rounded-[10px_25px_0_0] md:rounded-[25px_10px_0_0]"
                   : "rounded-full"
@@ -138,7 +156,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                 />
                 <div className="flex flex-col items-start leading-4">
                   <p className="text-[15px] font-calSans">{userProfile.name}</p>
-                  <span className="text-primary text-[12px] group-hover:text-white/50 transition-colors duration-300 ease-in-out">
+                  <span className="text-primary text-[12px] group-hover:text-main/50 transition-colors duration-300 ease-in-out">
                     @{userProfile.name}
                   </span>
                 </div>
