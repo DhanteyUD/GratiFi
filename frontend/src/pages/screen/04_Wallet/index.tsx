@@ -5,7 +5,7 @@ import { useSolanaBalance } from "@/hooks/UseSolanaBalance";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { useSolanaTransactions } from "@/hooks/UseSolanaTransactions";
 import { blockchains } from "@/json";
-import { Copy, Eye, QrCode, Send } from "lucide-react";
+import { Copy, Eye, EyeOff, QrCode, Send } from "lucide-react";
 import { showToast } from "@/utils/notification.utils";
 import QRCode from "react-qr-code";
 
@@ -27,6 +27,7 @@ export default function WalletPage() {
   const [selectedSymbol, setSelectedSymbol] = useState("BINANCE:SOLUSDT");
   const [chain, setChain] = useState<"SOL" | "ETH">("SOL");
 
+  const [showBalance, setShowBalance] = useState(true);
   const [viewingQR, setViewingQR] = useState(false);
 
   const handleConnect = async () => {
@@ -104,14 +105,21 @@ export default function WalletPage() {
             {publicKey && chain === "SOL" ? (
               <div className="text-left bg-white/10 space-y-4">
                 <div className="mb-8">
-                  <div className="flex items-center gap-4 mb-2">
-                    <p className="text-sm text-gray-500">Est. Total Value </p>
-                    <Eye size={15} className="text-gray-500 cursor-pointer" />
+                  <div className="flex items-center gap-3 mb-2">
+                    <p className="text-sm text-gray-500">Est. Total Value</p>
+                    <button
+                      onClick={() => setShowBalance((prev) => !prev)}
+                      className="text-gray-500 hover:text-gray-700 transition"
+                    >
+                      {showBalance ? <Eye size={15} /> : <EyeOff size={15} />}
+                    </button>
                   </div>
                   <div className="flex gap-2 items-end">
                     <p className="text-[35px] font-semibold text-green-600 leading-8">
                       {isBalanceLoading
                         ? "Loading..."
+                        : !showBalance
+                        ? "****"
                         : balance !== undefined
                         ? `${(balance / 1e9).toFixed(4)}`
                         : "Unavailable"}
