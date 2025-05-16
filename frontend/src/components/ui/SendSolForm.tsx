@@ -126,7 +126,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
         <button
           onClick={handleSend}
           disabled={isPending}
-          className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-[#a855f7] text-white font-semibold hover:opacity-90 transition disabled:opacity-50"
+          className="px-6 py-2 rounded-lg bg-primary text-main font-semibold hover:opacity-90 transition disabled:opacity-50"
         >
           {isPending ? "Sending..." : "Send"}
         </button>
