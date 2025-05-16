@@ -82,7 +82,7 @@ export default function WalletPage() {
         {/* Wallet Card */}
         <div className="bg-white p-4 text-center w-auto border border-gray-300 border-t-0 rounded-[0_0_10px_10px] mb-4">
           <div className="shadow-inset-dual rounded-lg">
-            {publicKey ? (
+            {publicKey && chain === "SOL" ? (
               <div className="text-left bg-primaryHover/50 p-4 rounded-xl border space-y-4">
                 <div>
                   <p className="text-sm text-gray-500">Address:</p>
@@ -115,100 +115,120 @@ export default function WalletPage() {
                 </div>
               </div>
             ) : (
-              <p className="text-gray-400 py-5">No wallet connected</p>
+              <p className="text-gray-400 py-5">
+                {chain === "SOL"
+                  ? "No wallet connected"
+                  : "ETH not supported yet"}
+              </p>
             )}
           </div>
 
-          <div className="mt-4 flex justify-center gap-4">
-            <WalletMultiButton className="!w-[20px]!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
-            <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
-          </div>
+          {chain === "SOL" && (
+            <div className="mt-4 flex justify-center gap-4">
+              <WalletMultiButton className="!w-[20px]!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
+              <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
+            </div>
+          )}
         </div>
 
         {/* Transactions */}
-        <p className="mb-3 text-[20px] font-calSans text-main">Transactions</p>
-        <ul
-          className={clsx(
-            "bg-white space-y-2 text-sm font-jetBrains rounded-[10px]",
-            txs ? "border border-gray-300 " : ""
-          )}
-        >
-          {txs?.map((tx, idx) => {
-            const signature = tx?.transaction?.signatures?.[0] || `tx-${idx}`;
-            const blockTime = tx?.blockTime
-              ? new Date(tx.blockTime * 1000).toLocaleString()
-              : "N/A";
-            const fee = tx?.meta?.fee ? (tx.meta.fee / 1e9).toFixed(6) : "N/A";
-            const status = tx?.meta?.err ? "❌ Failed" : "✅ Success";
+        {chain === "SOL" && (
+          <>
+            <p className="mb-3 text-[20px] font-calSans text-main">
+              Transactions
+            </p>
+            <ul
+              className={clsx(
+                "bg-white space-y-2 text-sm font-jetBrains rounded-[10px]",
+                txs ? "border border-gray-300 " : ""
+              )}
+            >
+              {txs?.map((tx, idx) => {
+                const signature =
+                  tx?.transaction?.signatures?.[0] || `tx-${idx}`;
+                const blockTime = tx?.blockTime
+                  ? new Date(tx.blockTime * 1000).toLocaleString()
+                  : "N/A";
+                const fee = tx?.meta?.fee
+                  ? (tx.meta.fee / 1e9).toFixed(6)
+                  : "N/A";
+                const status = tx?.meta?.err ? "❌ Failed" : "✅ Success";
 
-            type Instruction = {
-              program?: string;
-              parsed?: unknown;
-              [key: string]: unknown;
-            };
+                type Instruction = {
+                  program?: string;
+                  parsed?: unknown;
+                  [key: string]: unknown;
+                };
 
-            const transferIx = tx?.transaction?.message?.instructions.find(
-              (ix: Instruction) =>
-                ix?.program === "system" &&
-                "parsed" in ix &&
-                (ix.parsed as TransferParsed)?.type === "transfer"
-            );
+                const transferIx = tx?.transaction?.message?.instructions.find(
+                  (ix: Instruction) =>
+                    ix?.program === "system" &&
+                    "parsed" in ix &&
+                    (ix.parsed as TransferParsed)?.type === "transfer"
+                );
 
-            const hasInfo =
-              transferIx &&
-              "parsed" in transferIx &&
-              transferIx.parsed &&
-              typeof transferIx.parsed === "object" &&
-              "info" in transferIx.parsed &&
-              (transferIx.parsed as TransferParsed).info &&
-              typeof (transferIx.parsed as TransferParsed).info === "object";
+                const hasInfo =
+                  transferIx &&
+                  "parsed" in transferIx &&
+                  transferIx.parsed &&
+                  typeof transferIx.parsed === "object" &&
+                  "info" in transferIx.parsed &&
+                  (transferIx.parsed as TransferParsed).info &&
+                  typeof (transferIx.parsed as TransferParsed).info ===
+                    "object";
 
-            const amount =
-              hasInfo && (transferIx.parsed as TransferParsed).info.lamports
-                ? `${(
-                    (transferIx.parsed as TransferParsed).info.lamports! / 1e9
-                  ).toFixed(4)} SOL`
-                : "N/A";
+                const amount =
+                  hasInfo && (transferIx.parsed as TransferParsed).info.lamports
+                    ? `${(
+                        (transferIx.parsed as TransferParsed).info.lamports! /
+                        1e9
+                      ).toFixed(4)} SOL`
+                    : "N/A";
 
-            const toAddress =
-              hasInfo && (transferIx.parsed as TransferParsed).info.destination
-                ? (transferIx.parsed as TransferParsed).info.destination
-                : "Unknown";
+                const toAddress =
+                  hasInfo &&
+                  (transferIx.parsed as TransferParsed).info.destination
+                    ? (transferIx.parsed as TransferParsed).info.destination
+                    : "Unknown";
 
-            return (
-              <li
-                key={signature}
-                className={clsx("p-3 border-b border-gray-300 last:border-0")}
-              >
-                <a
-                  href={`https://explorer.solana.com/tx/${signature}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-600 hover:underline font-jetBrains break-all"
-                >
-                  {signature}
-                </a>
-                <div className="text-xs text-gray-600 mt-2 space-y-1">
-                  <p>
-                    <strong>Status:</strong> {status}
-                  </p>
-                  <p>
-                    <strong>To:</strong> {toAddress}
-                  </p>
-                  <p>
-                    <strong>Amount:</strong> {amount}
-                  </p>
-                  <p>
-                    <strong>Fee:</strong> {fee} SOL
-                  </p>
-                  <p>
-                    <strong>Time:</strong> {blockTime}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                return (
+                  <li
+                    key={signature}
+                    className={clsx(
+                      "p-3 border-b border-gray-300 last:border-0"
+                    )}
+                  >
+                    <a
+                      href={`https://explorer.solana.com/tx/${signature}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-blue-600 hover:underline font-jetBrains break-all"
+                    >
+                      {signature}
+                    </a>
+                    <div className="text-xs text-gray-600 mt-2 space-y-1">
+                      <p>
+                        <strong>Status:</strong> {status}
+                      </p>
+                      <p>
+                        <strong>To:</strong> {toAddress}
+                      </p>
+                      <p>
+                        <strong>Amount:</strong> {amount}
+                      </p>
+                      <p>
+                        <strong>Fee:</strong> {fee} SOL
+                      </p>
+                      <p>
+                        <strong>Time:</strong> {blockTime}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )}
       </div>
 
       {/* RIGHT COLUMN */}
