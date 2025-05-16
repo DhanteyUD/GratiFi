@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-
 import { Connection, PublicKey } from "@solana/web3.js";
 
-const getBalance = async (
+const fetchBalance = async (
   connection: Connection,
-  publicKey: PublicKey
+  publicKey: PublicKey | null
 ): Promise<number> => {
-  if (!publicKey) throw new Error("Wallet not connected");
+  if (!publicKey) throw new Error("No wallet connected");
   return await connection.getBalance(publicKey);
 };
 
@@ -16,8 +15,8 @@ export const useSolanaBalance = () => {
   const { publicKey } = useWallet();
 
   return useQuery({
-    queryKey: ["balance", publicKey?.toBase58()],
-    queryFn: () => getBalance(connection, publicKey!),
+    queryKey: ["solana-balance", publicKey?.toBase58()],
+    queryFn: () => fetchBalance(connection, publicKey),
     enabled: !!publicKey,
     staleTime: 30_000,
   });
