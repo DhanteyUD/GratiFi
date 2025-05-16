@@ -132,7 +132,7 @@ export default function WalletPage() {
         </div>
 
         {/* Transactions */}
-        {chain === "SOL" && (
+        {chain === "SOL" && txs && (
           <>
             <p className="mb-3 text-[20px] font-calSans text-main">
               Transactions
