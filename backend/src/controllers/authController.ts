@@ -31,7 +31,7 @@ const createAccount = async (
 
   if (existingUser) {
     res.status(409).json({
-      message: "User already exists. Please login",
+      message: "You already have a GratiFi account. Please log in to continue.",
     });
 
     return;
@@ -44,7 +44,7 @@ const createAccount = async (
   const app_token = generateToken(user);
 
   res.status(201).json({
-    message: "Account created successfully!",
+    message: "🎉 Welcome to GratiFi — where rewards meet impact!",
     app_token,
     data: user,
   });
@@ -64,7 +64,7 @@ const login = async (
 
   if (!parsed.success) {
     res.status(400).json({
-      message: "Validation error",
+      message: "GratiFi said nah. Refresh and re-run it.",
       errors: parsed.error.flatten().fieldErrors,
     });
 
@@ -86,7 +86,7 @@ const login = async (
     });
 
     res.status(202).json({
-      message: "Welcome! Let's get you started by creating your profile.",
+      message: "Just one thing before the magic — your profile ✨",
       app_token,
       data: parsed.data,
     });
@@ -97,7 +97,7 @@ const login = async (
   const app_token = generateToken({ name: user.name, email: user.email });
 
   res.status(200).json({
-    message: `Welcome back ${user.name}!`,
+    message: `Welcome back, ${user.name}! Let’s get it.`,
     app_token,
     data: user,
   });

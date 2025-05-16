@@ -1,8 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ChevronLeft, Bell, ChevronDown, Wallet, User } from "lucide-react";
+import {
+  ChevronLeft,
+  Bell,
+  ChevronDown,
+  Wallet,
+  User,
+  LoaderCircle,
+} from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import WalletInfo from "./WalletInfo";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
@@ -20,17 +30,36 @@ interface ProfileDropdownOption {
 function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
+
   const currentPage = location.pathname.split("/")[1];
   const [notificationCount] = useState(0);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
-  const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
+  const { setVisible } = useWalletModal();
+  const { publicKey, disconnect, connected, wallet, connecting } = useWallet();
 
-  const handleWalletAction = () => {
-    // Wallet connection logic here
-    // Next: if wallet is connected_
-    // navigate("/wallet");
+  const civicUser = useMemo(() => {
+    try {
+      return JSON.parse(localStorage.getItem("user") || "{}");
+    } catch {
+      return {};
+    }
+  }, []);
+
+  const handleWalletAction = async () => {
+    if (connecting) return;
+
+    try {
+      if (connected) {
+        await disconnect();
+      } else {
+        setVisible(true);
+      }
+    } catch (error) {
+      console.error("Wallet connection error:", error);
+    }
   };
 
   const handleProfileDropdown = (option: ProfileDropdownOption): void => {
@@ -55,8 +84,6 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
     }
   }, [civicUser, navigate]);
 
-  console.log({ userProfile });
-
   useEffect(() => {
     document.title = `GratiFi | ${helperService.capitalize(currentPage)}`;
   }, [currentPage]);
@@ -80,6 +107,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-3">
         <div className="relative flex items-start gap-3">
+          {/* User profile */}
           <div
             className={clsx(
               "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 rounded-full border border-primary",
@@ -92,16 +120,41 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             <p className="hidden lg:block">{userProfile?.user_type}</p>
             <UserTypeIcon userType={userProfile?.user_type} size={18} />
           </div>
+
+          {/* Wallet */}
           <div
             onClick={handleWalletAction}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary"
+            className={clsx(
+              "relative group flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
+              publicKey?.toString().length
+                ? "hidden md:flex gap-3 bg-primary"
+                : "w-10 bg-white"
+            )}
           >
-            <Wallet />
-            <Tooltip label="Select wallet" />
+            {connecting ? (
+              <LoaderCircle size={18} className="animate-spin text-main" />
+            ) : wallet ? (
+              <WalletInfo publicKey={publicKey} wallet={wallet} />
+            ) : (
+              <Wallet size={publicKey?.toString().length ? 18 : undefined} />
+            )}
+
+            <Tooltip
+              label={
+                connecting
+                  ? "Connecting Wallet... Please Wait"
+                  : publicKey?.toString().length
+                  ? `${publicKey}`
+                  : "Connect Wallet"
+              }
+              className="font-jetBrains"
+            />
           </div>
+
+          {/* Notification */}
           <div
             onClick={() => navigate("/notifications")}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary"
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
           >
             <Bell />
             {notificationCount > 0 && (
@@ -126,7 +179,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             <div
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
-                "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primary transition-colors duration-300 ease-in-out",
+                "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primaryHover transition-colors duration-300 ease-in-out",
                 showProfileDropdown
                   ? "rounded-[10px_25px_0_0] md:rounded-[25px_10px_0_0]"
                   : "rounded-full"
@@ -140,7 +193,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                 />
                 <div className="flex flex-col items-start leading-4">
                   <p className="text-[15px] font-calSans">{userProfile.name}</p>
-                  <span className="text-primary text-[12px] group-hover:text-white/50 transition-colors duration-300 ease-in-out">
+                  <span className="text-primary text-[12px] group-hover:text-main/50 transition-colors duration-300 ease-in-out">
                     @{userProfile.name}
                   </span>
                 </div>
