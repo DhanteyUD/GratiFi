@@ -83,7 +83,7 @@ export default function WalletPage() {
         <div className="bg-white p-4 text-center w-auto border border-gray-300 border-t-0 rounded-[0_0_10px_10px] mb-4">
           <div className="shadow-inset-dual rounded-lg">
             {publicKey && chain === "SOL" ? (
-              <div className="text-left bg-primaryHover/50 p-4 rounded-xl border space-y-4">
+              <div className="text-left bg-white/10 border p-4 rounded-xl space-y-4">
                 <div>
                   <p className="text-sm text-gray-500">Address:</p>
                   <div className="flex items-center space-x-5">
@@ -94,7 +94,7 @@ export default function WalletPage() {
                     <Copy
                       size={20}
                       onClick={handleCopy}
-                      className="text-main cursor-pointer"
+                      className="text-main cursor-pointer hover:text-primary transition-colors duration-300 ease-linear"
                     />
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default function WalletPage() {
                 </div>
               </div>
             ) : (
-              <p className="text-gray-400 py-5">
+              <p className="text-gray-400 bg-white/10 border p-4  rounded-xl py-5">
                 {chain === "SOL"
                   ? "No wallet connected"
                   : "ETH not supported yet"}
