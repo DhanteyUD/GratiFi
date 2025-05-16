@@ -16,3 +16,4 @@ export { default as ScreenOverlay } from "@/components/ui/ScreenOverlay";
 export { SideNavMenu } from "@/components/ui/SideNavMenu";
 export { default as Tooltip } from "@/components/ui/Tooltip";
 export { default as UserTypeIcon } from "@/components/ui/UserTypeIcon";
+export { default as WalletInfo } from "@/components/ui/WalletInfo";

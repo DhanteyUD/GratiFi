@@ -5,6 +5,7 @@ import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import WalletInfo from "./WalletInfo";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
@@ -28,7 +29,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   const { setVisible } = useWalletModal();
-  const { publicKey, disconnect, connected } = useWallet();
+  const { publicKey, disconnect, connected, wallet, connecting } = useWallet();
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
@@ -104,24 +105,29 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           <div
             onClick={handleWalletAction}
             className={clsx(
-              "relative group flex justify-center items-center h-10 cursor-pointer rounded-full animated_cursor bg-white border border-primary hover:bg-primaryHover transition-all duration-300",
+              "relative group flex justify-center items-center h-10 cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
               publicKey?.toString().length
-                ? "hidden md:flex gap-3 px-[15px] py-[10x]"
-                : "w-10 p-[10px]"
+                ? "hidden md:flex gap-3 px-[15px] py-[10x] bg-primary"
+                : "w-10 p-[10px] bg-white"
             )}
           >
-            <Wallet size={publicKey?.toString().length ? 18 : undefined} />
-
-            {publicKey?.toString().length && (
+            {/* {publicKey?.toString().length && (
               <p className="text-sm font-jetBrains text-gray-600 group-hover:text-main truncate max-w-[100px]">
                 {helperService.shortWalletAddress(publicKey.toString())}
               </p>
+            )} */}
+
+            {wallet ? (
+              <WalletInfo publicKey={publicKey} wallet={wallet} />
+            ) : (
+              <Wallet size={publicKey?.toString().length ? 18 : undefined} />
             )}
 
             <Tooltip
               label={
                 publicKey?.toString().length ? `${publicKey}` : "Connect Wallet"
               }
+              className="font-jetBrains"
             />
           </div>
           <div
