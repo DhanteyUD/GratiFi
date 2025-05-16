@@ -2,9 +2,9 @@ import { useState, useCallback } from "react";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
-import UseScreenSize from "@/hooks/UseScreenSize";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
+import UseScreenSize from "@/hooks/UseScreenSize";
 import axios from "axios";
 import storageService from "@/services/storage.service";
 

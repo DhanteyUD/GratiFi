@@ -6,7 +6,7 @@ import newsPlaceHolder from "@/assets/image/news-image.webp";
 
 const NewsFeed = () => {
   const [showAll, setShowAll] = useState(false);
-  const itemsToShow = showAll ? newsFeed : newsFeed.slice(0, 2);
+  const itemsToShow = showAll ? newsFeed : newsFeed.slice(0, 1);
 
   // const { news, loading, error } = UseNews(
   //   "TECHNOLOGY",
