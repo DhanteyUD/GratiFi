@@ -71,7 +71,7 @@ export default function WalletPage() {
 
   return (
     <>
-      <div className="flex h-full md:h-[calc(100vh-115px)] overflow-hidden gap-4">
+      <div className="flex flex-col md:flex-row h-full md:h-[calc(100vh-115px)] w-full overflow-hidden gap-4">
         {/* LEFT COLUMN */}
         <div className="flex flex-col w-full md:w-[40%] h-full overflow-auto pl-[2px]">
           {/* Chain Switcher */}
