@@ -125,10 +125,10 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           <div
             onClick={handleWalletAction}
             className={clsx(
-              "relative group flex justify-center items-center h-10 cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
+              "relative group flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
               publicKey?.toString().length
-                ? "hidden md:flex gap-3 px-[15px] py-[10x] bg-primary"
-                : "w-10 p-[10px] bg-white"
+                ? "hidden md:flex gap-3 bg-primary"
+                : "w-10 bg-white"
             )}
           >
             {connecting ? (
