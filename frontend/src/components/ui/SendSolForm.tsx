@@ -37,6 +37,10 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   const [amount, setAmount] = useState(0.01);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
+  const [showAllUsers, setShowAllUsers] = useState(false);
+  const maxVisibleUsers = 2;
+  const visibleUsers = showAllUsers ? users : users.slice(0, maxVisibleUsers);
+
   useEffect(() => {
     if (selectedUserId) {
       const user = users.find((u) => u.id === selectedUserId);
@@ -59,7 +63,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
 
       {/* Select User Grid */}
       <div className="grid grid-cols-1 gap-3 mb-6">
-        {users.map((user) => (
+        {visibleUsers.map((user) => (
           <button
             key={user.id}
             onClick={() => setSelectedUserId(user.id)}
@@ -97,6 +101,17 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
           </button>
         ))}
       </div>
+
+      {users.length > maxVisibleUsers && (
+        <div className="text-center mb-6">
+          <button
+            onClick={() => setShowAllUsers(!showAllUsers)}
+            className="text-sm text-primary hover:underline font-medium"
+          >
+            {showAllUsers ? "Show Less" : `Show All (${users.length})`}
+          </button>
+        </div>
+      )}
 
       {/* Recipient (read-only if selected from list) */}
       <div className="mb-4">
