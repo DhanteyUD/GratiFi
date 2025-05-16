@@ -1,17 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { newsFeed } from "@/json";
 import newsPlaceHolder from "@/assets/image/news-image.webp";
+import helperService from "@/services/helper.service";
 // import { configKeys } from "@/config";
 // import { UseNews } from "@/hooks/UseNews";
 
-const NewsFeed = () => {
+interface NewsFeedProps {
+  searchTerm?: string;
+}
+
+const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
   const [showAll, setShowAll] = useState(false);
-  const itemsToShow = showAll ? newsFeed : newsFeed.slice(0, 1);
 
   // const { news, loading, error } = UseNews(
   //   "TECHNOLOGY",
   //   configKeys.rapidSectionId
   // );
+
+  const searchedNewsFeed = newsFeed.filter((news) => {
+    if (!searchTerm) return true;
+
+    const lowerSearch = searchTerm.toLowerCase();
+
+    return (
+      (news.title && news.title.toLowerCase().includes(lowerSearch)) ||
+      (news.snippet && news.snippet.toLowerCase().includes(lowerSearch))
+    );
+  });
+
+  const itemsToShow = showAll ? searchedNewsFeed : searchedNewsFeed.slice(0, 1);
+
+  useEffect(() => {
+    if (searchTerm && searchTerm.length) {
+      setShowAll(true);
+    }
+  }, [searchTerm, searchTerm?.length, showAll]);
 
   return (
     <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-4">
@@ -34,9 +57,11 @@ const NewsFeed = () => {
           />
           <div className="flex-1">
             <h3 className="text-left text-sm font-semibold text-main hover:underline">
-              {item.title}
+              {helperService.highlightText(item.title, searchTerm)}
             </h3>
-            <p className="text-xs text-gray-600 line-clamp-2">{item.snippet}</p>
+            <p className="text-xs text-gray-600 line-clamp-2">
+              {helperService.highlightText(item.snippet, searchTerm)}
+            </p>
             {item.authors?.length > 0 && (
               <p className="text-[10px] text-gray-500 mt-1">
                 By {item.authors.join(", ")}

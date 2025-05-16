@@ -113,7 +113,7 @@ h2,
 .animatedText {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg,rgb(60 49 91)  0%, rgb(171 159 242)  100%);
+  background: linear-gradient(90deg, rgb(60 49 91) 0%, rgb(171 159 242) 100%);
 
   background-clip: text;
   color: transparent;
@@ -126,6 +126,10 @@ h2,
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.wallet-adapter-button {
+  font-size: 14px !important;
 }
 
 .Toastify__toast-container--top-center,

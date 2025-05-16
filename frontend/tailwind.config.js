@@ -21,6 +21,8 @@ export default {
       },
       boxShadow: {
         shadow1: "rgba(0, 0, 0, 0.15) 0px 2px 8px",
+        "inset-dual":
+          "inset 3px 3px 6px 0px rgb(204, 219, 232), inset -3px -3px 6px 1px rgba(255, 255, 255, 0.5)",
       },
       fontFamily: {
         prata: ["Prata", "serif"],

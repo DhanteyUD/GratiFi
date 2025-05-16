@@ -67,11 +67,9 @@ export default function CustomCreateAccountBtn({
         message: string;
       }>;
 
-      localStorage.clear();
-      sessionStorage.clear();
-
       showToastError(
-        axiosError?.response?.data?.message || "Yikes! GratiFi glitched. One more time?"
+        axiosError?.response?.data?.message ||
+          "Yikes! GratiFi glitched. One more time?"
       );
     } finally {
       setLoading(false);
