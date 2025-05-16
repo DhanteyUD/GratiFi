@@ -37,7 +37,7 @@ function Wallet() {
   const { publicKey } = useWallet();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 ">
       <div className="w-full max-w-md bg-white border border-gray-200 shadow-xl rounded-2xl p-6 space-y-6 text-center">
         <h1 className="text-2xl font-bold text-gray-800">
           Connect Your Wallet
