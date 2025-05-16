@@ -4,6 +4,7 @@ import { ChevronLeft, Bell, ChevronDown, Wallet, User } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
@@ -26,17 +27,24 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
-  const { publicKey } = useWallet();
+  const { setVisible } = useWalletModal();
+  const { publicKey, disconnect, connected } = useWallet();
   const shortAddress = publicKey
     ? `${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}`
     : "";
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
-  const handleWalletAction = () => {
-    // Wallet connection logic here
-    // Next: if wallet is connected
-    // navigate("/wallet");
+  const handleWalletAction = async () => {
+    try {
+      if (!connected) {
+        setVisible(true);
+      } else {
+        await disconnect();
+      }
+    } catch (error) {
+      console.error("Wallet connection error:", error);
+    }
   };
 
   const handleProfileDropdown = (option: ProfileDropdownOption): void => {
@@ -105,7 +113,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                 : "w-10 h-10 p-[10px]"
             )}
           >
-            <Wallet size={publicKey ? 20 : undefined} />
+            <Wallet size={publicKey ? 18 : undefined} />
 
             {shortAddress && (
               <p className="text-sm font-jetBrains text-gray-600 group-hover:text-main truncate max-w-[100px]">
