@@ -22,6 +22,7 @@ const getUserProfile = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     }
     const user = yield prisma.user.findUnique({
         where: { email },
+        include: { Wallet: true },
     });
     if (!user) {
         res.status(404).json({ error: "User not found" });
@@ -37,7 +38,9 @@ const getUserProfile = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 exports.getUserProfile = getUserProfile;
 // GET:
 const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield prisma.user.findMany();
+    const users = yield prisma.user.findMany({
+        include: { Wallet: true },
+    });
     res.status(200).json({
         message: "Users fetched successfully",
         users,
