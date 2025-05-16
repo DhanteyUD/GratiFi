@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { newsFeed } from "@/json";
 import newsPlaceHolder from "@/assets/image/news-image.webp";
 import helperService from "@/services/helper.service";
@@ -29,6 +29,12 @@ const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
   });
 
   const itemsToShow = showAll ? searchedNewsFeed : searchedNewsFeed.slice(0, 1);
+
+  useEffect(() => {
+    if (searchTerm && searchTerm.length) {
+      setShowAll(true);
+    }
+  }, [searchTerm, searchTerm?.length, showAll]);
 
   return (
     <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-4">
