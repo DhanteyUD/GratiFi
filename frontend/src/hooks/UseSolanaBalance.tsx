@@ -21,3 +21,15 @@ export const useSolanaBalance = () => {
     staleTime: 30_000,
   });
 };
+
+// USE CASE:
+// const queryClient = useQueryClient();
+
+// const sendTransaction = async () => {
+//   // your transaction logic here...
+
+//   // Then invalidate cached balance
+//   queryClient.invalidateQueries({
+//     queryKey: ['solana-balance', publicKey?.toBase58()],
+//   });
+// };

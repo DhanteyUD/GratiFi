@@ -1,14 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { PublicKey, Connection } from "@solana/web3.js";
+import { Connection, PublicKey } from "@solana/web3.js";
 
 const fetchTransactions = async (
   connection: Connection,
-  publicKey: PublicKey,
+  publicKey: PublicKey | null,
   limit: number
 ) => {
-  const sigs = await connection.getSignaturesForAddress(publicKey, { limit });
-  return sigs.map((s) => s.signature);
+  if (!publicKey) throw new Error("No wallet connected");
+
+  const signatures = await connection.getSignaturesForAddress(publicKey, {
+    limit,
+  });
+  return Promise.all(
+    signatures.map((sig) => connection.getTransaction(sig.signature))
+  );
 };
 
 export const useSolanaTransactions = (limit = 10) => {
@@ -17,10 +23,11 @@ export const useSolanaTransactions = (limit = 10) => {
 
   return useQuery({
     queryKey: ["solana-transactions", publicKey?.toBase58(), limit],
-    queryFn: () => {
-      if (!publicKey) throw new Error("Wallet not connected");
-      return fetchTransactions(connection, publicKey, limit);
-    },
+    queryFn: () => fetchTransactions(connection, publicKey, limit),
     enabled: !!publicKey,
   });
 };
+
+// USE CASE:
+
+// queryClient.invalidateQueries({ queryKey: ['solana-transactions', publicKey?.toBase58()], 20 });
