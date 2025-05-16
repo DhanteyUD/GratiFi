@@ -26,7 +26,7 @@ export default function WalletPage() {
   };
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
+    <div className="min-h-screen p-6 bg-gray-100 flex h-full md:h-[calc(100vh-115px)] overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* LEFT COLUMN */}
         <div className="space-y-6">
