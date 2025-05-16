@@ -24,5 +24,3 @@ export const useSolanaTransactions = (limit = 10) => {
     enabled: !!publicKey,
   });
 };
-
-
