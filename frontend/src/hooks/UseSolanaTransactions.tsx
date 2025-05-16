@@ -30,4 +30,4 @@ export const useSolanaTransactions = (limit = 10) => {
 
 // USE CASE:
 
-// queryClient.invalidateQueries({ queryKey: ['solana-transactions', publicKey?.toBase58()], 20 });
+// queryClient.invalidateQueries({ queryKey: ['solana-transactions', publicKey?.toBase58()], 10 });
