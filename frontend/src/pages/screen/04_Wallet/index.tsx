@@ -119,7 +119,7 @@ export default function WalletPage() {
                       {isBalanceLoading
                         ? "Loading..."
                         : !showBalance
-                        ? "****"
+                        ? "******"
                         : balance !== undefined
                         ? `${(balance / 1e9).toFixed(4)}`
                         : "Unavailable"}
@@ -144,50 +144,54 @@ export default function WalletPage() {
 
           <div className="flex justify-between items-center mt-4">
             {chain === "SOL" && (
-              <div className="flex items-center gap-3">
-                {connecting && (
-                  <div className="flex items-center justify-center h-[40px] w-[40px] bg-primaryHover rounded-[5px]">
-                    <CustomSpinner theme="#3c315b" />
+              <>
+                <div className="flex items-center gap-3">
+                  {connecting && (
+                    <div className="flex items-center justify-center h-[40px] w-[40px] bg-primaryHover rounded-[5px]">
+                      <CustomSpinner theme="#3c315b" />
+                    </div>
+                  )}
+                  {!wallet ? (
+                    <button
+                      onClick={handleConnect}
+                      className="h-[40px] px-5 rounded-[5px] bg-primary hover:bg-main transition-colors duration-300 ease-linear text-[14px] font-semibold text-main hover:text-white"
+                    >
+                      Select Wallet
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleDisconnect}
+                      className="h-[40px] px-5 rounded-[5px] bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-linear text-[14px] font-semibold text-white"
+                    >
+                      Disconnect Wallet
+                    </button>
+                  )}
+                </div>
+
+                {connected && (
+                  <div className="flex gap-3 mb-0">
+                    <div
+                      onClick={handleReceive}
+                      className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
+                    >
+                      <QrCode size={18} />
+                      <Tooltip label="Receive" />
+                    </div>
+                    <div
+                      onClick={handleSend}
+                      className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
+                    >
+                      <Send size={18} />
+                      <Tooltip label="Send" />
+                    </div>
                   </div>
                 )}
-                {!wallet ? (
-                  <button
-                    onClick={handleConnect}
-                    className="h-[40px] px-5 rounded-[5px] bg-primary hover:bg-main transition-colors duration-300 ease-linear text-[14px] font-semibold text-main hover:text-white"
-                  >
-                    Select Wallet
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleDisconnect}
-                    className="h-[40px] px-5 rounded-[5px] bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-linear text-[14px] font-semibold text-white"
-                  >
-                    Disconnect Wallet
-                  </button>
-                )}
-              </div>
+              </>
             )}
-
-            <div className="flex gap-3 mb-0">
-              <div
-                onClick={handleReceive}
-                className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
-              >
-                <QrCode size={18} />
-                <Tooltip label="Receive" />
-              </div>
-              <div
-                onClick={handleSend}
-                className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
-              >
-                <Send size={18} />
-                <Tooltip label="Send" />
-              </div>
-            </div>
           </div>
         </div>
 
-        {viewingQR && connected ? (
+        {connected && chain === "SOL" && viewingQR ? (
           <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white border border-gray-300 rounded-[10px] p-4">
             <div className="flex justify-center mt-2">
               {publicKey && <QRCode value={publicKey.toString()} size={128} />}
