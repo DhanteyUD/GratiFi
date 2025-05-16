@@ -37,7 +37,7 @@ function Home() {
   const { userProfile } = FetchUserProfile();
   const { fetchingAllPosts, allPosts } = FetchAllPosts();
 
-  // const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [showingSearchInput, setShowingSearchInput] = useState(false);
 
   const handleShowSearchInput = () => {
@@ -115,10 +115,12 @@ function Home() {
                   ? "hidden md:flex border-l-0 rounded-[0_50px_50px_0]"
                   : "hidden"
               )}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <SubscribePremium />
-          <NewsFeed />
+          <NewsFeed searchTerm={searchTerm} />
           <User />
         </div>
       </div>

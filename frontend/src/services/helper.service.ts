@@ -1,4 +1,5 @@
 import moment from "moment";
+import React from "react";
 
 class HelperService {
   handleMoneyFormat(
@@ -78,6 +79,25 @@ class HelperService {
 
   getUserTypeColor(userType: string) {
     return userType === "GratiStar" ? "text-secondary" : "text-primary";
+  }
+
+  highlightText(text: string, highlight?: string): React.ReactNode {
+    if (!highlight) return text;
+
+    const escaped = highlight.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&");
+    const regex = new RegExp(`(${escaped})`, "gi");
+
+    const parts = text.split(regex);
+
+    return parts.map((part, i) =>
+      regex.test(part)
+        ? React.createElement(
+            "mark",
+            { key: i, className: "bg-yellow-300" },
+            part
+          )
+        : part
+    );
   }
 }
 
