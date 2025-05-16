@@ -39,7 +39,9 @@ function Wallet() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="w-full max-w-md bg-white border border-gray-200 shadow-xl rounded-2xl p-6 space-y-6 text-center">
-        <h1 className="text-2xl font-bold text-gray-800">Connect Your Wallet</h1>
+        <h1 className="text-2xl font-bold text-gray-800">
+          Connect Your Wallet
+        </h1>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <WalletMultiButton className="!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
@@ -54,7 +56,9 @@ function Wallet() {
             </p>
             <p className="mt-4 text-sm text-gray-500">Balance:</p>
             <p className="text-lg font-semibold text-green-600">
-              {balance !== null ? `${(balance / 1e9).toFixed(4)} SOL` : "Loading..."}
+              {balance !== null
+                ? `${(balance / 1e9).toFixed(4)} SOL`
+                : "Loading..."}
             </p>
           </div>
         ) : (

@@ -99,6 +99,14 @@ class HelperService {
         : part
     );
   }
+
+  shortWalletAddress(publicKey: string, char = 4) {
+    const shortAddress = publicKey
+      ? `${publicKey.slice(0, char)}...${publicKey.slice(-4)}`
+      : "";
+
+    return shortAddress;
+  }
 }
 
 const helperService = new HelperService();

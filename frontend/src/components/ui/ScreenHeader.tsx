@@ -29,9 +29,6 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
   const { setVisible } = useWalletModal();
   const { publicKey, disconnect, connected } = useWallet();
-  const shortAddress = publicKey
-    ? `${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}`
-    : "";
 
   const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
 
@@ -107,21 +104,25 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           <div
             onClick={handleWalletAction}
             className={clsx(
-              "relative group flex justify-center items-center cursor-pointer rounded-full animated_cursor bg-white border border-primary hover:bg-primaryHover transition-all duration-300",
-              publicKey
-                ? "gap-3 px-[15px] py-[10x] h-10 p-[10px]"
-                : "w-10 h-10 p-[10px]"
+              "relative group flex justify-center items-center h-10 cursor-pointer rounded-full animated_cursor bg-white border border-primary hover:bg-primaryHover transition-all duration-300",
+              publicKey?.toString().length
+                ? "hidden md:flex gap-3 px-[15px] py-[10x]"
+                : "w-10 p-[10px]"
             )}
           >
-            <Wallet size={publicKey ? 18 : undefined} />
+            <Wallet size={publicKey?.toString().length ? 18 : undefined} />
 
-            {shortAddress && (
+            {publicKey?.toString().length && (
               <p className="text-sm font-jetBrains text-gray-600 group-hover:text-main truncate max-w-[100px]">
-                {shortAddress}
+                {helperService.shortWalletAddress(publicKey.toString())}
               </p>
             )}
 
-            <Tooltip label={publicKey ? `${publicKey}` : "Connect Wallet"} />
+            <Tooltip
+              label={
+                publicKey?.toString().length ? `${publicKey}` : "Connect Wallet"
+              }
+            />
           </div>
           <div
             onClick={() => navigate("/notifications")}
