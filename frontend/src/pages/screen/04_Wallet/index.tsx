@@ -1,5 +1,15 @@
+import {
+  WalletDisconnectButton,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
+
 function Wallet() {
-  return <div>04_Wallet</div>;
+  return (
+    <div>
+      <WalletMultiButton />
+      <WalletDisconnectButton />
+    </div>
+  );
 }
 
 export default Wallet;
