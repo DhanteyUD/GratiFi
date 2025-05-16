@@ -77,6 +77,12 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
               <div className="font-medium text-sm">{user.name}</div>
               <div className="text-xs text-gray-400">
                 @{user.email.split("@")[0]}
+                {user.Wallet?.[0]?.publicKey && (
+                  <span className="ml-2 text-primary">
+                    ({user.Wallet[0].publicKey.slice(0, 4)}...
+                    {user.Wallet[0].publicKey.slice(-4)})
+                  </span>
+                )}
               </div>
             </div>
             <span
