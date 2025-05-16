@@ -5,6 +5,8 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { SolChart } from "@/components";
+import QRCode from "react-qr-code";
+
 const useBalance = () => {
   const [balance, setBalance] = useState<number | null>(null);
   const { connection } = useConnection();
@@ -53,6 +55,14 @@ export default function WalletPage() {
   const balance = useBalance();
   const txs = useTransactions(8);
   const { publicKey } = useWallet();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    if (!publicKey) return;
+    navigator.clipboard.writeText(publicKey.toString());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen p-6 bg-gray-100">
@@ -66,17 +76,34 @@ export default function WalletPage() {
               <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
             </div>
             {publicKey ? (
-              <div className="mt-6 text-left bg-gray-50 p-4 rounded-xl border">
-                <p className="text-sm text-gray-500">Address:</p>
-                <p className="font-mono text-sm break-all">
-                  {publicKey.toString()}
-                </p>
-                <p className="mt-4 text-sm text-gray-500">Balance:</p>
-                <p className="text-lg font-semibold text-green-600">
-                  {balance !== null
-                    ? `${(balance / 1e9).toFixed(4)} SOL`
-                    : "Loading..."}
-                </p>
+              <div className="mt-6 text-left bg-gray-50 p-4 rounded-xl border space-y-4">
+                <div>
+                  <p className="text-sm text-gray-500">Address:</p>
+                  <div className="flex items-center space-x-2">
+                    <p className="font-mono text-sm break-all">
+                      {publicKey.toString()}
+                    </p>
+                    <button
+                      onClick={handleCopy}
+                      className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-xs"
+                    >
+                      {copied ? "Copied!" : "Copy"}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex justify-center">
+                  <QRCode value={publicKey.toString()} size={128} />
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-500">Balance:</p>
+                  <p className="text-lg font-semibold text-green-600">
+                    {balance !== null
+                      ? `${(balance / 1e9).toFixed(4)} SOL`
+                      : "Loading..."}
+                  </p>
+                </div>
               </div>
             ) : (
               <p className="mt-4 text-gray-500">No wallet connected</p>
@@ -114,7 +141,6 @@ export default function WalletPage() {
         {/* RIGHT */}
         <div className="bg-white border border-gray-200 shadow rounded-2xl p-6 flex flex-col">
           <h2 className="text-xl font-semibold mb-4">SOL / USD Live Chart</h2>
-          {/* ensure this wrapper can grow, but the chart itself has its own height */}
           <div className="flex-1">
             <SolChart />
           </div>
