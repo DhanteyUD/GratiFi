@@ -178,14 +178,14 @@ export default function WalletPage() {
                     <div className="flex gap-3 mb-0">
                       <div
                         onClick={handleReceive}
-                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
+                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-dark hover:bg-dark2 transition-colors text-primary cursor-pointer"
                       >
                         <QrCode size={18} />
                         <Tooltip label="Receive" />
                       </div>
                       <div
                         onClick={handleSend}
-                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
+                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-dark hover:bg-dark2 transition-colors text-primary cursor-pointer"
                       >
                         <Send size={18} />
                         <Tooltip label="Send" />
@@ -198,7 +198,7 @@ export default function WalletPage() {
           </div>
 
           {connected && chain === "SOL" && viewingQR ? (
-            <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white border border-gray-300 rounded-[10px] p-4">
+            <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white border border-gray-300 rounded-[10px] p-4 mb-4">
               <div className="flex justify-center mt-2">
                 {publicKey && (
                   <QRCode value={publicKey.toString()} size={128} />

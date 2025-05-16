@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSendSol } from "@/hooks/UseSendSol";
 import { FetchUserProfile } from "@/hooks/UseFetch";
+import UserTypeIcon from "./UserTypeIcon";
+import helperService from "@/services/helper.service";
+import clsx from "clsx";
 
 type Wallet = {
   id: string;
@@ -27,7 +30,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   const { mutate: sendSol, isPending, isSuccess, error } = useSendSol();
 
   const users = allUsers.filter(
-    (user: User) => user.email !== (userProfile as User)?.email
+    (user) => user.email !== (userProfile as User)?.email
   );
 
   const [recipient, setRecipient] = useState("");
@@ -49,78 +52,92 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   };
 
   return (
-    <section className="bg-white border border-gray-300 rounded-[10px] p-6 max-w-xl w-full">
-      <h1 className="text-xl font-semibold mb-4 text-primary font-calSans">
+    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 max-w-xl w-full shadow-lg">
+      <h1 className="text-2xl font-bold mb-6 font-calSans text-primary">
         Send SOL
       </h1>
 
-      {/* User Dropdown */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1 text-main">
-          Select User
-        </label>
-        <select
-          className="w-full p-2 border rounded text-main"
-          value={selectedUserId ?? ""}
-          onChange={(e) => setSelectedUserId(e.target.value)}
-        >
-          <option value="">-- Select --</option>
-          {users.map((user) => (
-            <option key={user.id} value={user.id}>
-              {user.name} ({user.email})
-            </option>
-          ))}
-        </select>
+      {/* Select User Grid */}
+      <div className="grid grid-cols-1 gap-3 mb-6">
+        {users.map((user) => (
+          <button
+            key={user.id}
+            onClick={() => setSelectedUserId(user.id)}
+            className={clsx(
+              "flex items-center gap-4 p-4 rounded-lg border border-transparent bg-[#1C1C20] hover:border-primary transition-all duration-200 text-left",
+              selectedUserId === user.id && "border-primary bg-[#1A1A1D]"
+            )}
+          >
+            <img
+              src={user.picture}
+              alt={user.name}
+              className="w-10 h-10 rounded-full object-cover border border-gray-700"
+            />
+            <div className="flex-1">
+              <div className="font-medium text-sm">{user.name}</div>
+              <div className="text-xs text-gray-400">
+                @{user.email.split("@")[0]}
+              </div>
+            </div>
+            <span
+              className={clsx(
+                "text-[12px] px-2 py-1 text-dark font-calSans rounded flex gap-1 items-center",
+                helperService.getUserTypeBg(user.user_type)
+              )}
+            >
+              {user.user_type}
+              <UserTypeIcon userType={user.user_type} size={13} />
+            </span>
+          </button>
+        ))}
       </div>
 
-      {/* Recipient Address */}
+      {/* Recipient (read-only if selected from list) */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1 text-main">
-          Recipient Address
+        <label className="block text-sm font-medium mb-1 text-gray-300">
+          Recipient Wallet Address
         </label>
         <input
           type="text"
           value={recipient}
           onChange={(e) => setRecipient(e.target.value)}
-          placeholder="Enter wallet address"
-          className="w-full p-2 border rounded"
+          placeholder="Enter or select recipient"
+          className="w-full p-3 rounded-lg bg-[#1C1C20] border border-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
         />
       </div>
 
-      {/* Amount Input */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1 text-main">
+      {/* Amount */}
+      <div className="mb-6">
+        <label className="block text-sm font-medium mb-1 text-gray-300">
           Amount (SOL)
         </label>
         <input
           type="number"
           value={amount}
           onChange={(e) => setAmount(Number(e.target.value))}
-          className="w-full p-2 border rounded"
           min={0}
           step={0.001}
+          className="w-full p-3 rounded-lg bg-[#1C1C20] border border-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
         />
       </div>
 
-      {/* Buttons */}
-      <div className="flex justify-end space-x-2">
+      {/* Send Button */}
+      <div className="flex justify-end">
         <button
           onClick={handleSend}
           disabled={isPending}
-          className="px-6 py-2 rounded bg-primary text-main font-calSans hover:bg-primaryHover transition-all duration-300 ease-in-out"
+          className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-[#a855f7] text-white font-semibold hover:opacity-90 transition disabled:opacity-50"
         >
           {isPending ? "Sending..." : "Send"}
         </button>
       </div>
 
-      {/* Messages */}
+      {/* Feedback */}
       {isSuccess && (
-        <p className="text-green-600 text-sm mt-2">
-          Transaction sent successfully!
-        </p>
+        <p className="text-green-500 text-sm mt-4">Transaction successful!</p>
       )}
       {error && (
-        <p className="text-red-600 text-sm mt-2">
+        <p className="text-red-500 text-sm mt-4">
           Error: {(error as Error).message}
         </p>
       )}
