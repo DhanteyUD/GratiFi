@@ -26,10 +26,10 @@ export default function WalletPage() {
   };
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100 flex h-full md:h-[calc(100vh-115px)] overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="bg-gray-100 flex h-full md:h-[calc(100vh-115px)] overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border border-[red]">
         {/* LEFT COLUMN */}
-        <div className="space-y-6">
+        <div className="space-y-6 border border-[green]">
           {/* Chain Switcher */}
           <div className="flex justify-center space-x-4">
             <button
@@ -141,7 +141,7 @@ export default function WalletPage() {
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className="bg-white border border-gray-200 shadow rounded-2xl p-6 flex flex-col">
+        <div className="bg-white border border-[orange] shadow rounded-2xl p-6 flex flex-col">
           <h2 className="text-xl font-semibold mb-4">
             {chain} / USD Live Chart
           </h2>

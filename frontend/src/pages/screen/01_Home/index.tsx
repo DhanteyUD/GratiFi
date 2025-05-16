@@ -46,7 +46,7 @@ function Home() {
 
   return (
     <div className="flex h-full md:h-[calc(100vh-115px)] overflow-hidden">
-      {/* Left */}
+      {/* LEFT COLUMN */}
       <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
         <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
         <div className="bg-white/60 md:border-l md:border-r border-gray-300">
@@ -76,7 +76,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Right */}
+      {/* RIGHT COLUMN */}
       <div className="hidden md:flex w-[40%] flex-col gap-4 overflow-auto pl-5 pr-1 mt-[35px]">
         <div
           className={clsx(
