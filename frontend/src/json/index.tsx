@@ -29,12 +29,14 @@ export const blockchains = [
     key: "SOL",
     activeIcon: solActive,
     inactiveIcon: solInactive,
+    symbol: "BINANCE:SOLUSDT",
   },
   {
     name: "Ethereum",
     key: "ETH",
     activeIcon: ethActive,
     inactiveIcon: ethInactive,
+    symbol: "BINANCE:ETHUSDT",
   },
 ];
 

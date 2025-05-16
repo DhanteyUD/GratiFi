@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   WalletDisconnectButton,
   WalletMultiButton,
@@ -27,7 +27,16 @@ export default function WalletPage() {
   const { data: balance, isLoading: isBalanceLoading } = useSolanaBalance();
   const { data: txs } = useSolanaTransactions(10);
 
+  const [selectedSymbol, setSelectedSymbol] = useState("BINANCE:SOLUSDT");
   const [chain, setChain] = useState<"SOL" | "ETH">("SOL");
+
+  useEffect(() => {
+    const symbolMap = {
+      SOL: "BINANCE:SOLUSDT",
+      ETH: "BINANCE:ETHUSDT",
+    };
+    setSelectedSymbol(symbolMap[chain]);
+  }, [chain]);
 
   const handleCopy = () => {
     if (!publicKey) return;
@@ -44,6 +53,7 @@ export default function WalletPage() {
           <div className="flex">
             {blockchains.map(({ name, key, activeIcon, inactiveIcon }) => {
               const isActive = chain === key;
+
               return (
                 <div
                   key={key}
@@ -207,7 +217,7 @@ export default function WalletPage() {
           {chain} / USDT
         </h1>
         <div className="flex-1">
-          <SolChart />
+          <SolChart symbol={selectedSymbol} />
         </div>
       </div>
     </div>

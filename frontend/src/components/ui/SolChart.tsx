@@ -1,4 +1,3 @@
-// src/components/SolChart.tsx
 import { useEffect, useRef } from "react";
 
 declare global {
@@ -6,22 +5,26 @@ declare global {
     TradingView: { widget: new (...args: unknown[]) => unknown };
   }
 }
+interface SolChartProps {
+  symbol: string;
+}
 
-export default function SolChart() {
+export default function SolChart({ symbol }: SolChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+
+    if (!container || !window.TradingView) return;
 
     const createWidget = () => {
       if (!containerRef.current || !window.TradingView) return;
 
-      // clear out any old widget
       containerRef.current.innerHTML = "";
 
       new window.TradingView.widget({
         autosize: true,
-        symbol: "BINANCE:SOLUSDT",
+        symbol,
         interval: "15",
         timezone: "Etc/UTC",
         theme: "light",
@@ -36,28 +39,25 @@ export default function SolChart() {
     };
 
     if (window.TradingView) {
-      // script already loaded by another instance
       createWidget();
     } else {
       const script = document.createElement("script");
       script.src = "https://s3.tradingview.com/tv.js";
       script.async = true;
       script.onload = createWidget;
-      containerRef.current.appendChild(script);
+      container.appendChild(script);
     }
 
-    // cleanup on unmount
     return () => {
-      if (containerRef.current) containerRef.current.innerHTML = "";
+      if (container) container.innerHTML = "";
     };
-  }, []);
+  }, [symbol]);
 
   return (
     <div
       id="sol_usd_chart"
       ref={containerRef}
-      // give it a real height, otherwise 0px!
-      style={{ width: "100%", height: "400px" }}
+      style={{ width: "100%", height: "100%" }}
     />
   );
 }
