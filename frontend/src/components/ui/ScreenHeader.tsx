@@ -55,8 +55,6 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
     }
   }, [civicUser, navigate]);
 
-  console.log({ userProfile });
-
   useEffect(() => {
     document.title = `GratiFi | ${helperService.capitalize(currentPage)}`;
   }, [currentPage]);
