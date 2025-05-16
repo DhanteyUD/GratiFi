@@ -9,7 +9,9 @@ interface SolChartProps {
   symbol: string;
 }
 
-export default function SolChart({ symbol }: SolChartProps) {
+export default function SolChart({
+  symbol = "BINANCE:SOLUSDT",
+}: SolChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
