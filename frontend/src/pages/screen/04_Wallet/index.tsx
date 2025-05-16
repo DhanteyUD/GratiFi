@@ -50,6 +50,12 @@ export default function WalletPage() {
     console.log("send");
   };
 
+  const handleCopy = () => {
+    if (!publicKey) return;
+    navigator.clipboard.writeText(publicKey.toString());
+    showToast("Copied to Clipboard.", "bottom-center", 3000, true);
+  };
+
   useEffect(() => {
     const symbolMap = {
       SOL: "BINANCE:SOLUSDT",
@@ -57,12 +63,6 @@ export default function WalletPage() {
     };
     setSelectedSymbol(symbolMap[chain]);
   }, [chain]);
-
-  const handleCopy = () => {
-    if (!publicKey) return;
-    navigator.clipboard.writeText(publicKey.toString());
-    showToast("Copied to Clipboard.", "bottom-center", 3000, true);
-  };
 
   return (
     <div className="flex h-full md:h-[calc(100vh-115px)] overflow-hidden gap-4">
@@ -117,7 +117,7 @@ export default function WalletPage() {
                   <div className="flex gap-2 items-end">
                     <p className="text-[35px] font-semibold text-green-600 leading-8">
                       {isBalanceLoading
-                        ? "Loading..."
+                        ? "......"
                         : !showBalance
                         ? "******"
                         : balance !== undefined
@@ -219,7 +219,7 @@ export default function WalletPage() {
         ) : null}
 
         {/* Transactions */}
-        {chain === "SOL" && txs && (
+        {chain === "SOL" && txs?.length ? (
           <div className="mt-5">
             <p className="mb-3 text-xl font-calSans text-main">Transactions</p>
             <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-100 cursor-pointer overflow-hidden">
@@ -323,7 +323,7 @@ export default function WalletPage() {
               })}
             </div>
           </div>
-        )}
+        ) : null}
       </div>
 
       {/* RIGHT COLUMN */}

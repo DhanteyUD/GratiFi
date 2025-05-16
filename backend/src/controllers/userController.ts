@@ -18,6 +18,7 @@ const getUserProfile = async (
 
   const user = await prisma.user.findUnique({
     where: { email },
+    include: { Wallet: true },
   });
 
   if (!user) {
@@ -41,7 +42,9 @@ const getAllUsers = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({
+    include: { Wallet: true },
+  });
 
   res.status(200).json({
     message: "Users fetched successfully",
