@@ -6,7 +6,9 @@ import {
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { SolChart } from "@/components";
 import QRCode from "react-qr-code";
+import { SiSolana, SiEthereum } from "react-icons/si";
 
+// Hook for SOL balance
 const useBalance = () => {
   const [balance, setBalance] = useState<number | null>(null);
   const { connection } = useConnection();
@@ -26,6 +28,7 @@ const useBalance = () => {
   return balance;
 };
 
+// Hook for transactions
 const useTransactions = (limit = 10) => {
   const [txs, setTxs] = useState<string[] | null>(null);
   const { connection } = useConnection();
@@ -57,6 +60,9 @@ export default function WalletPage() {
   const { publicKey } = useWallet();
   const [copied, setCopied] = useState(false);
 
+  // New state for chain selection
+  const [chain, setChain] = useState<"SOL" | "ETH">("SOL");
+
   const handleCopy = () => {
     if (!publicKey) return;
     navigator.clipboard.writeText(publicKey.toString());
@@ -67,10 +73,35 @@ export default function WalletPage() {
   return (
     <div className="min-h-screen p-6 bg-gray-100">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* LEFT */}
+        {/* LEFT COLUMN */}
         <div className="space-y-6">
+          {/* Chain Switcher */}
+          <div className="flex justify-center space-x-4">
+            <button
+              onClick={() => setChain("SOL")}
+              className={`flex items-center px-4 py-2 rounded-lg shadow ${
+                chain === "SOL" ? "bg-green-500 text-white" : "bg-white border"
+              }`}
+            >
+              <SiSolana className="mr-2" size={20} />
+              Solana
+            </button>
+            <button
+              onClick={() => setChain("ETH")}
+              className={`flex items-center px-4 py-2 rounded-lg shadow ${
+                chain === "ETH" ? "bg-blue-500 text-white" : "bg-white border"
+              }`}
+            >
+              <SiEthereum className="mr-2" size={20} />
+              Ethereum
+            </button>
+          </div>
+
+          {/* Wallet Card */}
           <div className="bg-white border border-gray-200 shadow rounded-2xl p-6 text-center">
-            <h1 className="text-2xl font-bold text-gray-800">Your Wallet</h1>
+            <h1 className="text-2xl font-bold text-gray-800">
+              Your {chain} Wallet
+            </h1>
             <div className="mt-4 flex justify-center gap-4">
               <WalletMultiButton className="!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
               <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
@@ -109,6 +140,8 @@ export default function WalletPage() {
               <p className="mt-4 text-gray-500">No wallet connected</p>
             )}
           </div>
+
+          {/* Transactions */}
           {publicKey && (
             <div className="bg-white border border-gray-200 shadow rounded-2xl p-6">
               <h2 className="text-xl font-semibold mb-4">
@@ -138,10 +171,13 @@ export default function WalletPage() {
           )}
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT COLUMN */}
         <div className="bg-white border border-gray-200 shadow rounded-2xl p-6 flex flex-col">
-          <h2 className="text-xl font-semibold mb-4">SOL / USD Live Chart</h2>
+          <h2 className="text-xl font-semibold mb-4">
+            {chain} / USD Live Chart
+          </h2>
           <div className="flex-1">
+            {/* <SolChart symbol={chain === 'SOL' ? 'BINANCE:SOLUSDT' : 'BINANCE:ETHUSDT'} /> */}
             <SolChart />
           </div>
         </div>
