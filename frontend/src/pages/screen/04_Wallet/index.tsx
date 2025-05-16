@@ -38,77 +38,81 @@ export default function WalletPage() {
   return (
     <div className="bg-gray-100 flex h-full md:h-[calc(100vh-115px)] overflow-hidden gap-4">
       {/* LEFT COLUMN */}
-      <div className="flex flex-col w-full md:w-[40%] h-full overflow-auto pl-[2px]">
+      <div className="flex flex-col w-full md:w-[35%] h-full overflow-auto pl-[2px]">
         {/* Chain Switcher */}
-        <div className="sticky top-0 flex justify-start space-x-2 bg-background z-[2] border-b border-gray-300">
-          {blockchains.map(({ name, key, activeIcon, inactiveIcon }) => {
-            const isActive = chain === key;
-            return (
-              <div
-                key={key}
-                onClick={() => setChain(key as "SOL" | "ETH")}
-                className={`flex items-center px-4 py-2 gap-3 rounded-[10px_10px_0_0] border border-b-transparent cursor-pointer transition-all ease-linear ${
-                  isActive
-                    ? "bg-white font-calSans border-gray-300 text-primary"
-                    : "bg-background border-transparent text-gray-400"
-                }`}
-              >
-                <img
-                  src={isActive ? activeIcon : inactiveIcon}
-                  alt={name}
-                  className="w-8 h-8"
-                />
-                <p>{name}</p>
-              </div>
-            );
-          })}
+        <div className="sticky top-0 flex justify-between items-end space-x-2 bg-background z-[2] border-b border-gray-300">
+          <div className="flex">
+            {blockchains.map(({ name, key, activeIcon, inactiveIcon }) => {
+              const isActive = chain === key;
+              return (
+                <div
+                  key={key}
+                  onClick={() => setChain(key as "SOL" | "ETH")}
+                  className={`flex items-center px-4 py-2 gap-3 rounded-[10px_10px_0_0] border border-b-transparent cursor-pointer transition-all ease-linear ${
+                    isActive
+                      ? "bg-white font-calSans border-gray-300 text-primary"
+                      : "bg-background border-transparent text-gray-400"
+                  }`}
+                >
+                  <img
+                    src={isActive ? activeIcon : inactiveIcon}
+                    alt={name}
+                    className="w-8 h-8"
+                  />
+                  <p>{name}</p>
+                </div>
+              );
+            })}
+          </div>
+          <h1 className="flex items-center text-[13px] h-[25px] font-bold text-main text-right font-calSans rounded-[20px] bg-primary px-4 mb-2">
+            {chain}
+          </h1>
         </div>
 
         {/* Wallet Card */}
-        <div className="bg-white p-6 text-center">
-          <h1 className="text-2xl font-bold text-gray-800">
-            Your {chain} Wallet
-          </h1>
-          <div className="mt-4 flex justify-center gap-4">
-            <WalletMultiButton className="!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
-            <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
-          </div>
+        <div className="bg-white p-4 text-center w-auto border border-gray-300 border-t-0">
+          <div className="">
+            {publicKey ? (
+              <div className="text-left bg-gray-50 p-4 rounded-xl border space-y-4">
+                <div>
+                  <p className="text-sm text-gray-500">Address:</p>
+                  <div className="flex items-center space-x-2">
+                    <p className="font-mono text-sm break-all">
+                      {publicKey.toString()}
+                    </p>
+                    <button
+                      onClick={handleCopy}
+                      className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-xs"
+                    >
+                      {copied ? "Copied!" : "Copy"}
+                    </button>
+                  </div>
+                </div>
 
-          {publicKey ? (
-            <div className="mt-6 text-left bg-gray-50 p-4 rounded-xl border space-y-4">
-              <div>
-                <p className="text-sm text-gray-500">Address:</p>
-                <div className="flex items-center space-x-2">
-                  <p className="font-mono text-sm break-all">
-                    {publicKey.toString()}
+                <div className="flex justify-center">
+                  <QRCode value={publicKey.toString()} size={128} />
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-500">Balance:</p>
+                  <p className="text-lg font-semibold text-green-600">
+                    {isBalanceLoading
+                      ? "Loading..."
+                      : balance !== undefined
+                      ? `${(balance / 1e9).toFixed(4)} SOL`
+                      : "Unavailable"}
                   </p>
-                  <button
-                    onClick={handleCopy}
-                    className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-xs"
-                  >
-                    {copied ? "Copied!" : "Copy"}
-                  </button>
                 </div>
               </div>
+            ) : (
+              <p className="text-gray-400 py-2">No wallet connected</p>
+            )}
+          </div>
 
-              <div className="flex justify-center">
-                <QRCode value={publicKey.toString()} size={128} />
-              </div>
-
-              <div>
-                <p className="text-sm text-gray-500">Balance:</p>
-                <p className="text-lg font-semibold text-green-600">
-                  {isBalanceLoading
-                    ? "Loading..."
-                    : balance !== undefined
-                    ? `${(balance / 1e9).toFixed(4)} SOL`
-                    : "Unavailable"}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <p className="mt-4 text-gray-500">No wallet connected</p>
-          )}
+          <div className="mt-4 flex justify-start gap-4">
+            <WalletMultiButton className="!w-[20px]!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
+            <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
+          </div>
         </div>
 
         {/* Transactions */}
