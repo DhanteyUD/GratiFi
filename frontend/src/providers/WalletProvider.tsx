@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import type { PropsWithChildren } from "react";
-// import { CivicAuthProvider } from "@civic/auth-web3/react";
+import { CivicAuthProvider } from "@civic/auth-web3/react";
 import {
   ConnectionProvider,
   WalletProvider as SolanaWalletProvider,
@@ -15,8 +15,7 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import "@solana/wallet-adapter-react-ui/styles.css";
 
-// import { configKeys } from "@/config";
-// const endpoint = "https://api.devnet.solana.com"; // Change to mainnet if needed
+import { configKeys } from "@/config";
 
 export const WalletProvider = ({ children }: PropsWithChildren<object>) => {
   const network = WalletAdapterNetwork.Devnet;
@@ -39,35 +38,33 @@ export const WalletProvider = ({ children }: PropsWithChildren<object>) => {
     []
   );
 
-  // const handleSignIn = (error?: Error) => {
-  //   if (error) {
-  //     console.error("Civic Auth sign-in error:", error);
-  //   } else {
-  //     console.log("Civic Auth sign-in successful");
-  //   }
-  // };
+  const handleSignIn = (error?: Error) => {
+    if (error) {
+      console.error("Civic Auth sign-in error:", error);
+    } else {
+      console.log("Civic Auth sign-in successful");
+    }
+  };
 
-  // const handleSignOut = async () => {
-  //   console.log("Civic Auth sign-out successful");
-  // };
+  const handleSignOut = async () => {
+    console.log("Civic Auth sign-out successful");
+  };
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      {/* <CivicAuthProvider
-        clientId={configKeys.clientId}
-        onSignIn={handleSignIn}
-        onSignOut={handleSignOut}
-        displayMode="redirect"
-        redirectUrl={window.location.origin + "/connect"}
-      > */}
       <SolanaWalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider {...walletModalProps}>
-          {/* <CivicAuthProvider clientId="YOUR_CIVIC_CLIENT_ID"> */}
-          {children}
-          {/* </CivicAuthProvider> */}
+          <CivicAuthProvider
+            clientId={configKeys.clientId}
+            onSignIn={handleSignIn}
+            onSignOut={handleSignOut}
+            displayMode="redirect"
+            redirectUrl={window.location.origin + "/wallet"}
+          >
+            {children}
+          </CivicAuthProvider>
         </WalletModalProvider>
       </SolanaWalletProvider>
-      {/* </CivicAuthProvider> */}
     </ConnectionProvider>
   );
 };
