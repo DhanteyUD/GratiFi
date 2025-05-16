@@ -1,5 +1,12 @@
+import { ScreenFallback } from "@/components";
+
 function Profile() {
-  return <div>08_Profile</div>;
+  return (
+    <ScreenFallback
+      message="Almost There — Like, Spiritually."
+      subText="Emotionally, we launched this. Technically? Not quite."
+    />
+  );
 }
 
 export default Profile;

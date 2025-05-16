@@ -1,5 +1,12 @@
+import { ScreenFallback } from "@/components";
+
 function Bookmarks() {
-  return <div>06_Bookmarks</div>;
+  return (
+    <ScreenFallback
+      message="One Does Not Simply Finish This Feature."
+      subText="Even Mordor would’ve been easier."
+    />
+  );
 }
 
 export default Bookmarks;

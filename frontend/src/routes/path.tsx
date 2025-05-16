@@ -9,16 +9,16 @@ import {
   MessageCircle,
   Wallet,
   Bell,
-  Gift,
+  // Gift,
   UserRound,
   Settings,
-  BarChart,
-  Clock,
+  // BarChart,
+  // Clock,
   Power,
   Bookmark,
-  Briefcase,
-  Sparkles,
-  HeartPlus,
+  // Briefcase,
+  // Sparkles,
+  // HeartPlus,
   User,
   LogOut,
 } from "lucide-react";
@@ -58,14 +58,14 @@ const sharedMenuItems: MenuItem[] = [
 ];
 
 const gratiStarExtras: MenuItem[] = [
-  { name: "Tips Received", path: "tips", icon: Gift },
-  { name: "My GratiFans", path: "supporters", icon: HeartPlus },
-  { name: "Analytics", path: "analytics", icon: BarChart },
+  // { name: "Tips Received", path: "tips", icon: Gift },
+  // { name: "My GratiFans", path: "supporters", icon: HeartPlus },
+  // { name: "Analytics", path: "analytics", icon: BarChart },
 ];
 
 const gratiFanExtras: MenuItem[] = [
-  { name: "Support History", path: "history", icon: Clock },
-  { name: "My GratiStars", path: "creators", icon: Sparkles },
+  // { name: "Support History", path: "history", icon: Clock },
+  // { name: "My GratiStars", path: "creators", icon: Sparkles },
 ];
 
 export const getScreenMenuItems = (userType: "GratiStar" | "GratiFan") => {
@@ -89,7 +89,7 @@ export const headerNavMenuItems = [
 ];
 
 export const moreMenuItems = [
-  { name: "Jobs", path: "jobs", icon: Briefcase },
+  // { name: "Jobs", path: "jobs", icon: Briefcase },
   { name: "Settings & Privacy", path: "settings", icon: Settings },
   {
     name: "Log out",
