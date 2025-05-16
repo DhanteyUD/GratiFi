@@ -1,6 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ChevronLeft, Bell, ChevronDown, Wallet, User } from "lucide-react";
+import {
+  ChevronLeft,
+  Bell,
+  ChevronDown,
+  Wallet,
+  User,
+  LoaderCircle,
+} from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -23,22 +30,32 @@ interface ProfileDropdownOption {
 function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
+
   const currentPage = location.pathname.split("/")[1];
   const [notificationCount] = useState(0);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   const { setVisible } = useWalletModal();
   const { publicKey, disconnect, connected, wallet, connecting } = useWallet();
 
-  const civicUser = JSON.parse(localStorage.getItem("user") || "{}");
+  const civicUser = useMemo(() => {
+    try {
+      return JSON.parse(localStorage.getItem("user") || "{}");
+    } catch {
+      return {};
+    }
+  }, []);
 
   const handleWalletAction = async () => {
+    if (connecting) return;
+
     try {
-      if (!connected) {
-        setVisible(true);
-      } else {
+      if (connected) {
         await disconnect();
+      } else {
+        setVisible(true);
       }
     } catch (error) {
       console.error("Wallet connection error:", error);
@@ -90,6 +107,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
       <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-3">
         <div className="relative flex items-start gap-3">
+          {/* User profile */}
           <div
             className={clsx(
               "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 rounded-full border border-primary",
@@ -102,6 +120,8 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             <p className="hidden lg:block">{userProfile?.user_type}</p>
             <UserTypeIcon userType={userProfile?.user_type} size={18} />
           </div>
+
+          {/* Wallet */}
           <div
             onClick={handleWalletAction}
             className={clsx(
@@ -111,13 +131,9 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                 : "w-10 p-[10px] bg-white"
             )}
           >
-            {/* {publicKey?.toString().length && (
-              <p className="text-sm font-jetBrains text-gray-600 group-hover:text-main truncate max-w-[100px]">
-                {helperService.shortWalletAddress(publicKey.toString())}
-              </p>
-            )} */}
-
-            {wallet ? (
+            {connecting ? (
+              <LoaderCircle size={18} className="animate-spin text-main" />
+            ) : wallet ? (
               <WalletInfo publicKey={publicKey} wallet={wallet} />
             ) : (
               <Wallet size={publicKey?.toString().length ? 18 : undefined} />
@@ -125,11 +141,17 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
             <Tooltip
               label={
-                publicKey?.toString().length ? `${publicKey}` : "Connect Wallet"
+                connecting
+                  ? "Connecting Wallet... Please Wait"
+                  : publicKey?.toString().length
+                  ? `${publicKey}`
+                  : "Connect Wallet"
               }
               className="font-jetBrains"
             />
           </div>
+
+          {/* Notification */}
           <div
             onClick={() => navigate("/notifications")}
             className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"

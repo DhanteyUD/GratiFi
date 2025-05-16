@@ -19,7 +19,7 @@ const WalletInfo: FC<WalletInfoProps> = ({ publicKey, wallet, char = 4 }) => {
   const shortAddress = `${address.slice(0, char)}...${address.slice(-char)}`;
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 cursor-pointer">
       <img
         src={wallet.adapter.icon}
         alt={wallet.adapter.name}
