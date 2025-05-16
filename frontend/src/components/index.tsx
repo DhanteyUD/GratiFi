@@ -13,6 +13,8 @@ export { default as Modal } from "@/components/ui/Modal";
 export { default as ScreenFallback } from "@/components/ui/ScreenFallback";
 export { default as ScreenHeader } from "@/components/ui/ScreenHeader";
 export { default as ScreenOverlay } from "@/components/ui/ScreenOverlay";
+export { SendSolForm } from "@/components/ui/SendSolForm";
+export { SendSolModal } from "@/components/ui/SendSolModal";
 export { SideNavMenu } from "@/components/ui/SideNavMenu";
 export { default as SolChart } from "@/components/ui/SolChart";
 export { default as Tooltip } from "@/components/ui/Tooltip";
