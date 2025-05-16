@@ -129,7 +129,10 @@ h2,
 }
 
 .wallet-adapter-button {
-  font-size: 14px !important;
+  /* font-size: 13px !important; */
+  /* padding: 20px!important;
+  height: 40px !important;
+  border-radius: 20px !important */
 }
 
 .Toastify__toast-container--top-center,

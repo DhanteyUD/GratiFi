@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
-import {
-  WalletDisconnectButton,
-  WalletMultiButton,
-} from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { SolChart } from "@/components";
+import { SolChart, CustomSpinner, Tooltip } from "@/components";
 import { useSolanaBalance } from "@/hooks/UseSolanaBalance";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { useSolanaTransactions } from "@/hooks/UseSolanaTransactions";
 import { blockchains } from "@/json";
-import { Copy } from "lucide-react";
+import { Copy, Eye, QrCode, Send } from "lucide-react";
 import { showToast } from "@/utils/notification.utils";
 import QRCode from "react-qr-code";
-import clsx from "clsx";
 
 type TransferParsed = {
   type: string;
@@ -23,12 +19,35 @@ type TransferParsed = {
 };
 
 export default function WalletPage() {
-  const { publicKey } = useWallet();
+  const { setVisible } = useWalletModal();
+  const { publicKey, disconnect, wallet, connected, connecting } = useWallet();
   const { data: balance, isLoading: isBalanceLoading } = useSolanaBalance();
   const { data: txs } = useSolanaTransactions(10);
 
   const [selectedSymbol, setSelectedSymbol] = useState("BINANCE:SOLUSDT");
   const [chain, setChain] = useState<"SOL" | "ETH">("SOL");
+
+  const [viewingQR, setViewingQR] = useState(false);
+
+  const handleConnect = async () => {
+    setVisible(true);
+  };
+
+  const handleDisconnect = async () => {
+    try {
+      await disconnect();
+    } catch (error) {
+      console.error("Disconnection error:", error);
+    }
+  };
+
+  const handleReceive = () => {
+    setViewingQR(true);
+  };
+
+  const handleSend = () => {
+    console.log("send");
+  };
 
   useEffect(() => {
     const symbolMap = {
@@ -47,7 +66,7 @@ export default function WalletPage() {
   return (
     <div className="flex h-full md:h-[calc(100vh-115px)] overflow-hidden gap-4">
       {/* LEFT COLUMN */}
-      <div className="flex flex-col w-full md:w-[35%] h-full overflow-auto pl-[2px]">
+      <div className="flex flex-col w-full md:w-[40%] h-full overflow-auto pl-[2px]">
         {/* Chain Switcher */}
         <div className="sticky top-0 flex justify-between items-end space-x-2 bg-background z-[2] border-b border-gray-300">
           <div className="flex">
@@ -81,41 +100,33 @@ export default function WalletPage() {
 
         {/* Wallet Card */}
         <div className="bg-white p-4 text-center w-auto border border-gray-300 border-t-0 rounded-[0_0_10px_10px] mb-4">
-          <div className="shadow-inset-dual rounded-lg">
+          <div className="rounded-lg">
             {publicKey && chain === "SOL" ? (
-              <div className="text-left bg-white/10 border p-4 rounded-xl space-y-4">
-                <div>
-                  <p className="text-sm text-gray-500">Address:</p>
-                  <div className="flex items-center space-x-5">
-                    <p className="text-sm break-all text-main font-jetBrains">
-                      {publicKey.toString()}
-                    </p>
-
-                    <Copy
-                      size={20}
-                      onClick={handleCopy}
-                      className="text-main cursor-pointer hover:text-primary transition-colors duration-300 ease-linear"
-                    />
+              <div className="text-left bg-white/10 space-y-4">
+                <div className="mb-8">
+                  <div className="flex items-center gap-4 mb-2">
+                    <p className="text-sm text-gray-500">Est. Total Value </p>
+                    <Eye size={15} className="text-gray-500 cursor-pointer" />
                   </div>
-                </div>
-
-                <div className="flex justify-center">
-                  <QRCode value={publicKey.toString()} size={128} />
-                </div>
-
-                <div>
-                  <p className="text-sm text-gray-500">Balance:</p>
-                  <p className="text-lg font-semibold text-green-600">
-                    {isBalanceLoading
-                      ? "Loading..."
-                      : balance !== undefined
-                      ? `${(balance / 1e9).toFixed(4)} SOL`
-                      : "Unavailable"}
-                  </p>
+                  <div className="flex gap-2 items-end">
+                    <p className="text-[35px] font-semibold text-green-600 leading-8">
+                      {isBalanceLoading
+                        ? "Loading..."
+                        : balance !== undefined
+                        ? `${(balance / 1e9).toFixed(4)}`
+                        : "Unavailable"}
+                    </p>
+                    <p className="font-grotesk">
+                      SOL
+                      <span className="ml-1 text-[10px] font-gray-400">
+                        (Solana)
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             ) : (
-              <p className="text-gray-400 bg-white/10 border p-4  rounded-xl py-5">
+              <p className="text-gray-400 bg-white/10 p-4  rounded-xl py-5">
                 {chain === "SOL"
                   ? "No wallet connected"
                   : "ETH not supported yet"}
@@ -123,27 +134,84 @@ export default function WalletPage() {
             )}
           </div>
 
-          {chain === "SOL" && (
-            <div className="mt-4 flex justify-center gap-4">
-              <WalletMultiButton className="!w-[20px]!bg-blue-600 hover:!bg-blue-700 text-white !rounded-lg" />
-              <WalletDisconnectButton className="!bg-red-500 hover:!bg-red-600 text-white !rounded-lg" />
+          <div className="flex justify-between items-center mt-4">
+            {chain === "SOL" && (
+              <div className="flex items-center gap-3">
+                {connecting && (
+                  <div className="flex items-center justify-center h-[40px] w-[40px] bg-primaryHover rounded-[5px]">
+                    <CustomSpinner theme="#3c315b" />
+                  </div>
+                )}
+                {!wallet ? (
+                  <button
+                    onClick={handleConnect}
+                    className="h-[40px] px-5 rounded-[5px] bg-primary hover:bg-main transition-colors duration-300 ease-linear text-[14px] font-semibold text-main hover:text-white"
+                  >
+                    Select Wallet
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleDisconnect}
+                    className="h-[40px] px-5 rounded-[5px] bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-linear text-[14px] font-semibold text-white"
+                  >
+                    Disconnect Wallet
+                  </button>
+                )}
+              </div>
+            )}
+
+            <div className="flex gap-3 mb-0">
+              <div
+                onClick={handleReceive}
+                className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
+              >
+                <QrCode size={18} />
+                <Tooltip label="Receive" />
+              </div>
+              <div
+                onClick={handleSend}
+                className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-black/80 hover:bg-black/70 transition-colors text-primary cursor-pointer"
+              >
+                <Send size={18} />
+                <Tooltip label="Send" />
+              </div>
             </div>
-          )}
+          </div>
         </div>
+
+        {viewingQR && connected ? (
+          <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white border border-gray-300 rounded-[10px] p-4">
+            <div className="flex justify-center mt-2">
+              {publicKey && <QRCode value={publicKey.toString()} size={128} />}
+            </div>
+
+            <div className="text-center leading-5">
+              <h1 className="font-calSans">Your Solana Address</h1>
+              <p className="font-[10px] text-gray-500">
+                Use this address to receive tokens
+              </p>
+            </div>
+
+            <div className="flex items-center justify-center gap-4 py-2 px-4  bg-black/60 rounded-full">
+              <p className="text-[13px] break-all text-white text-center font-jetBrains">
+                {publicKey ? publicKey.toString() : null}
+              </p>
+
+              <Copy
+                size={18}
+                onClick={handleCopy}
+                className="text-white cursor-pointer hover:text-primary transition-colors duration-300 ease-linear"
+              />
+            </div>
+          </div>
+        ) : null}
 
         {/* Transactions */}
         {chain === "SOL" && txs && (
-          <>
-            <p className="mb-3 text-[20px] font-calSans text-main">
-              Transactions
-            </p>
-            <ul
-              className={clsx(
-                "bg-white space-y-2 text-sm font-jetBrains rounded-[10px]",
-                txs ? "border border-gray-300 " : ""
-              )}
-            >
-              {txs?.map((tx, idx) => {
+          <div className="mt-5">
+            <p className="mb-3 text-xl font-calSans text-main">Transactions</p>
+            <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-100 cursor-pointer overflow-hidden">
+              {txs.map((tx, idx) => {
                 const signature =
                   tx?.transaction?.signatures?.[0] || `tx-${idx}`;
                 const blockTime = tx?.blockTime
@@ -152,7 +220,10 @@ export default function WalletPage() {
                 const fee = tx?.meta?.fee
                   ? (tx.meta.fee / 1e9).toFixed(6)
                   : "N/A";
-                const status = tx?.meta?.err ? "❌ Failed" : "✅ Success";
+                const status = tx?.meta?.err ? "Failed" : "Success";
+                const statusColor = tx?.meta?.err
+                  ? "text-red-600"
+                  : "text-green-600";
 
                 type Instruction = {
                   program?: string;
@@ -192,47 +263,59 @@ export default function WalletPage() {
                     : "Unknown";
 
                 return (
-                  <li
+                  <div
                     key={signature}
-                    className={clsx(
-                      "p-3 border-b border-gray-300 last:border-0"
-                    )}
+                    className="p-4 hover:bg-gray-50 transition border-b border-gray-300 last:border-0"
                   >
-                    <a
-                      href={`https://explorer.solana.com/tx/${signature}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-blue-600 hover:underline font-jetBrains break-all"
-                    >
-                      {signature}
-                    </a>
-                    <div className="text-xs text-gray-600 mt-2 space-y-1">
-                      <p>
-                        <strong>Status:</strong> {status}
-                      </p>
-                      <p>
-                        <strong>To:</strong> {toAddress}
-                      </p>
-                      <p>
-                        <strong>Amount:</strong> {amount}
-                      </p>
-                      <p>
-                        <strong>Fee:</strong> {fee} SOL
-                      </p>
-                      <p>
-                        <strong>Time:</strong> {blockTime}
-                      </p>
+                    <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center space-x-2">
+                        <span
+                          className={`text-xs px-2 py-0.5 rounded-full border ${statusColor} border-current`}
+                        >
+                          {status}
+                        </span>
+                        <span className="text-gray-500 text-xs">
+                          {blockTime}
+                        </span>
+                      </div>
+                      <a
+                        href={`https://explorer.solana.com/tx/${signature}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-blue-600 hover:underline text-xs break-all"
+                      >
+                        {signature.slice(0, 6)}...{signature.slice(-6)}
+                      </a>
                     </div>
-                  </li>
+
+                    <div className="mt-2 grid grid-cols-2 gap-2 text-sm text-gray-700">
+                      <div>
+                        <p className="text-gray-500">To</p>
+                        <p className="break-all">{toAddress}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500">Amount</p>
+                        <p>{amount}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500">Fee</p>
+                        <p>{fee} SOL</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500">Chain</p>
+                        <p>{chain}</p>
+                      </div>
+                    </div>
+                  </div>
                 );
               })}
-            </ul>
-          </>
+            </div>
+          </div>
         )}
       </div>
 
       {/* RIGHT COLUMN */}
-      <div className="flex flex-col w-full md:w-[65%] h-full overflow-auto">
+      <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
         <h1 className="text-xl font-semibold mb-5 text-right font-calSans text-primary">
           {chain} / USDT
         </h1>
