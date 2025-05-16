@@ -1,4 +1,8 @@
 import { FanIcon, Star, Earth, UsersRound } from "lucide-react";
+import solActive from "@/assets/image/solana.png";
+import solInactive from "@/assets/image/sol.png";
+import ethActive from "@/assets/image/ethereum.png";
+import ethInactive from "@/assets/image/eth.png";
 
 export const profiles = [
   {
@@ -17,6 +21,21 @@ export const profiles = [
 export const audienceOptions = [
   { label: "Everyone", value: "everyone", icon: Earth },
   { label: "My Communities", value: "communities", icon: UsersRound },
+];
+
+export const blockchains = [
+  {
+    name: "Solana",
+    key: "SOL",
+    activeIcon: solActive,
+    inactiveIcon: solInactive,
+  },
+  {
+    name: "Ethereum",
+    key: "ETH",
+    activeIcon: ethActive,
+    inactiveIcon: ethInactive,
+  },
 ];
 
 export const newsFeed = [
