@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ChevronLeft, Bell, ChevronDown, Wallet } from "lucide-react";
+import { ChevronLeft, Bell, ChevronDown, Wallet, User } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import clsx from "clsx";
@@ -54,6 +54,8 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
       navigate("/login");
     }
   }, [civicUser, navigate]);
+
+  console.log({ userProfile });
 
   useEffect(() => {
     document.title = `GratiFi | ${helperService.capitalize(currentPage)}`;
@@ -115,7 +117,12 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
         </div>
 
         <div className="relative">
-          {fetchingUserProfile ? null : (
+          {fetchingUserProfile && (
+            <div className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-primary transition-all duration-300 ease-in-out border border-primary">
+              <User className="animate-pulse text-white" />
+            </div>
+          )}
+          {!fetchingUserProfile && !helperService.isEmptyObject(userProfile) ? (
             <div
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
@@ -146,7 +153,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                 )}
               />
             </div>
-          )}
+          ) : null}
 
           {showProfileDropdown && (
             <div className="absolute flex bg-white border border-t-0 border-primary rounded-[0_0_10px_10px] shadow-md w-full py-2 text-main">

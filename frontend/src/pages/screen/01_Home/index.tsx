@@ -94,7 +94,7 @@ function Home() {
 
         {/* Right */}
         <div className="hidden md:flex w-[40%] flex-col gap-4 overflow-auto pl-5 pr-1 mt-[35px]">
-          <div className="sticky top-0 w-full flex justify-end z-[2] bg-">
+          <div className="sticky top-0 w-full flex justify-end z-[2] bg-background rounded-[0_0_25px_25px]">
             <div className="relative group">
               <Search
                 onClick={handleShowSearchInput}

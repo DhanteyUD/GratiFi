@@ -61,6 +61,7 @@ function ScreenLayout({
     <CivicAuthProvider clientId={configKeys.clientId}>
       {/* {!md && getAnimatedCursor()} */}
       <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
+        {/* Sidebar and Mobile header */}
         {md ? (
           <HamburgerToggle
             menu={getScreenMenuItems(userProfile?.user_type || "")}
@@ -103,11 +104,13 @@ function ScreenLayout({
           </div>
         )}
 
+        {/* Main Content */}
         <div className="relative gap-8 md:gap-4 flex flex-col overflow-auto mb-[83px] md:mb-0 w-full">
           <ScreenHeader goBack={goBack} />
           <div className="md:p-1 h-auto">{children}</div>
         </div>
 
+        {/* Mobile action bar */}
         {md && (
           <MobileActionNMenu
             menu={getScreenMenuItems(userProfile?.user_type || "")}
