@@ -132,5 +132,5 @@ cd backend
 npm run build
 ```
 
-Backend deployed with Railway app
-Frontend deployed with Vercel
+> Backend deployed with Railway app
+> Frontend deployed with Vercel
