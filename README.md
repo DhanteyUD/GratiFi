@@ -55,3 +55,132 @@ A fusion of **gratitude** and **DeFi** — appreciation powered by decentralized
 
 ## 🗂 Project Structure
 
+GratiFi/
+
+├── backend/ # Node.js backend (API + DB)
+
+├── frontend/ # React frontend (UI + logic)
+
+
+---
+
+## 🚀 Setup & Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/DhanteyUD/GratiFi.git
+cd GratiFi
+
+```
+
+### 2. Install dependencies
+
+Frontend:
+
+```bash
+cd frontend
+npm install
+```
+
+Backend:
+
+```bash
+cd ../backend
+npm install
+```
+
+### 3. Environment Variables
+
+Create `.env` files in both `frontend/` and `backend/`.
+
+Backend `.env`:
+
+```env
+PORT=4000
+NODE_ENV=development
+RESEND_API_KEY=
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+CLOUDINARY_URL=
+DATABASE_URL=
+```
+
+Frontend `.env`:
+
+```env
+VITE_API_URL=http://localhost:4000/api/v1
+VITE_RAPIDAPI=
+VITE_CLIENT_ID=
+VITE_RAPID_SECTION_ID=
+```
+
+### 4. Start development servers
+
+Backend:
+
+```bash
+cd backend
+npm run dev
+```
+
+Frontend:
+
+```bash
+cd ../frontend
+npm run dev
+```
+
+## 🖥  App is now running locally at:
+
+* Frontend: http://localhost:5173
+
+* Backend: http://localhost:4000
+
+
+## ⚒️ Build for Production
+
+Frontend:
+
+```bash
+cd frontend
+npm run build
+```
+
+Backend:
+
+```bash
+cd backend
+npm run build
+```
+
+## 📦 Deployment
+
+* Frontend: Vercel
+
+* Backend: Railway
+
+
+## 📖 Usage Guide
+
+* Connect wallet via Civic Auth
+
+* Browse GratiStars on the feed
+
+* View GratiStars profiles
+
+* Send micro-tips (SOL) to appreciate the content
+
+* View wallet balance and transaction history
+
+* Share your creative work
+  
+
+| Name             | Role                 | GitHub Handle                              |
+| ---------------- | -------------------- | ------------------------------------------ |
+| Clinton Otse     | Full Stack Developer | [@DhanteyUD](https://github.com/DhanteyUD) |
+
+
+
+
