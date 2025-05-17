@@ -1,17 +1,20 @@
 # GratiFi
 
-A fusion of gratitude and DeFi (appreciation via decentralized finance)
+A fusion of gratitude and DeFi (appreciation via decentralized finance
+
+<img width="1440" alt="GratiFi - Landing page" src="https://github.com/user-attachments/assets/c9f95680-2c34-4632-bf30-72d6eb2549df" />
 
 [ [Website](https://grati-fi.vercel.app/login) ] [ [Demo Video](https://www.loom.com/share/7e7534b2b43d4a06be6009b53e5bd521?sid=33ea91a5-ec6a-46e4-9e2c-3c840c68dc25) ]
 
-<!-- Image Here -->
+GratiFi is a decentralized web application built on `React + Solana`, which uses the power of Web3 to help users, content creators, and artisans showcase their talent.
 
-GratiFi is a decentralized web application built on `React + Solana` which utilises the power of Web3 to help users, content creators, and artisan showcase their talent.
+## Example Screen
 
-## Example:
+<img width="1440" alt="GratiFi - Home" src="https://github.com/user-attachments/assets/1000e8b3-6a26-410f-b22c-2df76d44f2a4" />
 
-<!-- Image here -->
 
+
+<img width="1440" alt="GratiFi - Wallet" src="https://github.com/user-attachments/assets/c1d82b31-1596-43c4-9670-6d6845aff62a" />
 
 ## Tech Stack
 
@@ -19,11 +22,12 @@ GratiFi is a decentralized web application built on `React + Solana` which utili
 
 - React 18 + TypeScript
 - Civic Auth - Authentication
-- Vite - build tool
-- TailwindCSS - styling
+- Vite - Build tool
+- TailwindCSS - Styling
+- Lottie and Framer - Animation
 - Solana, Web3.js - blockchain integration
-- Tanstack React Query - data fetching
-- Cloudinary - storage bucket
+- Tanstack React Query - Data fetching and Caching
+- Cloudinary - Media storage bucket
 
 ### Backend
 
@@ -128,3 +132,5 @@ cd backend
 npm run build
 ```
 
+Backend deployed with Railway app
+Frontend deployed with Vercel
