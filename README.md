@@ -165,6 +165,8 @@ cd ../frontend
 npm run dev
 ```
 
+---
+
 ## 🖥  App is now running locally at:
 
 * Frontend: http://localhost:5173
@@ -188,12 +190,15 @@ cd backend
 npm run build
 ```
 
+---
+
 ## 📦 Deployment
 
 * Frontend: Vercel
 
 * Backend: Railway
 
+---
 
 ## 📖 Usage Guide
 
@@ -208,7 +213,8 @@ npm run build
 * View wallet balance and transaction history
 
 * Share your creative work
-  
+
+---
 
 | Name             | Role                 | GitHub Handle                              |
 | ---------------- | -------------------- | ------------------------------------------ |
