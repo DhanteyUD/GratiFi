@@ -55,13 +55,46 @@ A fusion of **gratitude** and **DeFi** — appreciation powered by decentralized
 
 ## 🗂 Project Structure
 
+
+```
 GratiFi/
-
-├── backend/ # Node.js backend (API + DB)
-
-├── frontend/ # React frontend (UI + logic)
-
-
+├── backend/                  # Node.js + Express backend
+│   ├── src/
+│   │   ├── controllers/      # Route handlers
+│   │   ├── middlewares/      # Express middlewares (auth, error handling, etc.)
+│   │   ├── models/           # Prisma schema/models
+│   │   ├── routes/           # API route definitions
+│   │   ├── services/         # Business logic
+│   │   ├── utils/            # Helpers/utilities
+│   │   └── app.ts            # Express app initialization
+│   ├── prisma/
+│   │   └── schema.prisma     # Prisma DB schema
+│   ├── .env                  # Backend environment variables
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── frontend/                 # React + Vite frontend
+│   ├── src/
+│   │   ├── assets/           # Images, videos, Lottie files
+│   │   ├── components/       # Reusable UI components
+│   │   ├── features/         # Feature-based folders (e.g., auth, posts, wallet)
+│   │   ├── hooks/            # Custom hooks
+│   │   ├── pages/            # Route-level pages
+│   │   ├── services/         # API logic (e.g., React Query hooks)
+│   │   ├── types/            # TypeScript types/interfaces
+│   │   ├── utils/            # Utility functions
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/               # Public assets
+│   ├── .env                  # Frontend environment variables
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── README.md
+├── .gitignore
+└── LICENSE
+```
 ---
 
 ## 🚀 Setup & Installation
@@ -96,7 +129,7 @@ Create `.env` files in both `frontend/` and `backend/`.
 
 Backend `.env`:
 
-```env
+```
 PORT=4000
 NODE_ENV=development
 RESEND_API_KEY=
@@ -109,7 +142,7 @@ DATABASE_URL=
 
 Frontend `.env`:
 
-```env
+```
 VITE_API_URL=http://localhost:4000/api/v1
 VITE_RAPIDAPI=
 VITE_CLIENT_ID=
