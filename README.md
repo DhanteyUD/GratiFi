@@ -44,6 +44,7 @@ A fusion of **gratitude** and **DeFi** — appreciation powered by decentralized
 - **Civic Auth** — Web3 authentication
 - **Solana / Web3.js** — Blockchain interaction
 - **TanStack Query** — Data fetching + caching
+- **Resend** - Emailing service
 - **Cloudinary** — Media storage (images/videos)
 
 ### Backend
