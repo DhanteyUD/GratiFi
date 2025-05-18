@@ -77,6 +77,7 @@ body {
   height: 100%;
   font-family: "Outfit", sans-serif;
   scroll-behavior: smooth;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
 a {
@@ -464,6 +465,40 @@ h2,
   }
   90% {
     transform: rotate(2deg);
+  }
+}
+
+.flip-scale-up-ver {
+  -webkit-animation: flip-scale-up-ver 0.5s linear both;
+  animation: flip-scale-up-ver 0.5s linear both;
+}
+
+@-webkit-keyframes flip-scale-up-ver {
+  0% {
+    -webkit-transform: scale(1) rotateY(0);
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateY(90deg);
+    transform: scale(2.5) rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
+  }
+}
+@keyframes flip-scale-up-ver {
+  0% {
+    -webkit-transform: scale(1) rotateY(0);
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateY(90deg);
+    transform: scale(2.5) rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
   }
 }
 

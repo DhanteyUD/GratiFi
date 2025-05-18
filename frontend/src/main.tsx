@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ToastContainer } from "react-toastify";
+import { Buffer } from "buffer";
+import { ThemeProvider } from "./context/ThemeContext.tsx";
+import App from "./App.tsx";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
-import App from "./App.tsx";
-import { Buffer } from "buffer";
 
 if (!window.Buffer) {
   window.Buffer = Buffer;
@@ -12,8 +13,10 @@ if (!window.Buffer) {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
 
-    <ToastContainer />
+      <ToastContainer />
+    </ThemeProvider>
   </StrictMode>
 );
