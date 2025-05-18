@@ -10,7 +10,9 @@ import { showToast } from "@/utils/notification.utils";
 import { SendSolForm } from "./components/SendSolForm";
 import { FetchAllUsers } from "@/hooks/UseFetch";
 import SolChart from "./components/SolChart";
+import moment from "moment";
 import QRCode from "react-qr-code";
+import clsx from "clsx";
 
 type TransferParsed = {
   type: string;
@@ -245,10 +247,12 @@ export default function WalletPage() {
                   const signature =
                     tx?.transaction?.signatures?.[0] || `tx-${idx}`;
                   const blockTime = tx?.blockTime
-                    ? new Date(tx.blockTime * 1000).toLocaleString()
+                    ? moment
+                        .unix(tx?.blockTime)
+                        .format("MMMM Do YYYY, h:mm:ss a")
                     : "N/A";
                   const fee = tx?.meta?.fee
-                    ? (tx.meta.fee / 1e9).toFixed(6)
+                    ? (tx.meta.fee / 1e9).toFixed(9)
                     : "N/A";
                   const status = tx?.meta?.err ? "Failed" : "Success";
                   const statusColor = tx?.meta?.err
@@ -279,20 +283,40 @@ export default function WalletPage() {
                     typeof (transferIx.parsed as TransferParsed).info ===
                       "object";
 
-                  const amount =
-                    hasInfo &&
-                    (transferIx.parsed as TransferParsed).info.lamports
-                      ? `${(
-                          (transferIx.parsed as TransferParsed).info.lamports! /
-                          1e9
-                        ).toFixed(4)} SOL`
-                      : "N/A";
+                  const info = hasInfo
+                    ? (transferIx.parsed as TransferParsed).info
+                    : null;
 
-                  const toAddress =
-                    hasInfo &&
-                    (transferIx.parsed as TransferParsed).info.destination
-                      ? (transferIx.parsed as TransferParsed).info.destination
-                      : "Unknown";
+                  let amount = "N/A";
+                  let toAddress = "Unknown";
+
+                  // Fallback using balances if parsed info is unavailable
+                  if (info?.lamports && info?.destination) {
+                    amount = `${(info.lamports / 1e9).toFixed(4)} SOL`;
+                    toAddress = info.destination;
+                  } else if (tx?.meta?.preBalances && tx?.meta?.postBalances) {
+                    const pre = tx.meta.preBalances;
+                    const post = tx.meta.postBalances;
+
+                    // Find which account received value
+                    const balanceDiffs = pre.map((bal, i) => post[i] - bal);
+                    const gainIndex = balanceDiffs.findIndex(
+                      (diff) => diff > 0
+                    );
+                    const sentLamports = balanceDiffs[gainIndex];
+
+                    if (gainIndex > -1 && sentLamports > 0) {
+                      toAddress =
+                        tx.transaction.message.accountKeys[
+                          gainIndex
+                        ].toString();
+                      amount = `${(sentLamports / 1e9).toFixed(4)} SOL`;
+                    }
+                  }
+
+                  // const sender =
+                  //   tx?.transaction.message.accountKeys[0] || "Unknown";
+                  // const isSelfTransfer = sender === toAddress;
 
                   return (
                     <div
@@ -314,7 +338,7 @@ export default function WalletPage() {
                           href={`https://explorer.solana.com/tx/${signature}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-blue-600 hover:underline text-xs break-all"
+                          className="text-blue-600 hover:underline text-xs break-all font-jetBrains"
                         >
                           {signature.slice(0, 6)}...{signature.slice(-6)}
                         </a>
@@ -323,11 +347,23 @@ export default function WalletPage() {
                       <div className="mt-2 grid grid-cols-2 gap-2 text-sm text-gray-700">
                         <div>
                           <p className="text-gray-500">To</p>
-                          <p className="break-all">{toAddress}</p>
+                          <p className="text-main text-xs break-all font-jetBrains">
+                            {toAddress.slice(0, 6)}...{toAddress.slice(-6)}
+                          </p>
                         </div>
                         <div>
                           <p className="text-gray-500">Amount</p>
-                          <p>{amount}</p>
+                          <p
+                            className={clsx(
+                              "flex items-center",
+                              publicKey?.toString() === toAddress
+                                ? "text-green-600"
+                                : "text-red-600"
+                            )}
+                          >
+                            {publicKey?.toString() === toAddress ? "+" : "-"}
+                            {amount}
+                          </p>
                         </div>
                         <div>
                           <p className="text-gray-500">Fee</p>
