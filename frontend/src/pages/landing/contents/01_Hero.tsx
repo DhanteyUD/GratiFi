@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import Animation from "@/assets/animation/Animation1.lottie";
+// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+// import Animation from "@/assets/animation/Animation1.lottie";
 import fakeMoneyImage from "@/assets/animation/fakemoney-tip.gif";
 import realMoneyImage from "@/assets/animation/realmoney-tip.gif";
 
@@ -28,11 +28,11 @@ function Hero() {
   return (
     <section className="w-full h-screen px-[7.5%] pt-[100px] md:pt-[200px] pb-[50px]">
       <div className="w-full h-full flex flex-col md:flex-row justify-between items-center rounded-[15px] gap-5">
-        <div className="flex md:hidden flex-1 items-center justify-center bounce-in-top">
+        {/* <div className="flex md:hidden flex-1 items-center justify-center bounce-in-top">
           <DotLottieReact src={Animation} autoplay loop />
-        </div>
+        </div> */}
 
-        <div className="h-full flex flex-col flex-1 justify-start md:justify-center items-center md:items-start">
+        <div className="h-full flex flex-col flex-1 justify-center items-center md:items-start">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ function Hero() {
             transition={{ delay: 0.8, duration: 0.5 }}
             onClick={() => navigate("/login")}
             className={`${
-              index === 0 ? "bg-secondary" : "bg-primary"
+              index === 0 ? "bg-secondary dark:bg-primary" : "bg-primary dark:bg-main dark:text-primary"
             } hover:bg-primaryHover transition-all duration-300 text-[14px] md:text-base ease-in-out px-8 py-3 rounded-full text-main font-semibold font-calSans shadow-md w-fit`}
           >
             Start Tipping

@@ -16,8 +16,8 @@ export default defineConfig({
         name: "GratiFi",
         short_name: "GratiFi",
         description: "Send micro-tips with a single click!",
-        theme_color: "#0F0F12",
-        background_color: "#0F0F12",
+        theme_color: "#1A1A1D",
+        background_color: "#1A1A1D",
         icons: [
           {
             src: "/icons/icon-192x192.png",

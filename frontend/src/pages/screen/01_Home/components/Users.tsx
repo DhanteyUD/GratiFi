@@ -1,19 +1,12 @@
 import { useState } from "react";
 import { FetchAllUsers, FetchUserProfile } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
+import type { User } from "@/types";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UsersSkeleton from "./UsersSkeleton";
 
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  picture: string;
-  user_type: string;
-  createdAt: string;
-  updatedAt: string;
-};
+
 
 function Users() {
   const [showAll, setShowAll] = useState(false);

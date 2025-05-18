@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
 import { Search } from "lucide-react";
 import { Tooltip } from "@/components";
+import type { Post } from "@/types";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import Tabs from "./components/Tabs";
@@ -12,25 +13,7 @@ import NewsFeed from "./components/NewsFeed";
 import User from "./components/Users";
 import PostCardSkeleton from "./components/PostCardSkeleton";
 
-type Post = {
-  id: string;
-  text: string;
-  media: string[];
-  audience: "everyone" | "communities" | string;
-  scheduledAt: string | null;
-  createdAt: string;
-  isPublished: boolean;
-  authorId: string;
-  author: {
-    id: string;
-    name: string;
-    email: string;
-    picture: string;
-    user_type: "GratiStar" | "GratiFan" | string;
-    createdAt: string;
-    updatedAt: string;
-  };
-};
+
 
 function Home() {
   const [activeTab, setActiveTab] = useState("For you");
