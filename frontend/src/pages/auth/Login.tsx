@@ -39,7 +39,7 @@ function Login() {
               </div>
 
               <div className="h-full flex flex-col flex-1 justify-start md:justify-center items-center md:items-start slide-in-right">
-                <span className="text-[12px] text-main dark:text-primary uppercase font-calSans tracking-wide mb-4 bg-black/10 dark:bg-white/10 px-4 py-1 rounded-full w-fit">
+                <span className="text-[10px] md:text-[12px] text-main dark:text-primary uppercase font-calSans tracking-wide mb-4 bg-black/10 dark:bg-white/10 px-4 py-1 rounded-full w-fit">
                   Secure Access
                 </span>
 
