@@ -41,7 +41,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   };
 
   return (
-    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 max-w-xl w-full shadow-lg">
+    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 w-full shadow-lg">
       {/* Select User Grid */}
       <div className="grid grid-cols-1 gap-3 mb-6">
         {visibleUsers.map((user) => (
