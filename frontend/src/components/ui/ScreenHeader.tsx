@@ -39,7 +39,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   const { setVisible } = useWalletModal();
-  const { publicKey, disconnect, connected, wallet, connecting } = useWallet();
+  const { publicKey, connected, wallet, connecting } = useWallet();
 
   const civicUser = useMemo(() => {
     try {
@@ -54,7 +54,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
     try {
       if (connected) {
-        await disconnect();
+        navigate("/wallet");
       } else {
         setVisible(true);
       }
