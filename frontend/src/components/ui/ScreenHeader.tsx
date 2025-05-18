@@ -13,7 +13,7 @@ import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import axiosInstance from "@/services/api.service";
-import WalletInfo from "./WalletInfo";
+import WalletInfo from "@/pages/screen/04_Wallet/components/WalletInfo";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
@@ -39,7 +39,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   const { setVisible } = useWalletModal();
-  const { publicKey, disconnect, connected, wallet, connecting } = useWallet();
+  const { publicKey, connected, wallet, connecting } = useWallet();
 
   const civicUser = useMemo(() => {
     try {
@@ -54,7 +54,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
 
     try {
       if (connected) {
-        await disconnect();
+        navigate("/wallet");
       } else {
         setVisible(true);
       }
