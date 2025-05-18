@@ -227,7 +227,7 @@ export default function WalletPage() {
             </div>
           ) : null}
 
-          {!fetchingAllUsers && viewingSendSolForm ? (
+          {!fetchingAllUsers && viewingSendSolForm && connected ? (
             <SendSolForm
               users={allUsers}
               onClose={() => setViewingSendSolForm(false)}
