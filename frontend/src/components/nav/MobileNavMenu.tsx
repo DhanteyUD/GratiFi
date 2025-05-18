@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { Fade as Hamburger } from "hamburger-react";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
+import clsx from "clsx";
 
 interface MenuItem {
   to: string;
@@ -37,8 +38,13 @@ export const MobileNavMenu = ({
           />
         </div>
 
-        <div className="flex items-center bg-dark dark:bg-main rounded-[10px]">
-          {menu.length > 0 && (
+        <div
+          className={clsx(
+            "flex items-center",
+            menu.length ? " bg-dark dark:bg-main rounded-[10px]" : ""
+          )}
+        >
+          {menu.length > 0 ? (
             <Hamburger
               toggle={setIsMenuOpen}
               toggled={isMenuOpen}
@@ -46,6 +52,13 @@ export const MobileNavMenu = ({
               size={20}
               color="#ab9ff2"
             />
+          ) : (
+            <button
+              className="h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out"
+              onClick={() => navigate("/create-account")}
+            >
+              Create Account
+            </button>
           )}
         </div>
       </div>
