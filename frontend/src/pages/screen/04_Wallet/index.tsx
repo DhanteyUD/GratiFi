@@ -7,8 +7,8 @@ import { useSolanaTransactions } from "@/hooks/UseSolanaTransactions";
 import { blockchains } from "@/json";
 import { Copy, Eye, EyeOff, QrCode, Send } from "lucide-react";
 import { showToast } from "@/utils/notification.utils";
-import { SendSolForm } from "./components/SendSolForm";
 import { FetchAllUsers } from "@/hooks/UseFetch";
+import { SendSolSection } from "./components/SendSolSection";
 import SolChart from "./components/SolChart";
 import moment from "moment";
 import QRCode from "react-qr-code";
@@ -229,12 +229,11 @@ export default function WalletPage() {
             </div>
           ) : null}
 
-          {!fetchingAllUsers && viewingSendSolForm && connected ? (
-            <SendSolForm
-              users={allUsers}
-              onClose={() => setViewingSendSolForm(false)}
-            />
-          ) : null}
+          <SendSolSection
+            users={allUsers}
+            isVisible={viewingSendSolForm && connected && !fetchingAllUsers}
+            onClose={() => setViewingSendSolForm(false)}
+          />
 
           {/* Transactions */}
           {chain === "SOL" && txs?.length ? (

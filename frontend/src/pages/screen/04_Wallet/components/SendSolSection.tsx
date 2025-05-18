@@ -1,0 +1,31 @@
+import { SendSolForm } from "./SendSolForm";
+import { X } from "lucide-react";
+import type { User } from "@/types";
+
+type Props = {
+  users: User[];
+  isVisible: boolean;
+  onClose: () => void;
+};
+
+export const SendSolSection = ({ users, isVisible, onClose }: Props) => {
+  if (!isVisible) return null;
+
+  return (
+    <div className="bg-white border border-gray-300 rounded-[10px] p-4 mb-4 w-full transition-all duration-300 animate-in fade-in slide-in-from-bottom-2">
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-primary text-2xl font-bold font-calSans">
+          Send SOL
+        </h1>
+        <button
+          className="text-sm flex justify-center items-center text-gray-500 hover:text-red-500 transition bg-dark p-1 rounded-md h-[40px] w-[40px]"
+          onClick={onClose}
+        >
+          <X size={18} className="text-primary" />
+        </button>
+      </div>
+
+      <SendSolForm users={users} />
+    </div>
+  );
+};
