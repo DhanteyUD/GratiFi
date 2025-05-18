@@ -5,7 +5,7 @@ import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
 import { CustomLoginBtn } from "@/components";
 import Animation from "@/assets/animation/Animation3.lottie";
-import AnimationMobile from "@/assets/animation/Animation4.lottie";
+// import AnimationMobile from "@/assets/animation/Animation4.lottie";
 import OnboardingLayout from "@/layout/OnboardingLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
 
@@ -34,11 +34,11 @@ function Login() {
         >
           <div className="w-screen h-screen px-[7.5%] pt-[100px] md:pt-[150px] pb-[50px] text-white">
             <div className="flex flex-col md:flex-row gap-[10px] justify-between h-full">
-              <div className="flex md:hidden h-[200px] items-center justify-center bounce-in-top mb-5">
+              {/* <div className="flex md:hidden h-[200px] items-center justify-center bounce-in-top mb-5">
                 <DotLottieReact src={AnimationMobile} autoplay loop />
-              </div>
+              </div> */}
 
-              <div className="h-full flex flex-col flex-1 justify-start md:justify-center items-center md:items-start slide-in-right">
+              <div className="h-full flex flex-col flex-1 justify-center items-center md:items-start slide-in-right">
                 <span className="text-[10px] md:text-[12px] text-main dark:text-primary uppercase font-calSans tracking-wide mb-4 bg-black/10 dark:bg-white/10 px-4 py-1 rounded-full w-fit">
                   Secure Access
                 </span>
