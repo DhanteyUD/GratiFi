@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { SolChart, CustomSpinner, Tooltip } from "@/components";
+import { CustomSpinner, Tooltip } from "@/components";
 import { useSolanaBalance } from "@/hooks/UseSolanaBalance";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { useSolanaTransactions } from "@/hooks/UseSolanaTransactions";
 import { blockchains } from "@/json";
 import { Copy, Eye, EyeOff, QrCode, Send } from "lucide-react";
 import { showToast } from "@/utils/notification.utils";
-import { SendSolForm } from "@/components";
+import { SendSolForm } from "./components/SendSolForm";
 import { FetchAllUsers } from "@/hooks/UseFetch";
+import SolChart from "./components/SolChart";
 import QRCode from "react-qr-code";
 
 type TransferParsed = {

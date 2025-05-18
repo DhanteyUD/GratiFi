@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSendSol } from "@/hooks/UseSendSol";
 import { FetchUserProfile } from "@/hooks/UseFetch";
-import UserTypeIcon from "./UserTypeIcon";
+import { UserTypeIcon } from "@/components";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
