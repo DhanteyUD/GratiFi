@@ -11,7 +11,7 @@ A fusion of **gratitude** and **DeFi** — appreciation powered by decentralized
 ![Vercel](https://img.shields.io/badge/frontend-vercel-blue)
 ![Railway](https://img.shields.io/badge/backend-railway-green)
 
-> [ Live Site ](https://grati-fi.vercel.app/login) &nbsp;|&nbsp; [ Demo Video ](https://www.loom.com/share/7e7534b2b43d4a06be6009b53e5bd521?sid=33ea91a5-ec6a-46e4-9e2c-3c840c68dc25)
+> 🌏  [ Live Site ](https://grati-fi.vercel.app/login) &nbsp;|&nbsp; 🎥  [ Demo Video ](https://www.loom.com/share/7e7534b2b43d4a06be6009b53e5bd521?sid=33ea91a5-ec6a-46e4-9e2c-3c840c68dc25)
 
 ---
 
