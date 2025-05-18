@@ -8,7 +8,7 @@ function BaseLayout({ children }: { children: ReactNode }) {
   return (
     <>
       {/* {!md && getAnimatedCursor()} */}
-      <div className="bg-background flex flex-col w-full h-auto">
+      <div className="bg-background dark:bg-dark3 flex flex-col w-full h-auto transition-colors duration-300">
         <div className="relative overflow-hidden flex flex-col items-center w-full h-full">
           {children}
         </div>

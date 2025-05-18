@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { Fade as Hamburger } from "hamburger-react";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
+import clsx from "clsx";
 
 interface MenuItem {
   to: string;
@@ -37,21 +38,37 @@ export const MobileNavMenu = ({
           />
         </div>
 
-        <div className="flex h-10 items-center">
-          {menu.length > 0 && (
+        <div
+          className={clsx(
+            "flex items-center",
+            menu.length ? " bg-dark dark:bg-main rounded-[10px]" : ""
+          )}
+        >
+          {menu.length > 0 ? (
             <Hamburger
               toggle={setIsMenuOpen}
               toggled={isMenuOpen}
               direction="right"
-              size={24}
+              size={20}
+              color="#ab9ff2"
             />
+          ) : (
+            <button
+              className={clsx(
+                "h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out",
+                canSignup ? "block" : "hidden"
+              )}
+              onClick={() => navigate("/create-account")}
+            >
+              Create Account
+            </button>
           )}
         </div>
       </div>
 
       {/* Slide-in menu */}
       {isMenuOpen && (
-        <div className="slide-in-elliptic-top-fwd fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-white p-5">
+        <div className="slide-in-elliptic-top-fwd fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-dark dark:bg-main p-5">
           <div className="flex flex-col items-start gap-2">
             {menu.map((item) => (
               <Link
@@ -61,8 +78,8 @@ export const MobileNavMenu = ({
                 duration={500}
                 className="flex h-10 cursor-pointer items-center justify-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal text-black transition-all duration-300 hover:text-outline"
               >
-                <span className="text-main">{item.icon}</span>
-                <div className="nav_title">{item.label}</div>
+                <span className="text-primary">{item.icon}</span>
+                <div className="nav_title text-primary">{item.label}</div>
               </Link>
             ))}
           </div>
@@ -70,7 +87,7 @@ export const MobileNavMenu = ({
           <div className="flex items-center justify-center gap-[10px]">
             {canLogin && (
               <button
-                className="h-10 min-w-[100px] px-5 border border-main bg-transparent text-sm font-calSans text-main rounded-full"
+                className="h-10 min-w-[100px] px-5 border border-primary bg-transparent text-sm font-calSans text-primary rounded-full"
                 onClick={() => navigate("/login")}
               >
                 Login

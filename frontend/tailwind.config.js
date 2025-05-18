@@ -13,7 +13,7 @@ export default {
         dark: "#0F0F12",
         dark2: "#1C1C20",
         dark3: "#1A1A1D",
-        darkHover: "#414141",
+        darkHover: "#3c315b",
         compulsory: "#ff0000",
       },
       backgroundImage: {
