@@ -59,7 +59,7 @@ export const MobileNavMenu = ({
             <div className="flex gap-4 items-center">
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full border border-primary dark:border-primary hover:bg-main dark:hover:bg-gray-800 h-10 w-10 text-primary dark:text-primary hover:text-white transition-colors duration-300 ease-linear"
+                className="p-2 rounded-full border border-main dark:border-primary hover:bg-main dark:hover:bg-gray-800 h-10 w-10 text-main dark:text-primary hover:text-white transition-colors duration-300 ease-linear"
                 aria-label="Toggle Dark Mode"
               >
                 {theme === "dark" ? (
