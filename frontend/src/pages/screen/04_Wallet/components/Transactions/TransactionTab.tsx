@@ -14,6 +14,18 @@ interface Props {
 
 const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
   const [tab, setTab] = useState<"inbound" | "outbound">("inbound");
+  const [expandedDates, setExpandedDates] = useState<Record<string, boolean>>(
+    () => {
+      const initial: Record<string, boolean> = {};
+      txs.forEach((tx) => {
+        const date = moment(tx.blockTime! * 1000).format("YYYY-MM-DD");
+        if (moment().isSame(date, "day")) {
+          initial[date] = true;
+        }
+      });
+      return initial;
+    }
+  );
 
   if (chain !== "SOL" || !txs?.length) return null;
 
@@ -23,6 +35,13 @@ const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
       ? publicKey.toString() === to
       : publicKey.toString() !== to;
   });
+
+  const toggleDate = (date: string) => {
+    setExpandedDates((prev) => ({
+      ...prev,
+      [date]: !prev[date],
+    }));
+  };
 
   const grouped = groupByDate(filteredTxs);
 
@@ -56,22 +75,51 @@ const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
           <div className="space-y-6">
             {Object.entries(grouped)
               .sort(([a], [b]) => moment(b).diff(moment(a)))
-              .map(([date, txList]) => (
-                <div key={date}>
-                  <p className="text-sm text-gray-500 mb-2">
-                    {formatDate(date)}
-                  </p>
-                  <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-200 cursor-pointer overflow-hidden">
-                    {txList.map((tx) => (
-                      <TransactionItem
-                        key={tx.transaction.signatures[0]}
-                        tx={tx}
-                        publicKey={publicKey}
-                      />
-                    ))}
+              .map(([date, txList]) => {
+                const isOpen = expandedDates[date] ?? false;
+
+                return (
+                  <div key={date}>
+                    {/* <p className="text-sm text-gray-500 mb-2">
+                      {formatDate(date)}
+                    </p> */}
+                    <button
+                      className="flex items-center justify-between w-full text-sm text-gray-500 mb-2 focus:outline-none"
+                      onClick={() => toggleDate(date)}
+                    >
+                      <span>{formatDate(date)}</span>
+                      <svg
+                        className={clsx(
+                          "w-4 h-4 transition-transform duration-200",
+                          isOpen ? "rotate-180" : "rotate-0"
+                        )}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    {isOpen && (
+                      <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-200 overflow-hidden">
+                        {txList.map((tx) => (
+                          <TransactionItem
+                            key={tx.transaction.signatures[0]}
+                            tx={tx}
+                            publicKey={publicKey}
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
         )}
       </div>
