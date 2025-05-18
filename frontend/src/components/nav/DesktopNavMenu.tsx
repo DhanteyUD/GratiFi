@@ -34,7 +34,7 @@ export const DesktopNavMenu = ({
 
   return (
     <div
-      className={`fixed hidden md:flex top-10 z-20 w-[85%] h-[60px] items-center justify-between rounded-full bg-white dark:bg-dark px-4 ${
+      className={`fixed hidden md:flex top-10 z-20 w-[85%] h-[60px] items-center justify-between rounded-full bg-white dark:bg-dark px-4 transition-colors duration-300${
         animateNav ? "jello-horizontal" : ""
       }`}
     >
@@ -63,7 +63,7 @@ export const DesktopNavMenu = ({
               to={item.to}
               smooth
               duration={500}
-              className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-primaryHover dark:bg-transparent border border-transparent dark:hover:border dark:hover:border-primary transition-colors duration-300 ease-linear"
+              className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-primaryHover dark:bg-transparent border border-transparent dark:hover:border dark:hover:border-primary dark:hover:bg-gray-800 transition-colors duration-300 ease-linear"
             >
               <motion.span
                 variants={iconVariants}
