@@ -54,7 +54,10 @@ export const MobileNavMenu = ({
             />
           ) : (
             <button
-              className="h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out"
+              className={clsx(
+                "h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out",
+                canSignup ? "block" : "hidden"
+              )}
               onClick={() => navigate("/create-account")}
             >
               Create Account
