@@ -4,30 +4,27 @@ import { Connection, PublicKey } from "@solana/web3.js";
 
 const fetchTransactions = async (
   connection: Connection,
-  publicKey: PublicKey | null,
-  limit: number
+  publicKey: PublicKey | null
 ) => {
   if (!publicKey) throw new Error("No wallet connected");
 
-  const signatures = await connection.getSignaturesForAddress(publicKey, {
-    limit,
-  });
+  const signatures = await connection.getSignaturesForAddress(publicKey);
   return Promise.all(
     signatures.map((sig) => connection.getTransaction(sig.signature))
   );
 };
 
-export const useSolanaTransactions = (limit = 10) => {
+export const useSolTransactions = () => {
   const { connection } = useConnection();
   const { publicKey } = useWallet();
 
   return useQuery({
-    queryKey: ["solana-transactions", publicKey?.toBase58(), limit],
-    queryFn: () => fetchTransactions(connection, publicKey, limit),
+    queryKey: ["solana-transactions", publicKey?.toBase58()],
+    queryFn: () => fetchTransactions(connection, publicKey),
     enabled: !!publicKey,
   });
 };
 
 // USE CASE:
 
-// queryClient.invalidateQueries({ queryKey: ['solana-transactions', publicKey?.toBase58()], 10 });
+// queryClient.invalidateQueries({ queryKey: ['solana-transactions', publicKey?.toBase58()]});

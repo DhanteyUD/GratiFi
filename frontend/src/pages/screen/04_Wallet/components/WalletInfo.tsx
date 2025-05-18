@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { PublicKey } from "@solana/web3.js";
-import { useSolanaBalance } from "@/hooks/UseSolanaBalance";
+import { useSolBalance } from "@/hooks/UseSolBalance";
 
 interface WalletInfoProps {
   publicKey: PublicKey | null;
@@ -14,7 +14,7 @@ interface WalletInfoProps {
 }
 
 const WalletInfo: FC<WalletInfoProps> = ({ publicKey, wallet, char = 4 }) => {
-  const { data: balance } = useSolanaBalance();
+  const { data: balance } = useSolBalance();
 
   if (!publicKey || !wallet) return null;
 

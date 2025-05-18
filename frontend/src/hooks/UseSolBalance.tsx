@@ -10,7 +10,7 @@ const fetchBalance = async (
   return await connection.getBalance(publicKey);
 };
 
-export const useSolanaBalance = () => {
+export const useSolBalance = () => {
   const { connection } = useConnection();
   const { publicKey } = useWallet();
 
