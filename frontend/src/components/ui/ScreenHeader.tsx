@@ -13,7 +13,7 @@ import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import axiosInstance from "@/services/api.service";
-import WalletInfo from "./WalletInfo";
+import WalletInfo from "@/pages/screen/04_Wallet/components/WalletInfo";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UserTypeIcon from "./UserTypeIcon";
