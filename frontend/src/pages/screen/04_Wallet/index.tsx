@@ -313,8 +313,9 @@ export default function WalletPage() {
                     }
                   }
 
-                  // const sender =
-                  //   tx?.transaction.message.accountKeys[0] || "Unknown";
+                  const sender =
+                    tx?.transaction.message.accountKeys[0].toString() ||
+                    "Unknown";
                   // const isSelfTransfer = sender === toAddress;
 
                   return (
@@ -344,6 +345,13 @@ export default function WalletPage() {
                       </div>
 
                       <div className="mt-2 grid grid-cols-2 gap-2 text-sm text-gray-700">
+                        <div>
+                          <p className="text-gray-500">From</p>
+                          <p className="text-main text-xs break-all font-jetBrains">
+                            {sender.slice(0, 6)}...
+                            {sender.slice(-6)}
+                          </p>
+                        </div>
                         <div>
                           <p className="text-gray-500">To</p>
                           <p className="text-main text-xs break-all font-jetBrains">
