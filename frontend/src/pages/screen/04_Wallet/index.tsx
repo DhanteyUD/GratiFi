@@ -191,6 +191,7 @@ export default function WalletPage() {
             </div>
           </div>
 
+          {/* Receive SOL */}
           {connected && chain === "SOL" && viewingQR ? (
             <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white border border-gray-300 rounded-[10px] p-4 mb-4">
               <div className="flex justify-center mt-2">
@@ -220,12 +221,14 @@ export default function WalletPage() {
             </div>
           ) : null}
 
+          {/* Send SOL */}
           <SendSolSection
             users={allUsers}
             isVisible={viewingSendSolForm && connected && !fetchingAllUsers}
             onClose={() => setViewingSendSolForm(false)}
           />
 
+          {/* Transactions */}
           {chain === "SOL" && txs?.length && publicKey && (
             <TransactionsTab
               txs={txs.filter((tx): tx is TransactionResponse => tx !== null)}

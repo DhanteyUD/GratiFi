@@ -1,9 +1,25 @@
 import moment from "moment";
-import type { TransactionItemData } from "@/types/solana";
+import type { TransactionResponse } from "@solana/web3.js";
 
-export const groupByDate = (txs: TransactionItemData[]) => {
-  return txs.reduce((acc: Record<string, TransactionItemData[]>, tx) => {
-    const date = moment.unix(tx.blockTime).startOf("day").format("YYYY-MM-DD");
+type TransferParsed = {
+  type: "transfer";
+  info: {
+    lamports: number;
+    destination: string;
+  };
+};
+
+type Instruction = {
+  program?: string;
+  parsed?: unknown;
+  [key: string]: unknown;
+};
+
+export const groupByDate = (txs: TransactionResponse[]) => {
+  return txs.reduce((acc: Record<string, TransactionResponse[]>, tx) => {
+    const ts = tx.blockTime ?? 0;
+    const date = moment.unix(ts).startOf("day").format("YYYY-MM-DD");
+
     if (!acc[date]) acc[date] = [];
     acc[date].push(tx);
     return acc;
@@ -18,9 +34,62 @@ export const formatDate = (dateStr: string) => {
   return date.format("MMMM Do, YYYY");
 };
 
-export const getToAddress = (tx: TransactionItemData): string => {
+export const getToAddress = (tx: TransactionResponse): string => {
+  const pre = tx.meta?.preBalances;
+  const post = tx.meta?.postBalances;
+
+  if (!pre || !post) return "Unknown";
+
+  const diffs = pre.map((b, i) => post[i] - b);
+  const gainIndex = diffs.findIndex((diff) => diff > 0);
+
+  if (gainIndex > -1) {
+    return tx.transaction.message.accountKeys[gainIndex].toString();
+  }
+
+  return "Unknown";
+};
+
+export const getTransferAmountAndToAddress = (tx: TransactionResponse) => {
   const transferIx = tx.transaction.message.instructions.find(
-    (ix) => ix.program === "system" && ix.parsed?.type === "transfer"
+    (ix: Instruction) =>
+      ix.program === "system" &&
+      ix.parsed &&
+      (ix.parsed as TransferParsed).type === "transfer"
   );
-  return transferIx?.parsed?.info?.destination || "Unknown";
+
+  if (
+    transferIx &&
+    "parsed" in transferIx &&
+    transferIx.parsed &&
+    typeof transferIx.parsed === "object" &&
+    "info" in transferIx.parsed &&
+    (transferIx.parsed as TransferParsed).info &&
+    typeof (transferIx.parsed as TransferParsed).info === "object"
+  ) {
+    const info = (transferIx.parsed as TransferParsed).info;
+
+    if (info.lamports && info.destination) {
+      return {
+        amount: info.lamports,
+        toAddress: info.destination,
+      };
+    }
+  }
+
+  const pre = tx.meta?.preBalances;
+  const post = tx.meta?.postBalances;
+
+  if (pre && post) {
+    const diffs = pre.map((b, i) => post[i] - b);
+    const gainIndex = diffs.findIndex((diff) => diff > 0);
+    if (gainIndex > -1) {
+      return {
+        amount: diffs[gainIndex],
+        toAddress: tx.transaction.message.accountKeys[gainIndex].toString(),
+      };
+    }
+  }
+
+  return { amount: 0, toAddress: "Unknown" };
 };

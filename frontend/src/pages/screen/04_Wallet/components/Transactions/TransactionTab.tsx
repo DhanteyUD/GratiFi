@@ -38,11 +38,11 @@ const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
               "px-4 py-1 text-sm font-medium rounded-xl transition",
               t === tab
                 ? "bg-white text-main shadow"
-                : "text-gray-500 hover:text-main"
+                : "text-gray-400 hover:text-main"
             )}
             onClick={() => setTab(t as "inbound" | "outbound")}
           >
-            {t === "inbound" ? "Inbound" : "Outbound"}
+            {t === "inbound" ? "Received" : "Sent"}
           </button>
         ))}
       </div>
@@ -53,7 +53,7 @@ const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
           .map(([date, txList]) => (
             <div key={date}>
               <p className="text-sm text-gray-500 mb-2">{formatDate(date)}</p>
-              <div className="bg-white border rounded-xl divide-y">
+              <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-200 cursor-pointer overflow-hidden">
                 {txList.map((tx) => (
                   <TransactionItem
                     key={tx.transaction.signatures[0]}
