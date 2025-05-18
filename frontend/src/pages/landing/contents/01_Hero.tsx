@@ -74,7 +74,7 @@ function Hero() {
             transition={{ delay: 0.8, duration: 0.5 }}
             onClick={() => navigate("/login")}
             className={`${
-              index === 0 ? "bg-secondary" : "bg-primary"
+              index === 0 ? "bg-secondary dark:bg-primary" : "bg-primary dark:bg-main dark:text-primary"
             } hover:bg-primaryHover transition-all duration-300 text-[14px] md:text-base ease-in-out px-8 py-3 rounded-full text-main font-semibold font-calSans shadow-md w-fit`}
           >
             Start Tipping

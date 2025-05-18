@@ -45,7 +45,7 @@ function Login() {
 
                 <h1 className="mb-6 leading-tight text-center md:text-left text-main dark:text-primary text-[35px] md:text-[60px]">
                   Login with Ease, <br />
-                  <span className="text-primary dark:text-main dark:bg-primary font-extrabold">
+                  <span className="text-primary dark:text-secondary font-extrabold">
                     Powered by Civic
                   </span>
                 </h1>
