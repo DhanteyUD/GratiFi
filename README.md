@@ -171,9 +171,9 @@ npm run dev
 
 ## 🖥  App is now running locally at:
 
-* Frontend: http://localhost:5173
+* Frontend: `http://localhost:5173`
 
-* Backend: http://localhost:4000
+* Backend: `http://localhost:4000`
 
   
 ---
@@ -199,9 +199,9 @@ npm run build
 
 ## 📦 Deployment
 
-* Frontend: Vercel
+* Frontend: `Vercel`
 
-* Backend: Railway
+* Backend: `Railway`
 
 ---
 
