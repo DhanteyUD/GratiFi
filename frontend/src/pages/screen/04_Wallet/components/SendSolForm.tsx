@@ -2,31 +2,15 @@ import { useEffect, useState } from "react";
 import { useSendSol } from "@/hooks/UseSendSol";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
+import type { User } from "@/types";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
-type Wallet = {
-  id: string;
-  publicKey: string;
-};
-
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  picture: string;
-  user_type: string;
-  createdAt: string;
-  updatedAt: string;
-  Wallet: Wallet[];
-};
-
 type Props = {
   users: User[];
-  onClose?: () => void;
 };
 
-export const SendSolForm = ({ users: allUsers, onClose }: Props) => {
+export const SendSolForm = ({ users: allUsers }: Props) => {
   const { userProfile } = FetchUserProfile();
   const { mutate: sendSol, isPending, isSuccess, error } = useSendSol();
 
@@ -58,10 +42,6 @@ export const SendSolForm = ({ users: allUsers, onClose }: Props) => {
 
   return (
     <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 max-w-xl w-full shadow-lg">
-      <h1 className="text-2xl font-bold mb-6 font-calSans text-primary">
-        Send SOL
-      </h1>
-
       {/* Select User Grid */}
       <div className="grid grid-cols-1 gap-3 mb-6">
         {visibleUsers.map((user) => (
@@ -144,14 +124,7 @@ export const SendSolForm = ({ users: allUsers, onClose }: Props) => {
       </div>
 
       {/* Send Button */}
-      <div className="flex justify-end gap-3">
-        <button
-          onClick={onClose}
-          disabled={isPending}
-          className="px-6 py-2 rounded-lg bg-gray-600 text-white font-semibold hover:opacity-90 transition disabled:opacity-50"
-        >
-          Close
-        </button>
+      <div className="flex justify-end">
         <button
           onClick={handleSend}
           disabled={isPending}
