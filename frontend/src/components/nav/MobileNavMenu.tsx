@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { Fade as Hamburger } from "hamburger-react";
+import { Sun, Moon } from "lucide-react";
+import { UseThemeContext } from "@/hooks/UseThemeContext";
 import GratiFiLogo from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
 
@@ -21,6 +23,7 @@ export const MobileNavMenu = ({
   canSignup?: boolean;
 }) => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = UseThemeContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -53,15 +56,28 @@ export const MobileNavMenu = ({
               color="#ab9ff2"
             />
           ) : (
-            <button
-              className={clsx(
-                "h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out",
-                canSignup ? "block" : "hidden"
-              )}
-              onClick={() => navigate("/create-account")}
-            >
-              Create Account
-            </button>
+            <div className="flex gap-4 items-center">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full border border-primary dark:border-primary hover:bg-main dark:hover:bg-gray-800 h-10 w-10 text-primary dark:text-primary hover:text-white transition-colors duration-300 ease-linear"
+                aria-label="Toggle Dark Mode"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </button>
+              <button
+                className={clsx(
+                  "h-10 min-w-[120px] px-5 bg-primary hover:bg-primaryHover text-sm font-medium font-calSans text-main rounded-full transition-all duration-300 ease-in-out",
+                  canSignup ? "block" : "hidden"
+                )}
+                onClick={() => navigate("/create-account")}
+              >
+                Create Account
+              </button>
+            </div>
           )}
         </div>
       </div>
@@ -76,7 +92,7 @@ export const MobileNavMenu = ({
                 to={item.to}
                 smooth
                 duration={500}
-                className="flex h-10 cursor-pointer items-center justify-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal text-black transition-all duration-300 hover:text-outline"
+                className="flex h-10 cursor-pointer items-center justify-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal transition-all duration-300 hover:text-outline"
               >
                 <span className="text-primary">{item.icon}</span>
                 <div className="nav_title text-primary">{item.label}</div>
@@ -85,9 +101,20 @@ export const MobileNavMenu = ({
           </div>
 
           <div className="flex items-center justify-center gap-[10px]">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full border border-primary dark:border-primary hover:bg-main dark:hover:bg-gray-800 h-10 w-10 text-primary dark:text-primary hover:text-white transition-colors duration-300 ease-linear"
+              aria-label="Toggle Dark Mode"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
             {canLogin && (
               <button
-                className="h-10 min-w-[100px] px-5 border border-primary bg-transparent text-sm font-calSans text-primary rounded-full"
+                className="h-10 min-w-[100px] px-5 border border-primary bg-transparent hover:bg-main dark:hover:bg-gray-800 text-sm font-calSans text-primary hover:text-white dark:hover:text-primary rounded-full transition-colors duration-300"
                 onClick={() => navigate("/login")}
               >
                 Login
