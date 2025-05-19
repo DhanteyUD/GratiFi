@@ -51,7 +51,7 @@ export default function CustomLoginBtn({
           showToastSuccess(
             message,
             md ? "top-center" : "bottom-right",
-            5000,
+            3000,
             true
           );
         }
