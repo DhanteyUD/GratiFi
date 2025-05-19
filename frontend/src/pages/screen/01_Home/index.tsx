@@ -58,7 +58,7 @@ function Home() {
       </div>
 
       {/* RIGHT COLUMN */}
-      <div className="hidden md:flex w-[40%] flex-col gap-4 overflow-auto pl-5 pr-1 mt-[35px]">
+      <div className="hidden md:flex w-[40%] flex-col gap-4 overflow-auto pl-5 pr-1 mt-[45px]">
         <div
           className={clsx(
             "sticky top-0 flex justify-end z-[2]",
