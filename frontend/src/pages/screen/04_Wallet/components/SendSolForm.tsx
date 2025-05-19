@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useSendSol } from "@/hooks/UseSendSol";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
 import type { User } from "@/types";
+import { showToastInfo } from "@/utils/notification.utils";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
@@ -13,6 +15,8 @@ type Props = {
 export const SendSolForm = ({ users: allUsers }: Props) => {
   const { userProfile } = FetchUserProfile();
   const { mutate: sendSol, isPending, isSuccess, error } = useSendSol();
+
+  const amountInputRef = useRef<HTMLInputElement | null>(null);
 
   const users = allUsers.filter(
     (user) => user.email !== (userProfile as User)?.email
@@ -26,11 +30,38 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   const maxVisibleUsers = 2;
   const visibleUsers = showAllUsers ? users : users.slice(0, maxVisibleUsers);
 
+  const [feedbackMessage, setFeedbackMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
+
   useEffect(() => {
     if (selectedUserId) {
       const user = users.find((u) => u.id === selectedUserId);
       if (user && user.Wallet.length > 0) {
         setRecipient(user.Wallet[0].publicKey);
+      } else {
+        showToastInfo(
+          `${user?.name} has not set up a wallet`,
+          "bottom-center",
+          3000,
+          true
+        );
+      }
+    }
+  }, [selectedUserId, users]);
+
+  useEffect(() => {
+    if (selectedUserId) {
+      const user = users.find((u) => u.id === selectedUserId);
+      if (user && user.Wallet.length > 0) {
+        setRecipient(user.Wallet[0].publicKey);
+        setTimeout(() => {
+          amountInputRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 100);
       }
     }
   }, [selectedUserId, users]);
@@ -40,8 +71,28 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
     sendSol({ destination: recipient, amount });
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      setFeedbackMessage({ type: "success", text: "Transaction successful!" });
+    } else if (error) {
+      setFeedbackMessage({
+        type: "error",
+        text: `Error: ${(error as Error).message}`,
+      });
+    }
+  }, [isSuccess, error]);
+
+  useEffect(() => {
+    if (feedbackMessage) {
+      const timer = setTimeout(() => {
+        setFeedbackMessage(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [feedbackMessage]);
+
   return (
-    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 w-full shadow-lg">
+    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 w-full shadow-lg transition-all duration-300 ease-linear">
       {/* Select User Grid */}
       <div className="grid grid-cols-1 gap-3 mb-6">
         {visibleUsers.map((user) => (
@@ -59,8 +110,18 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
               className="w-10 h-10 rounded-full object-cover border border-gray-700"
             />
             <div className="flex-1">
-              <div className="font-medium text-sm">{user.name}</div>
-              <div className="text-xs text-gray-400">
+              <div className="flex font-medium items-center text-sm gap-2">
+                {user.name}
+                <span
+                  className={clsx(
+                    "rounded-full p-1 text-dark",
+                    helperService.getUserTypeBg(user.user_type)
+                  )}
+                >
+                  <UserTypeIcon userType={user.user_type} size={8} />
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-xs text-gray-400">
                 @{user.email.split("@")[0]}
                 {user.Wallet?.[0]?.publicKey && (
                   <span className="ml-2 text-primary">
@@ -70,15 +131,6 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
                 )}
               </div>
             </div>
-            <span
-              className={clsx(
-                "text-[12px] px-2 py-1 text-dark font-calSans rounded flex gap-1 items-center",
-                helperService.getUserTypeBg(user.user_type)
-              )}
-            >
-              {user.user_type}
-              <UserTypeIcon userType={user.user_type} size={13} />
-            </span>
           </button>
         ))}
       </div>
@@ -94,7 +146,6 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
         </div>
       )}
 
-      {/* Recipient (read-only if selected from list) */}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-1 text-gray-300">
           Recipient Wallet Address
@@ -114,6 +165,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
           Amount (SOL)
         </label>
         <input
+          ref={amountInputRef}
           type="number"
           value={amount}
           onChange={(e) => setAmount(Number(e.target.value))}
@@ -135,14 +187,25 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
       </div>
 
       {/* Feedback */}
-      {isSuccess && (
-        <p className="text-green-500 text-sm mt-4">Transaction successful!</p>
-      )}
-      {error && (
-        <p className="text-red-500 text-sm mt-4">
-          Error: {(error as Error).message}
-        </p>
-      )}
+      <AnimatePresence>
+        {feedbackMessage && (
+          <motion.div
+            key="feedback"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.3 }}
+            className={clsx(
+              "mt-6 px-4 py-3 rounded-lg text-sm font-medium text-center",
+              feedbackMessage.type === "success"
+                ? "bg-green-600/20 text-green-400 border border-green-500"
+                : "bg-red-600/20 text-red-400 border border-red-500"
+            )}
+          >
+            {feedbackMessage.text}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

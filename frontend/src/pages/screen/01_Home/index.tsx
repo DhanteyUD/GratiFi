@@ -13,8 +13,6 @@ import NewsFeed from "./components/NewsFeed";
 import User from "./components/Users";
 import PostCardSkeleton from "./components/PostCardSkeleton";
 
-
-
 function Home() {
   const [activeTab, setActiveTab] = useState("For you");
   const { userProfile } = FetchUserProfile();

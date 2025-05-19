@@ -6,8 +6,6 @@ import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UsersSkeleton from "./UsersSkeleton";
 
-
-
 function Users() {
   const [showAll, setShowAll] = useState(false);
   const { userProfile } = FetchUserProfile();

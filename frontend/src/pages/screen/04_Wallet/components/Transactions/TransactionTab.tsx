@@ -48,22 +48,32 @@ const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
       </div>
 
       <div className="space-y-6">
-        {Object.entries(grouped)
-          .sort(([a], [b]) => moment(b).diff(moment(a)))
-          .map(([date, txList]) => (
-            <div key={date}>
-              <p className="text-sm text-gray-500 mb-2">{formatDate(date)}</p>
-              <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-200 cursor-pointer overflow-hidden">
-                {txList.map((tx) => (
-                  <TransactionItem
-                    key={tx.transaction.signatures[0]}
-                    tx={tx}
-                    publicKey={publicKey}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+        {filteredTxs.length === 0 ? (
+          <div className="text-center text-sm text-gray-500 py-10 border border-gray-300 rounded-xl bg-gray-50">
+            No {tab} transaction
+          </div>
+        ) : (
+          <div className="space-y-6">
+            {Object.entries(grouped)
+              .sort(([a], [b]) => moment(b).diff(moment(a)))
+              .map(([date, txList]) => (
+                <div key={date}>
+                  <p className="text-sm text-gray-500 mb-2">
+                    {formatDate(date)}
+                  </p>
+                  <div className="bg-white border border-gray-300 rounded-[10px] divide-y divide-gray-200 cursor-pointer overflow-hidden">
+                    {txList.map((tx) => (
+                      <TransactionItem
+                        key={tx.transaction.signatures[0]}
+                        tx={tx}
+                        publicKey={publicKey}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+          </div>
+        )}
       </div>
     </div>
   );

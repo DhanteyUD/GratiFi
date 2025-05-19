@@ -7,11 +7,14 @@ import {
   Wallet,
   User,
   LoaderCircle,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import { UseThemeContext } from "@/hooks/UseThemeContext";
 import axiosInstance from "@/services/api.service";
 import WalletInfo from "@/pages/screen/04_Wallet/components/WalletInfo";
 import clsx from "clsx";
@@ -31,6 +34,7 @@ interface ProfileDropdownOption {
 function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = UseThemeContext();
 
   const currentPage = location.pathname.split("/")[1];
   const [notificationCount] = useState(0);
@@ -108,24 +112,24 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   }, [currentPage]);
 
   return (
-    <div className="sticky w-full h-auto flex top-2 md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3]">
-      <div className="flex items-center gap-5 pl-2 md:pl-4">
+    <div className="sticky w-full h-auto flex top-2 md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3] pl-2 md:pl-0">
+      <div className="hidden md:flex items-center gap-5 pl-2 md:pl-4">
         <ChevronLeft
-          className="hidden md:flex w-10 h-10 text-main hover:bg-primary p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
+          className="flex w-10 h-10 text-main hover:bg-primary p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
           onClick={() => (goBack ? goBack() : navigate(-1))}
         />
 
         <h1
           className={clsx(
-            "hidden md:flex text-main font-calSans text-[20px] md:text-[25px] font-[700]"
+            "flex text-main font-calSans text-[20px] md:text-[25px] font-[700]"
           )}
         >
           {helperService.capitalize(currentPage)}
         </h1>
       </div>
 
-      <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-3">
-        <div className="relative flex items-start gap-3">
+      <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-2 md:gap-3">
+        <div className="relative flex items-start gap-2 md:gap-3">
           {/* User profile */}
           <div
             className={clsx(
@@ -144,7 +148,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           <div
             onClick={handleWalletAction}
             className={clsx(
-              "relative group flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
+              "relative group hidden md:flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
               publicKey?.toString().length
                 ? "hidden md:flex gap-3 bg-primary"
                 : "w-10 bg-white"
@@ -173,7 +177,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           {/* Notification */}
           <div
             onClick={() => navigate("/notifications")}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
+            className="relative group hidden md:flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
           >
             <Bell />
             {notificationCount > 0 && (
@@ -185,6 +189,18 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             )}
 
             <Tooltip label="Notification" />
+          </div>
+
+          {/* Dark/Light Mode */}
+          <div
+            onClick={toggleTheme}
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
+          >
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
           </div>
         </div>
 

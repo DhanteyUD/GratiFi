@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import UseScreenSize from "@/hooks/UseScreenSize";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 // import Animation from "@/assets/animation/Animation1.lottie";
 import fakeMoneyImage from "@/assets/animation/fakemoney-tip.gif";
@@ -11,6 +12,7 @@ function Hero() {
   const images = [fakeMoneyImage, realMoneyImage];
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const { md } = UseScreenSize();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,17 +70,32 @@ function Hero() {
             been easier.
           </motion.p>
 
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            onClick={() => navigate("/login")}
-            className={`${
-              index === 0 ? "bg-secondary dark:bg-primary" : "bg-primary dark:bg-main dark:text-primary"
-            } hover:bg-primaryHover transition-all duration-300 text-[14px] md:text-base ease-in-out px-8 py-3 rounded-full text-main font-semibold font-calSans shadow-md w-fit`}
-          >
-            Start Tipping
-          </motion.button>
+          {md ? (
+            <button
+              onClick={() => navigate("/login")}
+              className={`${
+                index === 0
+                  ? "bg-secondary dark:bg-primary"
+                  : "bg-primary dark:bg-main dark:text-primary"
+              } hover:bg-primaryHover transition-all duration-300 text-[14px] md:text-base ease-in-out px-8 py-3 rounded-full text-main font-semibold font-calSans shadow-md w-fit bounce-in-top-delayed`}
+            >
+              Start Tipping
+            </button>
+          ) : (
+            <motion.button
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              onClick={() => navigate("/login")}
+              className={`${
+                index === 0
+                  ? "bg-secondary dark:bg-primary"
+                  : "bg-primary dark:bg-main dark:text-primary"
+              } hover:bg-primaryHover transition-all duration-300 text-[14px] md:text-base ease-in-out px-8 py-3 rounded-full text-main font-semibold font-calSans shadow-md w-fit`}
+            >
+              Start Tipping
+            </motion.button>
+          )}
         </div>
 
         <div className="hidden md:flex flex-1 h-full items-center justify-center bounce-in-top">
