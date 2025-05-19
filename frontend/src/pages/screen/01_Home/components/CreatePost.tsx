@@ -90,7 +90,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
   };
 
   return (
-    <div className="flex p-4 border-b border-gray-300 bg-white">
+    <div className="flex px-2 py-4 md:px-4 md:py-4 border-b border-gray-300 bg-white">
       <img
         src={userAvatar}
         alt="avatar"
@@ -133,7 +133,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
         {/* Textarea Overlay */}
         <div className="relative w-full overflow-auto border-b border-gray-300">
           <div
-            className="absolute top-0 left-0 w-full text-base font-normal break-words whitespace-pre-wrap z-0"
+            className="absolute top-0 left-0 w-full text-[13px] md:text-base font-normal break-words whitespace-pre-wrap z-0"
             aria-hidden="true"
             style={{
               minHeight: "3.5rem",
@@ -148,7 +148,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="What's happening?"
-            className="relative z-[1] text-base w-full resize-none outline-none text-main placeholder-gray-400 bg-transparent"
+            className="relative z-[1] text-[13px] md:text-base w-full resize-none outline-none text-main placeholder-gray-400 bg-transparent"
             style={{
               lineHeight: "1.5",
               backgroundColor: "transparent",
@@ -202,7 +202,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
 
         <div
           className={clsx(
-            "text-right text-sm mt-1",
+            "text-right text-[12px] md:text-sm mt-1",
             overLimit ? "text-red-600" : "text-gray-500"
           )}
         >
@@ -210,7 +210,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
         </div>
 
         {schedule && (
-          <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
+          <p className="text-[12px] md:text-sm text-gray-500 mt-1 flex items-center gap-1">
             <Clock size={16} /> Will send on{" "}
             {moment(schedule.toLocaleString(), "DD/MM/YYYY, HH:mm:ss").format(
               "ddd, MMM D, YYYY [at] h:mm A"
@@ -274,7 +274,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
             }
             onClick={handlePost}
             className={clsx(
-              "bg-primary text-main font-semibold px-5 py-1.5 rounded-full transition",
+              "bg-primary text-[12px] md:text-base text-main font-semibold px-5 py-1.5 rounded-full transition",
               (text.trim() === "" && media.length === 0) ||
                 overLimit ||
                 creatingPost
