@@ -15,6 +15,7 @@ import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { UseThemeContext } from "@/hooks/UseThemeContext";
+import gratifiIcon from "@/assets/image/gratifi-logo.png";
 import axiosInstance from "@/services/api.service";
 import WalletInfo from "@/pages/screen/04_Wallet/components/WalletInfo";
 import clsx from "clsx";
@@ -94,9 +95,11 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
         }
       };
 
-      saveWallet();
+      if (!userProfile.Wallet) {
+        saveWallet();
+      }
     }
-  }, [connected, publicKey, userProfile?.email]);
+  }, [connected, publicKey, userProfile.Wallet, userProfile.email]);
 
   useEffect(() => {
     if (helperService.isEmptyObject(civicUser)) {
@@ -112,7 +115,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   }, [currentPage]);
 
   return (
-    <div className="sticky w-full h-auto flex top-2 md:top-0 items-center justify-start md:justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3] pl-2 md:pl-0">
+    <div className="relative md:sticky w-full h-auto flex top-2 md:top-0 items-center justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3] pl-2 md:pl-0 flex-row-reverse md:flex-row">
       <div className="hidden md:flex items-center gap-5 pl-2 md:pl-4">
         <ChevronLeft
           className="flex w-10 h-10 text-main hover:bg-primary p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
@@ -128,7 +131,26 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
         </h1>
       </div>
 
-      <div className="flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-2 md:gap-3">
+      {/* Mobile Only! */}
+      <div className="flex md:hidden justify-between items-center w-full">
+        {!fetchingUserProfile && !helperService.isEmptyObject(userProfile) ? (
+          <div onClick={() => navigate("/profile")} className="w-[50px]">
+            <img
+              src={userProfile.picture}
+              alt={userProfile.name}
+              className="w-[40px] h-[40px] rounded-full"
+            />
+          </div>
+        ) : null}
+
+        <div className="flex-1 flex justify-center">
+          <img src={gratifiIcon} alt="GratiFi" className="w-[50px] h-[50px]" />
+        </div>
+
+        <div className="w-[50px]" />
+      </div>
+
+      <div className="hidden md:flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-2 md:gap-3">
         <div className="relative flex items-start gap-2 md:gap-3">
           {/* User profile */}
           <div
@@ -148,7 +170,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           <div
             onClick={handleWalletAction}
             className={clsx(
-              "relative group hidden md:flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
+              "relative group flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
               publicKey?.toString().length
                 ? "hidden md:flex gap-3 bg-primary"
                 : "w-10 bg-white"
@@ -159,7 +181,10 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             ) : wallet ? (
               <WalletInfo publicKey={publicKey} wallet={wallet} />
             ) : (
-              <Wallet size={publicKey?.toString().length ? 18 : undefined} />
+              <Wallet
+                size={publicKey?.toString().length ? 18 : undefined}
+                className="text-main"
+              />
             )}
 
             <Tooltip
@@ -177,9 +202,9 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           {/* Notification */}
           <div
             onClick={() => navigate("/notifications")}
-            className="relative group hidden md:flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
           >
-            <Bell />
+            <Bell className="text-main" />
             {notificationCount > 0 && (
               <div className="absolute min-w-[15px] h-[15px] bg-compulsory rounded-full flex items-center justify-center -top-1 right-0 p-1">
                 <p className="text-white text-[9px] font-semibold">
@@ -194,12 +219,12 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           {/* Dark/Light Mode */}
           <div
             onClick={toggleTheme}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-gray-300 md:border-primary"
           >
             {theme === "dark" ? (
-              <Sun className="w-5 h-5" />
+              <Sun className="w-5 h-5 text-main" />
             ) : (
-              <Moon className="w-5 h-5" />
+              <Moon className="w-5 h-5 text-main" />
             )}
           </div>
         </div>
@@ -214,7 +239,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             <div
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
-                "group bg-white text-main h-[50px] border flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-primary hover:bg-primaryHover transition-colors duration-300 ease-in-out",
+                "group bg-white text-main h-[50px] border hidden md:flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-gray-300 md:border-primary hover:bg-primaryHover transition-colors duration-300 ease-in-out",
                 showProfileDropdown
                   ? "rounded-[10px_25px_0_0] md:rounded-[25px_10px_0_0]"
                   : "rounded-full"
