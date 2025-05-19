@@ -24,18 +24,10 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
   const { userProfile } = FetchUserProfile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { publicKey, disconnect, connected } = useWallet();
+  const { publicKey } = useWallet();
 
   const handleWalletAction = async () => {
-    try {
-      if (!connected) {
-        navigate("/wallet");
-      } else {
-        await disconnect();
-      }
-    } catch (error) {
-      console.error("Wallet connection error:", error);
-    }
+    navigate("/wallet");
   };
 
   const handleMenuAction = (name: string, path?: string): void => {
@@ -45,7 +37,7 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
       navigate("/");
     } else if (path) {
-      navigate(`/${path}`);
+      navigate(path);
     }
   };
 
@@ -65,32 +57,31 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
       {isMenuOpen && (
         <div className="fixed items-start top-[70px] left-[0.5rem] w-[96%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
-          <div className="flex justify-end w-full gap-4 mb-5">
+          <div className="flex justify-end w-full gap-2 mb-5 b">
             <div
               onClick={handleWalletAction}
               className={clsx(
-                "relative group justify-center items-center h-10 cursor-pointer w-full rounded-full animated_cursor bg-white border border-primary",
+                "relative group justify-center items-center cursor-pointer rounded-full animated_cursor bg-white border border-primary",
                 publicKey?.toString().length
-                  ? "flex md:hidden gap-3 px-[5px] py-[10x]"
+                  ? "flex md:hidden gap-3 px-[20px]"
                   : "hidden"
               )}
             >
               <Wallet size={publicKey?.toString().length ? 18 : undefined} />
 
               {publicKey?.toString().length && (
-                <p className="text-sm font-jetBrains text-gray-600 group-hover:text-main truncate w-auto">
+                <p className="text-[12px] font-jetBrains text-gray-600 group-hover:text-main truncate w-auto">
                   {helperService.shortWalletAddress(publicKey.toString(), 10)}
                 </p>
               )}
             </div>
             <div
               className={clsx(
-                "gap-2 justify-center items-center text-main font-calSans h-10 w-auto px-5 rounded-full",
+                "justify-center items-center text-main rounded-full h-10 w-10",
                 helperService.getUserTypeBg(userProfile?.user_type),
                 helperService.isEmptyObject(userProfile) ? "hidden" : "flex"
               )}
             >
-              <p>{userProfile?.user_type}</p>
               <UserTypeIcon userType={userProfile?.user_type} size={18} />
             </div>
           </div>
