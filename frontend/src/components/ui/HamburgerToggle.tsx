@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
 import { moreMenuItems } from "@/routes/path";
 import { FetchUserProfile } from "@/hooks/UseFetch";
-import { Wallet } from "lucide-react";
+import { Wallet, Sun, Moon } from "lucide-react";
 import { useWallet } from "@solana/wallet-adapter-react";
+import { UseThemeContext } from "@/hooks/UseThemeContext";
 import UserTypeIcon from "./UserTypeIcon";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
@@ -21,6 +22,7 @@ interface HamburgerToggleProps {
 
 export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = UseThemeContext();
   const { userProfile } = FetchUserProfile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -57,7 +59,7 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
       {isMenuOpen && (
         <div className="fixed items-start top-[70px] left-[0.5rem] w-[96%] max-h-[80vh] bg-[#2a2a2a] p-5 rounded-[10px] z-[100] flex flex-col gap-4 slide-in-elliptic-top-fwd overflow-auto">
-          <div className="flex justify-end w-full gap-2 mb-5 b">
+          <div className="flex justify-end w-full gap-3 mb-5 b">
             <div
               onClick={handleWalletAction}
               className={clsx(
@@ -83,6 +85,16 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
               )}
             >
               <UserTypeIcon userType={userProfile?.user_type} size={18} />
+            </div>
+            <div
+              onClick={toggleTheme}
+              className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-gray-300 md:border-primary"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5 text-main" />
+              ) : (
+                <Moon className="w-5 h-5 text-main" />
+              )}
             </div>
           </div>
 
