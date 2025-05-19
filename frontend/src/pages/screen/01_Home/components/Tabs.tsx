@@ -14,14 +14,18 @@ export default function Tabs({ activeTab, onTabChange }: TabsProps) {
         <button
           key={tab}
           onClick={() => onTabChange(tab)}
-          className={clsx(
-            "p-1 text-center text-[13px] md:text-base font-medium transition-colors duration-300",
-            activeTab === tab
-              ? "border-b-4 border-primary text-main"
-              : "border-b-4 border-transparent text-gray-400 hover:text-primary"
-          )}
+          className="flex group justify-center md:hover:bg-primaryHover/50 w-full"
         >
-          {tab}
+          <p
+            className={clsx(
+              "p-1 md:pt-3 text-[14px] md:text-base font-medium transition-colors duration-300",
+              activeTab === tab
+                ? "border-b-4 border-primary text-main w-full md:w-auto font-calSans"
+                : "border-b-4 border-transparent text-gray-400 md:group-hover:text-primary"
+            )}
+          >
+            {tab}
+          </p>
         </button>
       ))}
     </div>
