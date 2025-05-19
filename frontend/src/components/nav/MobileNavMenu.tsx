@@ -44,7 +44,7 @@ export const MobileNavMenu = ({
         <div
           className={clsx(
             "flex items-center",
-            menu.length ? " bg-dark dark:bg-main rounded-[10px]" : ""
+            menu.length ? " bg-primaryHover dark:bg-main rounded-[10px]" : ""
           )}
         >
           {menu.length > 0 ? (
@@ -53,7 +53,7 @@ export const MobileNavMenu = ({
               toggled={isMenuOpen}
               direction="right"
               size={20}
-              color="#ab9ff2"
+              color={theme === "dark" ? "#ab9ff2" : "#3c315b"}
             />
           ) : (
             <div className="flex gap-4 items-center">
@@ -84,7 +84,7 @@ export const MobileNavMenu = ({
 
       {/* Slide-in menu */}
       {isMenuOpen && (
-        <div className="slide-in-elliptic-top-fwd fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-dark dark:bg-main p-5">
+        <div className="slide-in-elliptic-top-fwd fixed top-[90px] z-[100] flex w-[95%] flex-col gap-6 rounded-[10px] bg-primaryHover dark:bg-main p-5">
           <div className="flex flex-col items-start gap-2">
             {menu.map((item) => (
               <Link
@@ -94,8 +94,10 @@ export const MobileNavMenu = ({
                 duration={500}
                 className="flex h-10 cursor-pointer items-center justify-center gap-3 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal transition-all duration-300 hover:text-outline"
               >
-                <span className="text-primary">{item.icon}</span>
-                <div className="nav_title text-primary">{item.label}</div>
+                <span className="text-main dark:text-primary">{item.icon}</span>
+                <div className="nav_title text-main dark:text-primary">
+                  {item.label}
+                </div>
               </Link>
             ))}
           </div>
@@ -103,7 +105,7 @@ export const MobileNavMenu = ({
           <div className="flex items-center justify-center gap-[10px]">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full border border-primary dark:border-primary hover:bg-main dark:hover:bg-gray-800 h-10 w-10 text-primary dark:text-primary hover:text-white transition-colors duration-300 ease-linear"
+              className="p-2 rounded-full border border-main dark:border-primary hover:bg-main dark:hover:bg-gray-800 h-10 w-10 text-main dark:text-primary hover:text-white transition-colors duration-300 ease-linear"
               aria-label="Toggle Dark Mode"
             >
               {theme === "dark" ? (
@@ -114,7 +116,7 @@ export const MobileNavMenu = ({
             </button>
             {canLogin && (
               <button
-                className="h-10 min-w-[100px] px-5 border border-primary bg-transparent hover:bg-main dark:hover:bg-gray-800 text-sm font-calSans text-primary hover:text-white dark:hover:text-primary rounded-full transition-colors duration-300"
+                className="h-10 min-w-[100px] px-5 border border-main dark:border-primary bg-transparent hover:bg-main dark:hover:bg-gray-800 text-sm font-calSans text-main dark:text-primary hover:text-white dark:hover:text-primary rounded-full transition-colors duration-300"
                 onClick={() => navigate("/login")}
               >
                 Login
