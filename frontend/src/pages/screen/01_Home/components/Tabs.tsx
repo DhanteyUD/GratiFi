@@ -15,7 +15,7 @@ export default function Tabs({ activeTab, onTabChange }: TabsProps) {
           key={tab}
           onClick={() => onTabChange(tab)}
           className={clsx(
-            "p-1 text-center text-md font-medium transition-colors duration-300",
+            "p-1 text-center text-[13px] md:text-base font-medium transition-colors duration-300",
             activeTab === tab
               ? "border-b-4 border-primary text-main"
               : "border-b-4 border-transparent text-gray-400 hover:text-primary"

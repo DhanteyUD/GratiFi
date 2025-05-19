@@ -34,7 +34,7 @@ export const DesktopNavMenu = ({
 
   return (
     <div
-      className={`fixed hidden md:flex top-10 z-20 w-[85%] h-[60px] items-center justify-between rounded-full bg-white dark:bg-dark px-4 transition-colors duration-300${
+      className={`fixed hidden md:flex top-10 z-20 w-[85%] h-[60px] items-center justify-between rounded-full bg-white dark:bg-dark px-4 transition-colors duration-300 ${
         animateNav ? "jello-horizontal" : ""
       }`}
     >

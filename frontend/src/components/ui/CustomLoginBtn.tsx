@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { configKeys } from "@/config";
 import { showToastSuccess, showToastError } from "@/utils/notification.utils";
 import { CustomSpinner } from "@/components";
+import { UseThemeContext } from "@/hooks/UseThemeContext";
 import UseScreenSize from "@/hooks/UseScreenSize";
 import axios from "axios";
 import storageService from "@/services/storage.service";
@@ -18,6 +19,7 @@ export default function CustomLoginBtn({
   const navigate = useNavigate();
   const { signIn } = useUser();
   const { md } = UseScreenSize();
+  const { theme } = UseThemeContext();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = useCallback(async () => {
@@ -51,7 +53,7 @@ export default function CustomLoginBtn({
           showToastSuccess(
             message,
             md ? "top-center" : "bottom-right",
-            5000,
+            3000,
             true
           );
         }
@@ -64,7 +66,8 @@ export default function CustomLoginBtn({
       }>;
 
       showToastError(
-        axiosError?.response?.data?.message || "Uh-oh! GratiFi’s feeling shy. Retry?"
+        axiosError?.response?.data?.message ||
+          "Uh-oh! GratiFi’s feeling shy. Retry?"
       );
     } finally {
       setLoading(false);
@@ -74,7 +77,11 @@ export default function CustomLoginBtn({
 
   return (
     <button disabled={loading} className={className} onClick={handleLogin}>
-      {loading ? <CustomSpinner theme="#3c315b" /> : children}
+      {loading ? (
+        <CustomSpinner theme={theme === "dark" ? "#ab9ff2" : "#3c315b"} />
+      ) : (
+        children
+      )}
     </button>
   );
 }

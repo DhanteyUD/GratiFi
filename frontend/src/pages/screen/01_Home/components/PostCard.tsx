@@ -65,19 +65,44 @@ export default function PostCard({
           />
           <div className="flex-1">
             {/* Header */}
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-[12px] md:text-[14px]">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-main">{authorName}</span>
+                <span>
+                  <span className="flex items-center gap-1">
+                    <span className=" font-bold text-main">{authorName}</span>
+                    <span
+                      className={clsx(
+                        "flex md:hidden ml-1 rounded-full p-1",
+                        helperService.getUserTypeBg(userType)
+                      )}
+                    >
+                      <UserTypeIcon userType={userType} size={8} />
+                    </span>
+                    <span className="flex md:hidden text-gray-500">
+                      <Dot size={15} />
+                    </span>
+                    <span className="flex md:hidden text-gray-500 text-[11px]">
+                      {timeStamp}
+                    </span>
+                  </span>
+                  <span className="flex md:hidden text-gray-500">
+                    @{authorUsername}
+                  </span>
+                </span>
                 <span
                   className={clsx(
-                    "rounded-full p-1",
+                    "hidden md:flex rounded-full p-1",
                     helperService.getUserTypeBg(userType)
                   )}
                 >
                   <UserTypeIcon userType={userType} size={8} />
                 </span>
-                <span className="text-gray-500 flex items-center">
-                  @{authorUsername} <Dot size={15} /> {timeStamp}
+                <span className="flex text-gray-500 items-center">
+                  <span className="hidden md:flex">@{authorUsername}</span>
+                  <span className="hidden md:flex">
+                    <Dot size={15} />
+                  </span>
+                  <span className="hidden md:flex">{timeStamp}</span>
                 </span>
               </div>
               <button className="cursor-not-allowed text-gray-400">
@@ -86,7 +111,9 @@ export default function PostCard({
             </div>
 
             {/* Content */}
-            <p className="text-sm mt-1 mb-2 text-main">{content}</p>
+            <p className="text-[12px] md:text-sm mt-1 mb-2 text-main">
+              {content}
+            </p>
 
             {/* Media Grid */}
             {media.length > 0 && (
@@ -95,7 +122,7 @@ export default function PostCard({
                   className={clsx(
                     "mt-2 grid gap-[2px] rounded-[20px] overflow-hidden",
                     media.length === 1 && "grid-cols-1",
-                    media.length === 2 && "grid-cols-2 h-[400px]",
+                    media.length === 2 && "grid-cols-2 h-[200px] md:h-[350px]",
                     media.length === 3 && "grid-cols-2 grid-rows-2",
                     media.length >= 4 && "grid-cols-2 grid-rows-2"
                   )}

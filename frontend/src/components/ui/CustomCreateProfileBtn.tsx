@@ -51,7 +51,7 @@ export default function CustomCreateAccountBtn({
           showToastSuccess(
             "Profile created successfully!",
             md ? "top-center" : "bottom-right",
-            5000,
+            3000,
             true
           );
 
