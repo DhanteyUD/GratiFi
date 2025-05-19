@@ -13,8 +13,8 @@ function ScreenFallback({ message, subText }: ScreenFallbackProps) {
         <div className="hidden md:flex flex-1 h-full items-center justify-center mb-5">
           <DotLottieReact src={Animation} autoplay loop />
         </div>
-        <h1 className="text-center text-[20px] font-calSans text-main">{message}</h1>
-        <p className="text-main italic">{subText}</p>
+        <h1 className="text-center text-[14px] md:text-[20px] font-calSans text-main">{message}</h1>
+        <p className="text-main italic text-[12px] md:text-base">{subText}</p>
       </div>
     </div>
   );
