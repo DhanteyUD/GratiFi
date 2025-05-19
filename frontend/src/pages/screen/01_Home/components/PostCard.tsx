@@ -111,7 +111,7 @@ export default function PostCard({
             </div>
 
             {/* Content */}
-            <p className="text-[12px] md:text-sm mt-1 mb-2 text-main">
+            <p className="text-[12px] md:text-sm mt-5 md:mt-3 mb-2 text-main">
               {content}
             </p>
 
