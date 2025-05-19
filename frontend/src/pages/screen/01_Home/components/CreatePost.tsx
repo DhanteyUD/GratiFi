@@ -102,7 +102,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
         <div className="relative mb-5">
           <button
             onClick={() => setShowAudienceMenu((prev) => !prev)}
-            className="flex items-center gap-1 text-sm text-primary font-medium px-3 py-1 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+            className="flex items-center gap-1 text-[12px] md:text-[14px] text-primary font-medium px-3 py-1 rounded-full border border-gray-300 hover:bg-gray-100 transition"
           >
             {selectedAudience.label}
             <ChevronDown size={16} className={clsx(showAudienceMenu ? "-scale-y-[1] transition-all" : "")} />
@@ -110,7 +110,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
 
           {showAudienceMenu && (
             <div className="absolute mt-1 bg-white border border-gray-200 rounded-md shadow-md z-10 w-48 py-2 text-main">
-              <ul className="text-sm">
+              <ul className="text-[12px] md:text-[14px]">
                 {audienceOptions.map((option) => (
                   <li key={option.value}>
                     <button
