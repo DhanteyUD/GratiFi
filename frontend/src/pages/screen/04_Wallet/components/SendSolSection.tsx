@@ -12,7 +12,7 @@ export const SendSolSection = ({ users, isVisible, onClose }: Props) => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-white border border-gray-300 rounded-[10px] p-4 mb-4 w-full transition-all duration-300 slit-in-horizontal">
+    <div className="bg-white border border-gray-300 rounded-[10px] p-4 mx-2 md:mx-0 mt-2 md:mt-0 mb-2 md:mb-4 transition-all duration-300 slit-in-horizontal">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-primary text-2xl font-bold font-calSans">
           Send SOL

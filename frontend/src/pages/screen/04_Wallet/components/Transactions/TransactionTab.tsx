@@ -27,15 +27,15 @@ const TransactionsTab: React.FC<Props> = ({ txs, publicKey, chain }) => {
   const grouped = groupByDate(filteredTxs);
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 p-2 md:p-0">
       <p className="text-xl font-calSans text-main mb-4">Transactions</p>
 
-      <div className="flex space-x-2 mb-4 border rounded-xl p-1 bg-gray-100 w-max">
+      <div className="flex space-x-2 mb-5 border rounded-xl p-1 bg-gray-100 md:w-max">
         {["inbound", "outbound"].map((t) => (
           <button
             key={t}
             className={clsx(
-              "px-4 py-1 text-sm font-medium rounded-xl transition",
+              "px-4 py-1 text-sm font-medium rounded-xl transition flex-1 md:flex-auto",
               t === tab
                 ? "bg-white text-main shadow"
                 : "text-gray-400 hover:text-main"
