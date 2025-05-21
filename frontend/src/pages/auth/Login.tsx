@@ -4,13 +4,16 @@ import { motion, useInView } from "framer-motion";
 import { CivicAuthProvider } from "@civic/auth/react";
 import { configKeys } from "@/config";
 import { CustomLoginBtn } from "@/components";
+import { UseThemeContext } from "@/hooks/UseThemeContext";
 import Animation from "@/assets/animation/Animation3.lottie";
 // import AnimationMobile from "@/assets/animation/Animation4.lottie";
 import OnboardingLayout from "@/layout/OnboardingLayout";
 import civicAuthLogo from "@/assets/image/civic-logo.png";
+import civicAuthLogoDark from "@/assets/image/civic-orange.webp";
 
 function Login() {
   const ref = useRef(null);
+  const { theme } = UseThemeContext();
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const variants = {
@@ -67,14 +70,14 @@ function Login() {
               </div>
             </div>
             <div className="flex justify-center items-center gap-[10px]">
-              <div className="flex justify-center items-center gap-[10px] dark:bg-white/40 px-5 py-1">
-                <p className="text-[13px] md:text-base text-main dark:text-dark">
+              <div className="flex justify-center items-center gap-[10px] px-2 h-[40px]">
+                <p className="text-[13px] md:text-base text-main dark:text-white">
                   Powered by
                 </p>
                 <img
-                  src={civicAuthLogo}
+                  src={theme === "dark" ? civicAuthLogoDark : civicAuthLogo}
                   alt="Civic Logo"
-                  className="h-[20px] md:h-[30px]"
+                  className="h-[20px] md:h-[30px] dark:h-[30px] dark:md:h-[40px] transition-all duration-500 ease-in-out"
                 />
               </div>
             </div>

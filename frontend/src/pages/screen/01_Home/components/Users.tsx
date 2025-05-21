@@ -53,7 +53,7 @@ function Users() {
                     </span>
                   </div>
                   <p className="text-gray-500 text-[14px]">
-                    @{user.email.split("@"[0])}
+                    @{user.email.split("@")[0]}
                   </p>
                 </div>
               </div>
