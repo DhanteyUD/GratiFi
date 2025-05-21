@@ -4,7 +4,7 @@ import { useSendSol } from "@/hooks/UseSendSol";
 import { FetchUserProfile } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
 import type { User } from "@/types";
-import { showToastInfo } from "@/utils/notification.utils";
+import { showToastInfo, showToastWarning } from "@/utils/notification.utils";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
 
@@ -68,6 +68,17 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
 
   const handleSend = () => {
     if (!recipient || !amount) return;
+    if (userProfile.Wallet[0]?.publicKey === recipient) {
+      showToastWarning(
+        "You cannot send SOL token to yourself",
+        "bottom-center",
+        3000,
+        true
+      );
+
+      return;
+    }
+
     sendSol({ destination: recipient, amount });
   };
 
@@ -92,7 +103,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   }, [feedbackMessage]);
 
   return (
-    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-6 w-full shadow-lg transition-all duration-300 ease-linear">
+    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-4 md:p-6 w-full shadow-lg transition-all duration-300 ease-linear">
       {/* Select User Grid */}
       <div className="grid grid-cols-1 gap-3 mb-6">
         {visibleUsers.map((user) => (
