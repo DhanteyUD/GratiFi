@@ -22,15 +22,15 @@ function Users() {
       {fetchingAllUsers ? (
         <UsersSkeleton />
       ) : (
-        <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-2">
-          <h1 className="text-[20px] font-calSans font-[600] text-main mb-2">
+        <div className="flex flex-col items-start border border-gray-300 dark:border-gray-600 p-4 rounded-xl bg-white/50 dark:bg-dark3/50 h-auto gap-2">
+          <h1 className="text-[20px] font-calSans font-[600] text-main dark:text-primary mb-2">
             Who to follow
           </h1>
 
           {itemsToShow.map((user: User) => (
             <div
               key={user.id}
-              className="flex justify-between items-center w-full hover:bg-primaryHover/50 cursor-pointer p-2 rounded-md"
+              className="flex justify-between items-center w-full hover:bg-primaryHover/50 dark:hover:bg-main/20 cursor-pointer p-2 rounded-md"
             >
               <div className="flex items-center gap-2">
                 <img
@@ -40,7 +40,7 @@ function Users() {
                 />
                 <div className="flex flex-col leading-4 justify-center">
                   <div className="flex items-center gap-2">
-                    <h1 className="font-bold text-main text-[15px]">
+                    <h1 className="font-bold text-main dark:text-primary/80 text-[15px]">
                       {user.name}
                     </h1>
                     <span
@@ -58,7 +58,7 @@ function Users() {
                 </div>
               </div>
 
-              <button className="bg-main hover:bg-primary text-white font-semibold px-5 py-1.5 text-[13px] rounded-full transition-all duration-300 ease-in-out cursor-not-allowed">
+              <button className="bg-main dark:bg-main/50 hover:bg-primary dark:hover:bg-main/50 text-white dark:text-primary font-semibold px-5 py-1.5 text-[13px] rounded-full transition-all duration-300 ease-in-out cursor-not-allowed">
                 Follow
               </button>
             </div>
