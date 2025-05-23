@@ -1,6 +1,6 @@
 export default function PostCardSkeleton() {
   return (
-    <div className="p-2 md:p-4 border-b bg-gray-300 dark:bg-main/50  hover:bg-primaryHover/50 dark:hover:bg-main/80 cursor-wait animate-pulse">
+    <div className="p-2 md:p-4 border-b bg-gray-300 dark:bg-main/50 bg-primaryHover/50 cursor-wait animate-pulse">
       <div className="flex gap-2 md:gap-3">
         {/* Avatar */}
         <div className="w-8 md:w-10 h-8 md:h-10 shrink-0 rounded-full bg-gray-300 dark:bg-main/50" />
