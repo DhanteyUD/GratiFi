@@ -225,16 +225,22 @@ export default function WalletPage() {
                 </p>
               </div>
 
-              <div className="flex items-center justify-center gap-4 py-2 px-4  bg-black/60 rounded-full">
-                <p className="text-[11px] md:text-[13px] break-all text-white text-center font-jetBrains">
-                  {publicKey ? publicKey.toString() : null}
-                </p>
+              <div onClick={handleCopy} className="flex flex-col items-center">
+                <div className="flex items-center justify-center gap-4 py-2 px-4  bg-black/60 rounded-full">
+                  <p className="text-[10px] md:text-[13px] break-all text-white text-center font-jetBrains">
+                    {publicKey ? publicKey.toString() : null}
+                  </p>
 
-                <Copy
-                  size={18}
-                  onClick={handleCopy}
-                  className="text-white cursor-pointer hover:text-secondary transition-colors duration-300 ease-linear"
-                />
+                  <Copy
+                    size={18}
+                    onClick={handleCopy}
+                    className="hidden md:flex text-white cursor-pointer hover:text-secondary transition-colors duration-300 ease-linear"
+                  />
+                </div>
+
+                <p className="block md:hidden text-primary text-[12px]">
+                  Click on address to copy
+                </p>
               </div>
             </div>
           ) : null}

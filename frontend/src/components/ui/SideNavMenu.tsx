@@ -78,9 +78,9 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
                 <React.Fragment key={index}>
                   <div
                     className={clsx(
-                      "relative group flex items-center justify-center gap-5 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main",
+                      "relative group flex items-center justify-center gap-5 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main dark:text-primary hover:bg-primaryHover/50 dark:hover:bg-darkHover/50 hover:text-main",
                       isActive &&
-                        "font-[700] bg-primaryHover text-main hover:!bg-primaryHover hover:text-main"
+                        "font-[700] bg-primaryHover dark:bg-main text-main hover:!bg-primaryHover dark:hover:!bg-main hover:text-main"
                     )}
                     onClick={() => {
                       setParentIndex(index);
@@ -150,9 +150,9 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
           : null}
       </div>
 
-      <div className="bg-white sticky bottom-0 flex flex-col gap-4 p-2 border-t border-primary">
+      <div className="bg-white dark:bg-dark3 sticky bottom-0 flex flex-col gap-4 p-2 border-t border-primary dark:border-primary/50">
         <div
-          className="flex items-center justify-center gap-3 w-full !h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
+          className="flex items-center justify-center gap-3 w-full !h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main dark:text-primary hover:bg-primaryHover/50 dark:hover:bg-main/50 hover:text-main dark:hover:text-primary"
           onClick={() => setShowMore((prev) => !prev)}
         >
           <ChevronDown
@@ -192,7 +192,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
               return (
                 <div
                   key={index}
-                  className="relative group flex items-center justify-center gap-3 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main hover:bg-primaryHover/50 hover:text-main"
+                  className="relative group flex items-center justify-center gap-3 w-full h-[45px] cursor-pointer animated_cursor transition-all duration-300 ease-in-out rounded-full text-main dark:text-primary hover:bg-primaryHover/50 dark:hover:bg-main/50 hover:text-main dark:hover:text-primary"
                   onClick={() => handleAction(item.name)}
                 >
                   <item.icon
