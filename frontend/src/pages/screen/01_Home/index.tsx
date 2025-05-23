@@ -10,7 +10,7 @@ import CreatePost from "./components/CreatePost";
 import PostCard from "./components/PostCard";
 import SubscribePremium from "./components/SubscribePremium";
 import NewsFeed from "./components/NewsFeed";
-import User from "./components/Users";
+import Users from "./components/Users";
 import PostCardSkeleton from "./components/PostCardSkeleton";
 
 function Home() {
@@ -102,7 +102,7 @@ function Home() {
         </div>
         <SubscribePremium />
         <NewsFeed searchTerm={searchTerm} />
-        <User />
+        <Users />
       </div>
     </div>
   );
