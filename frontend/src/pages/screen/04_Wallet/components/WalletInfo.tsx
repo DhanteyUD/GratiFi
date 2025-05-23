@@ -28,11 +28,11 @@ const WalletInfo: FC<WalletInfoProps> = ({ publicKey, wallet, char = 4 }) => {
         alt={wallet.adapter.name}
         className="w-5 h-5"
       />
-      <span className="text-sm font-jetBrains text-main group-hover:text-main truncate max-w-[100px]">
+      <span className="text-sm font-jetBrains text-main dark:text-primary group-hover:text-main dark:group-hover:text-primaryHover truncate max-w-[100px]">
         {shortAddress}
       </span>
       {balance !== null && (
-        <div className="text-xs text-main font-calSans bg-white py-1 px-2 rounded-[20px]">
+        <div className="text-xs text-main dark:text-primary font-calSans bg-white dark:bg-dark py-1 px-2 rounded-[20px]">
           {((balance ?? 0) / 1e9).toFixed(2)} SOL
         </div>
       )}

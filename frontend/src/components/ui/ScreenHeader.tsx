@@ -115,16 +115,16 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   }, [currentPage]);
 
   return (
-    <div className="relative md:sticky w-full h-auto flex top-2 md:top-0 items-center justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background rounded-none md:rounded-r-[30px] z-[3] pl-2 md:pl-0 flex-row-reverse md:flex-row">
+    <div className="relative md:sticky w-full h-auto flex top-2 md:top-0 items-center justify-between gap-0 md:gap-[10px] bg-transparent md:bg-background md:dark:bg-dark3 rounded-none md:rounded-r-[30px] z-[3] pl-2 md:pl-0 flex-row-reverse md:flex-row">
       <div className="hidden md:flex items-center gap-5 pl-2 md:pl-4">
         <ChevronLeft
-          className="flex w-10 h-10 text-main hover:bg-primary p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
+          className="flex w-10 h-10 text-main dark:text-primary hover:bg-primary dark:hover:bg-main/50 p-1 hover:p-2 rounded-full transition-all duration-300 ease-in-out cursor-pointer animated_cursor"
           onClick={() => (goBack ? goBack() : navigate(-1))}
         />
 
         <h1
           className={clsx(
-            "flex text-main font-calSans text-[20px] md:text-[25px] font-[700]"
+            "flex text-main dark:text-primary font-calSans text-[20px] md:text-[25px] font-[700]"
           )}
         >
           {helperService.capitalize(currentPage)}
@@ -150,12 +150,12 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
         <div className="w-[50px]" />
       </div>
 
-      <div className="hidden md:flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background gap-2 md:gap-3">
+      <div className="hidden md:flex items-center pr-[20px] md:pr-0 rounded-[30px_10px_10px_30px] md:rounded-0 flex-row-reverse md:flex-row md:bg-background md:dark:bg-dark3 gap-2 md:gap-3">
         <div className="relative flex items-start gap-2 md:gap-3">
           {/* User profile */}
           <div
             className={clsx(
-              "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 rounded-full border border-primary",
+              "gap-2 justify-center items-center text-main font-calSans h-10 w-10 lg:w-auto lg:px-5 rounded-full border border-primary dark:border-main",
               helperService.getUserTypeBg(userProfile?.user_type),
               helperService.isEmptyObject(userProfile)
                 ? "hidden"
@@ -170,10 +170,10 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           <div
             onClick={handleWalletAction}
             className={clsx(
-              "relative group flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary hover:bg-primaryHover transition-all duration-300",
+              "relative group flex justify-center items-center h-10 p-[10px] cursor-pointer rounded-full animated_cursor border border-primary dark:border-main hover:bg-primaryHover dark:hover:bg-main/50 transition-all duration-300",
               publicKey?.toString().length
-                ? "hidden md:flex gap-3 bg-primary"
-                : "w-10 bg-white"
+                ? "hidden md:flex gap-3 bg-primary dark:bg-main/50"
+                : "w-10 bg-white dark:bg-main/50"
             )}
           >
             {connecting ? (
@@ -183,7 +183,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             ) : (
               <Wallet
                 size={publicKey?.toString().length ? 18 : undefined}
-                className="text-main"
+                className="text-main dark:text-primary"
               />
             )}
 
@@ -202,12 +202,12 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           {/* Notification */}
           <div
             onClick={() => navigate("/notifications")}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-primary"
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white dark:bg-main/50 hover:bg-primaryHover dark:hover:bg-main/50 transition-all duration-300 ease-in-out border border-primary dark:border-main"
           >
-            <Bell className="text-main" />
+            <Bell className="text-main dark:text-primary" />
             {notificationCount > 0 && (
               <div className="absolute min-w-[15px] h-[15px] bg-compulsory rounded-full flex items-center justify-center -top-1 right-0 p-1">
-                <p className="text-white text-[9px] font-semibold">
+                <p className="text-white dark:text-primary text-[9px] font-semibold">
                   {notificationCount}
                 </p>
               </div>
@@ -219,27 +219,27 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           {/* Dark/Light Mode */}
           <div
             onClick={toggleTheme}
-            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white hover:bg-primaryHover transition-all duration-300 ease-in-out border border-gray-300 md:border-primary"
+            className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-white dark:bg-main/50 hover:bg-primaryHover dark:hover:bg-main/50 transition-all duration-300 ease-in-out border border-gray-300 dark:border-main md:border-primary md:dark:border-main"
           >
             {theme === "dark" ? (
-              <Sun className="w-5 h-5 text-main" />
+              <Sun className="w-5 h-5 text-main dark:text-primary" />
             ) : (
-              <Moon className="w-5 h-5 text-main" />
+              <Moon className="w-5 h-5 text-main dark:text-primary" />
             )}
           </div>
         </div>
 
         <div className="relative">
           {fetchingUserProfile && (
-            <div className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-primary transition-all duration-300 ease-in-out border border-primary">
-              <User className="animate-pulse text-white" />
+            <div className="relative group flex justify-center items-center w-10 h-10 p-[10px] cursor-pointer rounded-full animated_cursor bg-primary dark:bg-main/50 transition-all duration-300 ease-in-out border border-primary dark:border-main">
+              <User className="animate-pulse text-white dark:text-primary" />
             </div>
           )}
           {!fetchingUserProfile && !helperService.isEmptyObject(userProfile) ? (
             <div
               onClick={() => setShowProfileDropdown((prev) => !prev)}
               className={clsx(
-                "group bg-white text-main h-[50px] border hidden md:flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-gray-300 md:border-primary hover:bg-primaryHover transition-colors duration-300 ease-in-out",
+                "group bg-white dark:bg-main/50 text-main dark:text-primary h-[50px] border hidden md:flex items-center gap-5 text-sm font-medium px-3 py-2 cursor-pointer border-gray-300 dark:border-main md:border-primary md:dark:border-main hover:bg-primaryHover dark:hover:bg-main/50 transition-colors duration-300 ease-in-out",
                 showProfileDropdown
                   ? "rounded-[10px_25px_0_0] md:rounded-[25px_10px_0_0]"
                   : "rounded-full"
@@ -253,7 +253,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                 />
                 <div className="flex flex-col items-start leading-4">
                   <p className="text-[15px] font-calSans">{userProfile.name}</p>
-                  <span className="text-primary text-[12px] group-hover:text-main/50 transition-colors duration-300 ease-in-out">
+                  <span className="text-primary dark:text-primaryHover/50 text-[12px] group-hover:text-main/50 dark:group-hover:text-primaryHover/50  transition-colors duration-300 ease-in-out">
                     @{userProfile.name}
                   </span>
                 </div>
@@ -269,15 +269,15 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           ) : null}
 
           {showProfileDropdown && (
-            <div className="absolute flex bg-white border border-t-0 border-primary rounded-[0_0_10px_10px] shadow-md w-full py-2 text-main">
+            <div className="absolute flex bg-white dark:bg-main border border-t-0 border-primary dark:border-main rounded-[0_0_10px_10px] shadow-md w-full py-2 text-main dark:text-primary">
               <ul className="text-sm w-full">
                 {headerNavMenuItems.map((option) => (
                   <li key={option.label}>
                     <button
                       onClick={() => handleProfileDropdown(option)}
-                      className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-primaryHover/50"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-primaryHover/50 dark:hover:bg-dark3/40"
                     >
-                      <option.icon size={18} className="text-gray-500" />
+                      <option.icon size={18} className="text-gray-500 dark:text-primaryHover/50" />
                       {option.label}
                     </button>
                   </li>
