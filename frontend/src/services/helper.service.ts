@@ -74,7 +74,7 @@ class HelperService {
   }
 
   getUserTypeBg(userType: string) {
-    return userType === "GratiStar" ? "bg-secondary" : "bg-primary";
+    return userType === "GratiStar" ? "bg-secondary dark:bg-secondary/70" : "bg-primary dark:bg-primary/70";
   }
 
   getUserTypeColor(userType: string) {

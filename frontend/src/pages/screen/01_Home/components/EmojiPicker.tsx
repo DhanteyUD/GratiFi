@@ -17,11 +17,11 @@ interface EmojiPickerProps {
 export default function EmojiPicker({ onSelect, onClick }: EmojiPickerProps) {
   return (
     <div className="absolute shadow-lg rounded-lg">
-      <div className="absolute rounded-full p-1 -top-8 right-0 border bg-dark cursor-pointer">
+      <div className="absolute rounded-full p-1 -top-8 right-0 border dark:border-primary bg-dark cursor-pointer">
         <X
           size={15}
           onClick={onClick}
-          className="text-white hover:text-primary transition-colors duration-300 ease-in-out"
+          className="text-white dark:text-primary hover:text-primary transition-colors duration-300 ease-in-out"
         />
       </div>
       <Picker data={data} onEmojiSelect={onSelect} theme="dark" />

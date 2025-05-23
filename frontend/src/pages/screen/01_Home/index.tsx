@@ -10,7 +10,7 @@ import CreatePost from "./components/CreatePost";
 import PostCard from "./components/PostCard";
 import SubscribePremium from "./components/SubscribePremium";
 import NewsFeed from "./components/NewsFeed";
-import User from "./components/Users";
+import Users from "./components/Users";
 import PostCardSkeleton from "./components/PostCardSkeleton";
 
 function Home() {
@@ -30,7 +30,7 @@ function Home() {
       {/* LEFT COLUMN */}
       <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
         <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
-        <div className="bg-white/60 md:border-l md:border-r border-gray-300">
+        <div className="bg-white/60 dark:bg-dark2 md:border-l md:border-r border-gray-300 dark:border-gray-600">
           <CreatePost
             userAvatar={userProfile.picture}
             userType={userProfile?.user_type}
@@ -62,22 +62,24 @@ function Home() {
         <div
           className={clsx(
             "sticky top-0 flex justify-end z-[2]",
-            showingSearchInput && "w-full bg-background rounded-[0_0_25px_25px]"
+            showingSearchInput &&
+              "w-full bg-background dark:bg-backgroundDark rounded-[0_0_25px_25px]"
           )}
         >
           <div
             className={clsx(
               "relative group",
-              !showingSearchInput && "bg-background rounded-[0_0_25px_0]"
+              !showingSearchInput &&
+                "bg-background dark:bg-backgroundDark rounded-[0_0_25px_0]"
             )}
           >
             <Search
               onClick={handleShowSearchInput}
               className={clsx(
-                "w-10 h-10 p-[10px] cursor-pointer animated_cursor bg-white hover:bg-primary transition-all duration-300 ease-in-out border border-primary",
+                "w-10 h-10 p-[10px] cursor-pointer animated_cursor dark:text-primary bg-white dark:bg-main/50 hover:bg-primary transition-all duration-300 ease-in-out border border-primary dark:border-main",
                 showingSearchInput
-                  ? "rounded-full md:border-r-0 md:rounded-[50px_0_0_50px] "
-                  : "rounded-full "
+                  ? "rounded-full md:border-r-0 md:rounded-[50px_0_0_50px]"
+                  : "rounded-full"
               )}
             />
 
@@ -89,7 +91,7 @@ function Home() {
           <input
             type="search"
             className={clsx(
-              "w-full outline-none border text-main border-primary pl-2 pr-3 transition-all duration-300 ease-in-out",
+              "w-full outline-none border text-main dark:text-gray-300 border-primary dark:border-main dark:bg-main/50 pl-2 pr-3 transition-all duration-300 ease-in-out",
               showingSearchInput
                 ? "hidden md:flex border-l-0 rounded-[0_50px_50px_0]"
                 : "hidden"
@@ -100,7 +102,7 @@ function Home() {
         </div>
         <SubscribePremium />
         <NewsFeed searchTerm={searchTerm} />
-        <User />
+        <Users />
       </div>
     </div>
   );

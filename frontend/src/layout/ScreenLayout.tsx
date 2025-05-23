@@ -81,7 +81,7 @@ function ScreenLayout({
       )}
 
       {/* Screen */}
-      <div className="bg-background w-full h-screen flex p-0 md:p-5 gap-4">
+      <div className="bg-background dark:bg-dark3 w-full h-screen flex p-0 md:p-5 gap-4">
         {/* Sidebar and Mobile header */}
         {md ? (
           <HamburgerToggle
@@ -90,7 +90,7 @@ function ScreenLayout({
         ) : (
           <div
             className={clsx(
-              "relative bg-white h-full rounded-[20px_0_20px_20px] border border-primary py-5 px-3 text-white flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
+              "relative bg-white dark:bg-dark2 h-full rounded-[20px_0_20px_20px] border border-primary dark:border-primary/50 py-5 px-3 flex flex-col items-center gap-5 transition-all duration-300 ease-in-out",
               isSideNavCollapsed ? "w-[10%]" : "w-[20%]"
             )}
           >
@@ -101,7 +101,7 @@ function ScreenLayout({
               <img alt="GratiFi logo" src={GratiFiLogo} className="h-10 w-10" />
               <h1
                 className={clsx(
-                  "hidden lg:block text-main font-calSans text-[30px] transition-all duration-300 ease-in-out",
+                  "hidden lg:block text-main dark:text-primary font-calSans text-[30px] transition-all duration-300 ease-in-out",
                   isSideNavCollapsed && "!hidden"
                 )}
               >
@@ -117,11 +117,11 @@ function ScreenLayout({
               size={20}
               onClick={handleToggleSidebar}
               className={clsx(
-                "absolute -top-[3px] -right-[18px] text-primary/50 hover:text-primary cursor-pointer",
+                "absolute -top-[3px] -right-[18px] text-primary/50 hover:text-primary dark:text-primary/30 cursor-pointer",
                 isSideNavCollapsed && "scale-x-[-1]"
               )}
             />
-            <span className="absolute top-3 left-3 w-[10px] h-[10px] rounded-full bg-background border border-main" />
+            <span className="absolute top-3 left-3 w-[10px] h-[10px] rounded-full bg-background dark:bg-backgroundDark border border-main" />
           </div>
         )}
 

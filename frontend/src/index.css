@@ -46,7 +46,7 @@
   transition: all 0.3s ease-in-out;
 
   /* Comment the line below if you want a customized sidebar instead */
-  display: none;
+  display: none !important;
 }
 
 ::-webkit-scrollbar-track {

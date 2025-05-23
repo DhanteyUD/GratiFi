@@ -56,7 +56,7 @@ export default function PostCard({
 
   return (
     <>
-      <div className="p-4 border-b border-gray-300 hover:bg-primaryHover/50 cursor-pointer transition-colors duration-300 ease-linear">
+      <div className="p-4 border-b border-gray-300 dark:border-gray-600 hover:bg-primaryHover/50 dark:hover:bg-main/50 cursor-pointer transition-colors duration-300 ease-linear">
         <div className="flex gap-3">
           <img
             src={authorImage || gratifiIcon}
@@ -69,7 +69,9 @@ export default function PostCard({
               <div className="flex items-center gap-2">
                 <span>
                   <span className="flex items-center gap-1">
-                    <span className=" font-bold text-main">{authorName}</span>
+                    <span className=" font-bold text-main dark:text-primary">
+                      {authorName}
+                    </span>
                     <span
                       className={clsx(
                         "flex md:hidden ml-1 rounded-full p-1",
@@ -78,14 +80,14 @@ export default function PostCard({
                     >
                       <UserTypeIcon userType={userType} size={8} />
                     </span>
-                    <span className="flex md:hidden text-gray-500">
+                    <span className="flex md:hidden text-gray-500 dark:text-primary/50">
                       <Dot size={15} />
                     </span>
-                    <span className="flex md:hidden text-gray-500 text-[11px]">
+                    <span className="flex md:hidden text-gray-500 dark:text-primary/50 text-[11px]">
                       {timeStamp}
                     </span>
                   </span>
-                  <span className="flex md:hidden text-gray-500">
+                  <span className="flex md:hidden text-gray-500 dark:text-primary/50">
                     @{authorUsername}
                   </span>
                 </span>
@@ -97,7 +99,7 @@ export default function PostCard({
                 >
                   <UserTypeIcon userType={userType} size={8} />
                 </span>
-                <span className="flex text-gray-500 items-center">
+                <span className="flex text-gray-500 dark:text-primary/50 items-center">
                   <span className="hidden md:flex">@{authorUsername}</span>
                   <span className="hidden md:flex">
                     <Dot size={15} />
@@ -105,13 +107,13 @@ export default function PostCard({
                   <span className="hidden md:flex">{timeStamp}</span>
                 </span>
               </div>
-              <button className="cursor-not-allowed text-gray-400">
+              <button className="cursor-not-allowed text-gray-400 dark:text-primary/50">
                 <MoreHorizontal size={18} />
               </button>
             </div>
 
             {/* Content */}
-            <p className="text-[12px] md:text-sm mt-5 md:mt-3 mb-2 text-main">
+            <p className="text-[12px] md:text-sm mt-5 md:mt-3 mb-2 text-main dark:text-gray-400">
               {content}
             </p>
 

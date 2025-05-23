@@ -90,7 +90,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
   };
 
   return (
-    <div className="flex px-2 py-4 md:px-4 md:py-4 border-b border-gray-300 bg-white">
+    <div className="flex px-2 py-4 md:px-4 md:py-4 border-b border-gray-300 dark:border-gray-600 bg-white dark:bg-dark/20">
       <img
         src={userAvatar}
         alt="avatar"
@@ -102,14 +102,19 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
         <div className="relative mb-5">
           <button
             onClick={() => setShowAudienceMenu((prev) => !prev)}
-            className="flex items-center gap-1 text-[12px] md:text-[14px] text-primary font-medium px-3 py-1 rounded-full border border-gray-300 hover:bg-gray-100 transition"
+            className="flex items-center gap-1 text-[12px] md:text-[14px] text-primary font-medium px-3 py-1 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-main/50 transition"
           >
             {selectedAudience.label}
-            <ChevronDown size={16} className={clsx(showAudienceMenu ? "-scale-y-[1] transition-all" : "")} />
+            <ChevronDown
+              size={16}
+              className={clsx(
+                showAudienceMenu ? "-scale-y-[1] transition-all" : ""
+              )}
+            />
           </button>
 
           {showAudienceMenu && (
-            <div className="absolute mt-1 bg-white border border-gray-200 rounded-md shadow-md z-10 w-48 py-2 text-main">
+            <div className="absolute mt-1 bg-white dark:bg-dark3 border border-gray-200 dark:border-gray-600 rounded-md shadow-md z-10 w-48 py-2 text-main dark:text-primary">
               <ul className="text-[12px] md:text-[14px]">
                 {audienceOptions.map((option) => (
                   <li key={option.value}>
@@ -118,7 +123,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
                         setSelectedAudience(option);
                         setShowAudienceMenu(false);
                       }}
-                      className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-main/50"
                     >
                       <option.icon size={20} />
                       {option.label}
@@ -131,7 +136,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
         </div>
 
         {/* Textarea Overlay */}
-        <div className="relative w-full overflow-auto border-b border-gray-300">
+        <div className="relative w-full overflow-auto border-b border-gray-300 dark:border-gray-600">
           <div
             className="absolute top-0 left-0 w-full text-[13px] md:text-base font-normal break-words whitespace-pre-wrap z-0"
             aria-hidden="true"
@@ -148,7 +153,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="What's happening?"
-            className="relative z-[1] text-[13px] md:text-base w-full resize-none outline-none text-main placeholder-gray-400 bg-transparent"
+            className="relative z-[1] text-[13px] md:text-base w-full resize-none outline-none text-main dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-500 bg-transparent"
             style={{
               lineHeight: "1.5",
               backgroundColor: "transparent",
@@ -226,7 +231,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
               <button onClick={() => fileInputRef.current?.click()}>
                 <ImageIcon
                   size={20}
-                  className="text-primary hover:text-main transition-colors duration-300 ease-in-out"
+                  className="text-primary dark:text-primary/50 hover:text-main transition-colors duration-300 ease-in-out"
                 />
               </button>
             )}
@@ -243,7 +248,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
             <button onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
               <Smile
                 size={20}
-                className="text-primary hover:text-main transition-colors duration-300 ease-in-out"
+                className="text-primary dark:text-primary/50 hover:text-main transition-colors duration-300 ease-in-out"
               />
             </button>
 
@@ -258,7 +263,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
                   <button>
                     <Calendar
                       size={20}
-                      className="text-primary hover:text-main transition-colors duration-300 ease-in-out"
+                      className="text-primary dark:text-primary/50 hover:text-main transition-colors duration-300 ease-in-out"
                     />
                   </button>
                 }
@@ -274,7 +279,7 @@ export default function CreatePost({ userAvatar, userType }: CreatePostProps) {
             }
             onClick={handlePost}
             className={clsx(
-              "bg-primary text-[12px] md:text-base text-main font-semibold px-5 py-1.5 rounded-full transition",
+              "bg-primary  dark:bg-main/50 text-[12px] md:text-base text-main dark:text-primary font-semibold px-5 py-1.5 rounded-full transition",
               (text.trim() === "" && media.length === 0) ||
                 overLimit ||
                 creatingPost

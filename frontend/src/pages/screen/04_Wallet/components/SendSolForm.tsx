@@ -103,7 +103,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
   }, [feedbackMessage]);
 
   return (
-    <section className="bg-black text-white border border-gray-800 rounded-[10px] p-4 md:p-6 w-full shadow-lg transition-all duration-300 ease-linear">
+    <section className="bg-black text-white dark:text-primary border border-gray-800 rounded-[10px] p-4 md:p-6 w-full shadow-lg transition-all duration-300 ease-linear">
       {/* Select User Grid */}
       <div className="grid grid-cols-1 gap-3 mb-6">
         {visibleUsers.map((user) => (
@@ -158,7 +158,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
       )}
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1 text-gray-300">
+        <label className="block text-sm font-medium mb-1 text-gray-300 dark:text-primary">
           Recipient Wallet Address
         </label>
         <input
@@ -172,7 +172,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
 
       {/* Amount */}
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-1 text-gray-300">
+        <label className="block text-sm font-medium mb-1 text-gray-300 dark:text-primary">
           Amount (SOL)
         </label>
         <input
@@ -191,7 +191,7 @@ export const SendSolForm = ({ users: allUsers }: Props) => {
         <button
           onClick={handleSend}
           disabled={isPending}
-          className="px-6 py-2 rounded-lg bg-primary text-main font-semibold hover:opacity-90 transition disabled:opacity-50"
+          className="px-6 py-2 rounded-lg bg-primary dark:bg-main/50 text-main dark:text-primary font-semibold hover:opacity-90 transition disabled:opacity-50"
         >
           {isPending ? "Sending..." : "Send"}
         </button>

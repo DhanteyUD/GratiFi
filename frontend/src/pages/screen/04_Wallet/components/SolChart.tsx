@@ -8,9 +8,10 @@ declare global {
 
 interface SolChartProps {
   symbol: string;
+  theme: string;
 }
 
-export default function SolChart({ symbol = "BINANCE:SOLUSDT" }: SolChartProps) {
+export default function SolChart({ symbol = "BINANCE:SOLUSDT", theme }: SolChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const CONTAINER_ID = "sol_usd_chart";
 
@@ -27,9 +28,9 @@ export default function SolChart({ symbol = "BINANCE:SOLUSDT" }: SolChartProps) 
         symbol,
         interval: "15",
         timezone: "Etc/UTC",
-        theme: "light",
+        theme,
         container_id: CONTAINER_ID,
-        toolbar_bg: "#f1f3f6",
+        toolbar_bg: theme === "dark" ? "#1A1A1D" : "#f1f3f6",
         hide_side_toolbar: false,
         allow_symbol_change: true,
         details: true,
@@ -52,7 +53,7 @@ export default function SolChart({ symbol = "BINANCE:SOLUSDT" }: SolChartProps) 
       const container = document.getElementById(CONTAINER_ID);
       if (container) container.innerHTML = "";
     };
-  }, [symbol]);
+  }, [symbol, theme]);
 
   return (
     <div

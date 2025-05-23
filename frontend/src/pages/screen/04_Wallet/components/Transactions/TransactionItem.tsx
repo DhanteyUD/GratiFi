@@ -23,7 +23,7 @@ const TransactionItem: React.FC<Props> = ({ tx, publicKey }) => {
   const isInbound = publicKey.toString() === toAddress;
 
   return (
-    <div className="p-4 hover:bg-gray-50 transition">
+    <div className="p-4 hover:bg-gray-50 dark:hover:bg-main/50 transition">
       <div className="flex justify-between items-center mb-3">
         <div className="flex items-center gap-2">
           <span
@@ -46,13 +46,13 @@ const TransactionItem: React.FC<Props> = ({ tx, publicKey }) => {
       <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
         <div>
           <p className="text-gray-500">From</p>
-          <p className="font-mono text-xs">
+          <p className="font-mono text-xs dark:text-primary/50">
             {sender.slice(0, 6)}...{sender.slice(-6)}
           </p>
         </div>
         <div>
           <p className="text-gray-500">To</p>
-          <p className="font-mono text-xs">
+          <p className="font-mono text-xs dark:text-primary/50">
             {toAddress.slice(0, 6)}...{toAddress.slice(-6)}
           </p>
         </div>

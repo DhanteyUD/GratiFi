@@ -37,8 +37,8 @@ const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
   }, [searchTerm, searchTerm?.length, showAll]);
 
   return (
-    <div className="flex flex-col items-start border border-gray-300 p-4 rounded-xl bg-white/50 h-auto gap-4">
-      <h1 className="text-[20px] font-calSans font-[600] text-main">
+    <div className="flex flex-col items-start border  dark:border-gray-600 p-4 rounded-xl bg-white/50 dark:bg-dark3/50 h-auto gap-4">
+      <h1 className="text-[20px] font-calSans font-[600] text-main dark:text-primary">
         What's happening
       </h1>
 
@@ -48,7 +48,7 @@ const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-start gap-3 w-full hover:bg-primaryHover/50 p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          className="flex items-start gap-3 w-full hover:bg-primaryHover/50 dark:hover:bg-main/50 p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
         >
           <img
             src={item.photo_url || newsPlaceHolder}
@@ -56,10 +56,10 @@ const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
             className="w-16 h-16 object-cover rounded-md flex-shrink-0"
           />
           <div className="flex-1">
-            <h3 className="text-left text-sm font-semibold text-main hover:underline">
+            <h3 className="text-left text-sm font-semibold text-main dark:text-primary/80 hover:underline">
               {helperService.highlightText(item.title, searchTerm)}
             </h3>
-            <p className="text-xs text-gray-600 line-clamp-2">
+            <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
               {helperService.highlightText(item.snippet, searchTerm)}
             </p>
             {item.authors?.length > 0 && (
