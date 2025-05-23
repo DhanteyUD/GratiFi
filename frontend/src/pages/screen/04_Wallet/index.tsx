@@ -10,6 +10,7 @@ import { showToast } from "@/utils/notification.utils";
 import { FetchAllUsers } from "@/hooks/UseFetch";
 import { SendSolSection } from "./components/SendSolSection";
 import type { TransactionResponse } from "@solana/web3.js";
+import { UseThemeContext } from "@/hooks/UseThemeContext";
 import TransactionsTab from "./components/Transactions/TransactionTab";
 import SolChart from "./components/SolChart";
 import QRCode from "react-qr-code";
@@ -20,6 +21,8 @@ export default function WalletPage() {
   const { publicKey, disconnect, wallet, connected, connecting } = useWallet();
   const { data: balance, isLoading: isBalanceLoading } = useSolBalance();
   const { data: txs } = useSolTransactions();
+
+  const { theme } = UseThemeContext();
 
   const [selectedSymbol, setSelectedSymbol] = useState("BINANCE:SOLUSDT");
   const [chain, setChain] = useState<"SOL" | "ETH">("SOL");
@@ -70,7 +73,7 @@ export default function WalletPage() {
         {/* LEFT COLUMN */}
         <div className="flex flex-col w-full md:w-[40%] h-full overflow-auto">
           {/* Chain Switcher */}
-          <div className="sticky top-0 flex justify-between items-end space-x-2 bg-background z-[2] border-b border-gray-300">
+          <div className="sticky top-0 flex justify-between items-end space-x-2 bg-background dark:bg-backgroundDark z-[2] border-b border-gray-300 dark:border-gray-600">
             <div className="flex w-full">
               {blockchains.map(({ name, key, activeIcon, inactiveIcon }) => {
                 const isActive = chain === key;
@@ -81,8 +84,8 @@ export default function WalletPage() {
                     onClick={() => setChain(key as "SOL" | "ETH")}
                     className={`flex items-center justify-center flex-1 px-4 py-2 gap-3 md:rounded-[10px_10px_0_0] md:border md:border-b-transparent cursor-pointer transition-all ease-linear ${
                       isActive
-                        ? "md:bg-white font-calSans text-primary border-b-[5px] border-primary md:border-gray-300"
-                        : "bg-background text-gray-400 border-b-[5px] border-transparent"
+                        ? "md:bg-white md:dark:bg-main/50 font-calSans text-primary border-b-[5px] border-primary md:border-gray-300 md:dark:border-gray-600"
+                        : "bg-background dark:bg-backgroundDark text-gray-400 dark:text-gray-600 border-b-[5px] border-transparent"
                     }`}
                   >
                     <img
@@ -100,10 +103,10 @@ export default function WalletPage() {
           {/* Wallet Card */}
           <div
             className={clsx(
-              "flex flex-col p-4 text-center w-auto border md:border-t-0 border-gray-300 transition-all duration-300 ease-linear swing-in-top-fwd",
+              "flex flex-col p-4 text-center w-auto border md:border-t-0 border-gray-300 dark:border-gray-600 transition-all duration-300 ease-linear swing-in-top-fwd dark:bg-main/50",
               publicKey && chain === "SOL"
-                ? "h-auto m-2 md:mx-0 md:mt-0 md:mb-4 rounded-[10px] md:rounded-[0_0_10px_10px] bg-white"
-                : "h-[calc(100vh-220px)] md:h-screen justify-between bg-primaryHover md:bg-white"
+                ? "h-auto m-2 md:mx-0 md:mt-0 md:mb-4 rounded-[10px] md:rounded-[0_0_10px_10px] bg-white dark:bg-dark3"
+                : "h-[calc(100vh-220px)] md:h-screen justify-between bg-primaryHover dark:bg-main/50 md:bg-white md:dark:bg-main/50"
             )}
           >
             <div
@@ -115,7 +118,7 @@ export default function WalletPage() {
               )}
             >
               {publicKey && chain === "SOL" ? (
-                <div className="text-left bg-white/10 space-y-4">
+                <div className="text-left bg-white/10 dark:bg-transparent space-y-4">
                   <div className="mb-8">
                     <div className="flex items-center gap-3 mb-2">
                       <p className="text-sm text-gray-500">Est. Total Value</p>
@@ -136,7 +139,7 @@ export default function WalletPage() {
                           ? `${(balance / 1e9).toFixed(4)}`
                           : "Unavailable"}
                       </p>
-                      <p className="font-grotesk">
+                      <p className="font-grotesk dark:text-primary/50">
                         SOL
                         <span className="ml-1 text-[10px] font-gray-400">
                           (Solana)
@@ -146,7 +149,7 @@ export default function WalletPage() {
                   </div>
                 </div>
               ) : (
-                <p className="text-gray-400 p-4  rounded-xl py-5">
+                <p className="text-gray-400 dark:text-gray-600 p-4  rounded-xl py-5">
                   {chain === "SOL"
                     ? "No wallet connected"
                     : "ETH not supported yet"}
@@ -159,14 +162,16 @@ export default function WalletPage() {
                 <>
                   <div className="flex items-center gap-3">
                     {connecting && (
-                      <div className="flex items-center justify-center h-[40px] w-[40px] bg-background md:bg-primaryHover rounded-[5px]">
-                        <CustomSpinner theme="#3c315b" />
+                      <div className="flex items-center justify-center h-[40px] w-[40px] bg-background dark:border-backgroundDark md:bg-primaryHover md:dark:bg-main/50 rounded-[5px]">
+                        <CustomSpinner
+                          theme={theme === "dark" ? "#ab9ff2" : "#3c315b"}
+                        />
                       </div>
                     )}
                     {!wallet ? (
                       <button
                         onClick={handleConnect}
-                        className="h-[40px] px-5 rounded-[5px] bg-primary hover:bg-main transition-colors duration-300 ease-linear text-[14px] font-semibold text-main hover:text-white"
+                        className="h-[40px] px-5 rounded-[5px] bg-primary dark:bg-main/80 hover:bg-main transition-colors duration-300 ease-linear text-[14px] font-semibold text-main dark:text-primary hover:text-white"
                       >
                         Select Wallet
                       </button>
@@ -184,7 +189,7 @@ export default function WalletPage() {
                     <div className="flex gap-3 mb-0">
                       <div
                         onClick={handleReceive}
-                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-dark hover:bg-dark2 transition-colors text-primary cursor-pointer"
+                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-dark3 hover:bg-dark2 transition-colors text-primary cursor-pointer"
                       >
                         <QrCode size={18} />
                         <Tooltip
@@ -194,7 +199,7 @@ export default function WalletPage() {
                       </div>
                       <div
                         onClick={handleSend}
-                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-dark hover:bg-dark2 transition-colors text-primary cursor-pointer"
+                        className="relative group h-[40px] w-[40px] rounded-md flex justify-center items-center bg-dark3 hover:bg-dark2 transition-colors text-primary cursor-pointer"
                       >
                         <Send size={18} />
                         <Tooltip
@@ -211,7 +216,7 @@ export default function WalletPage() {
 
           {/* Receive SOL */}
           {connected && chain === "SOL" && viewingQR ? (
-            <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white border border-gray-300 rounded-[10px] p-4 mx-2 mt-2 md:mt-0 md:mx-0 mb-2 md:mb-4">
+            <div className="slit-in-horizontal flex flex-col items-center gap-10 bg-white dark:bg-dark3 border dark:border-gray-600 border-gray-300 rounded-[10px] p-4 mx-2 mt-2 md:mt-0 md:mx-0 mb-2 md:mb-4">
               <div className="flex justify-center mt-2">
                 {publicKey && (
                   <QRCode value={publicKey.toString()} size={128} />
@@ -219,15 +224,17 @@ export default function WalletPage() {
               </div>
 
               <div className="text-center leading-5">
-                <h1 className="font-calSans">Your Solana Address</h1>
+                <h1 className="font-calSans dark:text-primary">
+                  Your Solana Address
+                </h1>
                 <p className="text-[13px] text-gray-500">
                   Use this address to receive tokens
                 </p>
               </div>
 
               <div onClick={handleCopy} className="flex flex-col items-center">
-                <div className="flex items-center justify-center gap-4 py-2 px-4  bg-black/60 rounded-full">
-                  <p className="text-[10px] md:text-[13px] break-all text-white text-center font-jetBrains">
+                <div className="flex items-center justify-center gap-4 py-2 px-4 bg-dark/50 dark:bg-main/50 rounded-full">
+                  <p className="text-[10px] md:text-[13px] break-all text-white dark:text-primary text-center font-jetBrains">
                     {publicKey ? publicKey.toString() : null}
                   </p>
 
@@ -272,8 +279,8 @@ export default function WalletPage() {
               {chain} / USDT
             </h1>
           </div>
-          <div className="flex-1 bg-white">
-            <SolChart symbol={selectedSymbol} />
+          <div className="flex-1 bg-white dark:bg-dark3">
+            <SolChart symbol={selectedSymbol} theme={theme} />
           </div>
         </div>
       </div>
