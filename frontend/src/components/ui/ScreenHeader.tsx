@@ -177,7 +177,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             )}
           >
             {connecting ? (
-              <LoaderCircle size={18} className="animate-spin text-main" />
+              <LoaderCircle size={18} className="animate-spin text-main dark:text-primary" />
             ) : wallet ? (
               <WalletInfo publicKey={publicKey} wallet={wallet} />
             ) : (
