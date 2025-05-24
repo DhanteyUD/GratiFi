@@ -95,9 +95,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
         }
       };
 
-      if (!userProfile.Wallet) {
-        saveWallet();
-      }
+      saveWallet();
     }
   }, [connected, publicKey, userProfile.Wallet, userProfile.email]);
 
@@ -177,7 +175,10 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
             )}
           >
             {connecting ? (
-              <LoaderCircle size={18} className="animate-spin text-main dark:text-primary" />
+              <LoaderCircle
+                size={18}
+                className="animate-spin text-main dark:text-primary"
+              />
             ) : wallet ? (
               <WalletInfo publicKey={publicKey} wallet={wallet} />
             ) : (
@@ -277,7 +278,10 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
                       onClick={() => handleProfileDropdown(option)}
                       className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-primaryHover/50 dark:hover:bg-dark3/40"
                     >
-                      <option.icon size={18} className="text-gray-500 dark:text-primaryHover/50" />
+                      <option.icon
+                        size={18}
+                        className="text-gray-500 dark:text-primaryHover/50"
+                      />
                       {option.label}
                     </button>
                   </li>
