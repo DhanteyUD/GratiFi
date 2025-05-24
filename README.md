@@ -17,7 +17,35 @@ A fusion of **gratitude** and **DeFi** — appreciation powered by decentralized
 
 ## 🧠 Overview
 
-**GratiFi** is a decentralized web app that allows users, creators, and artisans to receive appreciation via crypto tips on the Solana blockchain. Built with a modern tech stack, GratiFi leverages Web3, seamless UX, and media sharing capabilities to make gratitude borderless and impactful.
+GratiFi is a decentralized web application that empowers users, creators, and artisans to receive appreciation through crypto tips on the Solana blockchain. By combining modern Web3 technologies with seamless UX and media-sharing capabilities, GratiFi makes gratitude borderless and impactful.
+
+## 🔐 Civic Auth & Embedded Wallet
+
+A key part of GratiFi's user experience is its integration with [Civic Auth](https://www.civic.com/), a decentralized identity protocol that provides secure and privacy-respecting authentication.
+
+### 🌐 Civic Auth Integration
+
+- Users log in via Civic’s Web3 modal, allowing for identity verification without traditional sign-up.
+- Upon successful login, GratiFi retrieves a `userId` and session token via Civic's API.
+- This authenticated identity is used to personalize the user’s session and associate it with their tipping activity.
+
+### 💳 Embedded Solana Wallet
+
+- After login, Civic automatically provisions a **non-custodial embedded wallet** for each user.
+- The wallet is tied to the Civic identity and allows users to send and receive SOL tips instantly.
+- No browser extensions or manual private key handling required.
+- All transactions (tipping, receiving) are signed transparently via this embedded wallet, ensuring security and ease of use.
+
+## 🧩 Benefits of This Setup
+
+- **Onboarding Simplicity:** Users can start tipping or receiving appreciation in seconds.
+- **Security & Privacy:** Identity is verified without compromising user data.
+- **Wallet Abstraction:** Users don’t need to understand wallets or key management.
+- **Improved UX:** A seamless Web3 experience that feels like Web2.
+
+---
+
+> GratiFi leverages the power of Civic to bridge identity, authentication, and wallet provisioning — making gratitude seamless and secure in the decentralized world.
 
 ---
 
