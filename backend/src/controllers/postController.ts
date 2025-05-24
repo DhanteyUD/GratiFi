@@ -139,4 +139,61 @@ const getPosts = async (req: Request, res: Response) => {
   });
 };
 
-export { createPost, getPosts };
+// GET:
+const getMyPosts = async (req: Request, res: Response) => {
+  if (req.method !== "GET") return res.status(405).end("Method Not Allowed");
+
+  const user = await getAuthUser(req);
+  if (!user) return res.status(401).json({ error: "Unauthorized" });
+
+  const posts = await prisma.post.findMany({
+    where: {
+      authorId: user.id,
+    },
+    include: {
+      author: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return res.status(200).json({
+    message: "Fetched your posts successfully",
+    posts,
+  });
+};
+
+// GET:
+const getPostsByUserId = async (req: Request, res: Response) => {
+  if (req.method !== "GET") return res.status(405).end("Method Not Allowed");
+
+  const { userId } = req.query;
+
+  if (!userId || typeof userId !== "string") {
+    return res.status(400).json({ error: "Invalid or missing user ID" });
+  }
+
+  const now = new Date();
+
+  const posts = await prisma.post.findMany({
+    where: {
+      authorId: userId,
+      OR: [{ scheduledAt: null }, { scheduledAt: { lte: now } }],
+      isPublished: true,
+    },
+    include: {
+      author: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return res.status(200).json({
+    message: `Fetched posts for user ${userId}`,
+    posts,
+  });
+};
+
+export { createPost, getPosts, getMyPosts, getPostsByUserId };

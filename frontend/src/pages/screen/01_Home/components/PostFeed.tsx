@@ -29,7 +29,7 @@ type PostProps = {
   likes: number;
 };
 
-export default function PostCard({
+export default function PostFeed({
   authorImage,
   authorName,
   authorUsername,

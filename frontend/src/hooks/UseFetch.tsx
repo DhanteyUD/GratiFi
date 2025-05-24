@@ -1,5 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchUserProfile, fetchAllUsers, fetchAllPosts } from "@/api";
+import {
+  fetchUserProfile,
+  fetchAllUsers,
+  fetchAllPosts,
+  fetchMyPosts,
+} from "@/api";
 
 function FetchUserProfile() {
   const { isPending: fetchingUserProfile, data: userProfile = {} } = useQuery({
@@ -31,4 +36,14 @@ function FetchAllPosts() {
   return { fetchingAllPosts, allPosts };
 }
 
-export { FetchUserProfile, FetchAllUsers, FetchAllPosts };
+function FetchMyPosts() {
+  const { isPending: fetchingMyPosts, data: myPosts = [] } = useQuery({
+    queryKey: ["my-posts"],
+    queryFn: fetchMyPosts,
+    select: (data) => data?.data?.posts,
+  });
+
+  return { fetchingMyPosts, myPosts };
+}
+
+export { FetchUserProfile, FetchAllUsers, FetchAllPosts, FetchMyPosts };

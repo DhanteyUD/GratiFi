@@ -14,3 +14,8 @@ export const fetchAllPosts = async () => {
   const response = await axiosInstance.get("/post/posts");
   return response;
 };
+
+export const fetchMyPosts = async () => {
+  const response = await axiosInstance.get("/post/posts/me");
+  return response;
+};
