@@ -173,7 +173,7 @@ export default function WalletPage() {
                         onClick={handleConnect}
                         className="h-[40px] px-5 rounded-[5px] bg-primary dark:bg-main/80 hover:bg-main transition-colors duration-300 ease-linear text-[14px] font-semibold text-main dark:text-primary hover:text-white"
                       >
-                        Select Wallet
+                        Connect Wallet
                       </button>
                     ) : (
                       <button
