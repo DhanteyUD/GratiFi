@@ -14,8 +14,8 @@ const Tabs = ({ activeTab, setActiveTab }: TabsProps) => {
           onClick={() => setActiveTab(tab)}
           className={`flex-1 text-center p-3 font-medium ${
             activeTab === tab
-              ? "border-b-2 border-blue-500 text-blue-500"
-              : "text-gray-500"
+              ? "border-b-4 border-primary text-primary transition-all duration-300 ease-linear"
+              : "text-gray-500 border-b-4 border-transparent"
           }`}
         >
           {tab}
