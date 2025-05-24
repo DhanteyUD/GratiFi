@@ -7,11 +7,13 @@ import helperService from "@/services/helper.service";
 
 interface NewsFeedProps {
   searchTerm?: string;
+  show?: number;
 }
 
-const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
+const NewsFeed = ({ searchTerm, show = 1 }: NewsFeedProps) => {
   const [showAll, setShowAll] = useState(false);
 
+  // // Live Api:
   // const { news, loading, error } = UseNews(
   //   "TECHNOLOGY",
   //   configKeys.rapidSectionId
@@ -28,7 +30,9 @@ const NewsFeed = ({ searchTerm }: NewsFeedProps) => {
     );
   });
 
-  const itemsToShow = showAll ? searchedNewsFeed : searchedNewsFeed.slice(0, 1);
+  const itemsToShow = showAll
+    ? searchedNewsFeed
+    : searchedNewsFeed.slice(0, show);
 
   useEffect(() => {
     if (searchTerm && searchTerm.length) {

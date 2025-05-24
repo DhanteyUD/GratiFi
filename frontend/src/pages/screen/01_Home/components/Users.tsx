@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FetchAllUsers, FetchUserProfile } from "@/hooks/UseFetch";
 import { UserTypeIcon } from "@/components";
 import type { User } from "@/types";
@@ -6,7 +6,17 @@ import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import UsersSkeleton from "./UsersSkeleton";
 
-function Users() {
+interface UserProps {
+  title?: string;
+  searchTerm?: string;
+  show?: number;
+}
+
+function Users({
+  title = "Who to follow",
+  searchTerm = "",
+  show = 2,
+}: UserProps) {
   const [showAll, setShowAll] = useState(false);
   const { userProfile } = FetchUserProfile();
   const { fetchingAllUsers, allUsers } = FetchAllUsers();
@@ -15,7 +25,24 @@ function Users() {
     (user: User) => user.email !== (userProfile as User).email
   );
 
-  const itemsToShow = showAll ? otherUsers : otherUsers.slice(0, 2);
+  const searchedUsers = otherUsers.filter((user) => {
+    if (!searchTerm) return true;
+
+    const lowerSearch = searchTerm.toLowerCase();
+
+    return (
+      (user.name && user.name.toLowerCase().includes(lowerSearch)) ||
+      (user.email && user.email.toLowerCase().includes(lowerSearch))
+    );
+  });
+
+  const itemsToShow = showAll ? searchedUsers : searchedUsers.slice(0, show);
+
+  useEffect(() => {
+    if (searchTerm && searchTerm.length) {
+      setShowAll(true);
+    }
+  }, [searchTerm, searchTerm?.length, showAll]);
 
   return (
     <>
@@ -24,7 +51,7 @@ function Users() {
       ) : (
         <div className="flex flex-col items-start border border-gray-300 dark:border-gray-600 p-4 rounded-xl bg-white/50 dark:bg-dark3/50 h-auto gap-2">
           <h1 className="text-[20px] font-calSans font-[600] text-main dark:text-primary mb-2">
-            Who to follow
+            {title}
           </h1>
 
           {itemsToShow.map((user: User) => (
