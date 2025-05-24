@@ -226,16 +226,11 @@ export default function PostFeed({
         className="fixed inset-0 flex items-center justify-center p-4 outline-none"
         overlayClassName="fixed inset-0 bg-main bg-opacity-75 z-[5]"
       >
-        <button
-          className="absolute top-4 left-4 md:right-4 text-white text-3xl"
-          onClick={closeLightbox}
-        >
-          &times;
-        </button>
         {activeImage && (
           <img
-            src={activeImage}
             alt="Preview"
+            src={activeImage}
+            onClick={closeLightbox}
             className="max-w-full max-h-full rounded-xl"
           />
         )}

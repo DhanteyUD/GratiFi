@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProfileHeader from "./components/ProfileHeader";
 import Tabs from "./components/Tabs";
-import PostFeed from "./components/ProfilePostFeed";
+import ProfilePostFeed from "./components/ProfilePostFeed";
 import ProfileRightSide from "./components/ProfileRightSide";
 
 function Profile() {
@@ -18,7 +18,7 @@ function Profile() {
         <div className="bg-white/60 dark:bg-dark2 md:border-l md:border-r border-gray-300 dark:border-gray-600">
           <ProfileHeader />
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-          <PostFeed activeTab={activeTab} />
+          <ProfilePostFeed activeTab={activeTab} />
         </div>
       </div>
 
