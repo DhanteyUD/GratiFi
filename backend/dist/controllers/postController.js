@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPosts = exports.createPost = void 0;
+exports.getPostsByUserId = exports.getMyPosts = exports.getPosts = exports.createPost = void 0;
 const formidable_1 = __importDefault(require("formidable"));
 const cloudinary_1 = require("cloudinary");
 const client_1 = require("@prisma/client");
@@ -126,3 +126,55 @@ const getPosts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 exports.getPosts = getPosts;
+// GET:
+const getMyPosts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (req.method !== "GET")
+        return res.status(405).end("Method Not Allowed");
+    const user = yield (0, auth_1.getAuthUser)(req);
+    if (!user)
+        return res.status(401).json({ error: "Unauthorized" });
+    const posts = yield prisma.post.findMany({
+        where: {
+            authorId: user.id,
+        },
+        include: {
+            author: true,
+        },
+        orderBy: {
+            createdAt: "desc",
+        },
+    });
+    return res.status(200).json({
+        message: "Fetched your posts successfully",
+        posts,
+    });
+});
+exports.getMyPosts = getMyPosts;
+// GET:
+const getPostsByUserId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (req.method !== "GET")
+        return res.status(405).end("Method Not Allowed");
+    const { userId } = req.query;
+    if (!userId || typeof userId !== "string") {
+        return res.status(400).json({ error: "Invalid or missing user ID" });
+    }
+    const now = new Date();
+    const posts = yield prisma.post.findMany({
+        where: {
+            authorId: userId,
+            OR: [{ scheduledAt: null }, { scheduledAt: { lte: now } }],
+            isPublished: true,
+        },
+        include: {
+            author: true,
+        },
+        orderBy: {
+            createdAt: "desc",
+        },
+    });
+    return res.status(200).json({
+        message: `Fetched posts for user ${userId}`,
+        posts,
+    });
+});
+exports.getPostsByUserId = getPostsByUserId;
