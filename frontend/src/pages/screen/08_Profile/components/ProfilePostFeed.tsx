@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FetchMyPosts } from "@/hooks/UseFetch";
 import type { Post } from "@/types";
 import PostCardSkeleton from "@/pages/screen/01_Home/components/PostCardSkeleton";
@@ -27,14 +27,51 @@ const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
     setActiveImage(null);
   };
 
-  const allPostMedia = myPosts.reduce((acc: string[], post: Post) => {
-    if (post.media && post.media.length > 0) {
-      acc.push(...post.media);
-    }
-    return acc;
-  }, []);
+  const allPostMedia = useMemo(() => {
+    return myPosts.flatMap((post: Post) => post.media || []);
+  }, [myPosts]);
 
-  console.log(allPostMedia);
+  const renderPostFeed = () =>
+    myPosts.map((post: Post) => (
+      <PostFeed
+        key={post.id}
+        authorImage={post.author.picture}
+        authorName={post.author.name}
+        authorUsername={post.author.email.split("@")[0]}
+        userType={post.author.user_type}
+        timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
+        content={post.text}
+        media={post.media}
+        comments={0}
+        reposts={0}
+        likes={0}
+      />
+    ));
+
+  const renderMediaGrid = () => (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-1 border-b border-gray-300 dark:border-gray-600">
+      {allPostMedia.map((media: string) => {
+        const isVideo = /\.(mp4|webm|ogg)$/i.test(media);
+
+        return isVideo ? (
+          <video
+            key={media}
+            src={media}
+            controls
+            className="w-full h-[200px]"
+          />
+        ) : (
+          <img
+            key={media}
+            src={media}
+            alt="Post media"
+            className="w-full h-[200px] object-cover cursor-pointer"
+            onClick={() => openLightbox(media)}
+          />
+        );
+      })}
+    </div>
+  );
 
   return (
     <>
@@ -42,51 +79,10 @@ const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
         {fetchingMyPosts ? (
           <PostCardSkeleton />
         ) : activeTab === "Posts" ? (
-          myPosts.map((post: Post) => (
-            <PostFeed
-              key={post.id}
-              authorImage={post.author.picture}
-              authorName={post.author.name}
-              authorUsername={post.author.email.split("@")[0]}
-              userType={post.author.user_type}
-              timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
-              content={post.text}
-              media={post.media}
-              comments={0}
-              reposts={0}
-              likes={0}
-            />
-          ))
+          renderPostFeed()
         ) : activeTab === "Media" ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1 border-b border-gray-300 dark:border-gray-600">
-            {allPostMedia.map((media: string) => {
-              const isVideo = /\.(mp4|webm|ogg)$/i.test(media);
-
-              if (isVideo) {
-                return (
-                  <video
-                    key={media}
-                    src={media}
-                    controls
-                    className="w-full h-[200px]"
-                  />
-                );
-              }
-
-              return (
-                <img
-                  key={media}
-                  src={media}
-                  alt="Post media"
-                  className="w-full h-[200px] object-cover"
-                  onClick={() => openLightbox(media)}
-                />
-              );
-            })}
-          </div>
-        ) : (
-          ""
-        )}
+          renderMediaGrid()
+        ) : null}
       </div>
 
       <Modal
