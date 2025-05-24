@@ -45,7 +45,7 @@ export const HamburgerToggle = ({ menu = [] }: HamburgerToggleProps) => {
 
   return (
     <>
-      <div className="fixed top-2 right-2 h-[50px] w-[50px] bg-[#2a2a2a] rounded-[10px] z-[999] flex items-center justify-center">
+      <div className="fixed top-2 right-2 h-[50px] w-[50px] bg-[#2a2a2a] rounded-[10px] z-[3] flex items-center justify-center">
         {menu.length > 0 && (
           <Hamburger
             toggle={setIsMenuOpen}
