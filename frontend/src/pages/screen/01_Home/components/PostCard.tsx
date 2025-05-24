@@ -227,7 +227,7 @@ export default function PostCard({
         overlayClassName="fixed inset-0 bg-main bg-opacity-75 z-[5]"
       >
         <button
-          className="absolute top-4 right-4 text-white text-3xl"
+          className="absolute top-4 left-4 md:right-4 text-white text-3xl"
           onClick={closeLightbox}
         >
           &times;
