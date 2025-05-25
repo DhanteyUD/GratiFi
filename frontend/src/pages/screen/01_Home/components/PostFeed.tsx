@@ -88,8 +88,8 @@ export default function PostFeed({
                 username={authorUsername}
                 userType={userType}
                 status="Building the next big thing 🚀"
-                followers={123}
-                following={89}
+                followers={0}
+                following={0}
               />
             )}
           </div>
