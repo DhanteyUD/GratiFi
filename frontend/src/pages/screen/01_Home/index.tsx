@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
 import type { Post } from "@/types";
-import helperService from "@/services/helper.service";
 import Tabs from "./components/Tabs";
 import CreatePost from "./components/CreatePost";
 import PostFeed from "./components/PostFeed";
@@ -37,7 +36,7 @@ function Home() {
                 authorName={post.author.name}
                 authorUsername={post.author.email.split("@")[0]}
                 userType={post.author.user_type}
-                timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
+                timeStamp={post.createdAt}
                 content={post.text}
                 media={post.media}
                 comments={0}

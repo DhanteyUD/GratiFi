@@ -8,12 +8,14 @@ import {
   MoreHorizontal,
   Dot,
 } from "lucide-react";
-import { UserTypeIcon } from "@/components";
+import { UserTypeIcon, Tooltip } from "@/components";
+import { UseAppContext } from "@/hooks/UseAppContext";
 import UserFeedHoverCard from "./UserFeedHoverCard";
 import gratifiIcon from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import Modal from "react-modal";
+import moment from "moment";
 
 Modal.setAppElement("#root");
 
@@ -42,8 +44,12 @@ export default function PostFeed({
   reposts,
   likes,
 }: PostProps) {
+  const { user } = UseAppContext();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  console.log(user)
+  // const [showOptions, setShowOptions] = useState(false);
 
   const [hovering, setHovering] = useState(false);
   let hoverTimeout: ReturnType<typeof setTimeout>;
@@ -119,7 +125,7 @@ export default function PostFeed({
                       <Dot size={15} />
                     </span>
                     <span className="flex md:hidden text-gray-500 dark:text-primary/50 text-[11px]">
-                      {timeStamp}
+                      {helperService.formatTimeWithMoment(timeStamp)}
                     </span>
                   </span>
                   <span className="flex md:hidden text-gray-500 dark:text-primary/50">
@@ -136,11 +142,24 @@ export default function PostFeed({
                   <UserTypeIcon userType={userType} size={8} />
                 </span>
                 <span className="flex text-gray-500 dark:text-primary/50 items-center">
-                  <span className="hidden md:flex">@{authorUsername}</span>
+                  <span
+                    className="hidden md:flex"
+                    onMouseEnter={showHoverCard}
+                    onMouseLeave={hideHoverCard}
+                  >
+                    @{authorUsername}
+                  </span>
                   <span className="hidden md:flex">
                     <Dot size={15} />
                   </span>
-                  <span className="hidden md:flex">{timeStamp}</span>
+                  <span className="relative group hidden md:flex">
+                    {helperService.formatTimeWithMoment(timeStamp)}
+                    <Tooltip
+                      label={moment(timeStamp).format(
+                        "h:mm A [・] MMMM DD, YYYY"
+                      )}
+                    />
+                  </span>
                 </span>
               </div>
               <button className="cursor-not-allowed text-gray-400 dark:text-primary/50">
