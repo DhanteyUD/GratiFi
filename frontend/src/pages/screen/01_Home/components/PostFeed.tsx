@@ -9,6 +9,7 @@ import {
   Dot,
 } from "lucide-react";
 import { UserTypeIcon } from "@/components";
+import UserFeedHoverCard from "./UserFeedHoverCard";
 import gratifiIcon from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
@@ -44,6 +45,9 @@ export default function PostFeed({
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
+  const [hovering, setHovering] = useState(false);
+  let hoverTimeout: ReturnType<typeof setTimeout>;
+
   const openLightbox = (imgUrl: string) => {
     setActiveImage(imgUrl);
     setLightboxOpen(true);
@@ -54,22 +58,53 @@ export default function PostFeed({
     setActiveImage(null);
   };
 
+  const showHoverCard = () => {
+    clearTimeout(hoverTimeout);
+    setHovering(true);
+  };
+
+  const hideHoverCard = () => {
+    hoverTimeout = setTimeout(() => setHovering(false), 200);
+  };
+
   return (
     <>
       <div className="p-4 border-b border-gray-300 dark:border-gray-600 hover:bg-primaryHover/50 dark:hover:bg-main/50 cursor-pointer transition-colors duration-300 ease-linear">
         <div className="flex gap-3">
-          <img
-            src={authorImage || gratifiIcon}
-            className="w-10 h-10 rounded-full"
-            alt="Author image"
-          />
+          <div
+            className="relative"
+            onMouseEnter={showHoverCard}
+            onMouseLeave={hideHoverCard}
+          >
+            <img
+              src={authorImage || gratifiIcon}
+              className="w-10 h-10 rounded-full"
+              alt="Author"
+            />
+            {hovering && (
+              <UserFeedHoverCard
+                image={authorImage}
+                name={authorName}
+                username={authorUsername}
+                userType={userType}
+                status="Building the next big thing 🚀"
+                followers={0}
+                following={0}
+              />
+            )}
+          </div>
+
           <div className="flex-1">
             {/* Header */}
             <div className="flex justify-between text-[12px] md:text-[14px]">
               <div className="flex items-center gap-2">
-                <span>
+                <div
+                  className="relative"
+                  onMouseEnter={showHoverCard}
+                  onMouseLeave={hideHoverCard}
+                >
                   <span className="flex items-center gap-1">
-                    <span className=" font-bold text-main dark:text-primary">
+                    <span className="font-bold text-main dark:text-primary hover:underline">
                       {authorName}
                     </span>
                     <span
@@ -90,7 +125,8 @@ export default function PostFeed({
                   <span className="flex md:hidden text-gray-500 dark:text-primary/50">
                     @{authorUsername}
                   </span>
-                </span>
+                </div>
+
                 <span
                   className={clsx(
                     "hidden md:flex rounded-full p-1",
@@ -137,14 +173,12 @@ export default function PostFeed({
                 >
                   {media.map((m, idx) => {
                     const isVideo = /\.(mp4|webm|ogg)$/i.test(m);
-
                     let gridArea: string | undefined;
 
                     if (media.length === 3) {
                       gridArea = ["media1", "media2", "media3"][idx];
                     }
 
-                    // Video: inline, no lightbox
                     if (isVideo) {
                       return (
                         <video
@@ -162,7 +196,6 @@ export default function PostFeed({
                       );
                     }
 
-                    // Image: click to open lightbox
                     return (
                       <div
                         key={idx}
@@ -226,16 +259,11 @@ export default function PostFeed({
         className="fixed inset-0 flex items-center justify-center p-4 outline-none"
         overlayClassName="fixed inset-0 bg-main bg-opacity-75 z-[5]"
       >
-        <button
-          className="absolute top-4 left-4 md:right-4 text-white text-3xl"
-          onClick={closeLightbox}
-        >
-          &times;
-        </button>
         {activeImage && (
           <img
-            src={activeImage}
             alt="Preview"
+            src={activeImage}
+            onClick={closeLightbox}
             className="max-w-full max-h-full rounded-xl"
           />
         )}
