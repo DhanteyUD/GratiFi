@@ -11,6 +11,7 @@ export { default as CreateAccount } from "./auth/CreateAccount";
 
 // Screen - shared
 export { default as Home } from "./screen/01_Home";
+export { default as Post } from "./screen/01_Home/views/Post";
 export { default as Explore } from "./screen/02_Explore";
 export { default as Notifications } from "./screen/03_Notifications";
 export { default as Wallet } from "./screen/04_Wallet";

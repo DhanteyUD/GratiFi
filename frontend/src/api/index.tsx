@@ -19,3 +19,13 @@ export const fetchMyPosts = async () => {
   const response = await axiosInstance.get("/post/posts/me");
   return response;
 };
+
+export const fetchPostsByUserId = async (userId: string) => {
+  const response = await axiosInstance.get(`/post/posts/user/${userId}`);
+  return response;
+};
+
+export const deletePost = async (postId: string) => {
+  const response = await axiosInstance.delete(`/post/posts/${postId}`);
+  return response;
+}

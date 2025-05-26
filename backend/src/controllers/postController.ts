@@ -196,4 +196,38 @@ const getPostsByUserId = async (req: Request, res: Response) => {
   });
 };
 
-export { createPost, getPosts, getMyPosts, getPostsByUserId };
+// DELETE:
+const deletePost = async (req: Request, res: Response) => {
+  if (req.method !== "DELETE") return res.status(405).end("Method Not Allowed");
+
+  const user = await getAuthUser(req);
+  if (!user) return res.status(401).json({ error: "Unauthorized" });
+
+  const { postId } = req.params;
+
+  if (!postId || typeof postId !== "string") {
+    return res.status(400).json({ error: "Invalid or missing post ID" });
+  }
+
+  const post = await prisma.post.findUnique({
+    where: { id: postId },
+  });
+
+  if (!post) {
+    return res.status(404).json({ error: "Post not found" });
+  }
+
+  if (post.authorId !== user.id) {
+    return res
+      .status(403)
+      .json({ error: "You are not allowed to delete this post" });
+  }
+
+  await prisma.post.delete({
+    where: { id: postId },
+  });
+
+  return res.status(200).json({ message: "Your post was deleted" });
+};
+
+export { createPost, getPosts, getMyPosts, getPostsByUserId, deletePost };

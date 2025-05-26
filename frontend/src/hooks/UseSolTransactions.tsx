@@ -53,8 +53,7 @@ export const useSolTransactions = () => {
     queryKey: ["solana-transactions", publicKey?.toBase58()],
     queryFn: () => fetchTransactions(connection, publicKey),
     enabled: !!publicKey,
-    staleTime: 60 * 1000,
-    retry: 2,
+    staleTime: 30_000,
   });
 };
 
