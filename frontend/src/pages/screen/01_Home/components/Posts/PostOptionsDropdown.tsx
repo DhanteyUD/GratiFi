@@ -60,7 +60,7 @@ export default function PostOptionsDropdown({
       >
         <MoreHorizontal size={18} />
 
-        <Tooltip label="More" />
+        {!isOpen && <Tooltip label="More" />}
       </button>
 
       {isOpen && (
@@ -68,7 +68,7 @@ export default function PostOptionsDropdown({
           <ul className="text-sm py-1">
             {isAuthor && (
               <li
-                className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-100 dark:hover:bg-red-800 cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-100 dark:hover:bg-compulsory/20 cursor-pointer font-[700]"
                 onClick={handleDelete}
               >
                 <Trash2 size={16} /> Delete
@@ -76,7 +76,7 @@ export default function PostOptionsDropdown({
             )}
             {isAuthor && (
               <li
-                className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primaryHover cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary/20 cursor-pointer"
                 onClick={handleShareToX}
               >
                 <Share2 size={16} />
@@ -87,7 +87,7 @@ export default function PostOptionsDropdown({
             )}
             {!isAuthor && (
               <li
-                className="flex items-center gap-[6px] px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primaryHover cursor-pointer"
+                className="flex items-center gap-[6px] px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary/20 cursor-pointer"
                 // onClick={handleFollow}
               >
                 <HiMiniUserPlus size={18} />
@@ -101,7 +101,7 @@ export default function PostOptionsDropdown({
             )}
             {!isAuthor && (
               <li
-                className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primaryHover cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary/20 cursor-pointer"
                 // onClick={handleMessage}
               >
                 <MailPlus size={16} />
