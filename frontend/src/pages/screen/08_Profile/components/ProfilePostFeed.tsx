@@ -35,6 +35,7 @@ const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
     myPosts.map((post: Post) => (
       <PostFeed
         key={post.id}
+        id={post.id}
         authorImage={post.author.picture}
         authorName={post.author.name}
         authorUsername={post.author.email.split("@")[0]}
