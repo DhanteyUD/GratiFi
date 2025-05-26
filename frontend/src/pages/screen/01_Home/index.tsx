@@ -2,9 +2,9 @@ import { useState } from "react";
 import { FetchUserProfile, FetchAllPosts } from "@/hooks/UseFetch";
 import type { Post } from "@/types";
 import Tabs from "./components/Tabs";
-import CreatePost from "./components/CreatePost";
-import PostFeed from "./components/PostFeed";
-import PostCardSkeleton from "./components/PostCardSkeleton";
+import CreatePost from "./components/Posts/CreatePost";
+import PostFeed from "./components/Posts/PostFeed";
+import PostCardSkeleton from "./components/Posts/PostCardSkeleton";
 import HomeRightSide from "./components/HomeRightSide";
 
 function Home() {
@@ -32,9 +32,10 @@ function Home() {
             allPosts.map((post: Post) => (
               <PostFeed
                 key={post.id}
+                id={post.id}
                 authorImage={post.author.picture}
                 authorName={post.author.name}
-                authorUsername={post.author.email.split("@")[0]}
+                authorUsername={post.author.email}
                 userType={post.author.user_type}
                 timeStamp={post.createdAt}
                 content={post.text}

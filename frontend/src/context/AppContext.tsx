@@ -1,5 +1,6 @@
 import { useMemo, createContext } from "react";
 import type { ReactNode } from "react";
+import { FetchUserProfile } from "@/hooks/UseFetch.js";
 import storageService from "../services/storage.service.js";
 import moment from "moment";
 
@@ -57,6 +58,7 @@ const AppProvider = (props: AppProviderProps) => {
     ),
     user: useMemo(() => JSON.parse(localStorage.getItem("user") || "{}"), []),
   };
+  const { fetchingUserProfile, userProfile } = FetchUserProfile();
 
   return (
     <AppContext.Provider
@@ -65,6 +67,8 @@ const AppProvider = (props: AppProviderProps) => {
           today,
           token,
           user,
+          fetchingUserProfile,
+          userProfile,
         } as AppContextValue
       }
     >

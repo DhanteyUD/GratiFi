@@ -23,7 +23,13 @@ const UserHoverCard = ({
 }: Props) => {
   return (
     <div className="absolute z-50 p-4 w-64 rounded-xl bg-white dark:bg-main border dark:border-gray-600 top-12 left-0 shadow-[0_0_0px_#ab9ff2,_0_0_10px_#ab9ff2]">
-      <div className="flex items-center gap-3">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          // handleViewProfile();
+        }}
+        className="flex items-center gap-3"
+      >
         <img
           src={image}
           className="w-12 h-12 rounded-full object-cover"
@@ -46,10 +52,20 @@ const UserHoverCard = ({
           </p>
         </div>
       </div>
-      <div className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="mt-2 text-sm text-gray-600 dark:text-gray-300"
+      >
         {status}
       </div>
-      <div className="mt-3 flex justify-between text-sm dark:text-gray-400">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="mt-3 flex justify-between text-sm dark:text-gray-400"
+      >
         <span>
           <strong>{following}</strong> Following
         </span>

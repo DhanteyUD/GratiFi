@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
 import { FetchMyPosts } from "@/hooks/UseFetch";
 import type { Post } from "@/types";
-import PostCardSkeleton from "@/pages/screen/01_Home/components/PostCardSkeleton";
-import PostFeed from "@/pages/screen/01_Home/components/PostFeed";
+import PostCardSkeleton from "@/pages/screen/01_Home/components/Posts/PostCardSkeleton";
+import PostFeed from "@/pages/screen/01_Home/components/Posts/PostFeed";
 import helperService from "@/services/helper.service";
 import Modal from "react-modal";
 
