@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPostsByUserId = exports.getMyPosts = exports.getPosts = exports.createPost = void 0;
+exports.deletePost = exports.getPostsByUserId = exports.getMyPosts = exports.getPosts = exports.createPost = void 0;
 const formidable_1 = __importDefault(require("formidable"));
 const cloudinary_1 = require("cloudinary");
 const client_1 = require("@prisma/client");
@@ -178,3 +178,31 @@ const getPostsByUserId = (req, res) => __awaiter(void 0, void 0, void 0, functio
     });
 });
 exports.getPostsByUserId = getPostsByUserId;
+// DELETE:
+const deletePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (req.method !== "DELETE")
+        return res.status(405).end("Method Not Allowed");
+    const user = yield (0, auth_1.getAuthUser)(req);
+    if (!user)
+        return res.status(401).json({ error: "Unauthorized" });
+    const { postId } = req.params;
+    if (!postId || typeof postId !== "string") {
+        return res.status(400).json({ error: "Invalid or missing post ID" });
+    }
+    const post = yield prisma.post.findUnique({
+        where: { id: postId },
+    });
+    if (!post) {
+        return res.status(404).json({ error: "Post not found" });
+    }
+    if (post.authorId !== user.id) {
+        return res
+            .status(403)
+            .json({ error: "You are not allowed to delete this post" });
+    }
+    yield prisma.post.delete({
+        where: { id: postId },
+    });
+    return res.status(200).json({ message: "Your post was deleted" });
+});
+exports.deletePost = deletePost;
