@@ -30,6 +30,16 @@ export default function PostOptionsDropdown({
   const isAuthor = authorUsername === currentUserEmail;
   const { deletePostMutate, deletingPost } = DeletePost(postId);
 
+  const handleDelete = () => {
+    setShowConfirmModal(true);
+  };
+
+  const confirmDelete = () => {
+    deletePostMutate();
+    setShowConfirmModal(false);
+    onToggle();
+  };
+
   const handleShareToX = () => {
     const postUrl = `${configKeys.appURL}/${
       authorUsername.split("@")[0]
@@ -43,16 +53,6 @@ export default function PostOptionsDropdown({
     )}`;
 
     window.open(shareUrl, "_blank");
-    onToggle();
-  };
-
-  const handleDelete = () => {
-    setShowConfirmModal(true);
-  };
-
-  const confirmDelete = () => {
-    deletePostMutate();
-    setShowConfirmModal(false);
     onToggle();
   };
 
