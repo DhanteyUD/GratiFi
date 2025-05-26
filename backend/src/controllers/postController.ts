@@ -203,7 +203,7 @@ const deletePost = async (req: Request, res: Response) => {
   const user = await getAuthUser(req);
   if (!user) return res.status(401).json({ error: "Unauthorized" });
 
-  const { postId } = req.query;
+  const { postId } = req.params;
 
   if (!postId || typeof postId !== "string") {
     return res.status(400).json({ error: "Invalid or missing post ID" });
@@ -227,7 +227,7 @@ const deletePost = async (req: Request, res: Response) => {
     where: { id: postId },
   });
 
-  return res.status(200).json({ message: "Post deleted successfully" });
+  return res.status(200).json({ message: "Your post was deleted" });
 };
 
 export { createPost, getPosts, getMyPosts, getPostsByUserId, deletePost };

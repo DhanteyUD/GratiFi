@@ -212,10 +212,6 @@ export default function PostFeed({
                 onToggle={() =>
                   setOpenDropdownId((prev) => (prev === id ? null : id))
                 }
-                onDelete={() => {
-                  console.log("Delete post");
-                  // 🔥 Perform delete logic here
-                }}
               />
             </div>
 
