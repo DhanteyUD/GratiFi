@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createPost } from "@/hooks/UseCreate";
+import { createPost } from "@/hooks/UseCreatePost";
 import {
   Smile,
   Calendar,
