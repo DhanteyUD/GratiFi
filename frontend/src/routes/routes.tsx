@@ -6,6 +6,7 @@ import {
   CreateAccount,
   LandingPage,
   Home,
+  Post,
   Explore,
   Messages,
   Wallet,
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: withAuth(<Home />),
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "/:username/:id",
+    element: withAuth(<Post />),
     errorElement: <ErrorBoundary />,
   },
   {

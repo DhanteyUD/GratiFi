@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
 import { FetchMyPosts } from "@/hooks/UseFetch";
 import type { Post } from "@/types";
-import PostCardSkeleton from "@/pages/screen/01_Home/components/PostCardSkeleton";
-import PostFeed from "@/pages/screen/01_Home/components/PostFeed";
+import PostCardSkeleton from "@/pages/screen/01_Home/components/Posts/PostCardSkeleton";
+import PostFeed from "@/pages/screen/01_Home/components/Posts/PostFeed";
 import helperService from "@/services/helper.service";
 import Modal from "react-modal";
 
@@ -35,6 +35,7 @@ const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
     myPosts.map((post: Post) => (
       <PostFeed
         key={post.id}
+        id={post.id}
         authorImage={post.author.picture}
         authorName={post.author.name}
         authorUsername={post.author.email.split("@")[0]}

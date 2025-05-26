@@ -1,23 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MessageCircle,
   Repeat2,
   Heart,
   Bookmark,
   Share2,
-  MoreHorizontal,
   Dot,
 } from "lucide-react";
-import { UserTypeIcon } from "@/components";
+import { UserTypeIcon, Tooltip } from "@/components";
+import { UseAppContext } from "@/hooks/UseAppContext";
+import { useNavigate } from "react-router-dom";
+import PostOptionsDropdown from "./PostOptionsDropdown";
 import UserFeedHoverCard from "./UserFeedHoverCard";
 import gratifiIcon from "@/assets/image/gratifi-logo.png";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import Modal from "react-modal";
+import moment from "moment";
 
 Modal.setAppElement("#root");
 
 type PostProps = {
+  id: string;
   authorImage: string;
   authorName: string;
   authorUsername: string;
@@ -31,6 +35,7 @@ type PostProps = {
 };
 
 export default function PostFeed({
+  id,
   authorImage,
   authorName,
   authorUsername,
@@ -42,8 +47,11 @@ export default function PostFeed({
   reposts,
   likes,
 }: PostProps) {
+  const navigate = useNavigate();
+  const { userProfile } = UseAppContext();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
 
   const [hovering, setHovering] = useState(false);
   let hoverTimeout: ReturnType<typeof setTimeout>;
@@ -67,9 +75,29 @@ export default function PostFeed({
     hoverTimeout = setTimeout(() => setHovering(false), 200);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const dropdown = document.getElementById(`post-dropdown-${id}`);
+      if (dropdown && !dropdown.contains(e.target as Node)) {
+        setOpenDropdownId(null);
+      }
+    };
+
+    if (openDropdownId === id) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openDropdownId, id]);
+
   return (
     <>
-      <div className="p-4 border-b border-gray-300 dark:border-gray-600 hover:bg-primaryHover/50 dark:hover:bg-main/50 cursor-pointer transition-colors duration-300 ease-linear">
+      <div
+        onClick={() => navigate(`/${authorUsername.split("@")[0]}/${id}`)}
+        className="p-4 border-b border-gray-300 dark:border-gray-600 hover:bg-primaryHover/50 dark:hover:bg-main/50 cursor-pointer transition-colors duration-300 ease-linear"
+      >
         <div className="flex gap-3">
           <div
             className="relative"
@@ -77,6 +105,10 @@ export default function PostFeed({
             onMouseLeave={hideHoverCard}
           >
             <img
+              onClick={(e) => {
+                e.stopPropagation();
+                // handleViewProfile();
+              }}
               src={authorImage || gratifiIcon}
               className="w-10 h-10 rounded-full"
               alt="Author"
@@ -85,7 +117,7 @@ export default function PostFeed({
               <UserFeedHoverCard
                 image={authorImage}
                 name={authorName}
-                username={authorUsername}
+                username={authorUsername.split("@")[0]}
                 userType={userType}
                 status="Building the next big thing 🚀"
                 followers={0}
@@ -99,6 +131,10 @@ export default function PostFeed({
             <div className="flex justify-between text-[12px] md:text-[14px]">
               <div className="flex items-center gap-2">
                 <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleViewProfile();
+                  }}
                   className="relative"
                   onMouseEnter={showHoverCard}
                   onMouseLeave={hideHoverCard}
@@ -119,15 +155,19 @@ export default function PostFeed({
                       <Dot size={15} />
                     </span>
                     <span className="flex md:hidden text-gray-500 dark:text-primary/50 text-[11px]">
-                      {timeStamp}
+                      {helperService.formatTimeWithMoment(timeStamp)}
                     </span>
                   </span>
                   <span className="flex md:hidden text-gray-500 dark:text-primary/50">
-                    @{authorUsername}
+                    @{authorUsername.split("@")[0]}
                   </span>
                 </div>
 
                 <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleViewProfile();
+                  }}
                   className={clsx(
                     "hidden md:flex rounded-full p-1",
                     helperService.getUserTypeBg(userType)
@@ -135,17 +175,44 @@ export default function PostFeed({
                 >
                   <UserTypeIcon userType={userType} size={8} />
                 </span>
-                <span className="flex text-gray-500 dark:text-primary/50 items-center">
-                  <span className="hidden md:flex">@{authorUsername}</span>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleViewProfile();
+                  }}
+                  className="flex text-gray-500 dark:text-primary/50 items-center"
+                >
+                  <span
+                    className="hidden md:flex"
+                    onMouseEnter={showHoverCard}
+                    onMouseLeave={hideHoverCard}
+                  >
+                    @{authorUsername.split("@")[0]}
+                  </span>
                   <span className="hidden md:flex">
                     <Dot size={15} />
                   </span>
-                  <span className="hidden md:flex">{timeStamp}</span>
+                  <span className="relative group hidden md:flex">
+                    {helperService.formatTimeWithMoment(timeStamp)}
+                    <Tooltip
+                      label={moment(timeStamp).format(
+                        "h:mm A [・] MMMM DD, YYYY"
+                      )}
+                    />
+                  </span>
                 </span>
               </div>
-              <button className="cursor-not-allowed text-gray-400 dark:text-primary/50">
-                <MoreHorizontal size={18} />
-              </button>
+              <PostOptionsDropdown
+                postId={id}
+                authorName={authorName}
+                authorUsername={authorUsername}
+                currentUserEmail={(userProfile as { email: string }).email}
+                content={content}
+                isOpen={openDropdownId === id}
+                onToggle={() =>
+                  setOpenDropdownId((prev) => (prev === id ? null : id))
+                }
+              />
             </div>
 
             {/* Content */}
@@ -223,24 +290,52 @@ export default function PostFeed({
             {/* Actions */}
             <div className="flex justify-between mt-3">
               <div className="flex justify-between items-center text-gray-500 text-sm max-w-md w-[50%]">
-                <button className="flex items-center gap-1 cursor-not-allowed text-gray-400">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleComment();
+                  }}
+                  className="flex items-center gap-1 cursor-not-allowed text-gray-400"
+                >
                   <MessageCircle size={16} /> {comments}
                 </button>
-                <button className="flex items-center gap-1 cursor-not-allowed text-gray-400">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleRepost();
+                  }}
+                  className="flex items-center gap-1 cursor-not-allowed text-gray-400"
+                >
                   <Repeat2 size={16} /> {reposts}
                 </button>
-                <button className="flex items-center gap-1 cursor-not-allowed text-gray-400">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleLike();
+                  }}
+                  className="flex items-center gap-1 cursor-not-allowed text-gray-400"
+                >
                   <Heart size={16} /> {likes}
                 </button>
               </div>
               <div className="flex gap-3 justify-between items-center text-gray-500 text-sm max-w-md w-auto">
-                <button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleBookmark();
+                  }}
+                >
                   <Bookmark
                     size={16}
                     className="cursor-not-allowed text-gray-400"
                   />
                 </button>
-                <button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // handleShare();
+                  }}
+                >
                   <Share2
                     size={16}
                     className="cursor-not-allowed text-gray-400"
