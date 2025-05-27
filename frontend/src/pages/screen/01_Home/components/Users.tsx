@@ -51,7 +51,7 @@ function Users({
   return (
     <>
       {fetchingAllUsers ? (
-        <UsersSkeleton />
+        <UsersSkeleton flatten />
       ) : (
         <div
           className={clsx(
@@ -103,7 +103,7 @@ function Users({
               </div>
 
               {!minify && (
-                <p className="pl-12 text-main dark:text-gray-300">
+                <p className="pl-12 text-main dark:text-gray-300 text-[14px]">
                   Software Developer. Building the future, one app at a time.
                 </p>
               )}

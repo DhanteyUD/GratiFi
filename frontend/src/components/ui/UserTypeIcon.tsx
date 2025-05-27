@@ -8,9 +8,9 @@ type UserTypeIconProps = {
 const UserTypeIcon = ({ userType, size = 18 }: UserTypeIconProps) => {
   switch (userType) {
     case "GratiFan":
-      return <Fan size={size} className="text-dark" />;
+      return <Fan size={size} className="text-main" />;
     case "GratiStar":
-      return <Star size={size} className="text-dark" />;
+      return <Star size={size} className="text-main" />;
     default:
       return null;
   }

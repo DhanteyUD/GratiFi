@@ -4,7 +4,6 @@ import type { Post, User } from "@/types";
 import Users from "@/pages/screen/01_Home/components/Users";
 import PostCardSkeleton from "@/pages/screen/01_Home/components/Posts/PostCardSkeleton";
 import PostFeed from "@/pages/screen/01_Home/components/Posts/PostFeed";
-import helperService from "@/services/helper.service";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -41,9 +40,9 @@ const ProfilePostFeed = ({ activeTab, loading, data }: PostFeedProps) => {
         id={post.id}
         authorImage={post.author.picture}
         authorName={post.author.name}
-        authorUsername={post.author.email.split("@")[0]}
+        authorUsername={post.author.email}
         userType={post.author.user_type}
-        timeStamp={helperService.formatTimeWithMoment(post.createdAt)}
+        timeStamp={post.createdAt}
         content={post.text}
         media={post.media}
         comments={0}
