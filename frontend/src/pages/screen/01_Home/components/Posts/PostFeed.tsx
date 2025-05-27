@@ -75,6 +75,14 @@ export default function PostFeed({
     hoverTimeout = setTimeout(() => setHovering(false), 200);
   };
 
+  const handleViewProfile = () => {
+    navigate(`/${authorUsername.split("@")[0]}`, {
+      state: {
+        name: authorName,
+      },
+    });
+  };
+
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const dropdown = document.getElementById(`post-dropdown-${id}`);
@@ -107,7 +115,7 @@ export default function PostFeed({
             <img
               onClick={(e) => {
                 e.stopPropagation();
-                // handleViewProfile();
+                handleViewProfile();
               }}
               src={authorImage || gratifiIcon}
               className="w-10 h-10 rounded-full"
@@ -133,7 +141,7 @@ export default function PostFeed({
                 <div
                   onClick={(e) => {
                     e.stopPropagation();
-                    // handleViewProfile();
+                    handleViewProfile();
                   }}
                   className="relative"
                   onMouseEnter={showHoverCard}
@@ -166,7 +174,7 @@ export default function PostFeed({
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    // handleViewProfile();
+                    handleViewProfile();
                   }}
                   className={clsx(
                     "hidden md:flex rounded-full p-1",
@@ -178,7 +186,7 @@ export default function PostFeed({
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    // handleViewProfile();
+                    handleViewProfile();
                   }}
                   className="flex text-gray-500 dark:text-primary/50 items-center"
                 >

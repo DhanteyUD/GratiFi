@@ -25,7 +25,11 @@ const UserHoverCard = ({
   const navigate = useNavigate();
 
   const handleViewProfile = () => {
-    navigate(`/${name}`);
+    navigate(`/${username}`, {
+      state: {
+        name,
+      },
+    });
   };
 
   return (

@@ -65,7 +65,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: "/:name",
+    path: "/:username",
     element: withAuth(<ProfileView />),
     errorElement: <ErrorBoundary />,
   },

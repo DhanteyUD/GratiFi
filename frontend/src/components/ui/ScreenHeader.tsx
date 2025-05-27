@@ -37,7 +37,9 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const navigate = useNavigate();
   const { theme, toggleTheme } = UseThemeContext();
 
-  const currentPage = decodeURIComponent(location.pathname.split("/")[1] || "");
+  const currentPage =
+    location?.state?.name ||
+    decodeURIComponent(location.pathname.split("/")[1] || "");
 
   const [notificationCount] = useState(0);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
