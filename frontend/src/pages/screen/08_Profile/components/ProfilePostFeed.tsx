@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import { FetchMyPosts } from "@/hooks/UseFetch";
-import type { Post } from "@/types";
+import { FetchPostsByUserId } from "@/hooks/UseFetch";
+import type { Post, User } from "@/types";
 import PostCardSkeleton from "@/pages/screen/01_Home/components/Posts/PostCardSkeleton";
 import PostFeed from "@/pages/screen/01_Home/components/Posts/PostFeed";
 import helperService from "@/services/helper.service";
@@ -10,10 +10,12 @@ Modal.setAppElement("#root");
 
 interface PostFeedProps {
   activeTab: string;
+  loading: boolean;
+  data: User;
 }
 
-const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
-  const { fetchingMyPosts, myPosts } = FetchMyPosts();
+const ProfilePostFeed = ({ activeTab, loading, data }: PostFeedProps) => {
+  const { fetchingPostsByUser, postsByUser } = FetchPostsByUserId(data.id);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
@@ -28,11 +30,11 @@ const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
   };
 
   const allPostMedia = useMemo(() => {
-    return myPosts.flatMap((post: Post) => post.media || []);
-  }, [myPosts]);
+    return postsByUser.flatMap((post: Post) => post.media || []);
+  }, [postsByUser]);
 
   const renderPostFeed = () =>
-    myPosts.map((post: Post) => (
+    postsByUser.map((post: Post) => (
       <PostFeed
         key={post.id}
         id={post.id}
@@ -77,7 +79,7 @@ const ProfilePostFeed = ({ activeTab }: PostFeedProps) => {
   return (
     <>
       <div>
-        {fetchingMyPosts ? (
+        {loading || fetchingPostsByUser ? (
           <PostCardSkeleton />
         ) : activeTab === "Posts" ? (
           renderPostFeed()

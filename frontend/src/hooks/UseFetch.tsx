@@ -5,6 +5,7 @@ import {
   fetchAllPosts,
   fetchMyPosts,
   fetchPostsByUserId,
+  fetchUserByEmail,
 } from "@/api";
 
 function FetchUserProfile() {
@@ -57,10 +58,21 @@ function FetchPostsByUserId(userId: string) {
   return { fetchingPostsByUser, postsByUser };
 }
 
+function FetchUserByEmail(email: string) {
+  const { isPending: fetchingUserByEmail, data: userByEmail = [] } = useQuery({
+    queryKey: ["user-by-email", email],
+    queryFn: () => fetchUserByEmail(email),
+    select: (data) => data?.data?.user,
+  });
+
+  return { fetchingUserByEmail, userByEmail };
+}
+
 export {
   FetchUserProfile,
   FetchAllUsers,
   FetchAllPosts,
   FetchMyPosts,
   FetchPostsByUserId,
+  FetchUserByEmail,
 };
