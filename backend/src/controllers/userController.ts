@@ -54,4 +54,33 @@ const getAllUsers = async (
   return;
 };
 
-export { getUserProfile, getAllUsers };
+// GET:
+const getUserByEmail = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { email } = req.params;
+
+  if (!email) {
+    res.status(400).json({ error: "Email param is required" });
+    return;
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { email },
+    include: { Wallet: true },
+  });
+
+  if (!user) {
+    res.status(404).json({ error: "User not found" });
+    return;
+  }
+
+  return res.status(200).json({
+    message: "User fetched successfully",
+    user,
+  });
+};
+
+export { getUserProfile, getAllUsers, getUserByEmail };

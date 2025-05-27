@@ -1,17 +1,20 @@
-import { FetchUserProfile } from "@/hooks/UseFetch";
 import { FaMapPin } from "react-icons/fa";
 import { VscCalendar } from "react-icons/vsc";
 import { UserTypeIcon } from "@/components";
+import type { User } from "@/types";
 import ProfileHeaderSkeleton from "./ProfileHeaderSkeleton";
 import placeholderImage from "@/assets/image/header-placeholder.jpg";
 import clsx from "clsx";
 import helperService from "@/services/helper.service";
 import moment from "moment";
 
-const ProfileHeader = () => {
-  const { fetchingUserProfile, userProfile } = FetchUserProfile();
+type ProfileProp = {
+  loading: boolean;
+  data: User;
+};
 
-  if (fetchingUserProfile) {
+const ProfileHeader = ({ loading, data }: ProfileProp) => {
+  if (loading) {
     return <ProfileHeaderSkeleton />;
   }
 
@@ -24,7 +27,7 @@ const ProfileHeader = () => {
           className="w-full h-full object-cover"
         />
         <img
-          src={userProfile.picture}
+          src={data.picture}
           alt="Profile"
           className="w-24 h-24 rounded-full border-4 border-white dark:border-dark3 absolute -bottom-12 left-4"
         />
@@ -42,19 +45,19 @@ const ProfileHeader = () => {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-bold text-main dark:text-primary">
-                {userProfile.name}
+                {data.name}
               </h1>
               <span
                 className={clsx(
                   "rounded-full p-1",
-                  helperService.getUserTypeBg(userProfile.user_type)
+                  helperService.getUserTypeBg(data.user_type)
                 )}
               >
-                <UserTypeIcon userType={userProfile.user_type} size={8} />
+                <UserTypeIcon userType={data.user_type} size={8} />
               </span>
             </div>
             <p className="text-gray-500 text-main/70 dark:text-primary/70">
-              {userProfile ? userProfile?.email?.split("@")[0] : ""}
+              @{data ? data?.email?.split("@")[0] : ""}
             </p>
           </div>
         </div>
@@ -70,7 +73,7 @@ const ProfileHeader = () => {
             <VscCalendar />
             <span className="flex items-center gap-1">
               <p>Joined</p>
-              <p>{moment(userProfile?.createdAt).format("MMMM YYYY")}</p>
+              <p>{moment(data?.createdAt).format("MMMM YYYY")}</p>
             </span>
           </span>
         </div>

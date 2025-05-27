@@ -168,7 +168,7 @@ const getMyPosts = async (req: Request, res: Response) => {
 const getPostsByUserId = async (req: Request, res: Response) => {
   if (req.method !== "GET") return res.status(405).end("Method Not Allowed");
 
-  const { userId } = req.query;
+  const { userId } = req.params;
 
   if (!userId || typeof userId !== "string") {
     return res.status(400).json({ error: "Invalid or missing user ID" });

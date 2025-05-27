@@ -79,6 +79,7 @@ export default function PostFeed({
     navigate(`/${authorUsername.split("@")[0]}`, {
       state: {
         name: authorName,
+        email: authorUsername,
       },
     });
   };
@@ -125,7 +126,7 @@ export default function PostFeed({
               <UserFeedHoverCard
                 image={authorImage}
                 name={authorName}
-                username={authorUsername.split("@")[0]}
+                username={authorUsername}
                 userType={userType}
                 status="Building the next big thing 🚀"
                 followers={0}

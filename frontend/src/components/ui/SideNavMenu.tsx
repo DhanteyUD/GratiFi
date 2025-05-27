@@ -64,7 +64,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
     if (itemPath === "/profile" && user?.app_user?.email) {
       const username = user.app_user.email.split("@")[0];
       navigate(`/${username}`, {
-        state: { name: user.app_user.name },
+        state: { name: user.app_user.name, email: user.app_user.email },
       });
 
       return;

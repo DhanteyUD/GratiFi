@@ -7,7 +7,6 @@ import {
   LandingPage,
   Home,
   PostView,
-  ProfileView,
   Explore,
   Messages,
   Wallet,
@@ -65,11 +64,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: "/:username",
-    element: withAuth(<ProfileView />),
-    errorElement: <ErrorBoundary />,
-  },
-  {
     path: "/explore",
     element: withAuth(<Explore />),
     errorElement: <ErrorBoundary />,
@@ -100,7 +94,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: "/profile",
+    path: "/:username",
     element: withAuth(<Profile />),
     errorElement: <ErrorBoundary />,
   },

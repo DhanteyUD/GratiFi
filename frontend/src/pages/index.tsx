@@ -19,7 +19,6 @@ export { default as Messages } from "./screen/05_Messages";
 export { default as Bookmarks } from "./screen/06_Bookmarks";
 export { default as Communities } from "./screen/07_Communities";
 export { default as Profile } from "./screen/08_Profile";
-export { default as ProfileView } from "./screen/08_Profile/views/ProfileView";
 
 // Screen - GratiFan
 export { default as SupportHistory } from "./screen/GratiFanExtras/01_SupportHistory";

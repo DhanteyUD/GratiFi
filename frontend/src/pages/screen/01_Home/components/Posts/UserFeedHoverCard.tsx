@@ -25,9 +25,10 @@ const UserHoverCard = ({
   const navigate = useNavigate();
 
   const handleViewProfile = () => {
-    navigate(`/${username}`, {
+    navigate(`/${username.split("@")[0]}`, {
       state: {
         name,
+        email: username,
       },
     });
   };
@@ -61,7 +62,7 @@ const UserHoverCard = ({
             </span>
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            @{username}
+            @{username.split("@")[0]}
           </p>
         </div>
       </div>
