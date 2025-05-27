@@ -75,6 +75,15 @@ export default function PostFeed({
     hoverTimeout = setTimeout(() => setHovering(false), 200);
   };
 
+  const handleViewProfile = () => {
+    navigate(`/${authorUsername.split("@")[0]}`, {
+      state: {
+        name: authorName,
+        email: authorUsername,
+      },
+    });
+  };
+
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const dropdown = document.getElementById(`post-dropdown-${id}`);
@@ -107,7 +116,7 @@ export default function PostFeed({
             <img
               onClick={(e) => {
                 e.stopPropagation();
-                // handleViewProfile();
+                handleViewProfile();
               }}
               src={authorImage || gratifiIcon}
               className="w-10 h-10 rounded-full"
@@ -117,7 +126,7 @@ export default function PostFeed({
               <UserFeedHoverCard
                 image={authorImage}
                 name={authorName}
-                username={authorUsername.split("@")[0]}
+                username={authorUsername}
                 userType={userType}
                 status="Building the next big thing 🚀"
                 followers={0}
@@ -133,7 +142,7 @@ export default function PostFeed({
                 <div
                   onClick={(e) => {
                     e.stopPropagation();
-                    // handleViewProfile();
+                    handleViewProfile();
                   }}
                   className="relative"
                   onMouseEnter={showHoverCard}
@@ -166,7 +175,7 @@ export default function PostFeed({
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    // handleViewProfile();
+                    handleViewProfile();
                   }}
                   className={clsx(
                     "hidden md:flex rounded-full p-1",
@@ -178,7 +187,7 @@ export default function PostFeed({
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    // handleViewProfile();
+                    handleViewProfile();
                   }}
                   className="flex text-gray-500 dark:text-primary/50 items-center"
                 >
@@ -252,6 +261,9 @@ export default function PostFeed({
                           key={idx}
                           src={m}
                           controls
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
                           className={clsx(
                             "w-full h-full object-cover",
                             media.length === 1 && "rounded-2xl aspect-video",
@@ -273,7 +285,10 @@ export default function PostFeed({
                           media.length > 2 && "h-full"
                         )}
                         style={gridArea ? { gridArea } : undefined}
-                        onClick={() => openLightbox(m)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openLightbox(m);
+                        }}
                       >
                         <img
                           src={m}

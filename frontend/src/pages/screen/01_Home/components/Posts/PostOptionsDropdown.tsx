@@ -5,6 +5,7 @@ import { configKeys } from "@/config";
 import { FaXTwitter } from "react-icons/fa6";
 import { DeleteConfirmationModal, Tooltip } from "@/components";
 import { DeletePost } from "@/hooks/UseDelete";
+import clsx from "clsx";
 
 type PostOptionsDropdownProps = {
   postId: string;
@@ -77,7 +78,10 @@ export default function PostOptionsDropdown({
             <ul className="text-sm py-1">
               {isAuthor && (
                 <li
-                  className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-100 dark:hover:bg-primary/20 cursor-pointer font-[700]"
+                  className={clsx(
+                    "flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-100 dark:hover:bg-primary/20 cursor-pointer font-[700]",
+                    deletingPost ? "animate-pulse" : ""
+                  )}
                   onClick={handleDelete}
                 >
                   <Trash2 size={16} /> {deletingPost ? "Deleting..." : "Delete"}

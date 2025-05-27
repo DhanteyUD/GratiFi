@@ -29,3 +29,8 @@ export const deletePost = async (postId: string) => {
   const response = await axiosInstance.delete(`/post/posts/${postId}`);
   return response;
 }
+
+export const fetchUserByEmail = async (email: string) => {
+  const response = await axiosInstance.get(`/user/${email}`);
+  return response;
+};

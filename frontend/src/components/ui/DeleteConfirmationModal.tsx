@@ -1,6 +1,5 @@
 import { Dialog } from "@headlessui/react";
 import { Fragment } from "react";
-import clsx from "clsx";
 
 type ConfirmationModalProps = {
   header: string;
@@ -34,10 +33,7 @@ export default function ConfirmationModal({
             <button
               onClick={onConfirm}
               disabled={isLoading}
-              className={clsx(
-                "w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full disabled:opacity-50 transition-colors",
-                isLoading && "animate-pulse"
-              )}
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full disabled:opacity-50 transition-colors"
             >
               {isLoading ? "Deleting..." : "Delete"}
             </button>
