@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = exports.getUserProfile = void 0;
+exports.getUserByEmail = exports.getAllUsers = exports.getUserProfile = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 // GET:
@@ -48,3 +48,24 @@ const getAllUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
     return;
 });
 exports.getAllUsers = getAllUsers;
+// GET:
+const getUserByEmail = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.params;
+    if (!email) {
+        res.status(400).json({ error: "Email param is required" });
+        return;
+    }
+    const user = yield prisma.user.findUnique({
+        where: { email },
+        include: { Wallet: true },
+    });
+    if (!user) {
+        res.status(404).json({ error: "User not found" });
+        return;
+    }
+    return res.status(200).json({
+        message: "User fetched successfully",
+        user,
+    });
+});
+exports.getUserByEmail = getUserByEmail;

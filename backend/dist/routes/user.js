@@ -7,4 +7,5 @@ const userController_1 = require("../controllers/userController");
 const router = (0, express_1.Router)();
 router.get("/profile", auth_1.authenticate, (0, asyncHandler_1.asyncHandler)(userController_1.getUserProfile));
 router.get("/users", auth_1.authenticate, (0, asyncHandler_1.asyncHandler)(userController_1.getAllUsers));
+router.get("/:email", auth_1.authenticate, (0, asyncHandler_1.asyncHandler)(userController_1.getUserByEmail));
 exports.default = router;
