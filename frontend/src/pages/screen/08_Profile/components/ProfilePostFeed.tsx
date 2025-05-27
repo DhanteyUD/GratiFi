@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { FetchPostsByUserId } from "@/hooks/UseFetch";
 import type { Post, User } from "@/types";
+import Users from "@/pages/screen/01_Home/components/Users";
 import PostCardSkeleton from "@/pages/screen/01_Home/components/Posts/PostCardSkeleton";
 import PostFeed from "@/pages/screen/01_Home/components/Posts/PostFeed";
 import helperService from "@/services/helper.service";
@@ -76,15 +77,59 @@ const ProfilePostFeed = ({ activeTab, loading, data }: PostFeedProps) => {
     </div>
   );
 
+  const renderNoData = () => (
+    <div className="min-h-[200px] flex flex-col justify-center items-center text-gray-500 py-6 border-b border-gray-300 dark:border-gray-600">
+      {activeTab === "Posts" && (
+        <Users title="Who to follow" show={3} flatten minify={false} />
+      )}
+      {activeTab === "Replies" && (
+        <Users title="Who to follow" show={3} flatten minify={false} />
+      )}
+      {activeTab === "Media" && (
+        <div>
+          <h1 className="text-[40px] font-calSans text-main dark:text-gray-400">
+            Strike a pose... or drop a video!
+          </h1>
+          <p className="text-gray-500">
+            When you post photos or videos, they will show up here.
+          </p>
+        </div>
+      )}
+      {activeTab === "Likes" && (
+        <div>
+          <h1 className="text-[40px] font-calSans text-main dark:text-gray-400">
+            You don’t have any likes yet
+          </h1>
+          <p className="text-gray-500">
+            Tap the heart on any post to show it some love. When you do, it’ll
+            show up here.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <>
       <div>
         {loading || fetchingPostsByUser ? (
           <PostCardSkeleton />
         ) : activeTab === "Posts" ? (
-          renderPostFeed()
+          postsByUser.length > 0 ? (
+            renderPostFeed()
+          ) : (
+            renderNoData()
+          )
+        ) : activeTab === "Replies" ? (
+          renderNoData()
         ) : activeTab === "Media" ? (
-          renderMediaGrid()
+          allPostMedia.length > 0 ? (
+            renderMediaGrid()
+          ) : (
+            renderNoData()
+          )
+        ) : activeTab === "Likes" ? (
+          renderNoData()
         ) : null}
       </div>
 
