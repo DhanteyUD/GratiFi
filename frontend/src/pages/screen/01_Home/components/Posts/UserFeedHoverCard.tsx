@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { UserTypeIcon } from "@/components";
 import helperService from "@/services/helper.service";
 import clsx from "clsx";
@@ -21,12 +22,18 @@ const UserHoverCard = ({
   followers,
   following,
 }: Props) => {
+  const navigate = useNavigate();
+
+  const handleViewProfile = () => {
+    navigate(`/${name}`);
+  };
+
   return (
     <div className="absolute z-50 p-4 w-64 rounded-xl bg-white dark:bg-main border dark:border-gray-600 top-12 left-0 shadow-[0_0_0px_#ab9ff2,_0_0_10px_#ab9ff2]">
       <div
         onClick={(e) => {
           e.stopPropagation();
-          // handleViewProfile();
+          handleViewProfile();
         }}
         className="flex items-center gap-3"
       >
@@ -37,7 +44,9 @@ const UserHoverCard = ({
         />
         <div>
           <div className="flex items-center gap-2">
-            <p className="font-bold text-main dark:text-white">{name}</p>
+            <p className="font-bold text-main dark:text-white hover:underline">
+              {name}
+            </p>
             <span
               className={clsx(
                 "rounded-full p-1",

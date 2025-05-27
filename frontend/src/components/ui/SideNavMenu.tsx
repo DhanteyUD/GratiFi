@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { moreMenuItems } from "@/routes/path";
+import { UseAppContext } from "@/hooks/UseAppContext";
 import Tooltip from "./Tooltip";
 import clsx from "clsx";
 
@@ -21,6 +22,7 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
   menu = [],
   isSideNavCollapsed,
 }) => {
+  const { user } = UseAppContext();
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -59,6 +61,8 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
   ): void => {
     if (hasChildren) {
       handleToggle(index);
+    } else if (itemPath === "/profile") {
+      navigate(`/${user?.app_user?.name}`);
     } else {
       navigate(itemPath);
     }

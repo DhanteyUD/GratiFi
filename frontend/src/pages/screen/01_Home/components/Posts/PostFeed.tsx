@@ -252,6 +252,9 @@ export default function PostFeed({
                           key={idx}
                           src={m}
                           controls
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
                           className={clsx(
                             "w-full h-full object-cover",
                             media.length === 1 && "rounded-2xl aspect-video",
@@ -273,7 +276,10 @@ export default function PostFeed({
                           media.length > 2 && "h-full"
                         )}
                         style={gridArea ? { gridArea } : undefined}
-                        onClick={() => openLightbox(m)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openLightbox(m);
+                        }}
                       >
                         <img
                           src={m}

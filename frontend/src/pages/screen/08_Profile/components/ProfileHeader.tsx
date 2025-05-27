@@ -70,7 +70,7 @@ const ProfileHeader = () => {
             <VscCalendar />
             <span className="flex items-center gap-1">
               <p>Joined</p>
-              <p>{moment(userProfile.createdAt).format("MMMM YYYY")}</p>
+              <p>{moment(userProfile?.createdAt).format("MMMM YYYY")}</p>
             </span>
           </span>
         </div>

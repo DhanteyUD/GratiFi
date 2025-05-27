@@ -11,7 +11,7 @@ export { default as CreateAccount } from "./auth/CreateAccount";
 
 // Screen - shared
 export { default as Home } from "./screen/01_Home";
-export { default as Post } from "./screen/01_Home/views/Post";
+export { default as PostView } from "./screen/01_Home/views/PostView";
 export { default as Explore } from "./screen/02_Explore";
 export { default as Notifications } from "./screen/03_Notifications";
 export { default as Wallet } from "./screen/04_Wallet";
@@ -19,6 +19,7 @@ export { default as Messages } from "./screen/05_Messages";
 export { default as Bookmarks } from "./screen/06_Bookmarks";
 export { default as Communities } from "./screen/07_Communities";
 export { default as Profile } from "./screen/08_Profile";
+export { default as ProfileView } from "./screen/08_Profile/views/ProfileView";
 
 // Screen - GratiFan
 export { default as SupportHistory } from "./screen/GratiFanExtras/01_SupportHistory";
