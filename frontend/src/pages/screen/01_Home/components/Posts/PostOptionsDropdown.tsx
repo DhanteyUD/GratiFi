@@ -9,7 +9,6 @@ import clsx from "clsx";
 
 type PostOptionsDropdownProps = {
   postId: string;
-  authorName: string;
   authorUsername: string;
   currentUserEmail: string;
   content: string;
@@ -19,7 +18,6 @@ type PostOptionsDropdownProps = {
 
 export default function PostOptionsDropdown({
   postId,
-  authorName,
   authorUsername,
   currentUserEmail,
   content,
@@ -42,12 +40,12 @@ export default function PostOptionsDropdown({
   };
 
   const handleShareToX = () => {
-    const postUrl = `${configKeys.appURL}/${
+    const postUrl = `${configKeys.appURL}${
       authorUsername.split("@")[0]
     }/${postId}`;
 
     const shareText = encodeURIComponent(
-      `${content}\n - @${authorName} #GratiFi`
+      `${content}\n#GratiFi\n`
     );
 
     const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(
