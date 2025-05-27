@@ -74,7 +74,7 @@ export default function PostOptionsDropdown({
         </button>
 
         {isOpen && (
-          <div className="absolute right-0 mt-2 min-w-44 w-auto rounded-md bg-white dark:bg-main shadow-[0_0_0px_#ab9ff2,_0_0_10px_#ab9ff2] ring-1 ring-black ring-opacity-5 z-50">
+          <div className="absolute right-0 mt-2 min-w-44 w-auto rounded-md bg-white dark:bg-backgroundDark shadow-[0_0_0px_#ab9ff2,_0_0_10px_#ab9ff2] ring-1 ring-black ring-opacity-5 z-50">
             <ul className="text-sm py-1">
               {isAuthor && (
                 <li
