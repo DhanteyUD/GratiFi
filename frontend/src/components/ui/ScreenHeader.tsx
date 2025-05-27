@@ -273,7 +273,7 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
           ) : null}
 
           {showProfileDropdown && (
-            <div className="absolute flex bg-white dark:bg-main border border-t-0 border-primary dark:border-main rounded-[0_0_10px_10px] shadow-md w-full py-2 text-main dark:text-primary">
+            <div className="absolute flex bg-white dark:bg-[#29233a] border border-t-0 border-primary dark:border-main rounded-[0_0_10px_10px] shadow-md w-full py-2 text-main dark:text-primary">
               <ul className="text-sm w-full">
                 {headerNavMenuItems.map((option) => (
                   <li key={option.label}>
