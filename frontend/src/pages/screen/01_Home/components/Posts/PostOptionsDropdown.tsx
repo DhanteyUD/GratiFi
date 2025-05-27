@@ -45,8 +45,9 @@ export default function PostOptionsDropdown({
     const postUrl = `${configKeys.appURL}/${
       authorUsername.split("@")[0]
     }/${postId}`;
+
     const shareText = encodeURIComponent(
-      `${content} - @${authorName} #GratiFi`
+      `${content}\n - @${authorName} #GratiFi`
     );
 
     const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(
