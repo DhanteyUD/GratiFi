@@ -77,60 +77,60 @@ const ProfilePostFeed = ({ activeTab, loading, data }: PostFeedProps) => {
     </div>
   );
 
-  const renderNoData = () => (
-    <div className="min-h-[200px] flex flex-col justify-center items-center text-gray-500 py-6 border-b border-gray-300 dark:border-gray-600">
-      {activeTab === "Posts" && (
-        <Users title="Who to follow" show={3} flatten minify={false} />
-      )}
-      {activeTab === "Replies" && (
-        <Users title="Who to follow" show={3} flatten minify={false} />
-      )}
-      {activeTab === "Media" && (
-        <div>
-          <h1 className="text-[40px] font-calSans text-main dark:text-gray-400">
-            Strike a pose... or drop a video!
-          </h1>
-          <p className="text-gray-500">
-            When you post photos or videos, they will show up here.
-          </p>
-        </div>
-      )}
-      {activeTab === "Likes" && (
-        <div>
-          <h1 className="text-[40px] font-calSans text-main dark:text-gray-400">
-            You don’t have any likes yet
-          </h1>
-          <p className="text-gray-500">
-            Tap the heart on any post to show it some love. When you do, it’ll
-            show up here.
-          </p>
-        </div>
-      )}
-    </div>
-  );
+  const renderNoData = () => {
+    const isUsersTab = ["Posts", "Replies"].includes(activeTab);
+
+    const messages: Record<string, { title: string; message: string }> = {
+      Media: {
+        title: "Strike a pose... or drop a video!",
+        message: "When you post photos or videos, they will show up here.",
+      },
+      Likes: {
+        title: "You don’t have any likes yet",
+        message:
+          "Tap the heart on any post to show it some love. When you do, it’ll show up here.",
+      },
+    };
+
+    return (
+      <div className="min-h-[200px] flex flex-col justify-center items-center text-gray-500 py-6 border-b border-gray-300 dark:border-gray-600">
+        {isUsersTab && (
+          <Users title="Who to follow" show={3} flatten minify={false} />
+        )}
+
+        {messages[activeTab] && (
+          <div>
+            <h1 className="text-[40px] font-calSans text-main dark:text-gray-400">
+              {messages[activeTab].title}
+            </h1>
+            <p className="text-gray-500">{messages[activeTab].message}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const getContent = () => {
+    switch (activeTab) {
+      case "Posts":
+        return postsByUser.length > 0 ? renderPostFeed() : renderNoData();
+
+      case "Media":
+        return allPostMedia.length > 0 ? renderMediaGrid() : renderNoData();
+
+      case "Replies":
+      case "Likes":
+        return renderNoData();
+
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
       <div>
-        {loading || fetchingPostsByUser ? (
-          <PostCardSkeleton />
-        ) : activeTab === "Posts" ? (
-          postsByUser.length > 0 ? (
-            renderPostFeed()
-          ) : (
-            renderNoData()
-          )
-        ) : activeTab === "Replies" ? (
-          renderNoData()
-        ) : activeTab === "Media" ? (
-          allPostMedia.length > 0 ? (
-            renderMediaGrid()
-          ) : (
-            renderNoData()
-          )
-        ) : activeTab === "Likes" ? (
-          renderNoData()
-        ) : null}
+        {loading || fetchingPostsByUser ? <PostCardSkeleton /> : getContent()}
       </div>
 
       <Modal
