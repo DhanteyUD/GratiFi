@@ -22,7 +22,7 @@ function Profile() {
     <div className="relative flex h-full md:h-[calc(100vh-115px)] overflow-hidden">
       {/* LEFT COLUMN */}
       <div className="flex flex-col w-full md:w-[60%] h-full overflow-auto">
-        <div className="bg-white/60 dark:bg-dark2 md:border-l md:border-r border-gray-300 dark:border-gray-600">
+        <div className="bg-white/60 dark:bg-dark2 md:border-l md:border-t md:border-r border-gray-300 dark:border-gray-600">
           <ProfileHeader loading={fetchingUserByEmail} data={userByEmail} />
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
           <ProfilePostFeed
