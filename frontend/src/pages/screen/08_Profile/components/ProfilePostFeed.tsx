@@ -52,7 +52,7 @@ const ProfilePostFeed = ({ activeTab, loading, data }: PostFeedProps) => {
     ));
 
   const renderMediaGrid = () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-1 border-b border-gray-300 dark:border-gray-600">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-1 border-b border-gray-300 dark:border-gray-600">
       {allPostMedia.map((media: string) => {
         const isVideo = /\.(mp4|webm|ogg)$/i.test(media);
 
@@ -92,17 +92,17 @@ const ProfilePostFeed = ({ activeTab, loading, data }: PostFeedProps) => {
     };
 
     return (
-      <div className="min-h-[200px] flex flex-col justify-center items-center text-gray-500 py-6 border-b border-gray-300 dark:border-gray-600">
+      <div className="min-h-[200px] flex flex-col justify-center items-center text-gray-500 p-6 border-b border-gray-300 dark:border-gray-600">
         {isUsersTab && (
           <Users title="Who to follow" show={3} flatten minify={false} />
         )}
 
         {messages[activeTab] && (
           <div>
-            <h1 className="text-[40px] font-calSans text-main dark:text-gray-400">
+            <h1 className="text-[20px] md:text-[40px] font-calSans text-main dark:text-gray-400">
               {messages[activeTab].title}
             </h1>
-            <p className="text-gray-500">{messages[activeTab].message}</p>
+            <p className="text-[13px] md:text-base text-gray-500">{messages[activeTab].message}</p>
           </div>
         )}
       </div>
