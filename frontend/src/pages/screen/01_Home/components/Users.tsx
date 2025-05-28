@@ -55,10 +55,10 @@ function Users({
       ) : (
         <div
           className={clsx(
-            "flex flex-col items-start p-4 rounded-xl h-auto gap-2",
+            "flex flex-col items-start rounded-xl h-auto gap-2",
             flatten
-              ? "w-full"
-              : "border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-dark3/50"
+              ? "w-full p-0 md:p-4"
+              : "border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-dark3/50 p-4"
           )}
         >
           <h1 className="text-[20px] font-calSans font-[600] text-main dark:text-primary mb-2">

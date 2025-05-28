@@ -27,6 +27,8 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
   const location = useLocation();
   const path = location.pathname;
 
+  const username = user.app_user.email.split("@")[0];
+
   const [parentIndex, setParentIndex] = useState<number | null>(null);
   const [parentPath, setParentPath] = useState<string | null>(null);
   const [openMenus, setOpenMenus] = useState<Record<number, boolean>>({});
@@ -62,7 +64,6 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
     if (hasChildren) return handleToggle(index);
 
     if (itemPath === "/profile" && user?.app_user?.email) {
-      const username = user.app_user.email.split("@")[0];
       navigate(`/${username}`, {
         state: { name: user.app_user.name, email: user.app_user.email },
       });
@@ -78,7 +79,6 @@ export const SideNavMenu: React.FC<SideNavMenuProps> = ({
       <div className="flex flex-col items-center gap-2 w-full">
         {menu.length > 0 &&
           menu.map((item, index) => {
-            const username = user.app_user.email.split("@")[0];
             const isProfileMatch =
               item.path === "/profile" && location.pathname === `/${username}`;
             const isChildMatch =

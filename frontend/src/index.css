@@ -142,13 +142,16 @@ h2,
   z-index: 99999;
 }
 
+/* 🌑 Dark mode styles */
 html.dark .Toastify__toast {
-  background: rgba(15, 15, 15, 1) !important;
+  background: #0f0f12 !important;
   color: #f4f4f5 !important;
-  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 1) !important;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
   backdrop-filter: blur(6px);
 }
 
+/* ☀️ Light mode styles (default) */
 .Toastify__toast {
   position: relative;
   padding: 16px 24px !important;
@@ -156,9 +159,8 @@ html.dark .Toastify__toast {
   border-radius: 12px !important;
   font-family: var(--jetBrains), monospace !important;
   transition: all 0.3s ease-in-out;
-  border-left: 10px solid transparent !important;
 
-  background: rgba(22, 22, 35, 0.95) !important;
+  background: #1a1a1d !important;
   color: #e0e7ff !important;
   box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
   backdrop-filter: blur(6px);
@@ -176,22 +178,22 @@ html.dark .Toastify__toast {
 }
 
 .Toastify__toast--success {
-  border-left-color: #10b981 !important;
+  border-color: #10b981 !important;
   box-shadow: 0 0 10px #10b981aa, 0 0 25px #10b98155;
 }
 
 .Toastify__toast--error {
-  border-left-color: #ef4444 !important;
+  border-color: #ef4444 !important;
   box-shadow: 0 0 10px #ef4444aa, 0 0 25px #ef444455;
 }
 
 .Toastify__toast--warning {
-  border-left-color: #f59e0b !important;
+  border-color: #f59e0b !important;
   box-shadow: 0 0 10px #f59e0baa, 0 0 25px #f59e0b55;
 }
 
 .Toastify__toast--info {
-  border-left-color: #3b82f6 !important;
+  border-color: #3b82f6 !important;
   box-shadow: 0 0 10px #3b82f6aa, 0 0 25px #3b82f655;
 }
 
