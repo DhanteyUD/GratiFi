@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MoreHorizontal, Trash2, Share2, MailPlus } from "lucide-react";
 import { HiMiniUserPlus } from "react-icons/hi2";
-import { configKeys } from "@/config";
 import { FaXTwitter } from "react-icons/fa6";
 import { DeleteConfirmationModal, Tooltip } from "@/components";
 import { DeletePost } from "@/hooks/UseDelete";
@@ -40,17 +39,9 @@ export default function PostOptionsDropdown({
   };
 
   const handleShareToX = () => {
-    const postUrl = `${configKeys.appURL}${
-      authorUsername.split("@")[0]
-    }/${postId}`;
+    const shareText = encodeURIComponent(`${content}\n\n#GratiFi`);
 
-    const shareText = encodeURIComponent(
-      `${content}\n#GratiFi\n`
-    );
-
-    const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(
-      postUrl
-    )}`;
+    const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
 
     window.open(shareUrl, "_blank");
     onToggle();
