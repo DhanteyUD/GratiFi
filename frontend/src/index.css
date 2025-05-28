@@ -142,13 +142,16 @@ h2,
   z-index: 99999;
 }
 
+/* 🌑 Dark mode styles */
 html.dark .Toastify__toast {
-  background: rgba(15, 15, 15, 1) !important;
+  background: #0f0f12 !important;
   color: #f4f4f5 !important;
-  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 1) !important;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5);
   backdrop-filter: blur(6px);
 }
 
+/* ☀️ Light mode styles (default) */
 .Toastify__toast {
   position: relative;
   padding: 16px 24px !important;
@@ -156,9 +159,8 @@ html.dark .Toastify__toast {
   border-radius: 12px !important;
   font-family: var(--jetBrains), monospace !important;
   transition: all 0.3s ease-in-out;
-  border: 2px solid transparent !important;
 
-  background: rgba(22, 22, 35, 0.95) !important;
+  background: #1a1a1d !important;
   color: #e0e7ff !important;
   box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
   backdrop-filter: blur(6px);
