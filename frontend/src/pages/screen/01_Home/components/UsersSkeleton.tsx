@@ -1,6 +1,13 @@
-export default function UsersSkeleton() {
+import clsx from "clsx";
+
+export default function UsersSkeleton({ flatten = false }) {
   return (
-    <div className="flex flex-col items-start border border-gray-300 dark:border-main/50 p-4 rounded-xl bg-white/50 dark:bg-main/50 h-auto gap-2 animate-pulse">
+    <div
+      className={clsx(
+        "flex flex-col items-start p-4  bg-white/50 dark:bg-main/50 h-auto gap-2 animate-pulse",
+        flatten ? "w-full" : "border border-gray-300 dark:border-main/50 rounded-xl"
+      )}
+    >
       <h1 className="text-[20px] font-calSans font-[600] text-main dark:text-primary mb-2">
         Who to follow
       </h1>

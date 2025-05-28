@@ -213,7 +213,6 @@ export default function PostFeed({
               </div>
               <PostOptionsDropdown
                 postId={id}
-                authorName={authorName}
                 authorUsername={authorUsername}
                 currentUserEmail={(userProfile as { email: string }).email}
                 content={content}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MoreHorizontal, Trash2, Share2, MailPlus } from "lucide-react";
 import { HiMiniUserPlus } from "react-icons/hi2";
-import { configKeys } from "@/config";
 import { FaXTwitter } from "react-icons/fa6";
 import { DeleteConfirmationModal, Tooltip } from "@/components";
 import { DeletePost } from "@/hooks/UseDelete";
@@ -9,7 +8,6 @@ import clsx from "clsx";
 
 type PostOptionsDropdownProps = {
   postId: string;
-  authorName: string;
   authorUsername: string;
   currentUserEmail: string;
   content: string;
@@ -19,7 +17,6 @@ type PostOptionsDropdownProps = {
 
 export default function PostOptionsDropdown({
   postId,
-  authorName,
   authorUsername,
   currentUserEmail,
   content,
@@ -42,16 +39,9 @@ export default function PostOptionsDropdown({
   };
 
   const handleShareToX = () => {
-    const postUrl = `${configKeys.appURL}/${
-      authorUsername.split("@")[0]
-    }/${postId}`;
-    const shareText = encodeURIComponent(
-      `${content} - @${authorName} #GratiFi`
-    );
+    const shareText = encodeURIComponent(`${content}\n\n#GratiFi`);
 
-    const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(
-      postUrl
-    )}`;
+    const shareUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
 
     window.open(shareUrl, "_blank");
     onToggle();
@@ -74,7 +64,7 @@ export default function PostOptionsDropdown({
         </button>
 
         {isOpen && (
-          <div className="absolute right-0 mt-2 min-w-44 w-auto rounded-md bg-white dark:bg-main shadow-[0_0_0px_#ab9ff2,_0_0_10px_#ab9ff2] ring-1 ring-black ring-opacity-5 z-50">
+          <div className="absolute right-0 mt-2 min-w-44 w-auto rounded-md bg-white dark:bg-backgroundDark shadow-[0_0_0px_#ab9ff2,_0_0_10px_#ab9ff2] ring-1 ring-black ring-opacity-5 z-50">
             <ul className="text-sm py-1">
               {isAuthor && (
                 <li
