@@ -14,6 +14,7 @@ import { FetchUserProfile } from "@/hooks/UseFetch";
 import { headerNavMenuItems } from "@/routes/path";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import { UseAppContext } from "@/hooks/UseAppContext";
 import { UseThemeContext } from "@/hooks/UseThemeContext";
 import gratifiIcon from "@/assets/image/gratifi-logo.png";
 import axiosInstance from "@/services/api.service";
@@ -35,6 +36,7 @@ interface ProfileDropdownOption {
 function ScreenHeader({ goBack }: ScreenHeaderProps) {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = UseAppContext();
   const { theme, toggleTheme } = UseThemeContext();
 
   const currentPage =
@@ -72,16 +74,27 @@ function ScreenHeader({ goBack }: ScreenHeaderProps) {
   };
 
   const handleProfileDropdown = (option: ProfileDropdownOption): void => {
+    setShowProfileDropdown(false);
+
     if (option.label === "Sign out") {
       localStorage.clear();
       sessionStorage.clear();
-
       navigate("/login");
-    } else {
-      navigate(`/${option.path}`);
+      return;
     }
 
-    setShowProfileDropdown(false);
+    if (option.label === "Your Profile") {
+      const appUser = user?.app_user;
+      if (appUser?.email) {
+        const username = appUser.email.split("@")[0];
+        navigate(`/${username}`, {
+          state: { name: appUser.name, email: appUser.email },
+        });
+        return;
+      }
+    }
+
+    navigate(`/${option.path}`);
   };
 
   useEffect(() => {
