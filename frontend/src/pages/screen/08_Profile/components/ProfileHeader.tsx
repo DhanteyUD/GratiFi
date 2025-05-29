@@ -1,6 +1,7 @@
 import { FaMapPin } from "react-icons/fa";
 import { VscCalendar } from "react-icons/vsc";
 import { UserTypeIcon } from "@/components";
+import { UseAppContext } from "@/hooks/UseAppContext";
 import type { User } from "@/types";
 import ProfileHeaderSkeleton from "./ProfileHeaderSkeleton";
 import placeholderImage from "@/assets/image/header-placeholder.jpg";
@@ -14,6 +15,8 @@ type ProfileProp = {
 };
 
 const ProfileHeader = ({ loading, data }: ProfileProp) => {
+  const { user } = UseAppContext();
+
   if (loading) {
     return <ProfileHeaderSkeleton />;
   }
@@ -36,7 +39,7 @@ const ProfileHeader = ({ loading, data }: ProfileProp) => {
           disabled
           className="cursor-not-allowed absolute right-5 -bottom-14 px-5 py-2 font-calSans text-main dark:text-primary hover:bg-main hover:text-primary border border-primary hover:border-main rounded-full text-sm font-medium transition-colors duration-300"
         >
-          Edit Profile
+          {user?.app_user?.email === data?.email ? "Edit Profile" : "Follow"}
         </button>
       </div>
 
