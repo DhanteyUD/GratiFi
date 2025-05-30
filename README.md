@@ -1,8 +1,7 @@
 
 <img width="40" alt="GratiFi - Landing page" src="https://github.com/user-attachments/assets/3df9955f-2b19-4907-b1e4-e1c1f6bc6ff9" /> 
 
-# GratiFi
-
+## GratiFi
 
 A fusion of **gratitude** and **DeFi** — appreciation powered by decentralized finance.
 
