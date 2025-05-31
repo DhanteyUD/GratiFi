@@ -22,13 +22,13 @@ GratiFi is a decentralized web application that empowers users, creators, and ar
 
 A key part of GratiFi's user experience is its integration with [Civic Auth](https://www.civic.com/), a decentralized identity protocol that provides secure and privacy-respecting authentication.
 
-### 🌐 Civic Auth Integration
+## 🌐 Civic Auth Integration
 
 - Users log in via Civic’s Web3 modal, allowing for identity verification without traditional sign-up.
 - Upon successful login, GratiFi retrieves a `userId` and session token via Civic's API.
 - This authenticated identity is used to personalize the user’s session and associate it with their tipping activity.
 
-### 💳 Embedded Solana Wallet
+## 💳 Embedded Solana Wallet
 
 - After login, Civic automatically provisions a **non-custodial embedded wallet** for each user.
 - The wallet is tied to the Civic identity and allows users to send and receive SOL tips instantly.
