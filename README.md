@@ -253,5 +253,7 @@ npm run build
 | Clinton Otse     | Full Stack Developer | [@DhanteyUD](https://github.com/DhanteyUD) |
 
 
+> 3rd prize winner of the Civic Hackathon!
+
 
 
