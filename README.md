@@ -255,5 +255,9 @@ npm run build
 
 > 3rd prize winner of the Civic Hackathon! 🎉
 
+---
+
+> NOTE: This App is still under active development
+
 
 
